@@ -1,0 +1,81 @@
+{
+  "date": "2026-10-16",
+  "board": "J613",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "gpu_ceiling_MHz": 618,
+  "decoder_equivalence": {
+    "format": "H264 720p30, NV12 output",
+    "frames": 180,
+    "hardware_software_checksums_match": true
+  },
+  "operator_720p_visual_comparison": "both default and OpenGL-copy playback looked good",
+  "playback": {
+    "1080p30-default": {
+      "decoder_dropped": 0,
+      "mistimed": 0,
+      "delayed": 0,
+      "time_pos": 7.933333,
+      "fullscreen": false,
+      "hwdec": "vaapi",
+      "vo": "gpu-next",
+      "dropped": 0,
+      "reason": "eof"
+    },
+    "1080p60-default-repeat": {
+      "dropped": 20,
+      "decoder_dropped": 0,
+      "mistimed": 0,
+      "delayed": 0,
+      "time_pos": 7.983333,
+      "fullscreen": false,
+      "hwdec": "vaapi",
+      "reason": "eof",
+      "vo": "gpu-next"
+    },
+    "1080p60-fast": {
+      "fullscreen": false,
+      "hwdec": "vaapi",
+      "vo": "gpu-next",
+      "dropped": 0,
+      "decoder_dropped": 0,
+      "mistimed": 0,
+      "delayed": 0,
+      "time_pos": 7.983333,
+      "reason": "eof"
+    },
+    "1080p60-opengl-copy": {
+      "fullscreen": false,
+      "hwdec": "vaapi-copy",
+      "vo": "gpu",
+      "dropped": 203,
+      "decoder_dropped": 0,
+      "mistimed": 0,
+      "delayed": 0,
+      "time_pos": 7.95,
+      "reason": "eof"
+    },
+    "1080p60-fullscreen": {
+      "delayed": 0,
+      "time_pos": 7.983333,
+      "fullscreen": true,
+      "hwdec": "vaapi",
+      "vo": "gpu-next",
+      "dropped": 123,
+      "decoder_dropped": 0,
+      "mistimed": 0,
+      "reason": "eof"
+    },
+    "1080p60-default": {
+      "decoder_dropped": 0,
+      "mistimed": 0,
+      "delayed": 0,
+      "time_pos": 7.983333,
+      "fullscreen": false,
+      "hwdec": "vaapi",
+      "vo": "gpu-next",
+      "dropped": 28,
+      "reason": "eof"
+    }
+  },
+  "limits": "short clips, not tightly controlled window/background workload; no browser or sustained playback qualification"
+}

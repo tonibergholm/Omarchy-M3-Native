@@ -12,8 +12,10 @@
    round trip, without deleting or replacing either system's authority.
 5. **Audio startup:** reproduce the initial sample-rate failure across boots
    before changing service ordering. Test jack switching and microphone capture.
-6. **Video/camera:** measure actual hardware decoder use and windowed/fullscreen
-   behavior. Camera device detection alone is not a working capture test.
+6. **Video/camera:** [initial H.264 checks](video.md) passed decoder equivalence
+   and 1080p30 playback; short 1080p60 fast-profile playback improved presentation
+   counts. Test browser playback, other codecs and sustained use. Camera device
+   detection alone is not a working capture test.
 7. **Power and external devices:** measure settled idle draw, battery runtime,
    shutdown and specific USB-C display/dock combinations. No whole-machine
    battery-life claim follows from cpuidle counters.

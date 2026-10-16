@@ -17,6 +17,7 @@ Asahi Linux and Apple; their work and support policies remain their own.
 | GPU | OpenGL pixel readback and Vulkan compute readback passed | Experimental legacy/current14 profile; capped at performance state 2, 618 MHz |
 | Native panel | eDP-1, 2560×1664, running Hyprland | No display brightness device |
 | Die temperatures | 13 channels exposed; GPU reads `macsmc_soc_die` | Sensor selection is a local experiment, not a qualified policy for higher clocks |
+| Video | H.264 hardware-decoded frames matched software; 1080p30 playback had no drops | Short 1080p60 fast-profile test had no drops; default 60 fps playback dropped frames |
 | CPU frequency and idle | `apple-cpufreq`, schedutil, WFI and CPU PD present | Observed counters and configured frequency limits, not battery-life or sustained-performance qualification |
 
 ## Start here
@@ -25,6 +26,7 @@ Asahi Linux and Apple; their work and support policies remain their own.
 - [Touch ID setup and evidence](docs/touch-id.md)
 - [GPU setup and recovery](docs/graphics.md)
 - [Temperature sensing](docs/thermal.md)
+- [Video decoding and playback](docs/video.md)
 - [Audio and keyboard illumination](docs/audio-keyboard.md)
 - [What carries over from the M4 project](docs/m4-comparison.md)
 - [Remaining work](docs/roadmap.md)

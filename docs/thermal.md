@@ -52,6 +52,12 @@ limiter. It does **not** add CPU frequency cooling bindings or independently
 establish CPU thermal protection. Higher GPU clocks, sensor failure handling,
 shutdown thresholds and sustained-load safety remain unqualified.
 
+A follow-up read-only check found no `/sys/class/thermal/cooling_device*`
+devices and no `#cooling-cells` on the CPU device-tree nodes. The kernel has
+CPU frequency thermal support and the cpufreq driver advertises cooling-device
+support, but no Linux CPU cooling binding was exposed on this boot. This does
+not establish what protection firmware provides. No CPU policy was changed.
+
 The speaker amplifier `temp1` channels reported `FAULT` while speakers were
 idle. They are not the SMC die zone; protected speaker playback was not bypassed.
 
