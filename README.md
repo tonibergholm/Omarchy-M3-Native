@@ -17,6 +17,7 @@ Asahi Linux and Apple; their work and support policies remain their own.
 | GPU | OpenGL pixel readback and Vulkan compute readback passed | Experimental legacy/current14 profile; capped at performance state 2, 618 MHz |
 | Native panel | eDP-1, 2560×1664, running Hyprland | Local brightness test passed visible changes, keys/OSD and DPMS checks; scanout remains SDR/8-bit |
 | Die temperatures | 13 channels exposed; GPU reads `macsmc_soc_die` | Sensor selection is a local experiment, not a qualified policy for higher clocks |
+| Microphone/camera | Clear microphone capture; local ISP14.7 candidate delivers 1080p30 camera frames | Grain in dark room; camera reboot/suspend and browser use pending |
 | Video | H.264 hardware-decoded frames matched software; 1080p30 playback had no drops | Short 1080p60 fast-profile test had no drops; default 60 fps playback dropped frames |
 | CPU frequency and idle | `apple-cpufreq`, schedutil, WFI and CPU PD present | Observed counters and configured frequency limits, not battery-life or sustained-performance qualification |
 
@@ -30,6 +31,7 @@ Asahi Linux and Apple; their work and support policies remain their own.
 - [Battery observations](docs/power.md)
 - [Temperature sensing](docs/thermal.md)
 - [Video decoding and playback](docs/video.md)
+- [Microphone and camera tests](docs/capture.md)
 - [Audio and keyboard illumination](docs/audio-keyboard.md)
 - [What carries over from the M4 project](docs/m4-comparison.md)
 - [Remaining work](docs/roadmap.md)

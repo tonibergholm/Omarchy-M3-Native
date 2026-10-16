@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-16",
+  "board": "J613",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "isp_firmware": [
+    14,
+    7,
+    0
+  ],
+  "candidate_sha256": "85d7c9b4c5d2a208c06dfaf8319aa2c0c135c667c62ac54caad8d5083f92462d",
+  "resolution": [
+    1920,
+    1080
+  ],
+  "format": "NV12",
+  "streams": {
+    "baseline": {
+      "dequeued_frames": 0,
+      "sequence_first_last": null,
+      "bytes_per_frame": null
+    },
+    "candidate_first": {
+      "dequeued_frames": 30,
+      "sequence_first_last": [
+        0,
+        29
+      ],
+      "bytes_per_frame": 3110400
+    },
+    "candidate_repeat": {
+      "dequeued_frames": 60,
+      "sequence_first_last": [
+        0,
+        59
+      ],
+      "bytes_per_frame": 3110400
+    }
+  },
+  "observed_fps_approx": 30,
+  "microphone": {
+    "source": "omarchy_asahi_mic",
+    "sample_rate_Hz": 48000,
+    "channels": 2,
+    "duration_s": 15,
+    "operator_confirmation": "voice is clear",
+    "configuration_changed": false,
+    "initial_short_sample": "operator heard no voice; longer repeat confirmed clear capture"
+  },
+  "camera_visual_confirmation": "operator saw live image; grain/static reported in dark room",
+  "camera_reboot_tested": false,
+  "camera_suspend_tested": false,
+  "limits": [
+    "temporal/MBNR/motion processing skipped by opt-in J613-only module parameter",
+    "existing firmware-stop warning persists",
+    "mpv reports buffer-close/QBUF warnings on teardown",
+    "no calibration or firmware version changed",
+    "no private recording or camera frames committed"
+  ],
+  "camera_indicator_confirmation": "pending",
+  "low_light_comparison": "adaptive exposure control tested in another 20-second preview; original fixed-rate setting restored; visual improvement unconfirmed",
+  "opengl_readback_after_camera": "pass",
+  "vulkan_compute_readback_after_camera": "pass"
+}
