@@ -21,7 +21,8 @@
    and 1080p30 playback; short 1080p60 fast-profile playback improved presentation
    counts. Test browser playback, other codecs and sustained use. The local
    [ISP14.7 camera candidate](capture.md) delivers 1080p30 frames after reboot and sleep. Local Chromium
-   camera/mic capture passed at 720p30. Qualify remote calls, indicator behavior,
+   camera/mic capture and [software-codec WebRTC loopback](webrtc.md) passed
+   at 720p. Qualify remote calls, indicator behavior,
    sustained use and good-light picture quality.
 7. **Power and external devices:** [initial battery observations](power.md)
    need longer, steadier measurements. Measure settled idle draw, battery runtime,

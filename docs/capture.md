@@ -109,3 +109,7 @@ closed; the user's regular browser profile was not changed.
 See [browser capture results](../reports/2026-10-16-browser-capture.json). This
 qualifies a short local getUserMedia/Web Audio path, not a remote conferencing
 call, codec encoding, WebRTC transport or sustained streaming performance.
+
+A later [local WebRTC loopback test](webrtc.md) also exercised software VP8
+encoding/decoding and Opus reception at 720p. Actual remote services and
+long-running calls remain untested.

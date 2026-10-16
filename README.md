@@ -32,6 +32,7 @@ Asahi Linux and Apple; their work and support policies remain their own.
 - [Temperature sensing](docs/thermal.md)
 - [Video decoding and playback](docs/video.md)
 - [Microphone and camera tests](docs/capture.md)
+- [Local WebRTC call test](docs/webrtc.md)
 - [Audio and keyboard illumination](docs/audio-keyboard.md)
 - [What carries over from the M4 project](docs/m4-comparison.md)
 - [Remaining work](docs/roadmap.md)
