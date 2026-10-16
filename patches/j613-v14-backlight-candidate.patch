@@ -1,5 +1,5 @@
 Local research candidate — initial J613 brightness checks passed on 2026-10-16.
-One short s2idle cycle passed; reboot persistence and repeated/lid sleep remain untested.
+One short s2idle cycle and normal-reboot brightness restoration passed; repeated/lid sleep remains untested.
 Base: omacom/linux-aurora 5ec1028c81526e1ed31db2b97e47edf8663e83cb
 Derived from aronvandepol's J516S brightness patch:
 https://github.com/omacom/linux-aurora/issues/32#issuecomment-6113974721

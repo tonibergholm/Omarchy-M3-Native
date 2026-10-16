@@ -1,0 +1,21 @@
+{
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "new_boot": true,
+  "backlight_option": "Y",
+  "expected_brightness": "265",
+  "brightness": "265",
+  "expected_keyboard_brightness": "77",
+  "keyboard_brightness": "77",
+  "date": "2026-10-16",
+  "board": "J613",
+  "opengl_readback": "pass",
+  "vulkan_compute_readback": "pass",
+  "systemd_backlight_load": "success",
+  "firmware_brightness_16_16": 17367040,
+  "speaker_protection": "active",
+  "limits": [
+    "one normal reboot on the separate local brightness-test UKI",
+    "requested brightness, not a photometer measurement",
+    "kernel updates do not automatically include the local patch"
+  ]
+}

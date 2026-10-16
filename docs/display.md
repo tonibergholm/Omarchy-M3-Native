@@ -57,7 +57,11 @@ These are requested nits, not photometer measurements. Firmware startup logs
 contained 16.16 values consistent with requests (for example 9175040 = 140).
 The early missing-Backlight-service firmware message still appears; it does not
 prevent this swap-based control path. One short [s2idle/power-button wake cycle](sleep.md) preserved brightness.
-Repeated/lid sleep and persistence across another reboot remain untested. The active test UKI is separate from the packaged
+A subsequent normal reboot restored screen brightness 265 and keyboard
+backlight 77 exactly. The systemd-backlight load succeeded, and the firmware
+logged 17367040 in 16.16 units (= 265). OpenGL and Vulkan readbacks passed
+again. See the [reboot report](../reports/2026-10-16-brightness-reboot.json).
+Repeated/lid sleep remains untested. The active test UKI is separate from the packaged
 driver, so a normal kernel update does not incorporate this local patch.
 
 Selected observations are in the [backlight report](../reports/2026-10-16-backlight.json).

@@ -5,7 +5,8 @@
    Keep the GPU state-2 ceiling until a separate higher-clock test is justified.
 2. **Display brightness/HDR:** the [local J613 backlight candidate](display.md)
    passed visible steps, keys/OSD, bounds rejection and DPMS checks. Verify
-   another reboot and repeated/lid suspend before broader acceptance. Native HDR
+   repeated/lid suspend before broader acceptance; one normal reboot restored
+   both brightness values exactly. Native HDR
    remains blocked; initial software PQ-to-SDR conversion ran successfully.
 3. **Sleep/resume:** [one short s2idle cycle](sleep.md) passed power-button wake,
    Touch ID unlock, brightness, GPU readback and audible protected playback.

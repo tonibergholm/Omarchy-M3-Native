@@ -21,7 +21,7 @@ confirmed by the operator. No audio restart or configuration change was made.
 A playback process exiting successfully alone was not counted as audible sound.
 
 This single short cycle does not qualify lid/keyboard wake, repeated or overnight
-sleep, battery drain, external displays, or every peripheral. Normal shutdown
-and next-boot brightness restoration remain a separate test.
+sleep, battery drain, external displays, or every peripheral. A separate subsequent normal reboot also restored both brightness values;
+see the [display results](display.md).
 
 See [selected observations](../reports/2026-10-16-suspend.json).
