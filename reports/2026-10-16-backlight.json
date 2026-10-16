@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-16",
+  "board": "J613",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "test_module_sha256": "9849f5f0d1dec14f5aa761d06c7c43656ed3bc19a7576a76b41df61ae55fdeb2",
+  "backlight_registered": true,
+  "maximum": 500,
+  "brightness_steps": {
+    "starting_level": 265,
+    "steps": [
+      {
+        "requested": 100,
+        "reported": 100
+      },
+      {
+        "requested": 300,
+        "reported": 300
+      },
+      {
+        "requested": 150,
+        "reported": 150
+      }
+    ],
+    "restored": 265
+  },
+  "operator_confirmation": "Brightness changes, keys and indicator all work",
+  "bounds_and_driver": {
+    "bounds": {
+      "rejected": true,
+      "errno": 22,
+      "expected_EINVAL": true
+    },
+    "level_unchanged": true,
+    "driver_summary": [
+      "started 1",
+      "failed 0",
+      "backlight 1 max 500",
+      "brightness requested 265 sent 265 owned 1 off 0 pending 0 swaps 34"
+    ]
+  },
+  "dpms": {
+    "before": 265,
+    "dpms_off_observed": true,
+    "dpms_on_observed": true,
+    "after": 265,
+    "brightness_preserved": true
+  },
+  "opengl_readback": "pass",
+  "vulkan_compute_readback": "pass",
+  "limits": [
+    "nits are requested values, not photometer measurements",
+    "brightness persistence across another reboot untested",
+    "suspend/resume untested",
+    "local test UKI only; packaged driver unchanged"
+  ]
+}

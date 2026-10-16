@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-16",
+  "board": "J613",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "clip": "synthetic neutral PQ ramp, 640x360, 24fps, 6s, H264 High10",
+  "input": {
+    "pixelformat": "yuv420p10",
+    "primaries": "bt.2020",
+    "gamma": "pq",
+    "max-luma": 10000
+  },
+  "render_target": {
+    "primaries": "bt.709",
+    "gamma": "gamma2.2",
+    "max-luma": 203
+  },
+  "tone_mapping": "bt.2390",
+  "hardware_decode": false,
+  "presentation_drops": 2,
+  "end_reason": "eof",
+  "native_hdr": false,
+  "visual_confirmation": "pending",
+  "limits": [
+    "software-decoded generated ramp; no HEVC Main10 or AV1 qualification",
+    "no calibrated colour or luminance measurement",
+    "no sustained or fullscreen performance qualification"
+  ]
+}

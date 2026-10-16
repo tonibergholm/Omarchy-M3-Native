@@ -3,8 +3,10 @@
 1. **Thermal policy:** sensor reporting and GPU consumption now work. Check
    CPU thermal cooling bindings, sensor coverage/freshness, and failure behavior.
    Keep the GPU state-2 ceiling until a separate higher-clock test is justified.
-2. **Display brightness:** native display works, but no backlight device exists
-   on this current14 firmware path. Follow [Aurora #32](https://github.com/omacom/linux-aurora/issues/32).
+2. **Display brightness/HDR:** the [local J613 backlight candidate](display.md)
+   passed visible steps, keys/OSD, bounds rejection and DPMS checks. Verify
+   another reboot and suspend/resume before broader acceptance. Native HDR
+   remains blocked; initial software PQ-to-SDR conversion ran successfully.
 3. **Sleep/resume:** only s2idle is advertised. Preserve lock intent and verify
    display, GPU, input, sound and Touch ID after an attended sleep. Presence of
    CPU idle states does not prove whole-machine suspend works.
