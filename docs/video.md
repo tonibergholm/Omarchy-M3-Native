@@ -85,14 +85,29 @@ falls back to `FFmpegVideoDecoder`, with `kIsPlatformVideoDecoder=false`.
 Disabling zero-copy GL does not resolve this. GPU status saying video decode is
 “enabled” is insufficient evidence of hardware decoding.
 
-A source-level compatibility hypothesis is that Chromium's
-[`SetExtCtrlsInit()`](https://chromium.googlesource.com/chromium/src/+/153.0.8010.36/media/gpu/v4l2/v4l2_video_decoder.cc)
-submits an initial SPS with zero flags, while the pinned kernel's
-[`avd_h264_validate_sps()`](https://github.com/omacom/linux-aurora/blob/5ec1028c81526e1ed31db2b97e47edf8663e83cb/drivers/media/platform/apple/avd/avd-h264.c)
-rejects SPS without `V4L2_H264_SPS_FLAG_FRAME_MBS_ONLY`. This is not yet a
-runtime-confirmed diagnosis. A temporary process-local preload probe intended
-to amend only the placeholder SPS still produced the same failure; interception
-was not verified. No kernel validation was relaxed and no fix is qualified.
+Two compatibility failures are now identified:
+
+1. Chromium's [`SetExtCtrlsInit()`](https://chromium.googlesource.com/chromium/src/+/153.0.8010.36/media/gpu/v4l2/v4l2_video_decoder.cc)
+   submits an initial SPS with zero flags. The pinned kernel's
+   [`avd_h264_validate_sps()`](https://github.com/omacom/linux-aurora/blob/5ec1028c81526e1ed31db2b97e47edf8663e83cb/drivers/media/platform/apple/avd/avd-h264.c)
+   rejects SPS without `V4L2_H264_SPS_FLAG_FRAME_MBS_ONLY`.
+   A verified process-local preload probe adds that flag only to the placeholder
+   SPS: the control succeeds, NV12 is selected, and seven capture buffers are
+   requested. This confirms the initial mismatch. The earlier probe missed the
+   call because the signed ioctl request was compared against an unsigned-long
+   constant; matching its low 32 bits fixed interception.
+2. Chromium's [`SubmitDecode()`](https://chromium.googlesource.com/chromium/src/+/153.0.8010.36/media/gpu/v4l2/v4l2_video_decoder_delegate_h264.cc)
+   then submits `V4L2_STATELESS_H264_DECODE_MODE_FRAME_BASED`. The pinned
+   [driver control configuration](https://github.com/omacom/linux-aurora/blob/5ec1028c81526e1ed31db2b97e47edf8663e83cb/drivers/media/platform/apple/avd/avd-v4l2.c)
+   accepts only `V4L2_STATELESS_H264_DECODE_MODE_SLICE_BASED` and start-code mode
+   `NONE`. The request fails with `ERANGE` (34), followed by software fallback.
+   Changing the mode integer alone would not implement the required slice
+   controls and compressed-data handling, so that was not attempted.
+
+The temporary probe retained Chromium's sandbox and changed no installed
+browser configuration, kernel or firmware. No hardware-decoding fix is qualified.
+A compatible slice-based browser backend or a properly implemented and tested
+frame-based driver path is needed to progress beyond these boundaries.
 
 Normal software playback decoded all 240 frames with zero drops. Forced V4L2
 runs also fell back to software; their colour samples matched the normal browser

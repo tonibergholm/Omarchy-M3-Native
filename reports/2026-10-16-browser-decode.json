@@ -112,7 +112,15 @@
     }
   },
   "native_v4l2_failure": "Initial VIDIOC_S_EXT_CTRLS H264 SPS returns EINVAL before capture-format setup; software fallback",
-  "source_hypothesis": "Chromium initializes SPS flags to zero; pinned AVD driver rejects SPS without FRAME_MBS_ONLY. Runtime attribution not yet independently confirmed.",
-  "temporary_preload_probe": "Same EINVAL and software fallback; interception effectiveness unverified, not a fix",
-  "normal_browser_configuration_changed": false
+  "source_hypothesis": "Confirmed initial compatibility mismatch: adding FRAME_MBS_ONLY only to Chromium placeholder SPS makes the initial control succeed and reaches NV12 capture allocation.",
+  "temporary_preload_probe": "Verified interception after matching ioctl request as unsigned 32-bit (Chromium passes signed int request). Initial SPS succeeds; later request fails with ERANGE.",
+  "normal_browser_configuration_changed": false,
+  "second_blocker": {
+    "call": "VIDIOC_S_EXT_CTRLS during SubmitDecode",
+    "errno": "ERANGE (34)",
+    "chromium": "H264_DECODE_MODE_FRAME_BASED",
+    "driver": "Only H264_DECODE_MODE_SLICE_BASED allowed; START_CODE_NONE",
+    "conclusion": "Mode conversion alone is insufficient; slice controls and compressed bitstream handling require compatible implementation."
+  },
+  "configuration_scope": "LD_PRELOAD only in isolated test browser; no installed configuration, kernel or firmware modifications; sandbox retained."
 }
