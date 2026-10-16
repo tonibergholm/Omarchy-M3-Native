@@ -59,5 +59,19 @@
   "camera_indicator_confirmation": "pending",
   "low_light_comparison": "adaptive exposure control tested in another 20-second preview; original fixed-rate setting restored; visual improvement unconfirmed",
   "opengl_readback_after_camera": "pass",
-  "vulkan_compute_readback_after_camera": "pass"
+  "vulkan_compute_readback_after_camera": "pass",
+  "boot_image_staging": {
+    "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+    "board": "J613",
+    "modules_embedded": {
+      "appledrm": "9849f5f0d1dec14f5aa761d06c7c43656ed3bc19a7576a76b41df61ae55fdeb2",
+      "apple_isp": "85d7c9b4c5d2a208c06dfaf8319aa2c0c135c667c62ac54caad8d5083f92462d"
+    },
+    "packaged_modules_unchanged": true,
+    "packaged_lookups_restored": true,
+    "test_uki_bytes": 61722624,
+    "esp_free_bytes": 107606016,
+    "boot_entry": "M3 brightness experiment",
+    "camera_reboot_tested": false
+  }
 }

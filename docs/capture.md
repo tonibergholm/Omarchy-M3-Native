@@ -60,7 +60,11 @@ value 0 was restored. No low-light policy was made permanent.
 Known limitations: the pre-existing firmware-stop warning remains; mpv reports
 buffer-close/QBUF warnings during teardown. Camera-indicator behavior still
 needs operator confirmation. Camera persistence across reboot, camera after
-suspend, browser capture and sustained use remain untested. The current local
-module is temporary until it is embedded in a separate test UKI.
+suspend, browser capture and sustained use remain untested. The camera workaround is now embedded alongside the tested brightness module
+in the separate **M3 brightness experiment** UKI. Both embedded module hashes
+were verified. Packaged modules and ordinary module lookup were restored after
+packaging. The normal Omarchy and GPU-off boot entries were retained; a
+root-only backup contains the earlier brightness-only test UKI and boot config.
+The new camera-enabled UKI has not yet been reboot-tested.
 
 See [selected capture results](../reports/2026-10-16-capture.json).

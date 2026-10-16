@@ -25,8 +25,9 @@ which GPU firmware ABI is active. Do not choose a 26.6.2 GPU profile solely from
 the system firmware version.
 
 Published packages were used for the initial bring-up. A later separate UKI
-contains the local [J613 backlight patch](display.md); the packaged module and
-normal Omarchy UKI are retained. First the read-only
+contains the local [J613 backlight patch](display.md); a further test UKI now
+also embeds the [ISP14.7 camera candidate](capture.md), awaiting reboot testing.
+Packaged modules and the normal Omarchy UKI are retained. First the read-only
 SEP stack was installed, then SEP provisioning was enabled and tested. GPU
 activation came afterwards, followed by the explicit thermal sensor list.
 
