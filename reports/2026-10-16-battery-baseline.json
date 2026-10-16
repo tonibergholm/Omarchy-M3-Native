@@ -1,0 +1,24 @@
+{
+  "duration_s": 120.14,
+  "sample_count": 25,
+  "all_discharging": true,
+  "external_power_absent": true,
+  "median_power_W": 6.77,
+  "mean_power_W": 6.74208,
+  "min_power_W": 5.955,
+  "max_power_W": 7.49,
+  "energy_used_Wh": 0.1824,
+  "energy_delta_average_W": 5.465614472191844,
+  "screen_brightness": 265,
+  "keyboard_brightness": 77,
+  "temperature_range_C": [
+    51.218,
+    66.031
+  ],
+  "limits": "short desktop baseline during active Codex session; not controlled idle or battery-runtime qualification",
+  "power_sign": "raw power_now negative while discharging; report shows positive draw magnitudes",
+  "date": "2026-10-16",
+  "board": "J613",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "sample_quantization_note": "energy counter delta and sampled power disagree over this short interval; no runtime extrapolation"
+}
