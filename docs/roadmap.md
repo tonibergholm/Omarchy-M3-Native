@@ -10,8 +10,9 @@
    remains blocked; initial software PQ-to-SDR conversion ran successfully.
 3. **Sleep/resume:** [short power-button and lid-wake cycles](sleep.md) passed
    Touch ID unlock, brightness, GPU readback and audible protected playback.
-   A further unplugged 17½-minute lid cycle passed recovery; battery counters
-   were inconclusive. Test repeated cycles, keyboard wake and overnight sleep.
+   A further unplugged 17½-minute lid cycle and three consecutive attended lid
+   cycles passed recovery; battery counters were inconclusive. Test keyboard
+   wake, overnight sleep and a larger cycle count.
 4. **macOS coexistence:** verify macOS Touch ID and Linux enrollment after a
    round trip, without deleting or replacing either system's authority.
 5. **Audio startup:** reproduce the initial sample-rate failure across boots

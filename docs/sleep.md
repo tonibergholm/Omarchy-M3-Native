@@ -82,3 +82,16 @@ again confirmed Touch ID, display and clear sound. Charge increased
 These are two consecutive short-cycle passes; overnight and larger cycle-count
 reliability remain unqualified. See the
 [second-cycle report](../reports/2026-10-16-power-cycle-2.json).
+
+
+The third consecutive unplugged lid cycle spent **515.823 seconds** suspended
+(8 minutes 36 seconds). Success increased 3→4 and failures remained zero.
+Brightness 265/77, OpenGL/Vulkan readbacks and 30-frame 1080p NV12 camera capture
+passed again. Speaker protection stayed active. The user confirmed normal
+Touch ID unlock, display and audible tone for the third time.
+
+This completes three consecutive successful attended lid cycles in this series.
+It does not qualify overnight sleep or large-cycle-count reliability. Charge
+increased 4056→4080 mAh while reported capacity stayed 98%, leaving sleep draw
+inconclusive. The temporary recorder remains installed for a longer test after
+normal battery use. See the [third-cycle report](../reports/2026-10-16-power-cycle-3.json).
