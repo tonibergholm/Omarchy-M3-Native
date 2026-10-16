@@ -1,0 +1,118 @@
+{
+  "date": "2026-10-16",
+  "board": "J613 / M3 MacBook Air",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "chromium": "153.0.8010.36-1",
+  "scope": "Generated local 8-second H.264 baseline 1280x720 30fps clip; isolated Chromium profiles",
+  "results": {
+    "default": {
+      "decoder": "FFmpegVideoDecoder",
+      "platform_decoder": "false",
+      "playback": {
+        "phase": "complete",
+        "video_width": 1280,
+        "video_height": 720,
+        "decoded_frames": 240,
+        "dropped_frames": 0,
+        "presented_callbacks": 240,
+        "colours": [
+          [
+            255,
+            24,
+            0
+          ],
+          [
+            0,
+            215,
+            0
+          ],
+          [
+            0,
+            15,
+            255
+          ],
+          [
+            255,
+            255,
+            255
+          ]
+        ]
+      },
+      "max_observed_temperature_C": 65.312
+    },
+    "v4l2": {
+      "decoder": "FFmpegVideoDecoder",
+      "platform_decoder": "false",
+      "playback": {
+        "phase": "complete",
+        "video_width": 1280,
+        "video_height": 720,
+        "decoded_frames": 240,
+        "dropped_frames": 1,
+        "presented_callbacks": 240,
+        "colours": [
+          [
+            255,
+            24,
+            0
+          ],
+          [
+            0,
+            215,
+            0
+          ],
+          [
+            0,
+            15,
+            255
+          ],
+          [
+            255,
+            255,
+            255
+          ]
+        ]
+      },
+      "max_observed_temperature_C": 67.906
+    },
+    "v4l2-zero": {
+      "decoder": "FFmpegVideoDecoder",
+      "platform_decoder": "false",
+      "playback": {
+        "phase": "complete",
+        "video_width": 1280,
+        "video_height": 720,
+        "decoded_frames": 240,
+        "dropped_frames": 0,
+        "presented_callbacks": 240,
+        "colours": [
+          [
+            255,
+            24,
+            0
+          ],
+          [
+            0,
+            215,
+            0
+          ],
+          [
+            0,
+            15,
+            255
+          ],
+          [
+            255,
+            255,
+            255
+          ]
+        ]
+      },
+      "max_observed_temperature_C": 65.984
+    }
+  },
+  "native_v4l2_failure": "Initial VIDIOC_S_EXT_CTRLS H264 SPS returns EINVAL before capture-format setup; software fallback",
+  "source_hypothesis": "Chromium initializes SPS flags to zero; pinned AVD driver rejects SPS without FRAME_MBS_ONLY. Runtime attribution not yet independently confirmed.",
+  "temporary_preload_probe": "Same EINVAL and software fallback; interception effectiveness unverified, not a fix",
+  "normal_browser_configuration_changed": false
+}

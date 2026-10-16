@@ -62,5 +62,39 @@ mpv --script=tools/mpv-audit.lua --term-status-msg='' video.mp4
 The tool prints `M3_PLAYBACK_RESULT` at end of playback. Review raw mpv output
 before sharing: mpv itself can print the media path even though this tool does not.
 
-Browser decode, protected content, AV1, HEVC, VP9, camera capture and sustained
-1080p60 playback remain untested here.
+Protected content, AV1, HEVC, VP9 and sustained 1080p60 playback remain untested here.
+Camera and browser capture results are documented separately in [capture.md](capture.md).
+
+
+## Chromium hardware decoding investigation (2026-10-16)
+
+Chromium 153.0.8010.36-1 still uses **software decoding** for the generated
+8-second H.264 baseline 720p30 clip. Normal Omarchy configuration explicitly
+disables `AcceleratedVideoDecoder`; its packaged documentation describes green
+frames with the Apple VA-API path. We kept that configuration unchanged.
+
+The [exact Arch Linux ARM build recipe](https://github.com/archlinuxarm/PKGBUILDs/blob/3d45100a45e945ac14f0fbb0c6e67c5540f9e6c9/extra/chromium/PKGBUILD)
+sets `use_vaapi=false` and `use_v4l2_codec=true`. Enabling VA-API feature names
+therefore does not establish a working VA-API decoder in this binary.
+
+An isolated Wayland/ANGLE GL profile explicitly enabling
+`AcceleratedVideoDecoder,AcceleratedVideoDecodeLinuxGL,PreferV4L2VideoAcceleration`
+reaches the native stateless V4L2 backend (`S264`). Its initial H.264 SPS
+`VIDIOC_S_EXT_CTRLS` fails with `EINVAL`; capture-format setup fails and Chromium
+falls back to `FFmpegVideoDecoder`, with `kIsPlatformVideoDecoder=false`.
+Disabling zero-copy GL does not resolve this. GPU status saying video decode is
+“enabled” is insufficient evidence of hardware decoding.
+
+A source-level compatibility hypothesis is that Chromium's
+[`SetExtCtrlsInit()`](https://chromium.googlesource.com/chromium/src/+/153.0.8010.36/media/gpu/v4l2/v4l2_video_decoder.cc)
+submits an initial SPS with zero flags, while the pinned kernel's
+[`avd_h264_validate_sps()`](https://github.com/omacom/linux-aurora/blob/5ec1028c81526e1ed31db2b97e47edf8663e83cb/drivers/media/platform/apple/avd/avd-h264.c)
+rejects SPS without `V4L2_H264_SPS_FLAG_FRAME_MBS_ONLY`. This is not yet a
+runtime-confirmed diagnosis. A temporary process-local preload probe intended
+to amend only the placeholder SPS still produced the same failure; interception
+was not verified. No kernel validation was relaxed and no fix is qualified.
+
+Normal software playback decoded all 240 frames with zero drops. Forced V4L2
+runs also fell back to software; their colour samples matched the normal browser
+baseline. This does not validate hardware colour output. Selected observations:
+[browser decode report](../reports/2026-10-16-browser-decode.json).
