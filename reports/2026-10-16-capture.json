@@ -48,7 +48,7 @@
   },
   "camera_visual_confirmation": "operator saw live image; grain/static reported in dark room",
   "camera_reboot_tested": true,
-  "camera_suspend_tested": false,
+  "camera_suspend_tested": true,
   "limits": [
     "temporal/MBNR/motion processing skipped by opt-in J613-only module parameter",
     "existing firmware-stop warning persists",
@@ -74,5 +74,8 @@
     "boot_entry": "M3 brightness experiment",
     "camera_reboot_tested": false
   },
-  "reboot_results": "reports/2026-10-16-camera-reboot.json"
+  "reboot_results": "reports/2026-10-16-camera-reboot.json",
+  "suspend_results": "reports/2026-10-16-camera-suspend.json",
+  "browser_capture_tested": true,
+  "browser_results": "reports/2026-10-16-browser-capture.json"
 }

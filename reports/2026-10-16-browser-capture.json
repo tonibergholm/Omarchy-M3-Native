@@ -1,0 +1,28 @@
+{
+  "phase": "stopped",
+  "elapsed_s": 20,
+  "rendered_frames": 597,
+  "observed_fps": 29.85,
+  "video_width": 1280,
+  "video_height": 720,
+  "video_frame_rate": 30,
+  "video_track_state": "live",
+  "audio_sample_rate": 48000,
+  "audio_channels": 1,
+  "audio_track_state": "live",
+  "microphone_peak_dbfs": -15.97,
+  "tracks_ended": true,
+  "date": "2026-10-16",
+  "board": "J613",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "browser": "Chromium 153.0.8010.36 Arch Linux ARM",
+  "operator_confirmation": "all worked: local browser preview and microphone level meter",
+  "capture_source": "real camera/microphone with browser permission; isolated Chromium profile",
+  "media_saved": false,
+  "remote_media_transport": false,
+  "limits": [
+    "20-second local getUserMedia/Web Audio test",
+    "not a remote conferencing call, codec encode or WebRTC network test",
+    "track-state fields sampled immediately before stop; tracks_ended verified after stop"
+  ]
+}

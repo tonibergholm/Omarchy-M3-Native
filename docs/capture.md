@@ -62,7 +62,12 @@ value 0 was restored. No low-light policy was made permanent.
 
 Known limitations: the pre-existing firmware-stop warning remains; mpv reports
 buffer-close/QBUF warnings during teardown. Camera-indicator behavior still
-needs operator confirmation. Camera after suspend, browser capture and sustained use remain untested. The camera workaround is now embedded alongside the tested brightness module
+needs operator confirmation. A subsequent attended s2idle test on the camera-enabled UKI also passed:
+brightness stayed 265/77; after wake, two captures delivered all 30 and 60
+frames at about 30 fps. OpenGL/Vulkan readback still passed. See the
+[camera suspend report](../reports/2026-10-16-camera-suspend.json).
+A local browser capture test also passed, as described below; sustained and
+remote-call use remain untested. The camera workaround is now embedded alongside the tested brightness module
 in the separate **M3 brightness experiment** UKI. Both embedded module hashes
 were verified. Packaged modules and ordinary module lookup were restored after
 packaging. The normal Omarchy and GPU-off boot entries were retained; a
@@ -85,3 +90,22 @@ the warning on a subsequent boot is not yet confirmed. See the
 [hash-correction report](../reports/2026-10-16-boot-hash-fix.json).
 
 See [selected capture results](../reports/2026-10-16-capture.json).
+
+## Local Chromium capture after sleep
+
+Chromium 153.0.8010.36 (Arch Linux ARM), in an isolated test profile, opened a
+localhost-only page. The operator granted real camera/microphone access through
+the normal browser prompt. No fake devices or permission-bypass flags were used.
+The page did not record media or send media over a network connection; it saved
+only selected diagnostic counters locally.
+
+The 20-second run presented **597 video-frame callbacks**, about **29.85 fps**,
+at **1280×720** (track setting: 30 fps). The audio track reported 48 kHz, one
+channel; its Web Audio level meter reached about -15.97 dBFS RMS. The operator
+confirmed the preview and microphone meter worked. Both tracks were stopped
+and verified ended automatically. The test browser and local server were then
+closed; the user's regular browser profile was not changed.
+
+See [browser capture results](../reports/2026-10-16-browser-capture.json). This
+qualifies a short local getUserMedia/Web Audio path, not a remote conferencing
+call, codec encoding, WebRTC transport or sustained streaming performance.

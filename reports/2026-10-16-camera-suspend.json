@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-16",
+  "board": "J613",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "same_boot": true,
+  "mode": "s2idle",
+  "camera_enabled_uki": true,
+  "suspend_success_delta": 1,
+  "suspend_fail_delta": 0,
+  "brightness_before_after": [
+    "265",
+    "265"
+  ],
+  "keyboard_brightness_before_after": [
+    "77",
+    "77"
+  ],
+  "camera_streams_after": [
+    {
+      "requested_frames": 30,
+      "dequeued_frames": 30,
+      "exit_code": 0,
+      "last_fps": 30.02
+    },
+    {
+      "requested_frames": 60,
+      "dequeued_frames": 60,
+      "exit_code": 0,
+      "last_fps": 29.99
+    }
+  ],
+  "opengl_readback": "pass",
+  "vulkan_compute_readback": "pass",
+  "speaker_protection": "active",
+  "limits": [
+    "one attended sleep after camera-enabled boot",
+    "short discard-only post-wake captures",
+    "camera-indicator and browser results recorded separately"
+  ]
+}
