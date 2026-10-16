@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-16",
+  "board": "apple,j613",
+  "soc": "apple,t8122",
+  "release": "aurora-2026.10.15.19",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "os_firmware_label": "14.7",
+  "system_firmware": "27.0",
+  "gpu_firmware_compat": "14.8.3",
+  "speaker_playback": "operator heard clear protected test tone; startup fault cause unproven",
+  "keyboard_backlight": "30%; persisted across reboot",
+  "touch_id": {
+    "enrollment": "pass",
+    "positive_match": "pass after one failed attempt",
+    "negative_control": "requested unenrolled finger: no-match",
+    "sudo": "pass; earlier attempt timed out",
+    "lock": "fingerprint PAM success; unlocked responsive desktop",
+    "polkit": "graphical authorization completed",
+    "after_linux_reboot": "one live identity restored; physical match and sudo passed",
+    "password_fallback": "configuration retained; physical fallback untested",
+    "macos_roundtrip": "not tested",
+    "sleep_resume": "not tested"
+  },
+  "gpu": {
+    "profile": "legacy/current14",
+    "opengl_pixel_readback": "pass",
+    "vulkan_compute_readback": "pass",
+    "compositor_prefix": "/opt/mesa-m3",
+    "ceiling_MHz": 618,
+    "panel": "eDP-1, 2560x1664",
+    "conformance": "not tested"
+  },
+  "thermal": {
+    "channels_present": 13,
+    "zone": "macsmc_soc_die",
+    "gpu_consumes_zone": true,
+    "workload": "completed, one process, at most 5 seconds",
+    "pulse_cpu_peak_C": 70.25,
+    "full_sample_cpu_peak_C": 71.859,
+    "baseline_cpu_C": [
+      58.687,
+      60.046,
+      58.875
+    ],
+    "last_recovery_cpu_C": 61.812,
+    "gpu_peak_C": 54.935,
+    "higher_clocks": "not tested",
+    "cpu_cooling_policy": "not established"
+  },
+  "remaining": [
+    "display brightness",
+    "sleep/resume",
+    "macOS round trip",
+    "sustained thermal qualification",
+    "camera capture",
+    "browser video and power measurements"
+  ],
+  "upstream_report": "https://github.com/omacom/linux-aurora/issues/79#issuecomment-6216574514"
+}

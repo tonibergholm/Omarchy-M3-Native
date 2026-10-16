@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.venv/
+local/
+private/
+captures/
+*.img
+*.bin
+*.dtb
+*.im4p
+*.pkg.tar.*
+*.core
+*.log
+*.pcap*
+*keybag*
+*catacomb*

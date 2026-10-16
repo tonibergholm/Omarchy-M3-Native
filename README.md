@@ -1,0 +1,65 @@
+# Omarchy M3 Native
+
+Findings and local tuning from running Omarchy on a **13-inch MacBook Air M3
+(2024), J613 / T8122**. Tested on one machine on **2026-10-16**.
+
+This is a research and setup log, not an installer or a new driver distribution.
+It uses the published Aurora Linux stack. It is independent of Omarchy, Aurora,
+Asahi Linux and Apple; their work and support policies remain their own.
+
+## What works on the test machine
+
+| Feature | Observed result | Limits |
+| --- | --- | --- |
+| Speakers | Clear protected playback after restarting the audio stack | Acoustic calibration, headphones and resume not qualified here |
+| Keyboard illumination | Brightness control and persistence across reboot | Super+F5/F6 added as local shortcuts |
+| Touch ID | Enrollment, matching, an unenrolled-finger rejection, sudo and lock-screen unlock | Enrollment, matching and sudo also passed after Linux reboot; macOS round trips and suspend untested |
+| GPU | OpenGL pixel readback and Vulkan compute readback passed | Experimental legacy/current14 profile; capped at performance state 2, 618 MHz |
+| Native panel | eDP-1, 2560×1664, running Hyprland | No display brightness device |
+| Die temperatures | 13 channels exposed; GPU reads `macsmc_soc_die` | Sensor selection is a local experiment, not a qualified policy for higher clocks |
+| CPU frequency and idle | `apple-cpufreq`, schedutil, WFI and CPU PD present | Observed counters and configured frequency limits, not battery-life or sustained-performance qualification |
+
+## Start here
+
+- [Exact stack and test record](docs/tested-stack.md)
+- [Touch ID setup and evidence](docs/touch-id.md)
+- [GPU setup and recovery](docs/graphics.md)
+- [Temperature sensing](docs/thermal.md)
+- [Audio and keyboard illumination](docs/audio-keyboard.md)
+- [What carries over from the M4 project](docs/m4-comparison.md)
+- [Remaining work](docs/roadmap.md)
+
+Read-only checks:
+
+```sh
+python3 tools/m3-status.py
+python3 tools/thermal-watch.py --seconds 10
+aurora-m3-gpu-check
+```
+
+The tools print selected platform facts, not raw device trees or full journals.
+Review output before sharing. There are no automatic boot, partition, PAM or
+clock changes in this repository.
+
+The tested machine still has macOS installed. Keep working boot entries and a
+recovery route before experimenting. SEP/xART writes affect shared security
+state; a saved disk image does not guarantee rollback of SEP anti-replay state.
+
+## Credits
+
+The kernel, SEP driver, graphics implementation and firmware handoff are upstream
+work, not implementations from this repository:
+
+- [Asahi Linux](https://asahilinux.org/), Linux, m1n1 and Mesa contributors.
+- [Aurora Linux / Omacom](https://github.com/omacom/linux-aurora), including its
+  published kernel, matched Mesa and Touch ID stack.
+- [Omarchy Mac](https://github.com/omacom/omarchy-mac), Omarchy, PipeWire,
+  WirePlumber, ALSA and speakersafetyd contributors.
+- [Scott Jones's J613 Touch ID work](https://github.com/omacom/linux-aurora/issues/79).
+- [Kb2uka/Omarchy-M4-Native](https://github.com/Kb2uka/Omarchy-M4-Native), a useful
+  reference for documenting per-board experiments and sensor validation.
+- [iSMC](https://github.com/dkorunic/iSMC) for sensor-key reference information.
+
+Toni Bergholm performed the physical tests with Codex assistance. The original
+scripts and documentation here are MIT licensed. No Apple firmware, calibration,
+keybags, biometric material or upstream driver sources are redistributed.
