@@ -97,3 +97,9 @@ unchanged. See the [selected conversion report](../reports/2026-10-16-pq-to-sdr.
 
 The earlier H.264 [video tests](video.md) used SDR patterns; their hardware
 decoder result does not qualify HDR decoding or sustained tone-mapping speed.
+
+## Upstream report
+
+The J613 patch and test evidence were [posted to Aurora issue 32](https://github.com/omacom/linux-aurora/issues/32#issuecomment-6217879992)
+on 2026-10-16. This is a submitted hardware report and source candidate, not an
+upstream merge or packaged release.
