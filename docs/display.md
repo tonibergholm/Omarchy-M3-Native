@@ -61,7 +61,9 @@ A subsequent normal reboot restored screen brightness 265 and keyboard
 backlight 77 exactly. The systemd-backlight load succeeded, and the firmware
 logged 17367040 in 16.16 units (= 265). OpenGL and Vulkan readbacks passed
 again. See the [reboot report](../reports/2026-10-16-brightness-reboot.json).
-Repeated/lid sleep remains untested. The active test UKI is separate from the packaged
+A separate 35-second lid-close/lid-open cycle also preserved brightness, with
+Touch ID, GPU checks and audible protected sound passing. Repeated/long sleep
+remains untested. The active test UKI is separate from the packaged
 driver, so a normal kernel update does not incorporate this local patch.
 
 Selected observations are in the [backlight report](../reports/2026-10-16-backlight.json).

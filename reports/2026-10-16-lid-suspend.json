@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-16",
+  "board": "J613",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "display_stack": "local J613 brightness-test UKI",
+  "same_boot": true,
+  "mode": "s2idle",
+  "trigger": "lid close",
+  "wake": "lid open alone, operator confirmed",
+  "logged_sleep_seconds_approx": 35,
+  "suspend_success_delta": 1,
+  "suspend_fail_delta": 0,
+  "screen_brightness_before_after": [
+    "265",
+    "265"
+  ],
+  "keyboard_brightness_before_after": [
+    "77",
+    "77"
+  ],
+  "display_after": [
+    {
+      "name": "eDP-1",
+      "width": 2560,
+      "height": 1664,
+      "refreshRate": 60.0,
+      "dpmsStatus": true,
+      "currentFormat": "XRGB8888"
+    }
+  ],
+  "touch_id": "operator confirmed; lock PAM authenticated successfully",
+  "opengl_readback": "pass",
+  "vulkan_compute_readback": "pass",
+  "speaker_protection": "active",
+  "protected_audio": "six-second quiet tone clearly audible, operator confirmed",
+  "sink_volume": 0.35,
+  "limits": [
+    "one short lid cycle",
+    "not a repeated-cycle or overnight qualification",
+    "no measured battery drain",
+    "keyboard wake and external-display sleep untested"
+  ]
+}
