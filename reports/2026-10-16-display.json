@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-16",
+  "board": "J613",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "backlight_devices_before": [],
+  "panel_dt_max_brightness": 525,
+  "output": "eDP-1",
+  "resolution": [
+    2560,
+    1664
+  ],
+  "refresh_hz": 60.0,
+  "scanout_format": "XRGB8888",
+  "color_management": "srgb",
+  "drm_hdr_output_metadata_property": false,
+  "drm_colorspace_property": false,
+  "scanout_formats": [
+    "XRGB8888",
+    "ARGB8888"
+  ],
+  "brightness_candidate_runtime_tested": false
+}
