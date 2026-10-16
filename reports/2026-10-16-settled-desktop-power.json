@@ -1,0 +1,30 @@
+{
+  "board": "J613 / M3 MacBook Air",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "screen_brightness": 150,
+  "screen_max": 500,
+  "keyboard_brightness": 0,
+  "settle_seconds": 60,
+  "external_power_absent": true,
+  "all_discharging": true,
+  "brightness_restored": {
+    "screen": 265,
+    "keyboard": 77
+  },
+  "result": {
+    "duration_s": 300.408,
+    "samples": 61,
+    "median_W": 4.985,
+    "mean_W": 4.976655737704918,
+    "min_W": 4.616,
+    "max_W": 5.156,
+    "energy_delta_Wh": 0.3762,
+    "charge_delta_mAh": 33.0,
+    "temperature_range_C": [
+      49.281,
+      51.484
+    ],
+    "limits": "Desktop session left open; background applications remain. Battery begins near full. No runtime extrapolation.",
+    "energy_delta_average_W": 4.508268754493888
+  }
+}

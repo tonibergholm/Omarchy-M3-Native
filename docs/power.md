@@ -42,3 +42,23 @@ the cause. A longer repeat after the battery has discharged further is needed.
 Lid-open wake, Touch ID unlock, brightness 265/77, OpenGL/Vulkan readback and
 clearly audible protected playback all passed. See the
 [selected longer-sleep report](../reports/2026-10-16-longer-sleep.json).
+
+
+## Fixed-brightness desktop baseline
+
+A second run allowed 60 seconds to settle, then sampled for 300.408 seconds
+(61 readings). Screen brightness was fixed at 150/500 (30% of the control range,
+not a measured luminance); keyboard lighting was off. AC remained absent and
+all readings were Discharging. Background desktop applications remained open,
+so this is a quiet desktop baseline, not a minimum-power laboratory result.
+
+Reported discharge power averaged **4.98 W**, median **4.985 W**, range
+**4.616–5.156 W**. CPU temperature ranged **49.281–51.484°C**. Remaining charge
+fell 33 mAh; derived energy fell 0.3762 Wh, equivalent to **4.51 W** over the
+window. Battery started near full, and the telemetry disagreement remains a
+limit. No runtime extrapolation or causal improvement over the earlier active
+session is claimed: workload and brightness both differed.
+
+The original screen brightness 265 and keyboard brightness 77 were restored
+automatically. No power policy changed. See the
+[selected report](../reports/2026-10-16-settled-desktop-power.json).
