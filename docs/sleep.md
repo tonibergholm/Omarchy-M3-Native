@@ -55,3 +55,20 @@ readback passed, and suspend success increased with no failure. This extends
 recovery evidence beyond the short tests, but does not qualify overnight or
 many-cycle reliability. [Battery-counter results](power.md) were inconclusive;
 no sleep-power claim follows from the successful resume.
+
+
+## Repeat unplugged lid cycle after fixed-brightness baseline
+
+The first cycle in a new recorded series spent **121.170 seconds** suspended.
+Kernel suspend success increased 1→2; failures remained zero. External power
+was absent before and after. Screen brightness restored to 265 and keyboard
+lighting to 77. OpenGL and Vulkan readbacks passed; the camera delivered 30
+1080p NV12 frames to a discard sink. Speaker protection remained active and the
+DSP sink remained the default. The user confirmed Touch ID unlock, normal
+display and clear audible tone.
+
+Remaining charge increased 4161→4199 mAh near full, so sleep power remains
+inconclusive. This is one additional successful cycle, not repeated-cycle or
+overnight qualification. A temporary system-sleep recorder retains separate
+pre/post observations for the next cycles without changing sleep policy.
+See the [selected report](../reports/2026-10-16-power-cycle-1.json).
