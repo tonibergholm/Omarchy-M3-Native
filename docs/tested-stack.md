@@ -24,15 +24,18 @@ These firmware fields are different facts. The OS firmware label does not prove
 which GPU firmware ABI is active. Do not choose a 26.6.2 GPU profile solely from
 the system firmware version.
 
-Published packages were used without local kernel patches. First the read-only
+Published packages were used for the initial bring-up. A later separate UKI
+contains the local [J613 backlight patch](display.md); the packaged module and
+normal Omarchy UKI are retained. First the read-only
 SEP stack was installed, then SEP provisioning was enabled and tested. GPU
 activation came afterwards, followed by the explicit thermal sensor list.
 
 Observed CPU policy maxima are 4056 MHz and 2748 MHz, with schedutil and
 apple-cpufreq. These are configured limits, not measured sustained clocks.
 
-See [the structured result](../reports/2026-10-16-j613.json). One Linux reboot
-after enrollment passed; macOS coexistence and suspend/resume were not tested.
+See [the structured result](../reports/2026-10-16-j613.json). Linux reboots after enrollment passed. Later [short power-button and lid-wake
+suspend tests](sleep.md) also passed Touch ID unlock. macOS coexistence remains
+untested.
 
 The existing Touch ID report was published as a comment on
 [Aurora issue #79](https://github.com/omacom/linux-aurora/issues/79#issuecomment-6216574514).

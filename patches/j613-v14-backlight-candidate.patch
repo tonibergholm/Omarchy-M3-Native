@@ -7,10 +7,10 @@ Local adaptation: J613-only opt-in gate, retaining the existing firmware admissi
 and the candidate's 500-nit cap. Original source license: GPL-2.0-only OR MIT.
 This is source for review, not an installer or an upstream support claim.
 
-diff --git i/iomfb_v14_7.c w/iomfb_v14_7.c
+diff --git i/drivers/gpu/drm/apple/iomfb_v14_7.c w/drivers/gpu/drm/apple/iomfb_v14_7.c
 index d7dcc2c..1e6e637 100644
---- i/iomfb_v14_7.c
-+++ w/iomfb_v14_7.c
+--- i/drivers/gpu/drm/apple/iomfb_v14_7.c
++++ w/drivers/gpu/drm/apple/iomfb_v14_7.c
 @@ -1,5 +1,6 @@
  // SPDX-License-Identifier: GPL-2.0-only OR MIT
  
@@ -345,10 +345,10 @@ index d7dcc2c..1e6e637 100644
  		dcp_v14_present(v14, NULL, 0, 0, 0, NULL);
 +	}
  }
-diff --git i/iomfb_v14_7_swap.h w/iomfb_v14_7_swap.h
+diff --git i/drivers/gpu/drm/apple/iomfb_v14_7_swap.h w/drivers/gpu/drm/apple/iomfb_v14_7_swap.h
 index aab3351..e1f9d01 100644
---- i/iomfb_v14_7_swap.h
-+++ w/iomfb_v14_7_swap.h
+--- i/drivers/gpu/drm/apple/iomfb_v14_7_swap.h
++++ w/drivers/gpu/drm/apple/iomfb_v14_7_swap.h
 @@ -18,6 +18,14 @@
  #define DCP_V14_SWAP_ENABLED		0x14c
  #define DCP_V14_SWAP_COMPLETED		0x150
