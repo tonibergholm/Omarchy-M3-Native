@@ -10,7 +10,8 @@
    remains blocked; initial software PQ-to-SDR conversion ran successfully.
 3. **Sleep/resume:** [short power-button and lid-wake cycles](sleep.md) passed
    Touch ID unlock, brightness, GPU readback and audible protected playback.
-   Test repeated cycles, keyboard wake, long sleep and power use separately.
+   A further unplugged 17½-minute lid cycle passed recovery; battery counters
+   were inconclusive. Test repeated cycles, keyboard wake and overnight sleep.
 4. **macOS coexistence:** verify macOS Touch ID and Linux enrollment after a
    round trip, without deleting or replacing either system's authority.
 5. **Audio startup:** reproduce the initial sample-rate failure across boots
@@ -19,7 +20,8 @@
    and 1080p30 playback; short 1080p60 fast-profile playback improved presentation
    counts. Test browser playback, other codecs and sustained use. Camera device
    detection alone is not a working capture test.
-7. **Power and external devices:** measure settled idle draw, battery runtime,
+7. **Power and external devices:** [initial battery observations](power.md)
+   need longer, steadier measurements. Measure settled idle draw, battery runtime,
    shutdown and specific USB-C display/dock combinations. No whole-machine
    battery-life claim follows from cpuidle counters.
 

@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-16",
+  "board": "J613",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "display_stack": "local J613 brightness-test UKI",
+  "mode": "s2idle",
+  "same_boot": true,
+  "hook_elapsed_s": 1053.819,
+  "hook_awake_elapsed_s": 1.594,
+  "suspended_time_s": 1052.224,
+  "suspend_success_delta": 1,
+  "suspend_fail_delta": 0,
+  "external_power_absent_at_both_hooks": true,
+  "energy_now_uWh_before_after": [
+    49761000,
+    49772400
+  ],
+  "charge_now_uAh_before_after": [
+    4365000,
+    4366000
+  ],
+  "energy_full_uWh_before_after": [
+    50023200,
+    50399400
+  ],
+  "capacity_percent_before_after": [
+    100,
+    100
+  ],
+  "sleep_draw_W": null,
+  "sleep_draw_conclusion": "unqualified: remaining charge increased 1 mAh while unplugged; full-capacity estimate changed",
+  "screen_brightness_before_after": [
+    "265",
+    "265"
+  ],
+  "keyboard_brightness_before_after": [
+    "77",
+    "77"
+  ],
+  "operator_confirmation": "lid alone woke display, Touch ID unlocked, protected tone clear",
+  "opengl_readback": "pass",
+  "vulkan_compute_readback": "pass",
+  "speaker_protection": "active",
+  "temporary_recorder_removed": true,
+  "limits": [
+    "one ~17.5-minute cycle",
+    "not an overnight or repeated-cycle qualification",
+    "pre/post gauge values do not support a sleep-power estimate"
+  ]
+}

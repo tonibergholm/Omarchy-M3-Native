@@ -45,3 +45,13 @@ tone clearly through the protected convolver path at 35% sink volume.
 See the [lid-test report](../reports/2026-10-16-lid-suspend.json). This adds one
 short lid cycle, not repeated-cycle or overnight qualification. Keyboard wake,
 external-display sleep and battery drain remain untested.
+
+## Longer unplugged lid sleep
+
+A later unplugged lid cycle spent about 17½ minutes in s2idle. Opening the lid
+alone woke the display; Touch ID unlocked and the protected tone was clear,
+all confirmed by the operator. Brightness stayed 265/77, OpenGL and Vulkan
+readback passed, and suspend success increased with no failure. This extends
+recovery evidence beyond the short tests, but does not qualify overnight or
+many-cycle reliability. [Battery-counter results](power.md) were inconclusive;
+no sleep-power claim follows from the successful resume.
