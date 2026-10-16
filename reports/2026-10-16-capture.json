@@ -47,7 +47,7 @@
     "initial_short_sample": "operator heard no voice; longer repeat confirmed clear capture"
   },
   "camera_visual_confirmation": "operator saw live image; grain/static reported in dark room",
-  "camera_reboot_tested": false,
+  "camera_reboot_tested": true,
   "camera_suspend_tested": false,
   "limits": [
     "temporal/MBNR/motion processing skipped by opt-in J613-only module parameter",
@@ -73,5 +73,6 @@
     "esp_free_bytes": 107606016,
     "boot_entry": "M3 brightness experiment",
     "camera_reboot_tested": false
-  }
+  },
+  "reboot_results": "reports/2026-10-16-camera-reboot.json"
 }

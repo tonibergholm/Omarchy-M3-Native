@@ -1,0 +1,34 @@
+{
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "new_boot": true,
+  "brightness": "265",
+  "expected_brightness": "265",
+  "keyboard_brightness": "77",
+  "expected_keyboard_brightness": "77",
+  "backlight_parameter": "Y",
+  "camera_parameter": "Y",
+  "date": "2026-10-16",
+  "board": "J613",
+  "streams": [
+    {
+      "requested_frames": 30,
+      "dequeued_frames": 30,
+      "exit_code": 0,
+      "last_fps": 30.04
+    },
+    {
+      "requested_frames": 60,
+      "dequeued_frames": 60,
+      "exit_code": 0,
+      "last_fps": 30.0
+    }
+  ],
+  "opengl_readback": "pass",
+  "vulkan_compute_readback": "pass",
+  "speaker_protection": "active",
+  "camera_node": "selected by apple-isp driver; /dev/video0 on this boot",
+  "limits": [
+    "short discard-only capture checks after one reboot",
+    "camera after suspend, browser use and good-light quality remain untested"
+  ]
+}

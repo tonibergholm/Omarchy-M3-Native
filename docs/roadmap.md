@@ -20,7 +20,7 @@
 6. **Video/camera:** [initial H.264 checks](video.md) passed decoder equivalence
    and 1080p30 playback; short 1080p60 fast-profile playback improved presentation
    counts. Test browser playback, other codecs and sustained use. The local
-   [ISP14.7 camera candidate](capture.md) delivers 1080p30 frames; qualify reboot,
+   [ISP14.7 camera candidate](capture.md) delivers 1080p30 frames, including after reboot; qualify
    suspend, browser use, indicator behavior and good-light picture quality.
 7. **Power and external devices:** [initial battery observations](power.md)
    need longer, steadier measurements. Measure settled idle draw, battery runtime,

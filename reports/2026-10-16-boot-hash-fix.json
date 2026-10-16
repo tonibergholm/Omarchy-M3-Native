@@ -1,0 +1,11 @@
+{
+  "test_hash_was_sha512": true,
+  "test_hash_now_blake2b": "8162d0456a8936e6a5e61f3374fcbccc08c00d211fe8661baa50b66acdae64a4da6892ca7f040b14ae6347ea15d70b70ad65591e40d2590c350d185e25777e1b",
+  "test_image_bytes": 61722624,
+  "hashed_entries_checked": 4,
+  "all_present_and_matching": true,
+  "boot_image_unchanged": true,
+  "hash_mismatch_policy_unchanged": true,
+  "date": "2026-10-16",
+  "next_boot_warning_absence_confirmed": false
+}

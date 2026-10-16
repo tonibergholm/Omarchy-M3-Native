@@ -16,7 +16,10 @@ and microphone behavior after another reboot remain separate tests.
 
 ## Camera: stock 14.7 path stalled
 
-`/dev/video1` is the IMX558 FaceTime camera, separate from `/dev/video0` (AVD).
+On the initial test boot, `/dev/video1` was the IMX558 FaceTime camera and
+`/dev/video0` was AVD. After the camera-enabled reboot those numbers swapped.
+Select the node whose `/sys/class/video4linux/video*/device/driver` resolves to
+`apple-isp`; do not hard-code the video-device index.
 The device tree reports ISP firmware/compatibility **14.7.0**. It advertises
 1920×1080 NV12 at 30 fps, among other modes. On the packaged driver, buffer setup
 and STREAMON succeeded but no frame dequeued before a 12-second timeout. The
@@ -59,12 +62,26 @@ value 0 was restored. No low-light policy was made permanent.
 
 Known limitations: the pre-existing firmware-stop warning remains; mpv reports
 buffer-close/QBUF warnings during teardown. Camera-indicator behavior still
-needs operator confirmation. Camera persistence across reboot, camera after
-suspend, browser capture and sustained use remain untested. The camera workaround is now embedded alongside the tested brightness module
+needs operator confirmation. Camera after suspend, browser capture and sustained use remain untested. The camera workaround is now embedded alongside the tested brightness module
 in the separate **M3 brightness experiment** UKI. Both embedded module hashes
 were verified. Packaged modules and ordinary module lookup were restored after
 packaging. The normal Omarchy and GPU-off boot entries were retained; a
 root-only backup contains the earlier brightness-only test UKI and boot config.
-The new camera-enabled UKI has not yet been reboot-tested.
+The camera-enabled UKI passed a subsequent reboot: both module options were
+active, brightness returned to 265/77, and separate captures delivered 30 and
+60 frames at about 30 fps. OpenGL and Vulkan checks passed afterwards. See the
+[camera reboot report](../reports/2026-10-16-camera-reboot.json).
+
+## Boot-path hash correction
+
+The locally written test entry originally used a SHA-512 suffix. Limine's
+[documented file-path suffix](https://github.com/limine-bootloader/limine/blob/trunk/CONFIG.md)
+requires **BLAKE2b**, so the operator saw a mismatch warning. This was a local
+packaging-script error; the test image itself was unchanged. The entry and both
+local packaging scripts were corrected to BLAKE2b. All four referenced images
+(test, normal, snapshot/history and GPU-off recovery) existed and matched their
+configured BLAKE2b digests. The hash-mismatch policy was not changed. Absence of
+the warning on a subsequent boot is not yet confirmed. See the
+[hash-correction report](../reports/2026-10-16-boot-hash-fix.json).
 
 See [selected capture results](../reports/2026-10-16-capture.json).
