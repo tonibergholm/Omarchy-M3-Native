@@ -56,8 +56,8 @@ After the test boot:
 These are requested nits, not photometer measurements. Firmware startup logs
 contained 16.16 values consistent with requests (for example 9175040 = 140).
 The early missing-Backlight-service firmware message still appears; it does not
-prevent this swap-based control path. Full suspend/resume and persistence across
-another reboot remain untested. The active test UKI is separate from the packaged
+prevent this swap-based control path. One short [s2idle/power-button wake cycle](sleep.md) preserved brightness.
+Repeated/lid sleep and persistence across another reboot remain untested. The active test UKI is separate from the packaged
 driver, so a normal kernel update does not incorporate this local patch.
 
 Selected observations are in the [backlight report](../reports/2026-10-16-backlight.json).

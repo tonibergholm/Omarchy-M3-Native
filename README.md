@@ -26,6 +26,7 @@ Asahi Linux and Apple; their work and support policies remain their own.
 - [Touch ID setup and evidence](docs/touch-id.md)
 - [GPU setup and recovery](docs/graphics.md)
 - [Brightness and HDR investigation](docs/display.md)
+- [Initial suspend/resume results](docs/sleep.md)
 - [Temperature sensing](docs/thermal.md)
 - [Video decoding and playback](docs/video.md)
 - [Audio and keyboard illumination](docs/audio-keyboard.md)

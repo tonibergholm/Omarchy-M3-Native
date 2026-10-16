@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-16",
+  "board": "J613",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "display": "local J613 brightness-test UKI",
+  "sleep_mode": "s2idle",
+  "same_boot": true,
+  "suspend_success_delta": 1,
+  "suspend_fail_delta": 0,
+  "kernel_entry_exit_recorded": true,
+  "logged_sleep_seconds_approx": 6,
+  "before_brightness": "265",
+  "after_brightness": "265",
+  "before_keyboard_brightness": "77",
+  "after_keyboard_brightness": "77",
+  "postwake_display": [
+    {
+      "name": "eDP-1",
+      "width": 2560,
+      "height": 1664,
+      "refreshRate": 60.0,
+      "dpmsStatus": true,
+      "currentFormat": "XRGB8888"
+    }
+  ],
+  "opengl_readback": "pass",
+  "vulkan_compute_readback": "pass",
+  "lock_fingerprint_pam": "authenticated successfully after service restart",
+  "speaker_protection": "active",
+  "speaker_resume_log": "suspend detected; PCM reinitialized; 48000 Hz on subsequent playback",
+  "protected_tone_playback": "1-second quiet tone not heard; 6-second repeat heard, confirmed by operator",
+  "operator_wake_report": "Power-button wake; Touch ID worked; longer protected tone audible",
+  "limits": [
+    "one short attended cycle",
+    "no battery drain or long-sleep measurement",
+    "no external display attached",
+    "repeated sleep and lid-close behavior untested"
+  ],
+  "tone_repeat_sink_volume": 0.35
+}

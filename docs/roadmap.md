@@ -5,11 +5,11 @@
    Keep the GPU state-2 ceiling until a separate higher-clock test is justified.
 2. **Display brightness/HDR:** the [local J613 backlight candidate](display.md)
    passed visible steps, keys/OSD, bounds rejection and DPMS checks. Verify
-   another reboot and suspend/resume before broader acceptance. Native HDR
+   another reboot and repeated/lid suspend before broader acceptance. Native HDR
    remains blocked; initial software PQ-to-SDR conversion ran successfully.
-3. **Sleep/resume:** only s2idle is advertised. Preserve lock intent and verify
-   display, GPU, input, sound and Touch ID after an attended sleep. Presence of
-   CPU idle states does not prove whole-machine suspend works.
+3. **Sleep/resume:** [one short s2idle cycle](sleep.md) passed power-button wake,
+   Touch ID unlock, brightness, GPU readback and audible protected playback.
+   Test repeated/lid/keyboard wake, long sleep and power use separately.
 4. **macOS coexistence:** verify macOS Touch ID and Linux enrollment after a
    round trip, without deleting or replacing either system's authority.
 5. **Audio startup:** reproduce the initial sample-rate failure across boots
