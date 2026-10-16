@@ -1,0 +1,41 @@
+{
+  "board": "J613 / M3 MacBook Air",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "test": "Second consecutive unplugged lid sleep",
+  "suspended_seconds": 118.066,
+  "suspend_success_before": 2,
+  "suspend_success_after": 3,
+  "suspend_fail_before": 0,
+  "suspend_fail_after": 0,
+  "external_power_absent": true,
+  "brightness_before_after": {
+    "screen": [
+      265,
+      265
+    ],
+    "keyboard": [
+      77,
+      77
+    ]
+  },
+  "charge_mAh_before_after": [
+    4162.0,
+    4181.0
+  ],
+  "energy_Wh_before_after": [
+    47.4468,
+    47.6634
+  ],
+  "checks": {
+    "opengl_readback": "pass",
+    "vulkan_compute_readback": "pass",
+    "camera_1080p_NV12_30_frames": "pass",
+    "speakersafetyd": "active",
+    "default_sink": "audio_effect.j613-convolver",
+    "user_touch_id_unlock": "pass",
+    "user_display": "normal",
+    "user_audible_tone": "clear"
+  },
+  "power_conclusion": "Inconclusive: gauge increased near full; no sleep wattage inferred.",
+  "recorder": "Temporary root-owned recorder appending JSONL events retained for further sleep cycles; no power policy changed."
+}

@@ -72,3 +72,13 @@ inconclusive. This is one additional successful cycle, not repeated-cycle or
 overnight qualification. A temporary system-sleep recorder retains separate
 pre/post observations for the next cycles without changing sleep policy.
 See the [selected report](../reports/2026-10-16-power-cycle-1.json).
+
+
+A second consecutive unplugged lid cycle spent **118.066 seconds** suspended.
+Success increased 2→3 with failures still zero. The same OpenGL, Vulkan,
+30-frame camera, brightness and protected-audio-path checks passed. The user
+again confirmed Touch ID, display and clear sound. Charge increased
+4162→4181 mAh, so this cycle also gives no credible sleep-power estimate.
+These are two consecutive short-cycle passes; overnight and larger cycle-count
+reliability remain unqualified. See the
+[second-cycle report](../reports/2026-10-16-power-cycle-2.json).
