@@ -1,0 +1,78 @@
+{
+  "board": "J613 / M3 MacBook Air",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "condition": "packaged-original ALS; Wi-Fi and Bluetooth unblocked",
+  "suspended_s": 13118.196,
+  "immediate_derived_energy_loss_Wh": 4.5828,
+  "immediate_derived_average_W": 1.257649,
+  "battery_observations": [
+    {
+      "phase": "pre",
+      "charge_mAh": 1088.0,
+      "energy_Wh": 12.4032,
+      "energy_full_Wh": 49.6128,
+      "capacity_percent": 26,
+      "power_W": -6.732
+    },
+    {
+      "phase": "post-immediate",
+      "charge_mAh": 686.0,
+      "energy_Wh": 7.8204,
+      "energy_full_Wh": 50.2284,
+      "capacity_percent": 16,
+      "power_W": -1.406
+    },
+    {
+      "phase": "post-30s",
+      "charge_mAh": 632.0,
+      "energy_Wh": 7.2048,
+      "energy_full_Wh": 49.6698,
+      "capacity_percent": 15,
+      "power_W": -7.166,
+      "seconds_since_post": 30.005
+    },
+    {
+      "phase": "post-60s",
+      "charge_mAh": 623.0,
+      "energy_Wh": 7.1022,
+      "energy_full_Wh": 49.6356,
+      "capacity_percent": 15,
+      "power_W": -7.093,
+      "seconds_since_post": 60.004
+    },
+    {
+      "phase": "post-120s",
+      "charge_mAh": 612.0,
+      "energy_Wh": 6.9768,
+      "energy_full_Wh": 49.6356,
+      "capacity_percent": 15,
+      "power_W": -7.096,
+      "seconds_since_post": 120.004
+    }
+  ],
+  "post_first_30s_charge_drop_mAh": 54.0,
+  "AOP_irq_delta": 47491,
+  "AOP_irqs_per_suspended_second": 3.6202,
+  "suspend_success_before_after": [
+    12,
+    13
+  ],
+  "suspend_fail_before_after": [
+    0,
+    0
+  ],
+  "external_power_absent": true,
+  "rfkill_unchanged_unblocked": true,
+  "brightness_before_after": [
+    [
+      265,
+      77
+    ],
+    [
+      265,
+      77
+    ]
+  ],
+  "delayed_sampler": "Completed successfully at 30, 60 and 120 seconds after post hook",
+  "limits": "One baseline; immediate and delayed gauge estimates differ substantially. Delayed loss includes awake use and gauge settling, so it is not reported as sleep-only consumption. Candidate comparison pending; recharge needed."
+}

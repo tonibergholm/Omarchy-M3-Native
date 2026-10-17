@@ -70,3 +70,26 @@ error/rollback paths remain unqualified. A longer matched battery comparison is
 required before claiming an energy benefit. The candidate is not installed as
 the default module or in a boot image. Source patches preserve the Rust platform
 code's GPL-2.0-only license and the Asahi sensor driver's GPL-2.0-only OR MIT license.
+
+
+## Longer energy comparison: packaged baseline
+
+The new packaged-driver baseline lasted **13,118.196 seconds (3h38m38s)**, rather
+than the initially planned hour. Charge fell **1088→686 mAh**, reported capacity
+**26%→16%**, and immediate derived energy fell **4.5828 Wh**, approximately
+**1.258 W** over the suspended interval. AOP IRQ count increased by 47,491,
+approximately **3.620 per suspended second** across the hook window. Success
+increased 12→13 and failures remained zero. AC stayed absent, Wi-Fi/Bluetooth
+remained unblocked, and brightness restored to 265/77.
+
+The new delayed sampler completed at 30, 60 and 120 seconds after wake. Charge
+readings were **632, 623 and 612 mAh** respectively. The first 30 seconds account
+for a **54 mAh** decrease and a full-energy estimate change from 50.2284 to
+49.6698 Wh. This is much larger movement than the sampled awake power readings
+alone would suggest. Later full-energy readings settled near 49.6356 Wh.
+Delayed charge loss includes both awake use and gauge settling; it is not
+reported as sleep-only consumption, nor used as a fixed correction offset.
+
+The candidate comparison is pending recharge and must match the observed
+baseline duration as closely as practical. No ALS energy-saving claim follows
+from this baseline. See the [selected observations](../reports/2026-10-17-als-energy-baseline.json).
