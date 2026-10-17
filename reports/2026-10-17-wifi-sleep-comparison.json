@@ -1,0 +1,63 @@
+{
+  "board": "J613 / M3 MacBook Air",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "condition": "Wi-Fi soft-blocked during one sleep; Bluetooth unblocked",
+  "suspended_s": 2710.92,
+  "charge_mAh_before_after": [
+    1976.0,
+    1926.0
+  ],
+  "capacity_percent_before_after": [
+    47,
+    46
+  ],
+  "derived_energy_loss_Wh": 0.57,
+  "derived_mean_W": 0.756939,
+  "external_power_absent": true,
+  "suspend_success_before_after": [
+    7,
+    8
+  ],
+  "suspend_fail_before_after": [
+    0,
+    0
+  ],
+  "brightness_before_after": [
+    [
+      265,
+      77
+    ],
+    [
+      265,
+      77
+    ]
+  ],
+  "wifi_soft_blocked_before_after": [
+    true,
+    true
+  ],
+  "bluetooth_soft_blocked_before_after": [
+    false,
+    false
+  ],
+  "wifi_restored": true,
+  "network_after_wake": "wlan0 connected, NetworkManager Wi-Fi enabled",
+  "wifi_pci_at_hook_observations": [
+    {
+      "power_state": "D0",
+      "control": "on",
+      "runtime_status": "active",
+      "wakeup": "enabled"
+    },
+    {
+      "power_state": "D0",
+      "control": "on",
+      "runtime_status": "active",
+      "wakeup": "enabled"
+    }
+  ],
+  "baseline_reference": "2026-10-17-bluetooth-on-sleep.json",
+  "baseline_mean_W": 0.636,
+  "conclusion": "No measured saving from Wi-Fi soft block in this single comparison. Does not establish that Wi-Fi increases sleep draw or rule out Wi-Fi/PCIe contributions.",
+  "limits": "Sequential single runs at different charge levels/durations; charge-derived energy with nominal voltage and gauge drift. Soft-blocking does not imply PCIe power-off. Hook PCIe observations are outside the actual suspended interval."
+}

@@ -121,3 +121,28 @@ estimates. No automatic Bluetooth sleep policy was installed. Bluetooth was
 restored to powered-on/unblocked afterward. These shorter runs also do not
 explain why the overnight estimate was higher. See the
 [comparison report](../reports/2026-10-17-bluetooth-sleep-comparison.json).
+
+
+## Wi-Fi soft-block comparison
+
+A one-shot system-sleep hook blocked only WLAN immediately before sleep and
+unblocked it immediately afterward. Bluetooth remained unblocked. The run spent
+**2710.920 seconds (45 minutes 11 seconds)** suspended. Charge fell
+**1976→1926 mAh**, reported capacity **47%→46%**, and derived energy fell
+**0.5700 Wh**: approximately **0.757 W**. AC was absent at both observations.
+Suspend success increased 7→8 with failures still zero; brightness restored to
+265/77. The hook confirmed Wi-Fi soft-blocked at both observations, then
+unblocked it; NetworkManager subsequently reported wlan0 connected.
+
+This did **not** improve on the earlier Wi-Fi-on/Bluetooth-on baseline of
+0.636 W. One sequential comparison at different charge levels and durations
+cannot establish that blocking Wi-Fi increases consumption, or exclude Wi-Fi
+and PCIe contributions. Soft-blocking is not a whole-chip power-off test. PCIe
+D0 readings before and after system suspend do not reveal its state during
+sleep. No persistent Wi-Fi power-saving or wake setting was changed.
+
+See the [selected comparison report](../reports/2026-10-17-wifi-sleep-comparison.json).
+The ordinary NetworkManager Wi-Fi power-save setting remains off; the pinned
+brcmfmac driver separately implements a system-suspend firmware D3 handshake.
+Runtime control and system sleep are separate interfaces, as described in the
+[kernel power-management documentation](https://docs.kernel.org/driver-api/pm/devices.html).
