@@ -249,6 +249,7 @@ The one-shot ALS sleep hook was removed after collection. Normal ALS reporting
 is restored; private observations and module copies are retained for research.
 
 
-A [source-built ALS PM candidate](als-pm.md) is now compiled and awake-load
-checked, with a one-shot native suspend/resume test pending. It replaces the
-diagnostic instruction edit with source callbacks; no battery benefit is claimed.
+A [source-built ALS PM candidate](als-pm.md) is compiled, awake-load checked
+and passed one native suspend/resume cycle. It replaces the diagnostic
+instruction edit with source callbacks; no battery benefit is claimed. The
+packaged original is restored and the one-shot observer is removed.

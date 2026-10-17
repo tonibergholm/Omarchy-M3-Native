@@ -1,7 +1,7 @@
 # J613 ALS suspend/resume source candidate
 
-Status on 2026-10-17: source-built and awake-load checked. Native suspend/resume
-and battery benefit are still pending. This is a local research candidate for
+Status on 2026-10-17: source-built, awake-load checked and one native
+suspend/resume cycle passed. Battery benefit remains unproven. This is a local research candidate for
 the exact [tested stack](tested-stack.md), not an installer or upstream support.
 
 The [sensor trace](../reports/2026-10-17-aop-sensor-suspend.json) established that
@@ -48,16 +48,25 @@ The candidate subsequently loaded with its J613 opt-in confirmed. Light readings
 work and awake AOP traffic was 12 interrupts over two seconds. The packaged ALS
 module remains unchanged. See the [selected build/runtime report](../reports/2026-10-17-als-source-pm-build.json).
 
-## First native PM test
+## First native PM result
 
-A temporary one-shot observer is armed. It records counters before sleep and
-following native driver resume, checks awake mailbox activity briefly, then
-reloads the preserved packaged original. It does not perform the suspend-time
-interval change: that belongs to the source-built driver's PM callback.
+The source-built candidate spent **364.836 seconds (6 minutes 5 seconds)**
+suspended. Kernel success increased 11→12 and failures stayed zero. Its own
+callbacks logged `J613 ALS reports paused for suspend` and
+`J613 ALS reports restored after resume`. The observer recorded **370 AOP
+interrupts**, approximately **1.014 per suspended second**, across the pre/post
+hook window including entry/exit overhead.
 
-The next attended lid cycle must check successful suspend, callback logs,
-interrupt activity, restored light reporting and normal lid-open/Touch ID/audio
-recovery. A longer matched battery comparison is still required before claiming
-an energy benefit. The candidate is not installed as the default module or in
-a boot image. Source patches preserve the Rust platform code's GPL-2.0-only
-license and the Asahi sensor driver's GPL-2.0-only OR MIT license.
+Before any post-wake module reload, the native driver delivered normal readable
+light data and AOP traffic returned to **12 interrupts over two seconds**.
+Brightness 265/77, OpenGL/Vulkan readbacks, Wi-Fi and speaker protection passed.
+The user confirmed lid-open wake, Touch ID unlock and clear protected audio.
+The observer then restored the packaged original, and the temporary hook was
+removed. See the [native sleep report](../reports/2026-10-17-als-source-pm-sleep.json).
+
+Charge increased 1227→1268 mAh while reported capacity stayed 29%, leaving energy
+use inconclusive. This is one native-cycle pass; repeated-cycle reliability and
+error/rollback paths remain unqualified. A longer matched battery comparison is
+required before claiming an energy benefit. The candidate is not installed as
+the default module or in a boot image. Source patches preserve the Rust platform
+code's GPL-2.0-only license and the Asahi sensor driver's GPL-2.0-only OR MIT license.

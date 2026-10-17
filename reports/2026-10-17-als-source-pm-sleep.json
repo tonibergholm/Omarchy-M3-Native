@@ -1,0 +1,77 @@
+{
+  "board": "J613 / M3 MacBook Air",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "candidate_sha256": "bb6c2017300eebdfeac291fdbd07dcd751e649bf7b1632feced753e54d80357d",
+  "source_commit": "5ec1028c81526e1ed31db2b97e47edf8663e83cb",
+  "scope": "One source-built ALS ordinary suspend/resume cycle with j613_suspend_quiesce=1; no sleep-time module replacement",
+  "suspended_s": 364.836,
+  "suspend_success_before_after": [
+    11,
+    12
+  ],
+  "suspend_fail_before_after": [
+    0,
+    0
+  ],
+  "AOP_irq_delta": 370,
+  "AOP_irqs_per_suspended_second": 1.0142,
+  "irq_window_limit": "Pre/post hook counters include entry/exit activity; no per-endpoint attribution in this run.",
+  "native_callback_messages": [
+    "J613 ALS reports paused for suspend",
+    "J613 ALS reports restored after resume"
+  ],
+  "awake_native_after_resume": {
+    "duration_s": 2.000234377999732,
+    "AOP_irq_delta": 12,
+    "sensors": {
+      "light_present": true,
+      "light_readable": true,
+      "lid_angle_present": true
+    }
+  },
+  "brightness_before_after": [
+    [
+      265,
+      77
+    ],
+    [
+      265,
+      77
+    ]
+  ],
+  "charge_mAh_before_after": [
+    1227.0,
+    1268.0
+  ],
+  "capacity_percent_before_after": [
+    29,
+    29
+  ],
+  "external_power_absent": true,
+  "checks": {
+    "user_lid_open_wake": "pass",
+    "user_touch_id": "pass",
+    "user_protected_tone": "clear",
+    "OpenGL_readback": "pass",
+    "Vulkan_compute_readback": "pass",
+    "speakersafetyd": "active",
+    "wifi": "connected",
+    "light_readable_after_native_resume": true,
+    "lid_angle_present": true,
+    "packaged_original_restored": true,
+    "packaged_file_unchanged": true
+  },
+  "CPU_PD_s2idle_entry_deltas": {
+    "cpu7": 369,
+    "cpu5": 370,
+    "cpu3": 726,
+    "cpu1": 369,
+    "cpu6": 370,
+    "cpu4": 369,
+    "cpu2": 370,
+    "cpu0": 371
+  },
+  "conclusion": "First native source-built suspend/resume test passed with reduced AOP traffic and restored awake reports.",
+  "limits": "One cycle; failure/rollback paths not fault-injected. Gauge increased during this short run, so no energy saving established. Runtime PM and hibernation untested/outside candidate scope.",
+  "cleanup": "Observer removed after auto-restoring packaged original; boot image and default module files unchanged."
+}

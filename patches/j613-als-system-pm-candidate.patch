@@ -2,7 +2,8 @@ SPDX-License-Identifier: GPL-2.0-only OR MIT
 Local source-built research candidate; not an upstream support claim.
 Base: omacom/linux-aurora 5ec1028c81526e1ed31db2b97e47edf8663e83cb
 Original source: Asahi Linux contributors.
-Compiled and awake-load checked on J613; native sleep and energy benefit pending.
+Compiled, awake-load checked and one native sleep cycle passed on J613.
+Energy benefit and repeated-cycle reliability remain unqualified.
 Ordinary system suspend/resume only; no runtime PM or hibernation callbacks.
 
 diff --git a/drivers/iio/common/aop_sensors/aop_als.rs b/drivers/iio/common/aop_sensors/aop_als.rs
