@@ -1,0 +1,23 @@
+{
+  "board": "Apple J613 / T8122",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "suspended_seconds": 5.52783891099898,
+  "success_before": "14",
+  "success_after": "15",
+  "fail_after": "0",
+  "brightness_after": {
+    "screen": "265",
+    "keyboard": "77"
+  },
+  "GPU_OpenGL_readback": "pass",
+  "GPU_Vulkan_readback": "pass",
+  "speakersafetyd": "active",
+  "keyboard_ancestor_wakeup": "enabled",
+  "keyboard_wakeup_count_after": 0,
+  "operator_report": "Enter alone woke the screen with lid open and no power-button press; Touch ID then unlocked the session.",
+  "wake_source_status": "Operator-confirmed built-in keyboard wake; kernel counters do not independently identify the source.",
+  "recorder_limitation": "Initial direct wakeup sysfs path was absent; ancestor discovery subsequently confirmed enabled. No before/after wake-counter delta was collected.",
+  "sleep_policy_changed": false,
+  "persistent_hook_installed": false,
+  "Touch_ID_unlock": "operator-confirmed pass"
+}

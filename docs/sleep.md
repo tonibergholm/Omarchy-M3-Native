@@ -111,3 +111,23 @@ and the [selected report](../reports/2026-10-17-overnight-sleep.json).
 
 The temporary sleep-cycle recorder was removed after collecting the overnight
 result. No sleep policy or device wake settings were changed.
+
+
+## Built-in keyboard wake
+
+An attended lid-open s2idle cycle on the same pinned J613 stack spent
+**5.528 seconds** suspended. The operator confirmed that **Enter alone woke the
+screen**, with no lid movement or power-button press, then Touch ID unlocked
+the session. Suspend success increased 14→15 and failures stayed zero.
+Brightness remained 265/77; OpenGL pixel and Vulkan compute readbacks passed.
+Speaker protection stayed active; audible playback was not tested this cycle.
+
+The MTP keyboard's input-device ancestor already had wakeup enabled; no wake
+setting or sleep policy was changed. Its post-test wake counter was zero, and
+no before/after counter delta was collected, so wake attribution rests on the
+operator's observation rather than independent kernel-source identification.
+The recorder's initial direct sysfs wakeup path was absent; subsequent ancestor
+discovery confirmed the actual enabled setting. This is one short Enter-key
+pass, not qualification of all keys, trackpad wake or repeated keyboard cycles.
+The one-shot user timer finished; no persistent sleep hook was installed.
+See the [selected report](../reports/2026-10-17-keyboard-wake.json).
