@@ -15,8 +15,9 @@
    wake and subsequent Touch ID unlock passed once; a separate lid-open trackpad
    wake also passed once. Test a larger cycle count. One 9h19m overnight recovery passed, but
    measured battery loss was 27 percentage points; investigate sleep draw.
-4. **macOS coexistence:** verify macOS Touch ID and Linux enrollment after a
-   round trip, without deleting or replacing either system's authority.
+4. **macOS coexistence:** one round trip passed macOS Touch ID and Linux matching
+   with existing enrollments unchanged. Repeat coexistence remains unqualified;
+   do not delete or replace either system's authority.
 5. **Audio startup:** reproduce the initial sample-rate failure across boots
    before changing service ordering. Clear [microphone capture](capture.md) passed; test jack switching and
    remote-call capture.

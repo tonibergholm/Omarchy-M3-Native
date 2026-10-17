@@ -33,11 +33,29 @@ nor this small test sequence establishes accuracy or reliability statistics.
 
 ## Limits
 
-macOS Touch ID after Linux enrollment, Linux/macOS round trips, sleep/resume,
-additional fingers, deletion and physical password-fallback authentication have
-not been tested here. No claim is made for J615 or other M3 boards.
+One macOS round trip with existing enrollments passed as recorded below;
+[sleep/resume](sleep.md) also has separate matching/unlock evidence. Additional
+fingers, deletion and physical password-fallback authentication remain untested
+here. No claim is made for J615 or other M3 boards.
 
 Read the release's
 [xART storage notes](https://github.com/omacom/linux-aurora/blob/5ec1028c81526e1ed31db2b97e47edf8663e83cb/tools/aurora-sep/XART-SAFETY.md).
 An iBoot image cannot promise recovery of SEP anti-replay state. No identity,
 calibration or biometric files belong in this repository.
+
+
+## macOS coexistence round trip (2026-10-17)
+
+The operator booted macOS from Startup Options and confirmed Touch ID worked
+there after the initial password login, with no fingerprint enrollment changes.
+After returning to Linux on the same pinned kernel, `/dev/sep-bio` was present
+and an attended `fprintd-verify` returned **verify-match** for the existing Linux
+enrollment. The first verification window timed out without a match result;
+a second attended attempt matched. No enrollment or SEP configuration changed.
+
+OpenGL pixel and Vulkan compute checks passed, screen/keyboard brightness
+returned to 265/77, and speaker protection was active. Audible playback and Linux
+PAM/lock-screen authentication were not separately repeated during this check.
+This is one coexistence pass with existing enrollments; enrollment changes,
+macOS updates and long-term shared-state reliability remain unqualified.
+See the [selected report](../reports/2026-10-17-macos-roundtrip.json).

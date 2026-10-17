@@ -1,0 +1,22 @@
+{
+  "board": "Apple J613 / T8122",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "system_firmware": "27.0",
+  "os_firmware_handoff": "14.7",
+  "operator_macos_touch_id": "Worked after initial password login; no enrollment changes",
+  "linux_return_verification": "verify-match",
+  "first_verification_attempt": "Timed out without a reported match; a second attended attempt matched.",
+  "sep_bio_present": true,
+  "GPU_OpenGL_readback": "pass",
+  "GPU_Vulkan_readback": "pass",
+  "screen_brightness": 265,
+  "keyboard_brightness": 77,
+  "speakersafetyd": "active",
+  "audio_audibility_tested": false,
+  "enrollment_modified_by_agent": false,
+  "limitations": [
+    "One macOS round trip with existing enrollments; no enrollment addition/deletion or macOS update qualified.",
+    "Linux fprintd matching checked after return; PAM and lock-screen were not separately repeated this cycle.",
+    "No claim about biometric accuracy or long-term shared security-state reliability."
+  ]
+}

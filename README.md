@@ -13,7 +13,7 @@ Asahi Linux and Apple; their work and support policies remain their own.
 | --- | --- | --- |
 | Speakers | Clear protected playback after restarting the audio stack | Protected playback passed after reboot and sleep; headphones and acoustic calibration unqualified |
 | Keyboard illumination | Brightness control and persistence across reboot | Super+F5/F6 added as local shortcuts |
-| Touch ID | Enrollment, matching, an unenrolled-finger rejection, sudo and lock-screen unlock | Reboot and repeated sleep recovery passed; macOS round trips untested |
+| Touch ID | Enrollment, matching, an unenrolled-finger rejection, sudo and lock-screen unlock | Reboot, repeated sleep and one macOS round trip passed; enrollment changes unqualified |
 | GPU | OpenGL pixel readback and Vulkan compute readback passed | Experimental legacy/current14 profile; capped at performance state 2, 618 MHz |
 | Native panel | eDP-1, 2560×1664, running Hyprland | Local brightness test passed visible changes, keys/OSD and DPMS checks; scanout remains SDR/8-bit |
 | Die temperatures | 13 channels exposed; GPU reads `macsmc_soc_die` | Sensor selection is a local experiment, not a qualified policy for higher clocks |
