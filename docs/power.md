@@ -180,3 +180,39 @@ validate report quiescing/restoration before testing any energy benefit.
 
 See the [selected diagnostic report](../reports/2026-10-17-suspend-diagnostic.json).
 Raw trace, interrupt snapshots and device-tree data remain private.
+
+
+## AOP endpoint attribution and reversible ALS control
+
+A second diagnostic sleep lasted **62.984 seconds**, success 9→10, failures zero.
+Temporary argument-free probes on the ALS and LAS report handlers, plus an
+RTKit receive probe filtered to AOP IRQ 57, recorded **164 ambient-light reports**
+and **63 lid-angle reports** between `machine_suspend` markers. Endpoint
+**0x27** delivered 164 messages; **0x26** delivered 63. An eight-second awake
+control gave 40 ALS/0x27 and eight LAS/0x26 reports. No trace events were lost.
+This establishes sensor processing during sleep, without attributing battery
+cost. Probes, their isolated instance and the diagnostic hook were then removed.
+See the [sensor report](../reports/2026-10-17-aop-sensor-suspend.json).
+
+The installed headers omit the Rust build artifacts needed to rebuild this
+module directly. A private, temporary **instruction-checked module copy** was
+therefore used only to validate control of ALS reporting. Four checked AArch64
+instructions in the two probe branches change the single source constant
+`ALS_INTERVAL_US` from 200000 to zero. No relocation targets those instructions;
+no packaged module, firmware or calibration was modified. Original upstream
+code remains the Asahi contributors' dual GPL-2.0-only/MIT sensor driver.
+This is a diagnostic binary experiment, not a source-built PM fix or an installer.
+
+An awake original/stopped/restored sequence measured **48 / 8 / 48 AOP mailbox
+interrupts** in three eight-second windows: approximately **6 / 1 / 6 per second**.
+The ALS device remained present but returned ENODATA while reporting was stopped;
+normal light readings returned after reloading the original module. The lid-angle
+device stayed present. Packaged module SHA-256 remained unchanged. An earlier
+collector treated expected ENODATA as an error; its `finally` path also restored
+the original successfully before the corrected repeat.
+See the [control report](../reports/2026-10-17-als-interval-control.json).
+
+A J613-only one-shot sleep test is now prepared to substitute the interval-zero
+copy before sleep and reload the preserved original after wake. This leaves LAS,
+Wi-Fi, Bluetooth, audio drivers and speaker protection alone. No sleep power
+saving or production-ready suspend fix has yet been established.

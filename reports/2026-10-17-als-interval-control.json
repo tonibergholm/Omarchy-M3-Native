@@ -1,0 +1,47 @@
+{
+  "board": "J613",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "samples": [
+    {
+      "condition": "original-200000us",
+      "duration_s": 8.001,
+      "AOP_irq_delta": 48,
+      "AOP_irq_per_second": 5.999,
+      "sensors": {
+        "als_present": true,
+        "als_readable": true,
+        "las_present": true
+      }
+    },
+    {
+      "condition": "temporary-0us",
+      "duration_s": 8.002,
+      "AOP_irq_delta": 8,
+      "AOP_irq_per_second": 1.0,
+      "sensors": {
+        "als_present": true,
+        "als_readable": false,
+        "als_read_errno": 61,
+        "las_present": true
+      }
+    },
+    {
+      "condition": "restored-200000us",
+      "duration_s": 8.002,
+      "AOP_irq_delta": 48,
+      "AOP_irq_per_second": 5.999,
+      "sensors": {
+        "als_present": true,
+        "als_readable": true,
+        "las_present": true
+      }
+    }
+  ],
+  "packaged_module_sha256": "d04a07bac5d3086e47a3c764740d0aa30e9d0f53c988c140283249a631840690",
+  "temporary_module_sha256": "234bd9c31745e8d6b31e9e7a381d2f231143bc9a5474de5bf601621077e01506",
+  "method": "Instruction-checked temporary module copy sets ALS_INTERVAL_US to 0; normal packaged file unchanged.",
+  "original_restored": true,
+  "packaged_file_unchanged": true,
+  "scope": "Awake-only original / stopped-reporting / original sequence; no sleep energy measurement.",
+  "limitations": "Private instruction-checked module experiment, not a source-built or deployable PM fix. Light readings intentionally unavailable while stopped. Lid sensor remains bound; no audio driver changes."
+}
