@@ -115,9 +115,8 @@ than measured independently. The candidate's delayed charge readings were
 Delayed readings include awake use and are not a corrected sleep-energy result.
 
 AC was absent and radio block states and brightness matched the baseline at
-both endpoints. The temporary observation hook is unarmed and the sampler unit is inactive;
-removal is pending desktop authentication. The packaged driver remains the
-default and no boot image was changed. This
+both endpoints. The temporary observation hook and sampler unit have been removed. The packaged
+driver remains the default and no boot image was changed. This
 second native cycle supports the PM behavior, but repeated-cycle reliability,
 error paths and energy savings remain unqualified. See the
 [selected comparison](../reports/2026-10-17-als-energy-comparison.json).

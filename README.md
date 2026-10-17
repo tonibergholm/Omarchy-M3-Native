@@ -1,7 +1,7 @@
 # Omarchy M3 Native
 
 Findings and local tuning from running Omarchy on a **13-inch MacBook Air M3
-(2024), J613 / T8122**. Tested on one machine on **2026-10-16**.
+(2024), J613 / T8122**. Tested on one machine on **2026-10-16–17**.
 
 This is a research and setup log, not an installer or a new driver distribution.
 It uses the published Aurora Linux stack. It is independent of Omarchy, Aurora,
@@ -11,9 +11,9 @@ Asahi Linux and Apple; their work and support policies remain their own.
 
 | Feature | Observed result | Limits |
 | --- | --- | --- |
-| Speakers | Clear protected playback after restarting the audio stack | Acoustic calibration, headphones and resume not qualified here |
+| Speakers | Clear protected playback after restarting the audio stack | Protected playback passed after reboot and sleep; headphones and acoustic calibration unqualified |
 | Keyboard illumination | Brightness control and persistence across reboot | Super+F5/F6 added as local shortcuts |
-| Touch ID | Enrollment, matching, an unenrolled-finger rejection, sudo and lock-screen unlock | Enrollment, matching and sudo also passed after Linux reboot; macOS round trips and suspend untested |
+| Touch ID | Enrollment, matching, an unenrolled-finger rejection, sudo and lock-screen unlock | Reboot and repeated sleep recovery passed; macOS round trips untested |
 | GPU | OpenGL pixel readback and Vulkan compute readback passed | Experimental legacy/current14 profile; capped at performance state 2, 618 MHz |
 | Native panel | eDP-1, 2560×1664, running Hyprland | Local brightness test passed visible changes, keys/OSD and DPMS checks; scanout remains SDR/8-bit |
 | Die temperatures | 13 channels exposed; GPU reads `macsmc_soc_die` | Sensor selection is a local experiment, not a qualified policy for higher clocks |
@@ -30,6 +30,7 @@ Asahi Linux and Apple; their work and support policies remain their own.
 - [Suspend/resume results](docs/sleep.md)
 - [Battery observations](docs/power.md)
 - [Temperature sensing](docs/thermal.md)
+- [ALS suspend/resume candidate and energy comparison](docs/als-pm.md)
 - [Video decoding and playback](docs/video.md)
 - [Microphone and camera tests](docs/capture.md)
 - [Local WebRTC call test](docs/webrtc.md)

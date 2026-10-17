@@ -66,3 +66,27 @@ References: the exact release's
 [GPU thermal policy](https://github.com/omacom/linux-aurora/blob/5ec1028c81526e1ed31db2b97e47edf8663e83cb/drivers/gpu/drm/asahi/m3_thermal.rs),
 [iSMC sensor map](https://github.com/dkorunic/iSMC/blob/master/smc/sensors.go), and
 [M4 sensor research](https://github.com/Kb2uka/Omarchy-M4-Native/blob/develop/docs/j713-cpu-temperature.md).
+
+## Follow-up: updates and policy failure behavior
+
+On the same pinned kernel, 65 read-only samples over 64.31 seconds found all
+13 die channels readable and changing, with 51–64 changes per channel. The
+aggregate zone ranged from 50.187 to 63.906°C during ordinary desktop and
+research activity; no deliberate stress load was applied. This demonstrates
+updates, not calibrated accuracy or independent hardware freshness timestamps.
+Sequential channel and zone reads are not simultaneous.
+
+Ten host tests against the unchanged release's `m3_thermal_policy.rs` passed:
+three existing board/required-zone tests and seven local checks for missing,
+failed, stale, implausible and stuck readings, critical-temperature fallback
+with its grace period, and a fixed state-2 ceiling. The hwmon aggregate's source
+returns an error if any selected die sensor fails or is out of its accepted
+range. These are source and host-policy checks, not injected hardware faults.
+
+Live kernel summaries still show safe state 2 and ceiling 2, both 618 MHz, with
+no cap raises or lowers. Consequently the thermal fallback cannot reduce the
+current GPU cap below state 2; it must not be described as a GPU shutdown or a
+qualified whole-machine thermal policy. No Linux cooling devices or SMC thermal
+pressure attribute were exposed. CPU firmware protection and sustained-load
+safety remain unqualified. Clocks and protection settings were unchanged.
+See the [selected report](../reports/2026-10-17-thermal-policy-check.json).

@@ -1,0 +1,101 @@
+{
+  "board": "Apple J613 / T8122",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "source_commit": "5ec1028c81526e1ed31db2b97e47edf8663e83cb",
+  "sampling": {
+    "samples": 65,
+    "elapsed_s": 64.31,
+    "interval_target_s": 1,
+    "added_load": false,
+    "zone_min_C": 50.187,
+    "zone_max_C": 63.906,
+    "channels": {
+      "SoC die Tg0i": {
+        "min_C": 34.104,
+        "max_C": 36.22,
+        "changes": 63
+      },
+      "SoC die Tg0X": {
+        "min_C": 38.15,
+        "max_C": 39.221,
+        "changes": 63
+      },
+      "SoC die Tg0O": {
+        "min_C": 34.344,
+        "max_C": 36.065,
+        "changes": 60
+      },
+      "SoC die Tg0j": {
+        "min_C": 38.504,
+        "max_C": 40.62,
+        "changes": 63
+      },
+      "SoC die TCMz": {
+        "min_C": 50.187,
+        "max_C": 63.906,
+        "changes": 51
+      },
+      "SoC die Tg0a": {
+        "min_C": 34.429,
+        "max_C": 35.498,
+        "changes": 63
+      },
+      "SoC die Tg0P": {
+        "min_C": 38.744,
+        "max_C": 40.465,
+        "changes": 60
+      },
+      "SoC die Tg0u": {
+        "min_C": 34.301,
+        "max_C": 36.069,
+        "changes": 62
+      },
+      "SoC die Tg0C": {
+        "min_C": 34.147,
+        "max_C": 35.413,
+        "changes": 61
+      },
+      "SoC die Tg0b": {
+        "min_C": 38.829,
+        "max_C": 39.898,
+        "changes": 63
+      },
+      "SoC die Tg0v": {
+        "min_C": 38.701,
+        "max_C": 40.469,
+        "changes": 62
+      },
+      "SoC die Tg0W": {
+        "min_C": 33.75,
+        "max_C": 41.426,
+        "changes": 64
+      },
+      "SoC die Tg0D": {
+        "min_C": 38.547,
+        "max_C": 39.813,
+        "changes": 61
+      }
+    }
+  },
+  "policy_host_tests": {
+    "passed": 10,
+    "failed": 0,
+    "scope": "Three existing required-zone tests plus seven local checks against unchanged release policy source: missing, read error, stale, implausible, stuck, critical/grace, fixed state-2 ceiling.",
+    "source_sha256": "d62bb47a8f86d894a9ad57285b351a8c451362439348866e0717c04ff2b789e8"
+  },
+  "live": {
+    "cooling_devices": 0,
+    "smc_thermal_pressure_attribute": false,
+    "GPU_runtime_cap": 2,
+    "GPU_safe_state": 2,
+    "GPU_ceiling": 2,
+    "GPU_cap_MHz": 618
+  },
+  "limitations": [
+    "Host policy tests do not inject faults into running hardware.",
+    "Changing values demonstrate updates, not calibration or independent freshness timestamps.",
+    "Sequential hwmon and zone reads are not simultaneous.",
+    "Safe-state fallback cannot reduce the current GPU cap below state 2.",
+    "CPU firmware thermal protection and sustained-load safety remain unqualified."
+  ]
+}
