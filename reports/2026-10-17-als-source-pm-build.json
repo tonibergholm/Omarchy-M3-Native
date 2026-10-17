@@ -1,0 +1,60 @@
+{
+  "board": "J613 / M3 MacBook Air",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "source_commit": "5ec1028c81526e1ed31db2b97e47edf8663e83cb",
+  "source_archive_sha256": "6cc841d18a55beb163faabb52e5a84d9fcf7bd8d6618c879ac88ac0d918cd630",
+  "toolchain": {
+    "Rust": "1.93.1 (01f6ddf75 2026-02-11)",
+    "clang": "22.1.8",
+    "bindgen": "0.73.2"
+  },
+  "config_matches_installed_byte_for_byte": true,
+  "modules": {
+    "reference": {
+      "sha256": "03761ef7ec8a70d0d1bbd6b8cf045306b4d00018f185e08a0c9db4c758d9390c",
+      "undefined_symbol_count": 47,
+      "missing_exports": [],
+      "vermagic": "7.1.12-2-20261015.19-sep-ARCH SMP preempt mod_unload aarch64"
+    },
+    "candidate": {
+      "sha256": "bb6c2017300eebdfeac291fdbd07dcd751e649bf7b1632feced753e54d80357d",
+      "undefined_symbol_count": 52,
+      "missing_exports": [],
+      "vermagic": "7.1.12-2-20261015.19-sep-ARCH SMP preempt mod_unload aarch64"
+    }
+  },
+  "reference_runtime": {
+    "reference": {
+      "light_readable": true,
+      "lid_angle_present": true
+    },
+    "reference_loaded": true,
+    "original_restored": {
+      "light_readable": true,
+      "lid_angle_present": true
+    },
+    "packaged_file_unchanged": true
+  },
+  "candidate_runtime": {
+    "source_built": true,
+    "reference_runtime_passed": true,
+    "sensors": {
+      "light_readable": true,
+      "lid_angle_present": true
+    },
+    "j613_suspend_quiesce_argument": 1,
+    "parameter_sysfs_visibility": "Pinned Rust macro uses perm=0; not exposed",
+    "awake_check": {
+      "duration_s": 2.000620450002316,
+      "AOP_irq_delta": 12
+    },
+    "optin_probe_message_seen": true,
+    "candidate_loaded": true,
+    "one_shot_restore_armed": true,
+    "packaged_file_unchanged": true
+  },
+  "scope": "Opt-in j613_suspend_quiesce=1 plus runtime apple,j613 guard. Normal ALS reports while awake; interval 0 on suspend; 200000 us on resume. Suspend failure attempts interval rollback.",
+  "api_scope": "Typed ordinary suspend/resume callbacks added to generic Rust platform adapter; no runtime-PM, noirq or hibernation callbacks. Existing drivers default HAS_PM=false.",
+  "parameter_visibility": "Pinned Rust module macro uses perm=0; parameter accepted by insmod but absent from sysfs. Opt-in confirmed by probe-time kernel message.",
+  "status": "Source-built and awake-load checked; native suspend/resume and battery effect pending. Observer will restore packaged module after one sleep; no boot image or packaged module replaced."
+}

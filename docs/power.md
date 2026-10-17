@@ -247,3 +247,8 @@ The temporary module substitution is not installed as a permanent sleep policy.
 
 The one-shot ALS sleep hook was removed after collection. Normal ALS reporting
 is restored; private observations and module copies are retained for research.
+
+
+A [source-built ALS PM candidate](als-pm.md) is now compiled and awake-load
+checked, with a one-shot native suspend/resume test pending. It replaces the
+diagnostic instruction edit with source callbacks; no battery benefit is claimed.
