@@ -1,0 +1,402 @@
+{
+  "board": "Apple J613 / M3 MacBook Air",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "trials": {
+    "packaged-original": {
+      "suspended_seconds": 13118.196075511001,
+      "immediate_derived_loss_Wh": 4.5828,
+      "immediate_derived_average_W": 1.2576485291905761,
+      "AOP_irqs_per_suspended_second": 3.6202386156322226,
+      "pre": {
+        "phase": "pre",
+        "battery": {
+          "status": "Discharging",
+          "capacity": "26",
+          "charge_now": "1088000",
+          "energy_now": "12403200",
+          "energy_full": "49612800",
+          "power_now": "-6732000",
+          "current_now": "-602000",
+          "voltage_now": "11184000"
+        },
+        "external_power": [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "rfkill": [
+          {
+            "type": "bluetooth",
+            "soft": "0",
+            "hard": "0"
+          },
+          {
+            "type": "wlan",
+            "soft": "0",
+            "hard": "0"
+          }
+        ],
+        "screen": "265",
+        "keyboard": "77",
+        "AOP_irq_total": 276892,
+        "success": "12",
+        "fail": "0"
+      },
+      "post_immediate": {
+        "phase": "post-immediate",
+        "battery": {
+          "status": "Discharging",
+          "capacity": "16",
+          "charge_now": "686000",
+          "energy_now": "7820400",
+          "energy_full": "50228400",
+          "power_now": "-1406000",
+          "current_now": "-126000",
+          "voltage_now": "11159000"
+        },
+        "external_power": [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "rfkill": [
+          {
+            "type": "bluetooth",
+            "soft": "0",
+            "hard": "0"
+          },
+          {
+            "type": "wlan",
+            "soft": "0",
+            "hard": "0"
+          }
+        ],
+        "screen": "265",
+        "keyboard": "77",
+        "AOP_irq_total": 324383,
+        "success": "13",
+        "fail": "0"
+      },
+      "post_settling": [
+        {
+          "phase": "post-30s",
+          "battery": {
+            "status": "Discharging",
+            "capacity": "15",
+            "charge_now": "632000",
+            "energy_now": "7204800",
+            "energy_full": "49669800",
+            "power_now": "-7166000",
+            "current_now": "-649000",
+            "voltage_now": "11042000"
+          },
+          "external_power": [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          "rfkill": [
+            {
+              "type": "bluetooth",
+              "soft": "0",
+              "hard": "0"
+            },
+            {
+              "type": "wlan",
+              "soft": "0",
+              "hard": "0"
+            }
+          ],
+          "screen": "265",
+          "keyboard": "77",
+          "AOP_irq_total": 324562,
+          "success": "13",
+          "fail": "0",
+          "seconds_since_post": 30.004980412002624
+        },
+        {
+          "phase": "post-60s",
+          "battery": {
+            "status": "Discharging",
+            "capacity": "15",
+            "charge_now": "623000",
+            "energy_now": "7102200",
+            "energy_full": "49635600",
+            "power_now": "-7093000",
+            "current_now": "-643000",
+            "voltage_now": "11032000"
+          },
+          "external_power": [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          "rfkill": [
+            {
+              "type": "bluetooth",
+              "soft": "0",
+              "hard": "0"
+            },
+            {
+              "type": "wlan",
+              "soft": "0",
+              "hard": "0"
+            }
+          ],
+          "screen": "265",
+          "keyboard": "77",
+          "AOP_irq_total": 324742,
+          "success": "13",
+          "fail": "0",
+          "seconds_since_post": 60.004444212001545
+        },
+        {
+          "phase": "post-120s",
+          "battery": {
+            "status": "Discharging",
+            "capacity": "15",
+            "charge_now": "612000",
+            "energy_now": "6976800",
+            "energy_full": "49635600",
+            "power_now": "-7096000",
+            "current_now": "-644000",
+            "voltage_now": "11020000"
+          },
+          "external_power": [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          "rfkill": [
+            {
+              "type": "bluetooth",
+              "soft": "0",
+              "hard": "0"
+            },
+            {
+              "type": "wlan",
+              "soft": "0",
+              "hard": "0"
+            }
+          ],
+          "screen": "265",
+          "keyboard": "77",
+          "AOP_irq_total": 325101,
+          "success": "13",
+          "fail": "0",
+          "seconds_since_post": 120.00372722000247
+        }
+      ]
+    },
+    "source-pm-candidate": {
+      "suspended_seconds": 14714.913424450002,
+      "immediate_derived_loss_Wh": 4.845,
+      "immediate_derived_average_W": 1.1853280747828747,
+      "AOP_irqs_per_suspended_second": 1.0027242141624422,
+      "pre": {
+        "phase": "pre",
+        "battery": {
+          "status": "Discharging",
+          "capacity": "70",
+          "charge_now": "2973000",
+          "energy_now": "33892200",
+          "energy_full": "49601400",
+          "power_now": "-6225000",
+          "current_now": "-512000",
+          "voltage_now": "12159000"
+        },
+        "external_power": [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "rfkill": [
+          {
+            "type": "bluetooth",
+            "soft": "0",
+            "hard": "0"
+          },
+          {
+            "type": "wlan",
+            "soft": "0",
+            "hard": "0"
+          }
+        ],
+        "screen": "265",
+        "keyboard": "77",
+        "AOP_irq_total": 342761,
+        "success": "13",
+        "fail": "0"
+      },
+      "post_immediate": {
+        "phase": "post-immediate",
+        "battery": {
+          "status": "Discharging",
+          "capacity": "61",
+          "charge_now": "2548000",
+          "energy_now": "29047200",
+          "energy_full": "50228400",
+          "power_now": "-5420000",
+          "current_now": "-460000",
+          "voltage_now": "11783000"
+        },
+        "external_power": [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "rfkill": [
+          {
+            "type": "bluetooth",
+            "soft": "0",
+            "hard": "0"
+          },
+          {
+            "type": "wlan",
+            "soft": "0",
+            "hard": "0"
+          }
+        ],
+        "screen": "265",
+        "keyboard": "77",
+        "AOP_irq_total": 357516,
+        "success": "14",
+        "fail": "0"
+      },
+      "post_settling": [
+        {
+          "phase": "post-30s",
+          "battery": {
+            "status": "Discharging",
+            "capacity": "60",
+            "charge_now": "2475000",
+            "energy_now": "28215000",
+            "energy_full": "49441800",
+            "power_now": "-6212000",
+            "current_now": "-529000",
+            "voltage_now": "11744000"
+          },
+          "external_power": [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          "rfkill": [
+            {
+              "type": "bluetooth",
+              "soft": "0",
+              "hard": "0"
+            },
+            {
+              "type": "wlan",
+              "soft": "0",
+              "hard": "0"
+            }
+          ],
+          "screen": "265",
+          "keyboard": "77",
+          "AOP_irq_total": 357695,
+          "success": "14",
+          "fail": "0",
+          "seconds_since_post": 30.003305746999104
+        },
+        {
+          "phase": "post-60s",
+          "battery": {
+            "status": "Discharging",
+            "capacity": "60",
+            "charge_now": "2462000",
+            "energy_now": "28066800",
+            "energy_full": "49350600",
+            "power_now": "-6228000",
+            "current_now": "-531000",
+            "voltage_now": "11730000"
+          },
+          "external_power": [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          "rfkill": [
+            {
+              "type": "bluetooth",
+              "soft": "0",
+              "hard": "0"
+            },
+            {
+              "type": "wlan",
+              "soft": "0",
+              "hard": "0"
+            }
+          ],
+          "screen": "265",
+          "keyboard": "77",
+          "AOP_irq_total": 357874,
+          "success": "14",
+          "fail": "0",
+          "seconds_since_post": 60.00424183599898
+        },
+        {
+          "phase": "post-120s",
+          "battery": {
+            "status": "Discharging",
+            "capacity": "59",
+            "charge_now": "2427000",
+            "energy_now": "27667800",
+            "energy_full": "49065600",
+            "power_now": "-7114000",
+            "current_now": "-608000",
+            "voltage_now": "11702000"
+          },
+          "external_power": [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          "rfkill": [
+            {
+              "type": "bluetooth",
+              "soft": "0",
+              "hard": "0"
+            },
+            {
+              "type": "wlan",
+              "soft": "0",
+              "hard": "0"
+            }
+          ],
+          "screen": "265",
+          "keyboard": "77",
+          "AOP_irq_total": 358234,
+          "success": "14",
+          "fail": "0",
+          "seconds_since_post": 120.00298127199858
+        }
+      ]
+    }
+  },
+  "candidate_callbacks": {
+    "pause_logged": true,
+    "resume_logged": true
+  },
+  "packaged_original_restored": {
+    "original_loaded": true,
+    "light_readable": true
+  },
+  "limitations": [
+    "One sequential pair with different starting state of charge (26% vs 70%) and different durations.",
+    "energy_now is charge-derived at nominal voltage; not an independent energy meter.",
+    "Large post-wake gauge movement; delayed loss includes awake use and is not sleep-only energy.",
+    "Lower AOP interrupt rate demonstrated; energy benefit remains unproven."
+  ]
+}

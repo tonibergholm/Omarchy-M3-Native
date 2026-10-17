@@ -90,6 +90,33 @@ alone would suggest. Later full-energy readings settled near 49.6356 Wh.
 Delayed charge loss includes both awake use and gauge settling; it is not
 reported as sleep-only consumption, nor used as a fixed correction offset.
 
-The candidate comparison is pending recharge and must match the observed
-baseline duration as closely as practical. No ALS energy-saving claim follows
+The candidate comparison is recorded below. No ALS energy-saving claim follows
 from this baseline. See the [selected observations](../reports/2026-10-17-als-energy-baseline.json).
+
+
+## Longer candidate comparison
+
+On the same J613 and pinned kernel, the opted-in source PM candidate completed
+**14,714.913 seconds (4h05m15s)** suspended. Both native callbacks logged success;
+suspend success increased 13→14 and failures stayed zero. AOP IRQ count increased
+by 14,755, approximately **1.003 per suspended second**, versus the packaged
+baseline's 3.620. After wake, traffic returned to about six interrupts per second
+before the packaged original was restored automatically after the 120-second
+sample. Light readings worked after restoration.
+
+Charge fell **2973→2548 mAh**, reported capacity **70%→61%**. Immediate derived
+energy loss was **4.845 Wh**, approximately **1.185 W**, versus the baseline's
+1.258 W. This roughly 0.072 W difference does **not** establish an energy benefit:
+this is one sequential pair, durations differ, starting state of charge differs
+(70% versus 26%), and energy is derived from charge at nominal voltage rather
+than measured independently. The candidate's delayed charge readings were
+**2475, 2462 and 2427 mAh** at 30, 60 and 120 seconds. The first 30-second drop of
+73 mAh and changing full-energy estimate again show substantial gauge movement.
+Delayed readings include awake use and are not a corrected sleep-energy result.
+
+AC was absent and radio block states and brightness matched the baseline at
+both endpoints. The temporary observation hook and sampler unit were removed;
+the packaged driver remains the default and no boot image was changed. This
+second native cycle supports the PM behavior, but repeated-cycle reliability,
+error paths and energy savings remain unqualified. See the
+[selected comparison](../reports/2026-10-17-als-energy-comparison.json).
