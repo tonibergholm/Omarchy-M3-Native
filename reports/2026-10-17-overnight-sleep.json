@@ -1,0 +1,52 @@
+{
+  "board": "J613 / M3 MacBook Air",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "test": "Overnight unplugged lid sleep",
+  "suspended_seconds": 33557.628,
+  "suspend_success_before": 4,
+  "suspend_success_after": 5,
+  "suspend_fail_before": 0,
+  "suspend_fail_after": 0,
+  "external_power_absent": true,
+  "brightness_before_after": {
+    "screen": [
+      265,
+      265
+    ],
+    "keyboard": [
+      77,
+      77
+    ]
+  },
+  "charge_mAh_before_after": [
+    3462.0,
+    2409.0
+  ],
+  "energy_Wh_before_after": [
+    39.4668,
+    27.4626
+  ],
+  "checks": {
+    "opengl_readback": "pass",
+    "vulkan_compute_readback": "pass",
+    "camera_1080p_NV12_30_frames": "pass",
+    "speakersafetyd": "active",
+    "default_sink": "audio_effect.j613-convolver",
+    "user_touch_id_unlock": "pass",
+    "user_display": "normal",
+    "user_audible_tone": "clear"
+  },
+  "power_conclusion": "Substantial overnight battery loss: 27 percentage points over 9.322 hours. Charge-derived energy estimate, not an independent energy meter; one run, not a precise power or runtime qualification.",
+  "recorder": "Temporary sleep recorder removed after collection; root originals retained privately; no sleep policy changed.",
+  "capacity_percent_before_after": [
+    84.0,
+    57.0
+  ],
+  "derived_energy_loss_Wh": 12.0042,
+  "derived_average_W": 1.2878,
+  "log_observations": [
+    "One PM suspend entry/exit pair over overnight interval; internal s2idle wake activity not measured.",
+    "Bluetooth hci0 opcode 0x0c01 timeout at resume; causation of drain unproven.",
+    "Existing ISP firmware-did-not-suspend message after post-wake capture."
+  ]
+}

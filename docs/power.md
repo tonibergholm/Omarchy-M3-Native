@@ -62,3 +62,29 @@ session is claimed: workload and brightness both differed.
 The original screen brightness 265 and keyboard brightness 77 were restored
 automatically. No power policy changed. See the
 [selected report](../reports/2026-10-16-settled-desktop-power.json).
+
+
+## Overnight unplugged sleep: measurable battery loss
+
+The overnight J613 run spent **33,557.628 seconds (9.322 hours)** suspended.
+Recorded capacity fell **84%→57%**, charge **3462→2409 mAh**, and charge-derived
+energy **39.4668→27.4626 Wh**. All external-power inputs were offline at both
+observations. The 12.0042 Wh difference corresponds to approximately **1.29 W**
+over the suspended interval. Unlike the near-full short tests, this run provides
+clear evidence of substantial overnight battery loss.
+
+This remains a single charge-gauge-derived estimate using nominal pack voltage,
+not an independent energy measurement. Reported full energy also changed
+49.8408→50.2398 Wh. Do not extrapolate exact sleep runtime from it.
+
+Kernel suspend success increased 4→5 with failures zero. The log contains one
+PM suspend entry/exit pair across the interval; this does not measure internal
+s2idle wake activity. A Bluetooth opcode 0x0c01 timeout appeared at resume,
+which does not establish the cause of the drain. The wake IRQ mapped to
+apple-dockchannel-rx, which likewise is not a drain attribution.
+
+Touch ID, display, protected audible sound, GPU readbacks and 30-frame camera
+capture all passed after wake. See the
+[overnight report](../reports/2026-10-17-overnight-sleep.json). A future controlled
+comparison can isolate device contributions; no radio or wake-source policy was
+changed in this run.

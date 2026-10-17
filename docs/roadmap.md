@@ -12,7 +12,8 @@
    Touch ID unlock, brightness, GPU readback and audible protected playback.
    A further unplugged 17½-minute lid cycle and three consecutive attended lid
    cycles passed recovery; battery counters were inconclusive. Test keyboard
-   wake, overnight sleep and a larger cycle count.
+   wake and a larger cycle count. One 9h19m overnight recovery passed, but
+   measured battery loss was 27 percentage points; investigate sleep draw.
 4. **macOS coexistence:** verify macOS Touch ID and Linux enrollment after a
    round trip, without deleting or replacing either system's authority.
 5. **Audio startup:** reproduce the initial sample-rate failure across boots

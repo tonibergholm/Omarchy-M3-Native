@@ -95,3 +95,19 @@ It does not qualify overnight sleep or large-cycle-count reliability. Charge
 increased 4056→4080 mAh while reported capacity stayed 98%, leaving sleep draw
 inconclusive. The temporary recorder remains installed for a longer test after
 normal battery use. See the [third-cycle report](../reports/2026-10-16-power-cycle-3.json).
+
+
+## Overnight resume (2026-10-17)
+
+An unplugged **9 hour 19 minute** lid sleep resumed successfully: suspend success
+4→5, failures zero, screen brightness 265 and keyboard lighting 77 restored.
+OpenGL and Vulkan checks and 30-frame 1080p NV12 camera capture passed. The user
+confirmed Touch ID unlock, normal display and clear protected audio. This is
+one overnight recovery pass, not broad reliability qualification.
+
+Battery fell 84%→57%, approximately 1.29 W by the charge-derived energy counter.
+See [power observations and limits](power.md#overnight-unplugged-sleep-measurable-battery-loss)
+and the [selected report](../reports/2026-10-17-overnight-sleep.json).
+
+The temporary sleep-cycle recorder was removed after collecting the overnight
+result. No sleep policy or device wake settings were changed.
