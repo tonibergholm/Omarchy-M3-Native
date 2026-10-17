@@ -1,0 +1,61 @@
+{
+  "board": "J613 / M3 MacBook Air",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "condition": "Temporary instruction-checked interval-zero ALS module during one sleep; original restored on wake",
+  "suspended_s": 788.295,
+  "AOP_irq_delta": 790,
+  "AOP_irqs_per_suspended_second": 1.0022,
+  "measurement_window_limit": "IRQ delta spans pre/post hook observations, including entry/exit overhead; no per-endpoint trace in this run.",
+  "suspend_success_before_after": [
+    10,
+    11
+  ],
+  "suspend_fail_before_after": [
+    0,
+    0
+  ],
+  "light_readable_before_after_restored": [
+    false,
+    false,
+    true
+  ],
+  "lid_angle_present_before_after_restored": [
+    true,
+    true,
+    true
+  ],
+  "CPU_PD_s2idle_entry_deltas": {
+    "cpu7": 794,
+    "cpu5": 794,
+    "cpu3": 1564,
+    "cpu1": 793,
+    "cpu6": 794,
+    "cpu4": 794,
+    "cpu2": 794,
+    "cpu0": 795
+  },
+  "brightness_before_after": [
+    [
+      265,
+      77
+    ],
+    [
+      265,
+      77
+    ]
+  ],
+  "checks": {
+    "user_lid_open_wake": "pass",
+    "user_touch_id_unlock": "pass",
+    "user_protected_tone": "clear",
+    "OpenGL_readback": "pass",
+    "Vulkan_compute_readback": "pass",
+    "speakersafetyd": "active",
+    "wifi": "connected",
+    "packaged_module_unchanged": true
+  },
+  "conclusion": "Light reporting can be quiesced reversibly across suspend. Remaining ~1 Hz AOP traffic is consistent with lid-angle reporting; no endpoint attribution trace in this run.",
+  "energy_limit": "Battery counters were not recorded in this test; no power saving established.",
+  "implementation_limit": "Diagnostic module substitution, not a source-built production PM callback; lid sensor and audio modules untouched.",
+  "cleanup": "Original ALS driver restored and one-shot hook removed; private observations/module copies retained."
+}

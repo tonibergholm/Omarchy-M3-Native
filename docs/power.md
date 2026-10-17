@@ -216,3 +216,34 @@ A J613-only one-shot sleep test is now prepared to substitute the interval-zero
 copy before sleep and reload the preserved original after wake. This leaves LAS,
 Wi-Fi, Bluetooth, audio drivers and speaker protection alone. No sleep power
 saving or production-ready suspend fix has yet been established.
+
+
+## ALS quiesced sleep: recovery and reduced interrupt traffic
+
+The one-shot J613 experiment spent **788.295 seconds (13 minutes 8 seconds)**
+suspended. It loaded the private interval-zero ALS module before sleep and
+reloaded the preserved original after wake. ALS readings returned ENODATA at
+both measurement boundaries and became readable again after restoration. The
+lid-angle device remained bound throughout. The packaged module stayed unchanged.
+
+AOP IRQ 57 increased by **790** across the hook observations, approximately
+**1.002 interrupts per suspended second**. That window includes entry/exit
+activity, and no endpoint trace was active in this run. The result is consistent
+with the previously identified ~1 Hz lid-angle stream remaining while ALS
+reports are quiesced. It does not directly attribute every remaining interrupt.
+CPU suspend `CPU PD` entries increased by 793–1564 per CPU; entry counts are not
+physical residency measurements.
+
+Suspend success increased 10→11, failures stayed zero, brightness restored to
+265/77, and OpenGL/Vulkan checks and Wi-Fi recovery passed. Speaker protection
+remained active. The user confirmed opening the lid woke the display, Touch ID
+unlocked and the protected tone was clear. No audio or lid-sensor driver was
+modified. See the [sleep report](../reports/2026-10-17-als-quiesced-sleep.json).
+
+This validates reversible report quiescing and recovery, **not an energy saving**:
+battery counters were not recorded in this run. A maintainable implementation
+needs source-built ALS suspend/resume callbacks and a matched energy comparison.
+The temporary module substitution is not installed as a permanent sleep policy.
+
+The one-shot ALS sleep hook was removed after collection. Normal ALS reporting
+is restored; private observations and module copies are retained for research.
