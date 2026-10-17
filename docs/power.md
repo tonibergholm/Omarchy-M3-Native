@@ -146,3 +146,37 @@ The ordinary NetworkManager Wi-Fi power-save setting remains off; the pinned
 brcmfmac driver separately implements a system-suspend firmware D3 handshake.
 Runtime control and system sleep are separate interfaces, as described in the
 [kernel power-management documentation](https://docs.kernel.org/driver-api/pm/devices.html).
+
+
+## Short suspend trace: AOP mailbox activity
+
+A diagnostic-only lid cycle spent **64.802 seconds** suspended, with success
+8→9 and failures zero. An isolated trace instance recorded suspend phases,
+device PM callbacks, IRQ entries and IPIs. All **2229 device-callback completion
+events** reported zero error; trace buffers reported no overruns or lost events.
+The temporary hook and isolated instance were removed afterward. No radio,
+wake-source, CPU idle or device power policy changed.
+
+Between `machine_suspend` begin/end markers, IRQ counts were: **236 AOP mailbox**,
+**66 architectural timer**, **13 SMC mailbox**, and **259 IPI IRQ entries**.
+The live device-tree phandle links mailbox `2f4408000` (IRQ 57) to the AOP at
+`2f4c00000`; mailbox `2ec408000` (IRQ 55) links to the SMC. These are counts over
+the marker window, including its entry/exit boundary activity, not proof of a
+particular service's power cost.
+
+Each CPU recorded 250–263 suspend `CPU PD` entries and no suspend WFI entries.
+The [pinned CPUIdle core](https://github.com/omacom/linux-aurora/blob/5ec1028c81526e1ed31db2b97e47edf8663e83cb/drivers/cpuidle/cpuidle.c)
+accounts suspend-to-idle separately from ordinary idle. These invocations do not
+independently verify physical core or cluster power gating. Suspend counter time
+and trace timestamps barely advanced across 64.8 seconds of wall-clock sleep;
+neither is interpreted as an absolute residency percentage.
+
+The pinned [ambient-light driver](https://github.com/omacom/linux-aurora/blob/5ec1028c81526e1ed31db2b97e47edf8663e83cb/drivers/iio/common/aop_sensors/aop_als.rs)
+enables a **200000 µs reporting interval**, with no suspend callback in that
+file. This is a concrete candidate for recurring AOP traffic, but the mailbox is
+shared with other AOP services. IRQ tracing alone does not identify endpoints,
+and no causal battery-drain claim follows. Next: identify endpoint traffic and
+validate report quiescing/restoration before testing any energy benefit.
+
+See the [selected diagnostic report](../reports/2026-10-17-suspend-diagnostic.json).
+Raw trace, interrupt snapshots and device-tree data remain private.

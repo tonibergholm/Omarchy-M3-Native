@@ -1,0 +1,176 @@
+{
+  "board": "J613 / M3 MacBook Air",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "suspended_s": 64.802,
+  "suspend_success_before_after": [
+    8,
+    9
+  ],
+  "suspend_fail_before_after": [
+    0,
+    0
+  ],
+  "callback_completions": 2229,
+  "callback_error_count": 0,
+  "trace_loss_counters": {
+    "cpu7": {
+      "overrun": 0,
+      "commit overrun": 0,
+      "dropped events": 0
+    },
+    "cpu6": {
+      "overrun": 0,
+      "commit overrun": 0,
+      "dropped events": 0
+    },
+    "cpu5": {
+      "overrun": 0,
+      "commit overrun": 0,
+      "dropped events": 0
+    },
+    "cpu4": {
+      "overrun": 0,
+      "commit overrun": 0,
+      "dropped events": 0
+    },
+    "cpu3": {
+      "overrun": 0,
+      "commit overrun": 0,
+      "dropped events": 0
+    },
+    "cpu2": {
+      "overrun": 0,
+      "commit overrun": 0,
+      "dropped events": 0
+    },
+    "cpu1": {
+      "overrun": 0,
+      "commit overrun": 0,
+      "dropped events": 0
+    },
+    "cpu0": {
+      "overrun": 0,
+      "commit overrun": 0,
+      "dropped events": 0
+    }
+  },
+  "machine_suspend_irq_counts": {
+    "irq=1 name=IPI": 8,
+    "irq=57 name=2f4408000.mbox-recv": 236,
+    "irq=2 name=IPI": 251,
+    "irq=36 name=arch_timer": 66,
+    "irq=55 name=2ec408000.mbox-recv": 13
+  },
+  "machine_suspend_ipi_counts": {
+    "(Rescheduling interrupts)": 8,
+    "(Function call interrupts)": 251
+  },
+  "cpu_s2idle_deltas": {
+    "cpu0": [
+      {
+        "name": "WFI",
+        "s2idle_time_us": 0,
+        "s2idle_entries": 0
+      },
+      {
+        "name": "CPU PD",
+        "s2idle_time_us": 4230,
+        "s2idle_entries": 250
+      }
+    ],
+    "cpu1": [
+      {
+        "name": "WFI",
+        "s2idle_time_us": 0,
+        "s2idle_entries": 0
+      },
+      {
+        "name": "CPU PD",
+        "s2idle_time_us": 2481,
+        "s2idle_entries": 251
+      }
+    ],
+    "cpu2": [
+      {
+        "name": "WFI",
+        "s2idle_time_us": 0,
+        "s2idle_entries": 0
+      },
+      {
+        "name": "CPU PD",
+        "s2idle_time_us": 6086,
+        "s2idle_entries": 252
+      }
+    ],
+    "cpu3": [
+      {
+        "name": "WFI",
+        "s2idle_time_us": 0,
+        "s2idle_entries": 0
+      },
+      {
+        "name": "CPU PD",
+        "s2idle_time_us": 6283,
+        "s2idle_entries": 251
+      }
+    ],
+    "cpu4": [
+      {
+        "name": "WFI",
+        "s2idle_time_us": 0,
+        "s2idle_entries": 0
+      },
+      {
+        "name": "CPU PD",
+        "s2idle_time_us": 6284,
+        "s2idle_entries": 251
+      }
+    ],
+    "cpu5": [
+      {
+        "name": "WFI",
+        "s2idle_time_us": 0,
+        "s2idle_entries": 0
+      },
+      {
+        "name": "CPU PD",
+        "s2idle_time_us": 6347,
+        "s2idle_entries": 251
+      }
+    ],
+    "cpu6": [
+      {
+        "name": "WFI",
+        "s2idle_time_us": 0,
+        "s2idle_entries": 0
+      },
+      {
+        "name": "CPU PD",
+        "s2idle_time_us": 6345,
+        "s2idle_entries": 251
+      }
+    ],
+    "cpu7": [
+      {
+        "name": "WFI",
+        "s2idle_time_us": 0,
+        "s2idle_entries": 0
+      },
+      {
+        "name": "CPU PD",
+        "s2idle_time_us": 3683,
+        "s2idle_entries": 263
+      }
+    ]
+  },
+  "aop_mapping": "IRQ57 / 2f4408000.mbox-recv -> DT phandle consumer 2f4c00000.aop",
+  "sensor_source_observation": "Pinned aop_als.rs enables 200000 us ambient light reports; no suspend callback in that driver file. Shared AOP mailbox prevents endpoint attribution from IRQ trace alone.",
+  "limits": [
+    "CPU PD entries count suspend driver invocations, not verified physical power gating.",
+    "CPU local-clock time and trace timestamps barely advance during suspend; not wall-clock residency evidence.",
+    "Trace includes entry/exit overhead; IRQ counts reported only between machine_suspend markers.",
+    "No battery draw attribution or fix established by this short instrumented run."
+  ],
+  "next_step": "Identify AOP endpoint traffic; test ALS report quiescing/restoration before claiming battery benefit.",
+  "cleanup": "Temporary hook and isolated tracing instance removed; global tracing untouched."
+}
