@@ -88,3 +88,21 @@ capture all passed after wake. See the
 [overnight report](../reports/2026-10-17-overnight-sleep.json). A future controlled
 comparison can isolate device contributions; no radio or wake-source policy was
 changed in this run.
+
+
+## Bluetooth comparison: baseline collected, off condition pending
+
+A subsequent Bluetooth-on baseline at lower charge spent **2323.019 seconds
+(38 minutes 43 seconds)** suspended. Charge fell **2334→2298 mAh**, reported
+capacity **56%→55%**, and derived energy **26.6076→26.1972 Wh**: approximately
+**0.636 W** over the interval. Bluetooth was unblocked and powered on; no
+connected Bluetooth devices were observed at setup/readback. Wi-Fi remained
+enabled. AC was absent at both hook observations. Suspend success increased
+5→6, failures stayed zero, and brightness restored to 265/77.
+
+This shorter, lower-charge baseline is already below the overnight estimate.
+Duration, gauge estimation and run-to-run variation prevent attributing that
+difference to any device. A matched Bluetooth-off condition is pending; no
+Bluetooth power-saving claim follows yet. No camera capture or GPU stress
+checks were run between conditions, to limit changes in device activity.
+See the [baseline report](../reports/2026-10-17-bluetooth-on-sleep.json).

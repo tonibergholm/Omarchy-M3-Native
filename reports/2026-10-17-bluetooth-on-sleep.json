@@ -1,0 +1,39 @@
+{
+  "board": "J613 / M3 MacBook Air",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "condition": "Bluetooth powered on and unblocked; Wi-Fi enabled; no connected Bluetooth devices observed at setup/readback",
+  "suspended_s": 2323.019,
+  "charge_mAh_before_after": [
+    2334.0,
+    2298.0
+  ],
+  "capacity_percent_before_after": [
+    56,
+    55
+  ],
+  "energy_Wh_before_after": [
+    26.6076,
+    26.1972
+  ],
+  "mean_derived_W": 0.636,
+  "external_power_absent": true,
+  "suspend_success_before_after": [
+    5,
+    6
+  ],
+  "suspend_fail_before_after": [
+    0,
+    0
+  ],
+  "brightness_before_after": [
+    [
+      "265",
+      "77"
+    ],
+    [
+      "265",
+      "77"
+    ]
+  ],
+  "limits": "One 38m43s baseline at lower charge; charge-gauge-derived energy, nominal voltage; comparison pending; no causal conclusion."
+}
