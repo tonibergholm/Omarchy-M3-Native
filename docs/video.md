@@ -169,3 +169,38 @@ mpv --profile=m3-fast --script=tools/mpv-audit.lua \
 ```
 
 The optional interval accepts 1–60 seconds; zero disables periodic output.
+
+
+## Display-synchronized playback comparison
+
+On the same J613 kernel and fixed 618 MHz GPU ceiling, a command-line
+`--video-sync=display-resample` repeat used the same 180-second H.264 clip,
+fast profile and 960×540 requested window. All 180 periodic samples reported
+VA-API and active display synchronization; the timeline was continuous to EOF.
+mpv reported **zero presentation drops, zero decoder drops, zero mistimed frames
+and seven delayed frames**, versus 24 presentation drops and zero delayed frames
+in the previous default-sync run. The thermal guard completed normally with a
+66.734°C maximum and 53.812°C final sample. This is one sequential comparison;
+changing synchronization also changes scheduling and counter behavior. Zero
+drops does not establish perfect cadence or isolate the original root cause.
+
+The first display-sync attempt looked smooth and correct to the operator, but
+its sampled timeline jumped from 76.8 to 140.033 seconds and its delayed counter
+reset. The operator explicitly reported no seeking. The cause is unexplained;
+that attempt is excluded as uninterrupted three-minute evidence. The repeat
+above disabled player keyboard/mouse bindings and the on-screen controller;
+this precaution does not establish input as the cause of the earlier jump.
+
+The command-line option is available for further experiments:
+
+```sh
+mpv --profile=m3-fast --video-sync=display-resample video.mp4
+```
+
+No normal player configuration changed. Both runs had **no audio**, so audio
+resampling and A/V synchronization remain unqualified; this result is not a
+recommendation to change ordinary playback defaults. Fullscreen, browsers, HDR,
+other media and long-session reliability also remain unqualified. The audit
+now records requested sync mode, active display-sync state and reported/estimated
+display refresh rates. See the
+[selected comparison](../reports/2026-10-17-video-display-sync.json).

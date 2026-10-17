@@ -20,7 +20,11 @@ local function sample()
         mistimed = mp.get_property_number('mistimed-frame-count', 0),
         delayed = mp.get_property_number('vo-delayed-frame-count', 0),
         time_pos = mp.get_property_number('time-pos', 0),
-        fullscreen = mp.get_property_native('fullscreen')
+        fullscreen = mp.get_property_native('fullscreen'),
+        video_sync = mp.get_property('video-sync'),
+        display_sync_active = mp.get_property_native('display-sync-active'),
+        display_fps = mp.get_property_number('display-fps'),
+        estimated_display_fps = mp.get_property_number('estimated-display-fps')
     }
 end
 mp.add_periodic_timer(0.1, sample)

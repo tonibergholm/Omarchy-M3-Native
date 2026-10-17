@@ -1,0 +1,122 @@
+{
+  "board": "Apple J613 / T8122",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "clip": {
+    "codec": "H264",
+    "width": 1920,
+    "height": 1080,
+    "fps": 60,
+    "seconds": 180,
+    "frames": 10800
+  },
+  "profile": "m3-fast (built-in fast)",
+  "requested_geometry": "960x540",
+  "audio": false,
+  "video_sync_requested": "display-resample",
+  "panel_refresh_Hz": 60,
+  "timeline_discontinuities": [],
+  "player_keyboard_and_mouse_input_disabled": true,
+  "periodic_samples": 180,
+  "all_samples_display_sync_active": true,
+  "all_samples_vaapi": true,
+  "final": {
+    "mistimed": 0,
+    "reason": "eof",
+    "delayed": 7,
+    "time_pos": 179.966667,
+    "fullscreen": false,
+    "video_sync": "display-resample",
+    "hwdec": "vaapi",
+    "display_sync_active": true,
+    "vo": "gpu-next",
+    "display_fps": 60,
+    "dropped": 0,
+    "estimated_display_fps": 59.92492,
+    "decoder_dropped": 0
+  },
+  "counter_change_observations": [
+    {
+      "observed_at_media_s": 9.966667,
+      "counter_changes": {
+        "delayed": 1
+      }
+    },
+    {
+      "observed_at_media_s": 43.95,
+      "counter_changes": {
+        "delayed": 1
+      }
+    },
+    {
+      "observed_at_media_s": 64.883333,
+      "counter_changes": {
+        "delayed": 1
+      }
+    },
+    {
+      "observed_at_media_s": 96.833333,
+      "counter_changes": {
+        "delayed": 1
+      }
+    },
+    {
+      "observed_at_media_s": 98.766667,
+      "counter_changes": {
+        "delayed": 1
+      }
+    },
+    {
+      "observed_at_media_s": 134.716667,
+      "counter_changes": {
+        "delayed": 1
+      }
+    },
+    {
+      "observed_at_media_s": 179.7,
+      "counter_changes": {
+        "delayed": 1
+      }
+    }
+  ],
+  "thermal_guard": {
+    "reason": "completed",
+    "returncode": 0,
+    "samples": 181,
+    "max_C": 66.734,
+    "last_C": 53.812
+  },
+  "GPU_ceiling_MHz": 618,
+  "previous_audio_sync_run": {
+    "delayed": 0,
+    "time_pos": 179.983333,
+    "fullscreen": false,
+    "hwdec": "vaapi",
+    "reason": "eof",
+    "vo": "gpu-next",
+    "dropped": 24,
+    "decoder_dropped": 0,
+    "mistimed": 0
+  },
+  "limitations": [
+    "One sequential display-sync run, not randomized repeated A/B.",
+    "Display synchronization changes scheduling and counter behavior; zero drops alone does not establish perfect cadence.",
+    "No audio: resampling quality, pitch, and A/V synchronization untested.",
+    "Generated repeating H264 pattern in a fixed window and fast profile; no general browser/fullscreen/HDR claim.",
+    "No normal player setting, clocks or protection policy changed."
+  ],
+  "excluded_first_attempt": {
+    "periodic_samples": 118,
+    "timeline_jump_media_s": [
+      76.8,
+      140.033333
+    ],
+    "delayed_counter_reset": [
+      6,
+      0
+    ],
+    "operator_visual_report": "Looks smooth and correct",
+    "operator_seek_report": "No I did not seek. There is no timeline, etc... showing",
+    "cause": "Unexplained; not attributed to operator.",
+    "interpretation": "Excluded as uninterrupted three-minute evidence."
+  }
+}
