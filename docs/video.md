@@ -138,3 +138,34 @@ The pattern repeats four seconds of generated content; this does not qualify
 arbitrary H.264 streams, fullscreen rendering, browsers, HDR, other codecs,
 audio synchronization or long-session reliability. See the
 [selected report](../reports/2026-10-17-video-180s.json).
+
+
+## Presentation-drop timing repeat
+
+A second 180-second run reused the exact clip, fast profile and requested
+960×540 window, with one-second audit logging added. All 180 periodic samples
+reported VA-API. It reached EOF with **24 presentation drops** (about 0.22% of
+10,800 frames), **zero decoder drops**, zero mistimed and zero delayed frames.
+The first increase was observed near 10.93 seconds, with 11 cumulative drops by
+30.93 seconds and another 13 distributed through the remainder, including near
+179.93 seconds. **Startup alone therefore does not explain this run's drops.**
+The largest sampled increase was six drops near 25.93 seconds. Sampling marks
+when cumulative changes became visible, not exact dropped-frame timestamps.
+
+The thermal guard completed normally: 180 samples, maximum 70.453°C, final
+55.312°C. The cap remained 618 MHz. The similar final drop totals (25 then 24)
+are observations from two sequential runs, not a controlled rendering benchmark:
+cache/shader history, audit overhead and other desktop activity differ. These
+results do not isolate rendering cost, compositor timing or scheduling as the
+cause. No persistent playback setting was changed. See the
+[selected timing report](../reports/2026-10-17-video-drop-timing.json).
+
+The audit tool's default end-of-file behavior is unchanged. To additionally log
+selected counters every second:
+
+```sh
+mpv --profile=m3-fast --script=tools/mpv-audit.lua \
+  --script-opts=m3-audit-interval=1 --term-status-msg='' video.mp4
+```
+
+The optional interval accepts 1–60 seconds; zero disables periodic output.

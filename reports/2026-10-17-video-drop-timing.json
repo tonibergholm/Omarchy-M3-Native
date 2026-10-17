@@ -1,0 +1,137 @@
+{
+  "board": "Apple J613 / T8122",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "clip": {
+    "codec": "H264",
+    "width": 1920,
+    "height": 1080,
+    "fps": 60,
+    "seconds": 180,
+    "frames": 10800
+  },
+  "profile": "m3-fast (built-in fast)",
+  "requested_geometry": "960x540",
+  "audio": false,
+  "sample_interval_s": 1,
+  "periodic_samples": 180,
+  "all_periodic_samples_vaapi": true,
+  "final": {
+    "delayed": 0,
+    "time_pos": 179.983333,
+    "fullscreen": false,
+    "hwdec": "vaapi",
+    "reason": "eof",
+    "vo": "gpu-next",
+    "dropped": 24,
+    "decoder_dropped": 0,
+    "mistimed": 0
+  },
+  "presentation_drop_observations": [
+    {
+      "observed_at_media_s": 10.933333,
+      "additional_drops": 1,
+      "cumulative_drops": 1
+    },
+    {
+      "observed_at_media_s": 15.933333,
+      "additional_drops": 1,
+      "cumulative_drops": 2
+    },
+    {
+      "observed_at_media_s": 22.916667,
+      "additional_drops": 1,
+      "cumulative_drops": 3
+    },
+    {
+      "observed_at_media_s": 23.933333,
+      "additional_drops": 1,
+      "cumulative_drops": 4
+    },
+    {
+      "observed_at_media_s": 25.933333,
+      "additional_drops": 6,
+      "cumulative_drops": 10
+    },
+    {
+      "observed_at_media_s": 30.933333,
+      "additional_drops": 1,
+      "cumulative_drops": 11
+    },
+    {
+      "observed_at_media_s": 69.933333,
+      "additional_drops": 1,
+      "cumulative_drops": 12
+    },
+    {
+      "observed_at_media_s": 75.95,
+      "additional_drops": 1,
+      "cumulative_drops": 13
+    },
+    {
+      "observed_at_media_s": 76.95,
+      "additional_drops": 2,
+      "cumulative_drops": 15
+    },
+    {
+      "observed_at_media_s": 77.933333,
+      "additional_drops": 1,
+      "cumulative_drops": 16
+    },
+    {
+      "observed_at_media_s": 79.95,
+      "additional_drops": 1,
+      "cumulative_drops": 17
+    },
+    {
+      "observed_at_media_s": 86.95,
+      "additional_drops": 1,
+      "cumulative_drops": 18
+    },
+    {
+      "observed_at_media_s": 101.95,
+      "additional_drops": 1,
+      "cumulative_drops": 19
+    },
+    {
+      "observed_at_media_s": 132.95,
+      "additional_drops": 1,
+      "cumulative_drops": 20
+    },
+    {
+      "observed_at_media_s": 145.933333,
+      "additional_drops": 1,
+      "cumulative_drops": 21
+    },
+    {
+      "observed_at_media_s": 164.933333,
+      "additional_drops": 1,
+      "cumulative_drops": 22
+    },
+    {
+      "observed_at_media_s": 175.933333,
+      "additional_drops": 1,
+      "cumulative_drops": 23
+    },
+    {
+      "observed_at_media_s": 179.933333,
+      "additional_drops": 1,
+      "cumulative_drops": 24
+    }
+  ],
+  "thermal_guard": {
+    "reason": "completed",
+    "returncode": 0,
+    "samples": 180,
+    "min_C": 53.812,
+    "max_C": 70.453,
+    "last_C": 55.312
+  },
+  "GPU_ceiling_MHz": 618,
+  "limitations": [
+    "One sequential repeat with shader and file-cache history different from first run.",
+    "Periodic logging adds overhead; desktop activity not controlled.",
+    "Drop event times identify cumulative counter changes within sampling resolution, not exact frame timestamps.",
+    "No visual confirmation requested for this repeat; previous run looked smooth to operator.",
+    "Generated repeating pattern, fast profile and fixed window only; no general fullscreen/browser/HDR qualification."
+  ]
+}

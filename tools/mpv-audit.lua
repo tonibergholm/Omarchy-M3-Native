@@ -2,6 +2,13 @@
 -- mpv --script=tools/mpv-audit.lua video.mp4
 local mp = require 'mp'
 local utils = require 'mp.utils'
+local options = require 'mp.options'
+local opts = { interval = 0 }
+options.read_options(opts, 'm3-audit')
+if opts.interval ~= 0 and (opts.interval ~= opts.interval or opts.interval < 1 or opts.interval > 60) then
+    mp.msg.error('m3-audit interval must be 0 (disabled) or 1..60 seconds')
+    opts.interval = 0
+end
 local last = {}
 local function sample()
     if not mp.get_property_native('video-params') then return end
@@ -17,6 +24,14 @@ local function sample()
     }
 end
 mp.add_periodic_timer(0.1, sample)
+if opts.interval > 0 then
+    mp.add_periodic_timer(opts.interval, function()
+        sample()
+        if next(last) then
+            mp.msg.info('M3_PLAYBACK_SAMPLE ' .. utils.format_json(last))
+        end
+    end)
+end
 mp.register_event('end-file', function(event)
     sample()
     last.reason = event.reason
