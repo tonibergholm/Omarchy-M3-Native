@@ -12,8 +12,8 @@
    Touch ID unlock, brightness, GPU readback and audible protected playback.
    A further unplugged 17½-minute lid cycle and three consecutive attended lid
    cycles passed recovery; battery counters were inconclusive. A lid-open Enter-key
-   wake and subsequent Touch ID unlock passed once. Test a larger cycle count
-   and trackpad wake. One 9h19m overnight recovery passed, but
+   wake and subsequent Touch ID unlock passed once; a separate lid-open trackpad
+   wake also passed once. Test a larger cycle count. One 9h19m overnight recovery passed, but
    measured battery loss was 27 percentage points; investigate sleep draw.
 4. **macOS coexistence:** verify macOS Touch ID and Linux enrollment after a
    round trip, without deleting or replacing either system's authority.

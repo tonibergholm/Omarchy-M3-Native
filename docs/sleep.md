@@ -131,3 +131,19 @@ discovery confirmed the actual enabled setting. This is one short Enter-key
 pass, not qualification of all keys, trackpad wake or repeated keyboard cycles.
 The one-shot user timer finished; no persistent sleep hook was installed.
 See the [selected report](../reports/2026-10-17-keyboard-wake.json).
+
+
+## Built-in trackpad wake
+
+The following lid-open s2idle cycle lasted **30.316 seconds**. In the instructed
+trackpad-click test, the operator identified the trackpad as the wake action.
+Suspend success increased 15→16, failures remained zero, brightness stayed
+265/77, and both OpenGL and Vulkan readbacks passed. Speaker protection remained
+active; audible playback and Touch ID were not separately confirmed this cycle.
+
+The shared MTP input ancestor already had wakeup enabled. Its event, wakeup and
+active counters were all zero before and after, while the SMC input counters
+also remained unchanged. These counters therefore do not independently identify
+the wake source. This is one operator-confirmed trackpad wake, not repeated-cycle
+or closed-lid qualification. No wake policy was changed or persistent sleep hook
+installed. See the [selected report](../reports/2026-10-17-trackpad-wake.json).

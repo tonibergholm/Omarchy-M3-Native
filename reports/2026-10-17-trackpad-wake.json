@@ -1,0 +1,59 @@
+{
+  "board": "Apple J613 / T8122",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "suspended_seconds": 30.315739354999096,
+  "success_before": "15",
+  "success_after": "16",
+  "fail_after": "0",
+  "brightness_after": {
+    "screen": "265",
+    "keyboard": "77"
+  },
+  "wake_counters_before": [
+    {
+      "name": "macsmc-input",
+      "event_count": "28",
+      "wakeup_count": "0",
+      "active_count": "28"
+    },
+    {
+      "name": "2fab28000.input",
+      "event_count": "0",
+      "wakeup_count": "0",
+      "active_count": "0"
+    }
+  ],
+  "wake_counters_after": [
+    {
+      "name": "macsmc-input",
+      "event_count": "28",
+      "wakeup_count": "0",
+      "active_count": "28"
+    },
+    {
+      "name": "2fab28000.input",
+      "event_count": "0",
+      "wakeup_count": "0",
+      "active_count": "0"
+    }
+  ],
+  "trackpad_wake_ancestors": [
+    {
+      "ancestor": "2fab28000.input",
+      "wakeup": "enabled"
+    }
+  ],
+  "operator_report": "trackpad",
+  "wake_result": "Operator identified trackpad as wake action in the instructed lid-open click test.",
+  "Touch_ID_unlock": "Not separately confirmed for this cycle.",
+  "GPU_OpenGL_readback": "pass",
+  "GPU_Vulkan_readback": "pass",
+  "speakersafetyd": "active",
+  "audible_playback_tested": false,
+  "limitations": [
+    "One short attended cycle; no repeated or closed-lid trackpad qualification.",
+    "Input wake counters did not change; they do not independently identify the wake source."
+  ],
+  "sleep_policy_changed": false,
+  "persistent_hook_installed": false
+}
