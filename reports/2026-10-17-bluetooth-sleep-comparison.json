@@ -1,0 +1,92 @@
+{
+  "board": "J613 / M3 MacBook Air",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "conditions": [
+    {
+      "condition": "baseline-bluetooth-on",
+      "suspended_s": 2323.019,
+      "charge_mAh_before_after": [
+        2334.0,
+        2298.0
+      ],
+      "capacity_percent_before_after": [
+        56,
+        55
+      ],
+      "derived_energy_loss_Wh": 0.4104,
+      "derived_mean_W": 0.636,
+      "external_power_absent": true,
+      "bluetooth_soft_blocked_before_after": [
+        false,
+        false
+      ],
+      "wifi_soft_blocked_before_after": [
+        false,
+        false
+      ],
+      "suspend_success_before_after": [
+        5,
+        6
+      ],
+      "suspend_fail_before_after": [
+        0,
+        0
+      ],
+      "brightness_before_after": [
+        [
+          265,
+          77
+        ],
+        [
+          265,
+          77
+        ]
+      ]
+    },
+    {
+      "condition": "comparison-bluetooth-off",
+      "suspended_s": 2305.784,
+      "charge_mAh_before_after": [
+        2189.0,
+        2155.0
+      ],
+      "capacity_percent_before_after": [
+        53,
+        51
+      ],
+      "derived_energy_loss_Wh": 0.3876,
+      "derived_mean_W": 0.605156,
+      "external_power_absent": true,
+      "bluetooth_soft_blocked_before_after": [
+        true,
+        true
+      ],
+      "wifi_soft_blocked_before_after": [
+        false,
+        false
+      ],
+      "suspend_success_before_after": [
+        6,
+        7
+      ],
+      "suspend_fail_before_after": [
+        0,
+        0
+      ],
+      "brightness_before_after": [
+        [
+          265,
+          77
+        ],
+        [
+          265,
+          77
+        ]
+      ]
+    }
+  ],
+  "on_minus_off_W": 0.030844,
+  "conclusion": "No convincing Bluetooth effect established: 0.031 W difference in one sequential pair is too small relative to uncontrolled gauge variation. No automatic Bluetooth sleep policy installed.",
+  "limits": "One sequential pair, not randomized or repeated. Charge-derived energy at nominal voltage; full-capacity estimate shifts on resume. Shorter runs cannot explain the higher overnight estimate.",
+  "bluetooth_restored": "Powered on and rfkill unblocked after off measurement; Wi-Fi remained enabled."
+}
