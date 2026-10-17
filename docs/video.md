@@ -62,7 +62,8 @@ mpv --script=tools/mpv-audit.lua --term-status-msg='' video.mp4
 The tool prints `M3_PLAYBACK_RESULT` at end of playback. Review raw mpv output
 before sharing: mpv itself can print the media path even though this tool does not.
 
-Protected content, AV1, HEVC, VP9 and sustained 1080p60 playback remain untested here.
+Protected content, AV1, HEVC and VP9 remain untested here. A later bounded
+three-minute 1080p60 test is recorded below.
 Camera and browser capture results are documented separately in [capture.md](capture.md).
 
 
@@ -113,3 +114,27 @@ Normal software playback decoded all 240 frames with zero drops. Forced V4L2
 runs also fell back to software; their colour samples matched the normal browser
 baseline. This does not validate hardware colour output. Selected observations:
 [browser decode report](../reports/2026-10-16-browser-decode.json).
+
+
+## Three-minute 1080p60 extension (2026-10-17)
+
+A generated H.264 1920×1080/60 clip containing **10,800 frames over 180 seconds**
+played to EOF with the optional fast profile, requested 960×540 window geometry,
+`gpu-next` and VA-API. The decoder log identified Apple AVD and hardware decoding;
+mpv still reported `vaapi` at EOF. No audio was played. The operator reported
+“Looks smooth and correct”. The GPU ceiling remained 618 MHz.
+
+mpv reported **25 presentation drops** (about 0.23% of the clip's frame count),
+**zero decoder drops**, zero mistimed frames and zero delayed frames. We did not
+collect per-second drop timing, so cannot attribute drops to startup or a
+particular section. This extends the earlier eight-second result; it is not a
+zero-drop pass, and different geometry and desktop activity prevent a controlled
+comparison with those short runs.
+
+A one-second die-temperature sampler guarded playback at 78°C and a 240-second
+timeout. It completed normally with 180 samples, maximum **75.140°C** and final
+**54.828°C**. No clock, thermal policy or ordinary player configuration changed.
+The pattern repeats four seconds of generated content; this does not qualify
+arbitrary H.264 streams, fullscreen rendering, browsers, HDR, other codecs,
+audio synchronization or long-session reliability. See the
+[selected report](../reports/2026-10-17-video-180s.json).

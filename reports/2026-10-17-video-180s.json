@@ -1,0 +1,43 @@
+{
+  "board": "Apple J613 / T8122",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "clip": {
+    "codec_name": "h264",
+    "width": 1920,
+    "height": 1080,
+    "r_frame_rate": "60/1",
+    "duration": "180.000000",
+    "nb_frames": "10800"
+  },
+  "playback": {
+    "mistimed": 0,
+    "delayed": 0,
+    "time_pos": 179.983333,
+    "fullscreen": false,
+    "hwdec": "vaapi",
+    "vo": "gpu-next",
+    "dropped": 25,
+    "reason": "eof",
+    "decoder_dropped": 0
+  },
+  "thermal_guard": {
+    "reason": "completed",
+    "returncode": 0,
+    "samples": 180,
+    "min_C": 54.296,
+    "max_C": 75.14,
+    "last_C": 54.828
+  },
+  "requested_geometry": "960x540",
+  "profile": "m3-fast (built-in fast)",
+  "audio": false,
+  "operator_visual_result": "Looks smooth and correct",
+  "hardware_decode_log_confirmed": true,
+  "GPU_ceiling_MHz": 618,
+  "limitations": [
+    "One generated repeating H.264 pattern at 1080p60, windowed; not fullscreen, browser, HDR or arbitrary media qualification.",
+    "Fast-profile quality tradeoffs remain; window geometry differs from earlier short runs.",
+    "Three minutes is a bounded extension, not long-session reliability qualification.",
+    "Other desktop activity was present; no power consumption claim."
+  ]
+}

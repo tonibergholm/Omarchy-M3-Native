@@ -22,7 +22,9 @@
    remote-call capture.
 6. **Video/camera:** [initial H.264 checks](video.md) passed decoder equivalence
    and 1080p30 playback; short 1080p60 fast-profile playback improved presentation
-   counts. Test browser playback, other codecs and sustained use. The local
+   counts. A three-minute 1080p60 fast-profile run completed with zero decoder
+   drops and 25 presentation drops; the operator reported smooth, correct output.
+   Test browser playback, other codecs and longer use. The local
    [ISP14.7 camera candidate](capture.md) delivers 1080p30 frames after reboot and sleep. Local Chromium
    camera/mic capture and [software-codec WebRTC loopback](webrtc.md) passed
    at 720p. Qualify remote calls, indicator behavior,
