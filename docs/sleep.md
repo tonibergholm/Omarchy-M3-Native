@@ -194,3 +194,39 @@ read-only `python3 tools/radio-status.py` prints selected controller state,
 network states, rfkill values and timeout counts without addresses, names,
 SSIDs or full journals. See the
 [selected source/state report](../reports/2026-10-18-bluetooth-resume-source.json).
+
+
+### Live transport check and default-off recovery candidate
+
+An unprivileged raw-HCI **Read Local Version Information** (`0x1001`) command
+was accepted by the kernel but produced no matching completion within three
+seconds. A later eight-second receive-only window also saw none. An initial
+filter-layout mistake was rejected before sending and is excluded. This is
+stronger failure evidence than the powered cache flag, but does not identify
+which transport stage failed.
+
+With no connected devices or discovery active, a bounded normal BlueZ
+power-off request was attempted with interactive authorization disabled. It
+failed, and the adapter stayed powered. The reply said “Authentication Failed”;
+the pinned kernel maps `-ETIMEDOUT` to `MGMT_STATUS_AUTH_FAILED`, and a `0x2039`
+HCI timeout accompanied this attempt. That message is not treated as evidence
+that a password or fingerprint was required. No successful power cycle, pairing
+change, module reload or PCI reset occurred. Wi-Fi remained connected.
+
+A [source candidate](../patches/j613-bt-resume-recovery-candidate.patch) adds
+**default-off** `j613_resume_recovery` admission only for **J613 + BCM4388**, while
+preserving the existing J493/BCM4378 gate. It reuses the release's recovery path;
+that path is upstream work, not a new implementation here. Its module compiled
+against the matching release configuration and symbols with the running kernel's
+vermagic. All **32 host admission cases** passed across four chips, four board
+identities and both option values. The packaged module hash remains unchanged.
+The build used one worker, 10% CPU quota, thermal pause/resume and a 78°C stop
+guard; maximum sampled temperature was 72.843°C.
+
+**The candidate has never been loaded or installed.** Compilation and admission
+checks do not qualify hardware reset, calibration reload, callback races,
+peripheral recovery or repeated suspend behavior. A recoverable native test is
+still required before any deployment decision. The patch retains the Asahi
+source's GPL-2.0-only OR MIT licence and attribution; no firmware, calibration
+or module binary is published. See the
+[selected report](../reports/2026-10-18-bluetooth-recovery-candidate.json).

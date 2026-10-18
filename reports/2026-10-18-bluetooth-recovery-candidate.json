@@ -1,0 +1,68 @@
+{
+  "board": "Apple J613 / T8122",
+  "controller": "BCM4388 / PCI 14e4:5f72",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "baseline_live_read": {
+    "opcode": "0x1001 Read Local Version Information",
+    "command_accepted_by_kernel": true,
+    "completion_within_3s": false,
+    "additional_receive_only_8s_window_completion": false,
+    "filter_setup_note": "Initial filter setup used 14 rather than 16 bytes and returned EINVAL before sending. Corrected padded filter allowed the command; only corrected attempt counted."
+  },
+  "normal_BlueZ_recovery": {
+    "epoch_s": 1792305431.9690027,
+    "before": {
+      "powered": true,
+      "discovering": false,
+      "connected_devices": 0
+    },
+    "actions": [
+      {
+        "requested_powered": false,
+        "returncode": 1,
+        "stderr": "Failed to set property Powered on interface org.bluez.Adapter1: Authentication Failed"
+      }
+    ],
+    "after_off": {
+      "powered": true,
+      "discovering": false,
+      "connected_devices": 0
+    },
+    "after": {
+      "powered": true,
+      "discovering": false,
+      "connected_devices": 0
+    }
+  },
+  "timeout_status_note": "Pinned net/bluetooth/mgmt.c maps -ETIMEDOUT to MGMT_STATUS_AUTH_FAILED; a 0x2039 timeout accompanied the failed power-down request. Not treated as proof of a credential issue.",
+  "candidate": {
+    "parameter": "j613_resume_recovery",
+    "default_enabled": false,
+    "parameter_permissions": "0444 (load-time opt-in)",
+    "chip_gate": "0x4388",
+    "board_gate": "apple,j613",
+    "existing_J493_BCM4378_gate": "preserved",
+    "build": {
+      "returncode": 0,
+      "reason": "completed",
+      "max_sampled_C": 72.843,
+      "cpu_quota_percent": 10,
+      "workers": 1
+    },
+    "host_admission_matrix_passed": 32,
+    "config_matches_installed_headers": true,
+    "vermagic": "7.1.12-2-20261015.19-sep-ARCH SMP preempt mod_unload aarch64",
+    "candidate_sha256": "e205a98cf7eef621be6649671da7690b6f48e4851a57dc460fea72dc4477421a",
+    "packaged_module_sha256": "29ae96cdab9edab38721e6c37591f30a60a05ea7d304f6d012b2e0c9a7394bb0",
+    "patch_sha256": "7680e1ab5fbec76a19041c061c75601243a3d1cd4abb5829b5c821c45d9a7828",
+    "installed": false,
+    "loaded": false
+  },
+  "limitations": [
+    "No runtime qualification of candidate reset, calibration reload, resume callback races or recovery reliability.",
+    "Read command received no completion; exact cause and transport stage remain unproven.",
+    "BlueZ power flag remained true; no connected peripherals, scan, pairing or stored-identity change.",
+    "No root authentication, module reload, PCI reset or system reboot performed.",
+    "Source candidate is not an installer or a recommendation for unattended activation."
+  ]
+}

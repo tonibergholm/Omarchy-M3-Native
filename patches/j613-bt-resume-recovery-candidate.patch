@@ -1,0 +1,52 @@
+SPDX-License-Identifier: GPL-2.0-only OR MIT
+Default-off local research candidate; runtime recovery is unqualified.
+Base: omacom/linux-aurora 5ec1028c81526e1ed31db2b97e47edf8663e83cb
+Original source: The Asahi Linux Contributors; existing J493 recovery is upstream work.
+This patch only adds explicit J613/BCM4388 admission to that existing path.
+Compiled and host admission-matrix checked; never loaded or installed.
+
+diff --git a/drivers/bluetooth/hci_bcm4377.c b/drivers/bluetooth/hci_bcm4377.c
+--- a/drivers/bluetooth/hci_bcm4377.c
++++ b/drivers/bluetooth/hci_bcm4377.c
+@@ -24,6 +24,12 @@
+ 
+ #include <net/bluetooth/bluetooth.h>
+ #include <net/bluetooth/hci_core.h>
++
++/* Experimental recovery admission for this board; never enabled by default. */
++static bool j613_resume_recovery;
++module_param(j613_resume_recovery, bool, 0444);
++MODULE_PARM_DESC(j613_resume_recovery,
++                 "Opt in to unqualified J613/BCM4388 resume-timeout recovery");
+ 
+ enum bcm4377_chip {
+ 	BCM4377 = 0,
+@@ -1508,8 +1514,12 @@
+ 
+ static bool bcm4377_resume_recovery_supported(struct bcm4377_data *bcm4377)
+ {
+-	return bcm4377->hw->id == 0x4378 &&
+-	       of_machine_is_compatible("apple,j493");
++	if (bcm4377->hw->id == 0x4378 &&
++	    of_machine_is_compatible("apple,j493"))
++		return true;
++
++	return j613_resume_recovery && bcm4377->hw->id == 0x4388 &&
++	       of_machine_is_compatible("apple,j613");
+ }
+ 
+ static bool bcm4377_resume_recovery_allowed(struct hci_dev *hdev)
+@@ -2792,8 +2802,12 @@
+ 	hdev->set_bdaddr = bcm4377_hci_set_bdaddr;
+ 	hdev->setup = bcm4377_hci_setup;
+ 	hdev->post_init = bcm4377_hci_post_init;
+-	if (bcm4377_resume_recovery_supported(bcm4377))
++	if (bcm4377_resume_recovery_supported(bcm4377)) {
+ 		hdev->reset = bcm4377_hci_timeout;
++		if (bcm4377->hw->id == 0x4388)
++			dev_warn(&pdev->dev,
++				 "experimental J613 resume recovery opt-in enabled\n");
++	}
+ 
+ 	if (bcm4377->hw->broken_mws_transport_config)
+ 		hci_set_quirk(hdev, HCI_QUIRK_BROKEN_MWS_TRANSPORT_CONFIG);

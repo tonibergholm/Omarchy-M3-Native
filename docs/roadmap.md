@@ -36,7 +36,10 @@
    sustained use and good-light picture quality.
 7. **Power and external devices:** [initial battery observations](power.md)
    need longer, steadier measurements. Measure settled idle draw, battery runtime,
-   shutdown and specific USB-C display/dock combinations. No whole-machine
+   shutdown and specific USB-C display/dock combinations. Bluetooth failed a
+   local HCI read after overnight resume and normal power-off failed; a
+   default-off J613/BCM4388 recovery candidate is compiled but not loaded.
+   Native recovery and peripheral checks remain pending. No whole-machine
    battery-life claim follows from cpuidle counters.
 
 Publish evidence against exact releases and named hardware. Keep one upstream
