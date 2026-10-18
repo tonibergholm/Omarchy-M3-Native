@@ -1,0 +1,47 @@
+{
+  "board": "Apple J613 / T8122",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "bluetooth_source_path_review": {
+    "reset_entry": "hci_reset_dev_sync closes then reopens under req_lock.",
+    "driver_open": "needs_reset invokes PCI function recovery; marks calibration needed and not loaded.",
+    "post_init": "Existing setup/calibration/PTB hooks rerun after hardware reset and restore selected existing controller address.",
+    "BCM4388_hooks": "bcm4388_send_calibration and bcm4378_send_ptb are configured in the release hardware table.",
+    "scope": "Source call-path review only; no runtime recovery claim."
+  },
+  "privilege_gate": {
+    "noninteractive_sudo_exit": 1,
+    "message": "sudo: a password is required",
+    "privileged_validation_performed": false
+  },
+  "passive_observer": {
+    "state": "active/running",
+    "recorded_phases": [
+      "observer-start"
+    ],
+    "real_cycle_validation": "pending"
+  },
+  "next_validation_gates": [
+    {
+      "task": "Bluetooth candidate load, awake HCI reply and native resume recovery",
+      "requires": "Privileged reversible module test with verified original module and recovery route; then native sleep/peripheral evidence."
+    },
+    {
+      "task": "ALS energy and overnight drain",
+      "requires": "A real paired sleep boundary capture and comparable battery conditions; no saving claim from current gauge data."
+    },
+    {
+      "task": "AV1 grain source repair",
+      "requires": "Source-level grain/display handling or qualified rejection safeguard, regression evidence and deployment review; current preload remains a prototype."
+    },
+    {
+      "task": "Headphones, external display/dock, camera picture quality and A/V sync",
+      "requires": "Specific connected devices or operator observations."
+    },
+    {
+      "task": "Higher clocks, CPU cooling and native HDR",
+      "requires": "Qualified thermal policy and driver/display support; current ceilings and SDR output retained."
+    }
+  ],
+  "installed_candidate_modules": false,
+  "goal_complete": false
+}

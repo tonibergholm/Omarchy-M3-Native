@@ -44,3 +44,21 @@
 
 Publish evidence against exact releases and named hardware. Keep one upstream
 thread for a known issue, and send reusable fixes to their owning project.
+
+
+## Current validation gates after unattended checks
+
+The Bluetooth recovery candidate is compiled and admission-checked but unloaded.
+A source review follows the existing close/reopen, reset, calibration/PTB reload
+and address-restoration hooks for BCM4388; it does not qualify their runtime
+behavior on this board. Noninteractive sudo currently requires authentication,
+so privileged loading and rollback validation remain pending operator availability.
+No credential prompt or module change was triggered for this audit.
+
+The passive observer is running and has only its startup record. Its first real
+sleep capture and delayed gauge observations remain pending; synthetic private-bus
+tests are not counted as native sleep evidence. AV1 grain correction also remains
+unfinished: the process-local rejection prototype demonstrated correct software
+fallback, but installed drivers still have the original failing sample behavior.
+Physical peripheral/quality checks and thermal/HDR support are separate remaining
+gates. See the [current audit](../reports/2026-10-18-validation-gates.json).
