@@ -44,6 +44,7 @@ Read-only checks:
 python3 tools/m3-status.py
 python3 tools/thermal-watch.py --seconds 10
 python3 tools/radio-status.py
+python3 tools/sleep-observer.py
 aurora-m3-gpu-check
 ```
 

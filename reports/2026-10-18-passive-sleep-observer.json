@@ -1,0 +1,25 @@
+{
+  "board": "Apple J613 / T8122",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "observer_script_sha256": "7bea4dc90c445522706319fbca9db5eacd39862c08f38bef31cd3fa8e01ad5ca",
+  "service": "m3-passive-sleep.service",
+  "observed_state": "active/running",
+  "runtime_limit_days": 7,
+  "cpu_quota_percent": 5,
+  "memory_limit_MiB": 128,
+  "output_permissions": "0600 in private 0700 directory",
+  "startup_record_written": true,
+  "offline_tests_passed": 3,
+  "native_sleep_boundary_test": "Pending next natural sleep/resume; no suspend triggered.",
+  "mechanism": "Typed Gio subscription to logind PrepareForSleep; selected sysfs snapshots at pre/post and scheduled +30/+60/+120 seconds.",
+  "policy_changes": false,
+  "inhibitor_acquired": false,
+  "persistent_boot_service": false,
+  "data_limits": [
+    "Signals surround the logind sleep workflow, not exact kernel hardware boundaries.",
+    "No native signal-delivery, user-freezer ordering or delayed sampling qualification until a real cycle is observed.",
+    "No battery saving or drain estimate follows from activation.",
+    "A subsequent sleep cancels pending delayed samples.",
+    "Service stops at runtime limit/reboot and output is never overwritten."
+  ]
+}

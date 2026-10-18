@@ -253,3 +253,34 @@ A [source-built ALS PM candidate](als-pm.md) is compiled, awake-load checked
 and passed one native suspend/resume cycle. It replaces the diagnostic
 instruction edit with source callbacks; no battery benefit is claimed. The
 packaged original is restored and the one-shot observer is removed.
+
+
+## Passive boundary observer (2026-10-18)
+
+The second overnight sleep had no bedtime sample. A temporary **user-level**
+observer now subscribes to logind's typed `PrepareForSleep` signals, without
+triggering, delaying or inhibiting sleep. It records selected battery fields,
+external-power state, brightness, suspend counters and monotonic/boottime clocks.
+Resume schedules target samples at +30/+60/+120 seconds and records their actual
+elapsed time; a new sleep cancels unfinished delayed samples. No media capture,
+network identifiers, full journal or private firmware data is recorded.
+
+The transient `m3-passive-sleep.service` is running with a seven-day runtime
+limit, 5% CPU quota and 128 MiB memory limit. It does not start after reboot.
+The local JSONL file is mode 0600 inside a private 0700 research directory;
+exclusive creation prevents an existing recording from being overwritten.
+Stop it with `systemctl --user stop m3-passive-sleep.service`.
+
+Three offline tests passed for two-cycle clock/pairing behavior, unmatched
+resume handling and preservation of existing/symlink output. The startup record
+and live service are verified, but **native sleep/resume signal delivery and
+post-wake sampling remain pending the next natural cycle**. No sleep was
+triggered for qualification. Logind notifications surround the sleep workflow;
+they are not exact kernel boundary measurements. Activation establishes neither
+a battery-use estimate nor a saving. See the
+[selected activation report](../reports/2026-10-18-passive-sleep-observer.json).
+
+`python3 tools/sleep-observer.py` defaults to one read-only snapshot on stdout.
+Explicit `--watch --output /private/new-file.jsonl` enables recording and requires
+an existing output directory and a new file. It needs Python GObject/Gio bindings.
+Run offline checks with `python3 -m unittest discover -s tests`.
