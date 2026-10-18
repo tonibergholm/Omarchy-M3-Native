@@ -223,10 +223,35 @@ identities and both option values. The packaged module hash remains unchanged.
 The build used one worker, 10% CPU quota, thermal pause/resume and a 78°C stop
 guard; maximum sampled temperature was 72.843°C.
 
-**The candidate has never been loaded or installed.** Compilation and admission
+**At this preparation stage the candidate had not been loaded or installed.** Compilation and admission
 checks do not qualify hardware reset, calibration reload, callback races,
 peripheral recovery or repeated suspend behavior. A recoverable native test is
 still required before any deployment decision. The patch retains the Asahi
 source's GPL-2.0-only OR MIT licence and attribution; no firmware, calibration
 or module binary is published. See the
 [selected report](../reports/2026-10-18-bluetooth-recovery-candidate.json).
+
+
+### Temporary native Bluetooth test, 18 October
+
+With the operator present, charger attached, no connected Bluetooth devices and
+a macOS DFU recovery machine available, the matching candidate was loaded from
+a private root-owned staging directory with `j613_resume_recovery=1`. The packaged
+module and boot configuration were left unchanged; a 30-minute automatic rollback
+was armed. The previously unresponsive controller then answered `0x1001` with
+status zero in about 1 ms. A fresh module load restored command transport; this
+is separate from validating the candidate's resume-timeout recovery.
+
+A lid-close cycle recorded approximately **69.87 seconds suspended**, with
+suspend success increasing from one to two and failure remaining zero. After
+resume, the controller again answered in about 1 ms and Wi-Fi was connected.
+No additional Set Event Mask timeout or recovery attempt appeared. Thus this
+short cycle passed, but **the recovery callback was not exercised**. Peripheral
+connections, calibration reload after recovery, repeated and overnight recovery
+remain unqualified.
+
+The original packaged driver was subsequently reloaded, the experimental
+parameter disappeared, a fresh HCI read succeeded, and the rollback timer was
+stopped. Nothing was installed persistently. The passive sleep observer also
+recorded its first real matched pre/resume pair. See the
+[selected native report](../reports/2026-10-18-bluetooth-native-short-cycle.json).
