@@ -1,0 +1,32 @@
+{
+  "board": "Apple J613 / T8122",
+  "source_base": "4f60c51f7841dd74bb61c94a4ad31e630bbdab01",
+  "candidate_commit": "9265a600f41c0844e7d75e424b35622638046d65",
+  "issue": "https://github.com/omacom/libva-v4l2_request/issues/106",
+  "draft_pr": "https://github.com/omacom/libva-v4l2_request/pull/107",
+  "scope": "Explicitly reject unimplemented AV1 film-grain output before staging or submitting the prior held picture. No synthesis implementation.",
+  "offline_evidence": {
+    "unchanged_focused_sanitizer_cases_passed": 35,
+    "original_codec_new_regression_exit": 134,
+    "original_codec_failure": "Expected unsupported-result assertion failed; core dumping disabled.",
+    "candidate_focused_sanitizer_cases_passed": 47,
+    "candidate_focused_failures": 0,
+    "new_cases": 6,
+    "new_case_tracing_modes": [
+      "on",
+      "off"
+    ],
+    "device": "in-memory V4L2, production codec entry points"
+  },
+  "full_offline_validation": "pending; live finite build/test unit",
+  "native_candidate_validation": "not run",
+  "installed_driver_changed": false,
+  "hardware_grain_support_added": false,
+  "review": "self-review only; independent review pending",
+  "limitations": [
+    "No native software-fallback qualification of this source candidate.",
+    "No full-suite success claimed.",
+    "Existing non-AVD in-place grain/control behavior retained, not newly qualified.",
+    "Parent AV1 synthesis and support qualification remain open."
+  ]
+}

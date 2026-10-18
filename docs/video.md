@@ -374,3 +374,29 @@ action was required. These short generated/reference sequences do not qualify
 real-time presentation, direct surfaces, A/V sync or arbitrary format changes.
 Installed settings, drivers, firmware and clocks were unchanged. See the
 [selected observations](../reports/2026-10-18-codec-transitions.json).
+
+
+### AV1 grain source safeguard, offline candidate
+
+The process-local rejection prototype now has a separate source candidate in
+the owning driver fork: [issue #106](https://github.com/omacom/libva-v4l2_request/issues/106)
+and [draft PR #107](https://github.com/omacom/libva-v4l2_request/pull/107).
+Base `4f60c51f7841dd74bb61c94a4ad31e630bbdab01`, candidate
+`9265a600f41c0844e7d75e424b35622638046d65`. It rejects apply-grain requests on
+AVD, without a grain control, or with a separate display surface that this
+codec cannot populate. The check precedes picture-state mutation and pending
+submission. Sequence-level grain presence without apply-grain remains allowed;
+the existing other-backend in-place/control path is retained.
+
+The unchanged source passed **35/35 focused ASan/UBSan cases**. The new regression
+failed the original codec at the expected unsupported-result assertion (exit
+134, core dumping disabled). The candidate passed **47/47 focused cases**,
+including six new cases with tracing on/off. Tests use the production codec
+entry points and an in-memory V4L2 device; they check rejection before pending
+submission, preservation of the held picture and a subsequent valid picture.
+These are offline controls, not decoder or native client fallback results.
+
+Full offline validation is still pending. The candidate is not installed, and
+hardware grain synthesis remains unresolved. Independent review and a guarded
+process-local native test remain open. See the
+[selected source report](../reports/2026-10-18-av1-grain-source-candidate.json).
