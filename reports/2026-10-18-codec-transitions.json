@@ -1,0 +1,195 @@
+{
+  "board": "Apple J613 / T8122",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "client": "mpv v0.41.0",
+  "headless": true,
+  "audio": false,
+  "initial_attempt": {
+    "result": {
+      "returncode": -15,
+      "stop_reason": "guard",
+      "max_sampled_C": 78.453
+    },
+    "completed_items": [
+      {
+        "decoder_dropped": 0,
+        "time_pos": 2.966667,
+        "item": 1,
+        "hwdec": "vaapi-copy",
+        "reason": "eof"
+      }
+    ],
+    "qualification": "Incomplete: guard stopped during item 2. Extra P010 conversion enabled; no timing/pixel comparison qualified."
+  },
+  "ten_item_retry": {
+    "result": {
+      "returncode": 0,
+      "stop_reason": "completed",
+      "max_sampled_C": 70.015
+    },
+    "cpu_quota_percent": 10,
+    "sequence": [
+      "H264 High 720p",
+      "HEVC Main 720p",
+      "VP9 Profile0 720p",
+      "AV1 8bit 640x360",
+      "AV1 10bit 320x180",
+      "H264 High 720p",
+      "HEVC Main 720p",
+      "VP9 Profile0 720p",
+      "AV1 8bit 640x360",
+      "AV1 10bit 320x180"
+    ],
+    "completed_items": [
+      {
+        "hwdec": "vaapi-copy",
+        "reason": "eof",
+        "decoder_dropped": 0,
+        "item": 1,
+        "time_pos": 2.966667
+      },
+      {
+        "hwdec": "vaapi-copy",
+        "reason": "eof",
+        "decoder_dropped": 0,
+        "item": 2,
+        "time_pos": 1.966667
+      },
+      {
+        "reason": "eof",
+        "decoder_dropped": 0,
+        "item": 3,
+        "time_pos": 0
+      },
+      {
+        "hwdec": "vaapi-copy",
+        "reason": "eof",
+        "decoder_dropped": 0,
+        "item": 4,
+        "time_pos": 1.633333
+      },
+      {
+        "hwdec": "vaapi-copy",
+        "reason": "eof",
+        "decoder_dropped": 0,
+        "item": 5,
+        "time_pos": 2.635
+      },
+      {
+        "hwdec": "vaapi-copy",
+        "reason": "eof",
+        "decoder_dropped": 0,
+        "item": 6,
+        "time_pos": 2.966667
+      },
+      {
+        "hwdec": "vaapi-copy",
+        "reason": "eof",
+        "decoder_dropped": 0,
+        "item": 7,
+        "time_pos": 1.966667
+      },
+      {
+        "hwdec": "vaapi-copy",
+        "reason": "eof",
+        "decoder_dropped": 0,
+        "item": 8,
+        "time_pos": 0.967
+      },
+      {
+        "hwdec": "vaapi-copy",
+        "reason": "eof",
+        "decoder_dropped": 0,
+        "item": 9,
+        "time_pos": 1.633333
+      },
+      {
+        "hwdec": "vaapi-copy",
+        "reason": "eof",
+        "decoder_dropped": 0,
+        "item": 10,
+        "time_pos": 2.702
+      }
+    ],
+    "hardware_activation_log_count": 10,
+    "qualification": "All ten reached EOF; timer missed hwdec/position for one fast item. No per-frame pixel qualification for this run."
+  },
+  "six_item_pixel_check": {
+    "result": {
+      "returncode": 0,
+      "stop_reason": "completed",
+      "max_sampled_C": 75.89
+    },
+    "cpu_quota_percent": 10,
+    "sequence": [
+      "H264 High 720p",
+      "HEVC Main 720p",
+      "VP9 Profile0 720p",
+      "H264 High 720p",
+      "HEVC Main 720p",
+      "VP9 Profile0 720p"
+    ],
+    "completed_items": [
+      {
+        "hwdec": "vaapi-copy",
+        "reason": "eof",
+        "decoder_dropped": 0,
+        "time_pos": 2.966667,
+        "item": 1
+      },
+      {
+        "hwdec": "vaapi-copy",
+        "reason": "eof",
+        "decoder_dropped": 0,
+        "time_pos": 1.966667,
+        "item": 2
+      },
+      {
+        "decoder_dropped": 0,
+        "time_pos": 0,
+        "item": 3,
+        "reason": "eof"
+      },
+      {
+        "hwdec": "vaapi-copy",
+        "reason": "eof",
+        "decoder_dropped": 0,
+        "time_pos": 2.966667,
+        "item": 4
+      },
+      {
+        "decoder_dropped": 0,
+        "time_pos": 0,
+        "item": 5,
+        "reason": "eof"
+      },
+      {
+        "hwdec": "vaapi-copy",
+        "reason": "eof",
+        "decoder_dropped": 0,
+        "time_pos": 0.967,
+        "item": 6
+      }
+    ],
+    "comparison_format": "NV12",
+    "actual_frames": 360,
+    "software_reference_frames": 360,
+    "ordered_pixel_hash_matches": 360,
+    "all_ordered_pixel_hashes_match": true,
+    "timestamps_compared": false
+  },
+  "GPU_OpenGL_after": "pass",
+  "GPU_Vulkan_after": "pass",
+  "limits": {
+    "temperature_stop_C": 78,
+    "timeout_per_process_s": 90,
+    "GPU_ceiling_MHz": 618
+  },
+  "limitations": [
+    "One broader playlist and one six-item pixel sequence; not arbitrary media or long-session qualification.",
+    "Headless VA-API-copy only; no direct-surface presentation, A/V sync or visible cadence test.",
+    "Checksum equality covers ordered pixels, not identical mpv encoding timestamps.",
+    "No sustained-performance or power-consumption claim under CPU quota; other desktop activity was present.",
+    "Failed guard-limited attempt preserved; no clocks, player defaults, kernel or library changed."
+  ]
+}

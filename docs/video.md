@@ -341,3 +341,36 @@ legacy exported VA helper and is not suitable for system-wide installation.
 The source driver still needs a properly scoped change and regression tests;
 no fork edits or upstream coordination messages were made. See the
 [fallback report](../reports/2026-10-18-av1-grain-fallback.json).
+
+
+## Headless codec transitions in one client
+
+A single mpv process decoded **H.264 High → HEVC Main → VP9 Profile 0**, all
+1280×720, then repeated the sequence. Raw NV12 frame hashes from its encoding
+path matched the existing software references for **all 360 output frames in
+order** (90+60+30, twice). All six items reached EOF with VA-API-copy and zero
+reported decoder drops. This exercises codec teardown/reinitialization in one
+client, extending the separate one-file correctness checks. Encoding time bases
+differ from FFmpeg's reference outputs, so timestamps were not compared.
+
+A broader headless null-output sequence of H.264, HEVC, VP9, AV1 8-bit and AV1
+10-bit, twice, also reached EOF for all ten items and logged hardware activation
+for each. The timer audit missed hwdec/position fields for one fast item. That
+broader run is therefore **transition/recovery metadata evidence**, not a
+per-frame pixel qualification of AV1 transitions.
+
+The initial broader attempt, with additional P010 conversion, was stopped by
+the unchanged 78°C guard during its second item at a sampled 78.453°C; only its
+first item completed. The retry removed that conversion, selected one decoder
+thread and used a 10% CPU quota. Its sampled maximum was 70.015°C. The separate
+360-frame checksum run also used a 10% quota and completed below the guard,
+with a sampled 75.890°C maximum. Other desktop activity was present; neither
+heat nor speed is attributed solely to decoder work. An attempted showinfo
+logging probe emitted no usable frame checksums and was not counted as pixel
+evidence. The actual checksum result came from rawvideo/framemd5 encoding.
+
+GPU OpenGL and Vulkan readbacks passed afterwards. No audio, window or operator
+action was required. These short generated/reference sequences do not qualify
+real-time presentation, direct surfaces, A/V sync or arbitrary format changes.
+Installed settings, drivers, firmware and clocks were unchanged. See the
+[selected observations](../reports/2026-10-18-codec-transitions.json).
