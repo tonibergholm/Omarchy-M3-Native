@@ -38,7 +38,9 @@
    need longer, steadier measurements. Measure settled idle draw, battery runtime,
    shutdown and specific USB-C display/dock combinations. Bluetooth failed a
    local HCI read after overnight resume and normal power-off failed; a
-   default-off J613/BCM4388 recovery candidate is compiled but not loaded.
+   default-off J613/BCM4388 recovery candidate passed a temporary load and one
+   70-second sleep cycle. The packaged driver was restored; no timeout recovery
+   callback was exercised.
    Native recovery and peripheral checks remain pending. No whole-machine
    battery-life claim follows from cpuidle counters.
 
@@ -48,17 +50,22 @@ thread for a known issue, and send reusable fixes to their owning project.
 
 ## Current validation gates after unattended checks
 
-The Bluetooth recovery candidate is compiled and admission-checked but unloaded.
-A source review follows the existing close/reopen, reset, calibration/PTB reload
-and address-restoration hooks for BCM4388; it does not qualify their runtime
-behavior on this board. Noninteractive sudo currently requires authentication,
-so privileged loading and rollback validation remain pending operator availability.
-No credential prompt or module change was triggered for this audit.
+The Bluetooth recovery candidate passed a temporary native load, awake HCI
+reply and one approximately 70-second sleep cycle. Wi-Fi remained connected,
+and the original driver was restored with a successful HCI reply afterward.
+No timeout occurred during the candidate cycle, so recovery, calibration reload
+and peripheral connectivity remain unqualified. See the
+[native Bluetooth report](../reports/2026-10-18-bluetooth-native-short-cycle.json).
 
-The passive observer is running and has only its startup record. Its first real
-sleep capture and delayed gauge observations remain pending; synthetic private-bus
-tests are not counted as native sleep evidence. AV1 grain correction also remains
-unfinished: the process-local rejection prototype demonstrated correct software
-fallback, but installed drivers still have the original failing sample behavior.
-Physical peripheral/quality checks and thermal/HDR support are separate remaining
-gates. See the [current audit](../reports/2026-10-18-validation-gates.json).
+The passive observer completed its first real matched sleep/resume capture and
+all three delayed samples at approximately 30, 60 and 120 seconds. Suspend success
+increased by one with no failure; screen and keyboard brightness were stable.
+The charger was connected throughout, so this gives no sleep-drain estimate.
+See the [native observer report](../reports/2026-10-18-sleep-observer-native.json).
+
+AV1 grain correction remains unfinished: the process-local rejection prototype
+demonstrated correct software fallback, but installed drivers still have the
+original failing sample behavior. Physical peripheral/quality checks and
+thermal/HDR support are separate remaining gates. The
+[earlier audit](../reports/2026-10-18-validation-gates.json) records the state
+before the attended Bluetooth cycle.

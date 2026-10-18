@@ -1,0 +1,47 @@
+{
+  "board": "Apple J613 / T8122",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "phases": [
+    "prepare-for-sleep",
+    "resume-signal",
+    "post-30s",
+    "post-60s",
+    "post-120s"
+  ],
+  "matched_pre": true,
+  "clock_suspended_seconds": 69.86934912300603,
+  "suspend_success_delta": 1,
+  "suspend_failure_delta": 0,
+  "post_sample_elapsed_s": [
+    29.95265031600138,
+    59.95258391100106,
+    119.97767618800026
+  ],
+  "screen_values": [
+    "265",
+    "265",
+    "265",
+    "265",
+    "265"
+  ],
+  "keyboard_values": [
+    "77",
+    "77",
+    "77",
+    "77",
+    "77"
+  ],
+  "external_power_present_at_all_samples": true,
+  "battery_capacity_values": [
+    "100",
+    "100",
+    "100",
+    "100",
+    "100"
+  ],
+  "qualification": "First native complete observer cycle; battery drain cannot be inferred while externally powered.",
+  "limitations": [
+    "Single native cycle only; no repeat or overnight observer qualification.",
+    "Logind signal boundaries include transition work; clock difference estimates time suspended."
+  ]
+}
