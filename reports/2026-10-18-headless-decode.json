@@ -1,0 +1,200 @@
+{
+  "board": "Apple J613 / T8122",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "GPU_ceiling_MHz": 618,
+  "headless": true,
+  "audio": false,
+  "H264_cases": [
+    {
+      "case": "high-bframes-720p",
+      "stream": {
+        "codec_name": "h264",
+        "profile": "High",
+        "width": 1280,
+        "height": 720,
+        "has_b_frames": 2,
+        "pix_fmt": "yuv420p",
+        "nb_frames": "90"
+      },
+      "stages": {
+        "encode": {
+          "returncode": 0,
+          "stop_reason": "completed",
+          "max_sampled_C": 60.046
+        },
+        "software": {
+          "returncode": 0,
+          "stop_reason": "completed",
+          "max_sampled_C": 70.656
+        },
+        "hardware": {
+          "returncode": 0,
+          "stop_reason": "completed",
+          "max_sampled_C": 70.656
+        }
+      },
+      "software_frames": 90,
+      "hardware_frames": 90,
+      "all_frame_rows_match": true,
+      "avd_log_confirmed": true,
+      "vaapi_forced": true,
+      "clip_sha256": "5609222d46e587517dc254812dce4acc8204705004a05b145600febed0b58dc1"
+    },
+    {
+      "case": "high-bframes-1080p",
+      "stream": {
+        "codec_name": "h264",
+        "profile": "High",
+        "width": 1920,
+        "height": 1080,
+        "has_b_frames": 2,
+        "pix_fmt": "yuv420p",
+        "nb_frames": "60"
+      },
+      "stages": {
+        "encode": {
+          "returncode": 0,
+          "stop_reason": "completed",
+          "max_sampled_C": 73.781
+        },
+        "software": {
+          "returncode": 0,
+          "stop_reason": "completed",
+          "max_sampled_C": 72.531
+        },
+        "hardware": {
+          "returncode": 0,
+          "stop_reason": "completed",
+          "max_sampled_C": 72.531
+        }
+      },
+      "software_frames": 60,
+      "hardware_frames": 60,
+      "all_frame_rows_match": true,
+      "avd_log_confirmed": true,
+      "vaapi_forced": true,
+      "clip_sha256": "b11341a1e5dde06b521ecc3731401e6a8a5fdabe5f2a6e727c6f33625b3be672"
+    }
+  ],
+  "HEVC_cases": [
+    {
+      "case": "hevc-main-720p",
+      "stream": {
+        "codec_name": "hevc",
+        "profile": "Main",
+        "width": 1280,
+        "height": 720,
+        "has_b_frames": 2,
+        "pix_fmt": "yuv420p",
+        "nb_frames": "60"
+      },
+      "stages": {
+        "encode": {
+          "returncode": 0,
+          "stop_reason": "completed",
+          "max_sampled_C": 53.39
+        },
+        "software": {
+          "returncode": 0,
+          "stop_reason": "completed",
+          "max_sampled_C": 77.703
+        },
+        "hardware": {
+          "returncode": 0,
+          "stop_reason": "completed",
+          "max_sampled_C": 73.546
+        }
+      },
+      "software_frames": 60,
+      "hardware_frames": 60,
+      "all_frame_rows_match": true,
+      "avd_log_confirmed": true,
+      "vaapi_forced": true,
+      "clip_sha256": "8346455c7f19f77ca9faf42358481ae3cbd62f522591084f9a2334cefeed81f3"
+    }
+  ],
+  "H264_CABAC_header_verified": true,
+  "installed_VA_profiles": {
+    "va_version": [
+      1,
+      24
+    ],
+    "profiles": [
+      {
+        "profile_id": 13,
+        "profile": "H264ConstrainedBaseline",
+        "entrypoints": [
+          1
+        ]
+      },
+      {
+        "profile_id": 6,
+        "profile": "H264Main",
+        "entrypoints": [
+          1
+        ]
+      },
+      {
+        "profile_id": 7,
+        "profile": "H264High",
+        "entrypoints": [
+          1
+        ]
+      },
+      {
+        "profile_id": 17,
+        "profile": "HEVCMain",
+        "entrypoints": [
+          1
+        ]
+      },
+      {
+        "profile_id": 18,
+        "profile": "HEVCMain10",
+        "entrypoints": [
+          1
+        ]
+      },
+      {
+        "profile_id": 19,
+        "profile": "VP9Profile0",
+        "entrypoints": [
+          1
+        ]
+      },
+      {
+        "profile_id": 21,
+        "profile": "VP9Profile2",
+        "entrypoints": [
+          1
+        ]
+      },
+      {
+        "profile_id": 32,
+        "profile": "AV1Profile0",
+        "entrypoints": [
+          1
+        ]
+      },
+      {
+        "profile_id": -1,
+        "profile": "None",
+        "entrypoints": []
+      }
+    ]
+  },
+  "guard": {
+    "temperature_C": 78,
+    "timeout_per_process_s": 90,
+    "encoder_threads": 1,
+    "HEVC_worker_pools": "none"
+  },
+  "limitations": [
+    "Short generated progressive 8-bit 4:2:0 clips only.",
+    "Frame-row matching checks timestamps, output order and pixel checksums after conversion to NV12.",
+    "No presentation, audio synchronization, visual judgment or sustained performance tested.",
+    "Advertised profiles are capability claims, not proof of decoding support; only H264 and HEVC Main exercised here.",
+    "Sampling at 0.5 seconds cannot exclude unsampled temperature peaks.",
+    "No AV1, VP9 or HEVC Main10 runtime qualification; no clocks or protection settings changed."
+  ]
+}

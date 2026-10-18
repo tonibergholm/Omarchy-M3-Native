@@ -62,8 +62,8 @@ mpv --script=tools/mpv-audit.lua --term-status-msg='' video.mp4
 The tool prints `M3_PLAYBACK_RESULT` at end of playback. Review raw mpv output
 before sharing: mpv itself can print the media path even though this tool does not.
 
-Protected content, AV1, HEVC and VP9 remain untested here. A later bounded
-three-minute 1080p60 test is recorded below.
+Protected content, AV1 and VP9 remain untested here. A short HEVC Main
+correctness test and bounded three-minute 1080p60 tests are recorded below.
 Camera and browser capture results are documented separately in [capture.md](capture.md).
 
 
@@ -204,3 +204,32 @@ other media and long-session reliability also remain unqualified. The audit
 now records requested sync mode, active display-sync state and reported/estimated
 display refresh rates. See the
 [selected comparison](../reports/2026-10-17-video-display-sync.json).
+
+
+## Unattended decoder correctness extension (2026-10-18)
+
+Headless tests on the same pinned J613 stack used forced VA-API output and
+hardware download into NV12 for frame checksums, compared against software
+H.264/HEVC decoding converted to the same pixel format. Hardware logs identified
+Apple AVD. All output frame rows (ordering, timestamps and pixel checksums)
+matched exactly in these cases:
+
+| Generated clip | Frames matched |
+| --- | ---: |
+| H.264 High, 1280×720/30, 3 seconds, B-frames and CABAC | 90/90 |
+| H.264 High, 1920×1080/30, 2 seconds, B-frames | 60/60 |
+| HEVC Main, 1280×720/30, 2 seconds, B-frames | 60/60 |
+
+The 720p H.264 header's `entropy_coding_mode_flag=1` was checked explicitly.
+This adds short **HEVC Main decoding correctness** evidence, not HEVC playback
+or every HEVC profile. All clips were progressive 8-bit 4:2:0 generated patterns.
+VA-API advertised H.264, HEVC Main/Main10, VP9 and AV1 profiles, but advertised
+profiles alone do not qualify the untested codecs or 10-bit path.
+
+Each process had a 90-second timeout and a 78°C die-temperature stop guard.
+Encoders used one thread, with x265 worker pools disabled. All stages completed;
+the largest sampled temperature was 77.703°C, so further encoding tests were
+deferred. Half-second polling cannot exclude peaks between samples. No window,
+audio, camera capture or operator action was required. GPU clocks and protection
+settings were unchanged. See the
+[selected report](../reports/2026-10-18-headless-decode.json).

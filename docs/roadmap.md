@@ -25,7 +25,9 @@
    and 1080p30 playback; short 1080p60 fast-profile playback improved presentation
    counts. A three-minute 1080p60 fast-profile run completed with zero decoder
    drops and 25 presentation drops; the operator reported smooth, correct output.
-   Test browser playback, other codecs and longer use. The local
+   Headless High-profile H.264/B-frame and short HEVC Main pixel-equivalence
+   checks passed. Test HEVC playback, 10-bit output, remaining codecs, browser
+   playback and longer use. The local
    [ISP14.7 camera candidate](capture.md) delivers 1080p30 frames after reboot and sleep. Local Chromium
    camera/mic capture and [software-codec WebRTC loopback](webrtc.md) passed
    at 720p. Qualify remote calls, indicator behavior,

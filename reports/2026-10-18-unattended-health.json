@@ -1,0 +1,16 @@
+{
+  "board": "Apple J613 / T8122",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "failed_system_units": 0,
+  "failed_user_units": 0,
+  "wifi": "connected",
+  "bluetooth_powered": true,
+  "radios_soft_or_hard_blocked": false,
+  "resume_bluetooth_error": "HCI opcode 0x0c01 timed out (-110) during overnight resume.",
+  "bluetooth_connection_runtime_tested": false,
+  "boot_hash_audit": "Deferred: EFI files require root; no authentication requested.",
+  "notes": [
+    "Working Wi-Fi and powered Bluetooth do not prove all radio functions or dismiss journal errors.",
+    "No service restart, radio reset, package update or boot configuration change performed."
+  ]
+}

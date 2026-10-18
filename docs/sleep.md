@@ -164,3 +164,13 @@ sample exists and the UPower charge-history query returned no samples. This is
 therefore a recovery result with **no quantified overnight battery-loss or
 sleep-wattage claim**. See the
 [selected report](../reports/2026-10-18-overnight-resume.json).
+
+
+An unattended follow-up found no failed system or user units and connected
+Wi-Fi. Bluetooth was powered and radios were unblocked, but the kernel recorded
+an HCI `0x0c01` command timeout (`-110`) during the overnight resume. No paired
+peripheral connection was tested, so powered status does not qualify Bluetooth
+recovery or dismiss this error. No radio reset or service restart was performed.
+EFI checksum reinspection was deferred because files require root and the user
+requested checks without attendance. See the
+[selected health report](../reports/2026-10-18-unattended-health.json).
