@@ -1,0 +1,202 @@
+{
+  "board": "Apple J613 / T8122",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "VA_driver_package": "libva-v4l2_request-avd 1.3.r11.r169.gc653eaa-1",
+  "headless": true,
+  "VP9": {
+    "stream": {
+      "codec_name": "vp9",
+      "profile": "Profile 0",
+      "width": 1280,
+      "height": 720,
+      "pix_fmt": "yuv420p"
+    },
+    "stages": {
+      "encode": {
+        "returncode": 0,
+        "stop_reason": "completed",
+        "max_sampled_C": 58.203
+      },
+      "software": {
+        "returncode": 0,
+        "stop_reason": "completed",
+        "max_sampled_C": 65.5
+      },
+      "hardware": {
+        "returncode": 0,
+        "stop_reason": "completed",
+        "max_sampled_C": 59.578
+      }
+    },
+    "software_frames": 30,
+    "hardware_frames": 30,
+    "all_frame_rows_match": true,
+    "avd_log_confirmed": true,
+    "comparison_pixel_format": "nv12",
+    "cpu_quota_percent": 25,
+    "sample_sha256": "033ea6dbf1624aa9e4713beb7ae70fac18c6b2c96812b0cd0a4b0726af16ee70"
+  },
+  "AV1_8bit": {
+    "source_url": "https://fate-suite.ffmpeg.org/av1/frames_refs_short_signaling.ivf",
+    "sample_sha256": "d9136e7e427a1ec1423823f1d8cee37ed0aa354d16bb6607feb5413436810918",
+    "stream": {
+      "codec_name": "av1",
+      "profile": "Main",
+      "width": 640,
+      "height": 360,
+      "pix_fmt": "yuv420p"
+    },
+    "stages": {
+      "software": {
+        "returncode": 0,
+        "stop_reason": "completed",
+        "max_sampled_C": 56.046
+      },
+      "hardware": {
+        "returncode": 0,
+        "stop_reason": "completed",
+        "max_sampled_C": 56.765
+      }
+    },
+    "software_frames": 50,
+    "hardware_frames": 50,
+    "all_frame_rows_match": true,
+    "avd_log_confirmed": true,
+    "comparison_pixel_format": "nv12",
+    "cpu_quota_percent": 25
+  },
+  "AV1_10bit_no_grain": {
+    "source_url": "https://chromium.googlesource.com/chromium/src/+/refs/tags/120.0.6099.129/media/test/data/bear-av1-320x180-10bit.webm",
+    "sample_sha256": "4046519d9fefe3459c65edb15faad9cf2b3c1af0e59896e4a6560e0facfe7638",
+    "stream": {
+      "codec_name": "av1",
+      "profile": "Main",
+      "width": 320,
+      "height": 180,
+      "pix_fmt": "yuv420p10le"
+    },
+    "stages": {
+      "software": {
+        "returncode": 0,
+        "stop_reason": "completed",
+        "max_sampled_C": 61.031
+      },
+      "hardware": {
+        "returncode": 0,
+        "stop_reason": "completed",
+        "max_sampled_C": 57.484
+      }
+    },
+    "software_frames": 82,
+    "hardware_frames": 82,
+    "all_frame_rows_match": true,
+    "avd_log_confirmed": true,
+    "comparison_pixel_format": "p010le",
+    "cpu_quota_percent": 25
+  },
+  "AV1_10bit_with_grain": {
+    "source_url": "https://fate-suite.ffmpeg.org/av1/film_grain.ivf",
+    "sample_sha256": "40470898ac832513f2e0cce3d1d4e1c864b8a05ba79b5466167f2a65b03cd149",
+    "stream": {
+      "codec_name": "av1",
+      "profile": "Main",
+      "width": 320,
+      "height": 240,
+      "pix_fmt": "yuv420p10le"
+    },
+    "stages": {
+      "software": {
+        "returncode": 0,
+        "stop_reason": "completed",
+        "max_sampled_C": 56.484
+      },
+      "hardware": {
+        "returncode": 0,
+        "stop_reason": "completed",
+        "max_sampled_C": 56.484
+      }
+    },
+    "software_frames": 10,
+    "hardware_frames": 10,
+    "all_frame_rows_match": false,
+    "avd_log_confirmed": true,
+    "comparison_pixel_format": "p010le",
+    "cpu_quota_percent": 25
+  },
+  "film_grain_header_checks": {
+    "bear_film_grain_params_present": 0,
+    "fate_film_grain_params_present": 1,
+    "fate_first_frame_apply_grain": 1
+  },
+  "film_grain_control": {
+    "returncode": 0,
+    "stop_reason": "completed",
+    "max_sampled_C": 54.828,
+    "frames": 10,
+    "hardware_matches_no_grain": false,
+    "matching_rows": 0
+  },
+  "film_grain_pixel_analysis": {
+    "jobs": {
+      "grain": {
+        "returncode": 0,
+        "stop_reason": "completed",
+        "max_sampled_C": 55.078
+      },
+      "nograin": {
+        "returncode": 0,
+        "stop_reason": "completed",
+        "max_sampled_C": 58.687
+      },
+      "hw": {
+        "returncode": 0,
+        "stop_reason": "completed",
+        "max_sampled_C": 58.687
+      }
+    },
+    "pixel_differences": {
+      "grain vs nograin": {
+        "samples": 1152000,
+        "different_samples": 1097614,
+        "MAE_10bit": 6.735283854166667,
+        "max_error_10bit": 38
+      },
+      "hw vs grain": {
+        "samples": 1152000,
+        "different_samples": 1151965,
+        "MAE_10bit": 504.88225694444446,
+        "max_error_10bit": 1023
+      },
+      "hw vs nograin": {
+        "samples": 1152000,
+        "different_samples": 1151960,
+        "MAE_10bit": 504.8579921875,
+        "max_error_10bit": 1019
+      }
+    },
+    "packing_low6_nonzero": {
+      "grain": 0,
+      "nograin": 0,
+      "hw": 0
+    }
+  },
+  "hardware_grain_output": {
+    "all_P010_words_zero": true,
+    "frames": 10,
+    "pixel_words": 1152000
+  },
+  "GPU_OpenGL_after": "pass",
+  "GPU_Vulkan_after": "pass",
+  "guard": {
+    "CPU_quota_percent": 25,
+    "temperature_stop_C": 78,
+    "timeout_per_process_s": 90
+  },
+  "limitations": [
+    "Short low-resolution reference or generated clips; no sustained VP9/AV1 playback qualification.",
+    "AV1 film-grain failure is sample-specific evidence, not a proven root cause or all-grain-stream claim.",
+    "Zero-valued output with successful API completion is not a hardware correctness pass.",
+    "Reference media, downloaded source, raw pixels and full logs are private; only selected observations and provenance published.",
+    "No system config, installed decoder, kernel, firmware or protection setting changed."
+  ]
+}

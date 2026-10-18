@@ -62,7 +62,8 @@ mpv --script=tools/mpv-audit.lua --term-status-msg='' video.mp4
 The tool prints `M3_PLAYBACK_RESULT` at end of playback. Review raw mpv output
 before sharing: mpv itself can print the media path even though this tool does not.
 
-Protected content, AV1 and VP9 remain untested here. A short HEVC Main
+Protected content remains untested here. Short VP9/AV1 correctness results,
+a short HEVC Main
 correctness test and bounded three-minute 1080p60 tests are recorded below.
 Camera and browser capture results are documented separately in [capture.md](capture.md).
 
@@ -252,3 +253,44 @@ The reference's SHA-256 and selected results are in the
 redistributed here. The test used a 25% CPU quota and the existing 78°C guard,
 with maximum sampled temperature 55.750°C. This tiny conformance case does not
 qualify HD/UHD playback, HDR output, tone mapping, audio or arbitrary Main10.
+
+
+## Unattended VP9/AV1 checks and a film-grain failure
+
+On the same J613 kernel with `libva-v4l2_request-avd
+1.3.r11.r169.gc653eaa-1`, the following forced VA-API/Apple AVD outputs matched
+software decoding exactly (frame order, timestamps and pixel checksums):
+
+| Clip | Comparison format | Frames matched |
+| --- | --- | ---: |
+| Generated VP9 Profile 0, 1280×720, 8-bit | NV12 | 30/30 |
+| [FATE AV1 frames_refs_short_signaling.ivf](https://fate-suite.ffmpeg.org/av1/frames_refs_short_signaling.ivf), 640×360, 8-bit | NV12 | 50/50 |
+| [Chromium bear-av1-320x180-10bit.webm](https://chromium.googlesource.com/chromium/src/+/refs/tags/120.0.6099.129/media/test/data/bear-av1-320x180-10bit.webm), 320×180, 10-bit | P010 | 82/82 |
+
+The Chromium sample's sequence header has `film_grain_params_present=0`.
+These are short correctness checks, not sustained playback qualification.
+
+**Failing case:** the [FATE film_grain.ivf sample](https://fate-suite.ffmpeg.org/av1/film_grain.ivf)
+is AV1 Main 10-bit, 320×240, with grain parameters present and `apply_grain=1`.
+The hardware path returned ten P010 frames and successful exit, but **every
+output word was zero**: 0/10 frames matched software. Software output with grain
+disabled also did not match hardware. Normal software output contained nonzero
+image data both with and without grain, excluding a mere difference in grain
+noise as the explanation for the zero output. The expected frame timing and
+sizes matched. The initial harness rejected the sample's unexpected 10-bit
+format before a separate P010 run; no 8-bit truncation was used.
+
+This isolates a failing grain-bearing sample while a different grain-free
+10-bit sample passed; it does not prove whether the defect is in grain handling,
+surface selection, the VA bridge or the kernel. The pinned kernel AV1 source
+reads the film-grain control but further source/runtime work is needed before
+assigning a root cause. The installed library was not patched or replaced.
+For this affected sample, explicit software decoding (`mpv --hwdec=no ...`)
+avoids relying on the failed hardware result; audible/visual playback was not
+tested in this unattended run. Ordinary player defaults remain unchanged.
+
+All jobs used a 25% CPU quota, finite deadlines and the 78°C guard. GPU pixel and
+compute readbacks passed afterwards. Provenance, reference hashes and selected
+results are in the [report](../reports/2026-10-18-vp9-av1.json); reference media,
+raw output and the pinned library checkout remain private. No upstream issue
+or comment was posted.

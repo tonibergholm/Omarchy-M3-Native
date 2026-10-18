@@ -26,8 +26,10 @@
    counts. A three-minute 1080p60 fast-profile run completed with zero decoder
    drops and 25 presentation drops; the operator reported smooth, correct output.
    Headless High-profile H.264/B-frame and short HEVC Main pixel-equivalence
-   checks passed. Test HEVC playback, 10-bit output, remaining codecs, browser
-   playback and longer use. The local
+   checks passed. Small HEVC Main10, VP9, AV1 8-bit and grain-free AV1 10-bit
+   checks also passed; one AV1 grain-bearing sample produced all-zero hardware
+   output. Investigate that failure, test sustained codec playback and browser
+   support. The local
    [ISP14.7 camera candidate](capture.md) delivers 1080p30 frames after reboot and sleep. Local Chromium
    camera/mic capture and [software-codec WebRTC loopback](webrtc.md) passed
    at 720p. Qualify remote calls, indicator behavior,
