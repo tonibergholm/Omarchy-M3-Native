@@ -1,0 +1,86 @@
+{
+  "board": "Apple J613 / T8122",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "mpv_version": "mpv v0.41.0 Copyright \u00a9 2000-2025 mpv/MPlayer/mplayer2 projects",
+  "method": "Private LD_PRELOAD diagnostic returns VA_STATUS_ERROR_UNIMPLEMENTED from vaRenderPicture for AV1 apply_grain pictures. Headless mpv VA-API-copy decoding and P010 framemd5 encoding.",
+  "probe_source_sha256": "0eb89358d85c4c43c277ee56cc7e9fcd8b5a6824028ef6a507c0e44ee302ac29",
+  "grain_sample": "https://fate-suite.ffmpeg.org/av1/film_grain.ivf",
+  "software_reference": "libdav1d with default grain synthesis, P010 output",
+  "fallback_cases": [
+    {
+      "fallback_threshold": 1,
+      "process_result": {
+        "returncode": 0,
+        "stop_reason": "completed",
+        "max_sampled_C": 58.171,
+        "output_exists": true
+      },
+      "grain_rejection_markers": 1,
+      "hardware_decode_error_reported": true,
+      "output_frames": 10,
+      "software_reference_frames": 10,
+      "matching_pixel_hashes": 10,
+      "all_pixel_hashes_match": true,
+      "timing_note": "Encoding path time bases differ; only ordered pixel hashes compared."
+    },
+    {
+      "fallback_threshold": "mpv default",
+      "process_result": {
+        "returncode": 0,
+        "stop_reason": "completed",
+        "max_sampled_C": 57.25,
+        "output_exists": true
+      },
+      "grain_rejection_markers": 3,
+      "hardware_decode_error_reported": true,
+      "output_frames": 10,
+      "software_reference_frames": 10,
+      "matching_pixel_hashes": 10,
+      "all_pixel_hashes_match": true,
+      "timing_note": "Encoding path time bases differ; only ordered pixel hashes compared."
+    }
+  ],
+  "grain_free_control": {
+    "source_url": "https://fate-suite.ffmpeg.org/av1/frames_refs_short_signaling.ivf",
+    "sample_sha256": "d9136e7e427a1ec1423823f1d8cee37ed0aa354d16bb6607feb5413436810918",
+    "stream": {
+      "codec_name": "av1",
+      "profile": "Main",
+      "width": 640,
+      "height": 360,
+      "pix_fmt": "yuv420p"
+    },
+    "stages": {
+      "software": {
+        "returncode": 0,
+        "stop_reason": "completed",
+        "max_sampled_C": 57.453
+      },
+      "hardware": {
+        "returncode": 0,
+        "stop_reason": "completed",
+        "max_sampled_C": 57.937
+      }
+    },
+    "software_frames": 50,
+    "hardware_frames": 50,
+    "all_frame_rows_match": true,
+    "avd_log_confirmed": true,
+    "comparison_pixel_format": "nv12",
+    "cpu_quota_percent": 25
+  },
+  "grain_free_rejection_markers": 0,
+  "guard": {
+    "cpu_quota_percent": 25,
+    "temperature_stop_C": 78,
+    "timeout_per_job_s": 90
+  },
+  "installed_changes": false,
+  "limitations": [
+    "Fallback produces software output, not hardware AV1 grain support.",
+    "One grain-bearing sample and one grain-free control; not general client or library ABI qualification.",
+    "Prototype uses a legacy exported VA buffer helper and is not installed, a supported plugin, or a production-ready fix.",
+    "Headless encoding via vaapi-copy only: no direct-surface playback, visual cadence, audio or Chromium fallback qualification.",
+    "No source fork edits or upstream messages; source change and regression coverage still needed."
+  ]
+}

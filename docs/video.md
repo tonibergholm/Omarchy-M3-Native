@@ -318,3 +318,26 @@ synthesis, display-surface ownership and completion need to be addressed togethe
 explicit failure would also be preferable to silent blank output while that
 support is unavailable. No source candidate was installed or upstream message
 posted. See the [surface evidence](../reports/2026-10-18-av1-grain-surfaces.json).
+
+
+### Process-local rejection and software fallback prototype
+
+A private preload diagnostic returned `VA_STATUS_ERROR_UNIMPLEMENTED` from
+`vaRenderPicture` when AV1 `apply_grain` was set. It was loaded only into the
+bounded test process; installed libraries and player defaults were unchanged.
+Headless mpv requested VA-API-copy and encoded downloaded frames as P010 MD5s.
+After the hardware error, both a one-error fallback threshold and mpv's default
+fallback threshold produced **10/10 pixel hashes matching grain-enabled software
+decoding**, in order. Encoder time bases differed, so this comparison covers
+ordered pixels rather than exact timestamp rows. These are **software fallback
+passes**, not hardware grain passes.
+
+With the same guard loaded, the grain-free AV1 reference still used AVD and
+matched **50/50 software frame rows**, with no rejection marker. This validates
+the local behavior of a targeted rejection safeguard, rather than disabling
+all AV1 acceleration. It does not qualify other clients, direct-surface playback,
+audio, ABI compatibility or a library source repair. The prototype relies on a
+legacy exported VA helper and is not suitable for system-wide installation.
+The source driver still needs a properly scoped change and regression tests;
+no fork edits or upstream coordination messages were made. See the
+[fallback report](../reports/2026-10-18-av1-grain-fallback.json).
