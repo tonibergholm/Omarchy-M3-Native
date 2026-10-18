@@ -1,0 +1,32 @@
+{
+  "board": "Apple J613 / T8122",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "observer_script_sha256": "6b8c85cee638e7f1d3e0a62e15634c7e6d63e1691c1bc72112c0cd995e845b55",
+  "offline_unit_tests_passed": 3,
+  "private_bus_integration_tests_passed": 2,
+  "private_bus_checks": [
+    "Typed PrepareForSleep delivery and filtering of an unrelated interface.",
+    "Two sleep/resume pairs, delayed samples and cancellation of prior-cycle delayed samples.",
+    "Normal termination writes observer-stop and exits zero.",
+    "Private D-Bus daemon disconnect writes SystemBusClosed failure and exits nonzero."
+  ],
+  "bug_reproduced_before_fix": "Observer remained alive after private bus daemon disconnected; the new failure-exit test timed out.",
+  "fix": "Subscribe to connection closed signal, record failure and exit with error instead of appearing healthy.",
+  "running_service": "active/running",
+  "running_copy_matches_tested_source": true,
+  "previous_private_log_preserved": true,
+  "real_service_synthetic_sleep_events": 0,
+  "native_sleep_validation": "Still pending a natural real sleep/resume cycle.",
+  "power_policy_changed": false,
+  "inhibitor_acquired": false,
+  "limits": {
+    "days": 7,
+    "cpu_quota_percent": 5,
+    "memory_MiB": 128
+  },
+  "limitations": [
+    "Private D-Bus testing proves signal handling and callback lifecycle, not system-logind or user-freezer ordering.",
+    "Delayed targets shortened to 1/2/3 seconds in isolated tests; live targets remain 30/60/120 seconds.",
+    "No native sleep was triggered and no sleep battery estimate is claimed."
+  ]
+}

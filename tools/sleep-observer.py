@@ -70,12 +70,12 @@ class Recorder:
         self.file.close()
 
 
-def watch(output):
+def watch(output, connection=None, settle_delays=(30, 60, 120)):
     # Import desktop D-Bus bindings only for explicit monitoring.
     from gi.repository import Gio, GLib
     recorder = Recorder(output)
     loop = GLib.MainLoop()
-    bus = Gio.bus_get_sync(Gio.BusType.SYSTEM, None)
+    bus = connection if connection is not None else Gio.bus_get_sync(Gio.BusType.SYSTEM, None)
     timers = []
     failures = []
     resume_at = None
@@ -108,7 +108,7 @@ def watch(output):
         row = recorder.transition(sleeping)
         resume_at = None if sleeping else row['monotonic_s']
         if not sleeping:
-            for seconds in (30, 60, 120):
+            for seconds in settle_delays:
                 # Remove completed IDs so later sleeps never remove reused IDs.
                 holder = []
                 def fire(seconds=seconds, holder=holder):
@@ -119,6 +119,11 @@ def watch(output):
                 holder.append(timer)
                 timers.append(timer)
 
+    def disconnected(connection, remote_peer_vanished, error):
+        failures.append('SystemBusClosed')
+        loop.quit()
+
+    closed_handler = bus.connect('closed', disconnected)
     subscription = bus.signal_subscribe(
         'org.freedesktop.login1', 'org.freedesktop.login1.Manager',
         'PrepareForSleep', '/org/freedesktop/login1', None,
@@ -132,8 +137,11 @@ def watch(output):
         for timer in timers:
             GLib.source_remove(timer)
         bus.signal_unsubscribe(subscription)
+        bus.disconnect(closed_handler)
         try:
-            recorder.write(snapshot('observer-stop'))
+            row = snapshot('observer-stop')
+            row['failure_types'] = failures
+            recorder.write(row)
         finally:
             recorder.close()
     if failures:

@@ -284,3 +284,23 @@ a battery-use estimate nor a saving. See the
 Explicit `--watch --output /private/new-file.jsonl` enables recording and requires
 an existing output directory and a new file. It needs Python GObject/Gio bindings.
 Run offline checks with `python3 -m unittest discover -s tests`.
+
+
+### Isolated D-Bus validation and disconnect handling
+
+Two integration tests run a separate private D-Bus daemon and a typed test
+logind sender. They do **not** contact system logind or suspend the machine.
+They verify signal filtering, two-cycle pairing, delayed callback execution,
+cancellation of old samples on another sleep, clean stop, and failure behavior
+when the private daemon disconnects. Test delays are shortened to 1/2/3 seconds;
+the live observer still uses 30/60/120 seconds.
+
+The disconnect test first failed: the observer remained alive after losing its
+bus. The observer now subscribes to the connection's closed signal, records
+`SystemBusClosed`, and exits nonzero. All **five tests** (three storage/clock
+unit tests plus two private-bus integration tests) pass. The revised source was
+copied into the transient service and verified active, preserving the prior
+private recording. Neither real recording contained the synthetic test signals.
+Native logind/freezer ordering and an actual battery-boundary capture remain
+pending natural sleep. See the
+[validation report](../reports/2026-10-18-sleep-observer-bus-validation.json).
