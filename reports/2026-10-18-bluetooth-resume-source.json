@@ -1,0 +1,56 @@
+{
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "controllers": [
+    {
+      "vendor": "0x14e4",
+      "device": "0x5f72",
+      "driver": "hci_bcm4377"
+    }
+  ],
+  "default_controller_state": {
+    "Powered": "yes",
+    "PowerState": "on",
+    "Discovering": "no"
+  },
+  "network_states": [
+    {
+      "type": "wifi",
+      "state": "connected"
+    }
+  ],
+  "rfkill": [
+    {
+      "type": "bluetooth",
+      "soft": "0",
+      "hard": "0"
+    },
+    {
+      "type": "wlan",
+      "soft": "0",
+      "hard": "0"
+    }
+  ],
+  "current_boot_journal_counts": {
+    "set_event_mask_timeouts": 1,
+    "resume_recovery_attempts": 0,
+    "resume_recovery_failures": 0,
+    "codec_capability_errors": 10
+  },
+  "limitations": [
+    "Controller state and management queries do not prove live HCI transport or peripheral connections.",
+    "Journal counts cover only records accessible to this user; zero is not a full health qualification.",
+    "Bluetooth state is for the default controller; no scanning, pairing, reset or power change is performed."
+  ],
+  "board": "Apple J613 / T8122",
+  "source_commit": "5ec1028c81526e1ed31db2b97e47edf8663e83cb",
+  "timed_out_opcode": "HCI_OP_SET_EVENT_MASK (0x0c01)",
+  "controller_model_from_PCI_mapping": "BCM4388",
+  "source_resume_recovery_gate": {
+    "chip": "BCM4378 (0x4378)",
+    "board": "apple,j493",
+    "applies_to_this_machine": false
+  },
+  "driver_source_sha256": "040c25319a8ce4856fa80f160273e2ee53047be899b06cc49b4f9c066b26420f",
+  "actions": "Read-only state and source inspection; no scan, pairing, reset, power cycle, sleep or module change.",
+  "interpretation": "Explains why the named recovery path is inapplicable; does not establish transport timeout root cause or safety of extending another board workaround."
+}

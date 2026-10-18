@@ -43,6 +43,7 @@ Read-only checks:
 ```sh
 python3 tools/m3-status.py
 python3 tools/thermal-watch.py --seconds 10
+python3 tools/radio-status.py
 aurora-m3-gpu-check
 ```
 

@@ -174,3 +174,23 @@ recovery or dismiss this error. No radio reset or service restart was performed.
 EFI checksum reinspection was deferred because files require root and the user
 requested checks without attendance. See the
 [selected health report](../reports/2026-10-18-unattended-health.json).
+
+
+### Bluetooth timeout source follow-up
+
+The running controller's PCI ID is `14e4:5f72`, mapped by the pinned driver to
+BCM4388. The timed-out opcode `0x0c01` is `HCI_OP_SET_EVENT_MASK`. The release
+source's `bcm4377_resume_recovery_supported()` permits its resume-timeout reset
+path only for BCM4378 on `apple,j493`; it therefore does not apply to this
+J613/BCM4388. Current-boot logs show one Set Event Mask timeout, zero instances
+of that recovery message, and ten boot-time codec-capability `-22` messages.
+The controller remains powered and Wi-Fi connected. These state queries do not
+prove live command transport or peripheral connectivity.
+
+This identifies the scope of the existing recovery implementation, not the
+cause of the J613 timeout or evidence that extending its gate is safe. No reset,
+scan, connection, suspend, driver or firmware change was performed. The new
+read-only `python3 tools/radio-status.py` prints selected controller state,
+network states, rfkill values and timeout counts without addresses, names,
+SSIDs or full journals. See the
+[selected source/state report](../reports/2026-10-18-bluetooth-resume-source.json).

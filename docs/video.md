@@ -233,3 +233,22 @@ deferred. Half-second polling cannot exclude peaks between samples. No window,
 audio, camera capture or operator action was required. GPU clocks and protection
 settings were unchanged. See the
 [selected report](../reports/2026-10-18-headless-decode.json).
+
+
+## Small Main10 conformance check
+
+The local x265 library reports an **8-bit build**. A requested Main10 generation
+attempt silently produced Main/yuv420p instead; its subsequent P010 download
+failure is excluded as Main10 evidence. The private generated-test harness now
+checks actual profile and pixel format before attempting that comparison.
+
+Instead, the [FFmpeg FATE conformance sample
+DBLK_A_MAIN10_VIXS_3.bit](https://fate-suite.ffmpeg.org/hevc-conformance/DBLK_A_MAIN10_VIXS_3.bit)
+was downloaded and probed as HEVC **Main 10, 176×144, yuv420p10le**. Forced VA-API
+through Apple AVD and software decoding each produced **eight P010 frames**;
+all frame rows and pixel checksums matched. P010 preserved 10-bit samples.
+The reference's SHA-256 and selected results are in the
+[Main10 report](../reports/2026-10-18-hevc-main10.json); the bitstream is not
+redistributed here. The test used a 25% CPU quota and the existing 78°C guard,
+with maximum sampled temperature 55.750°C. This tiny conformance case does not
+qualify HD/UHD playback, HDR output, tone mapping, audio or arbitrary Main10.

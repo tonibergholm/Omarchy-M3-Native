@@ -1,0 +1,46 @@
+{
+  "source_url": "https://fate-suite.ffmpeg.org/hevc-conformance/DBLK_A_MAIN10_VIXS_3.bit",
+  "sample_sha256": "96c4f1a6b824cc51433d87ebc11bffcc6c2fe3de3ed18339316803e8bbc9be17",
+  "stream": {
+    "codec_name": "hevc",
+    "profile": "Main 10",
+    "width": 176,
+    "height": 144,
+    "pix_fmt": "yuv420p10le"
+  },
+  "stages": {
+    "software": {
+      "returncode": 0,
+      "stop_reason": "completed",
+      "max_sampled_C": 55.75
+    },
+    "hardware": {
+      "returncode": 0,
+      "stop_reason": "completed",
+      "max_sampled_C": 55.75
+    }
+  },
+  "software_frames": 8,
+  "hardware_frames": 8,
+  "all_frame_rows_match": true,
+  "avd_log_confirmed": true,
+  "comparison_pixel_format": "p010le",
+  "cpu_quota_percent": 25,
+  "board": "Apple J613 / T8122",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "excluded_generated_attempt": {
+    "requested_profile": "main10",
+    "requested_pixel_format": "yuv420p10le",
+    "actual_profile": "Main",
+    "actual_pixel_format": "yuv420p",
+    "reason": "Installed x265 build is 8-bit and FFmpeg substituted the format; hardware P010 download failure from this 8-bit input is not Main10 evidence."
+  },
+  "input_validation": "Reference clip profile and pixel format asserted before decoding; generated harness now asserts actual stream metadata before comparison.",
+  "guard_temperature_C": 78,
+  "limitations": [
+    "Only eight 176x144 conformance frames, not HD/UHD performance or arbitrary Main10 streams.",
+    "No playback, HDR scanout, tone mapping, audio synchronization or visual inspection tested.",
+    "P010 retains 10-bit samples; no downconversion to 8-bit used in this reference comparison.",
+    "Reference bitstream retained privately; only provenance, hash and selected results published."
+  ]
+}
