@@ -294,3 +294,27 @@ compute readbacks passed afterwards. Provenance, reference hashes and selected
 results are in the [report](../reports/2026-10-18-vp9-av1.json); reference media,
 raw output and the pinned library checkout remain private. No upstream issue
 or comment was posted.
+
+
+### AV1 grain/display-surface trace
+
+A process-local VA-API observation probe reproduced the exact uninstrumented
+failure. For all ten pictures, FFmpeg supplied `apply_grain=1` and a grain-display
+surface different from the current decode surface. The client synchronized and
+read display surfaces with successful VA status, yet received the zero output.
+The installed VA AV1 header defines that display surface as the grain-applied
+picture. The pinned bridge source (`c653eaa`) never uses
+`current_display_picture`; it retains the decode/current surface and begin-picture
+target instead. The pinned kernel reads a grain-control pointer, with no further
+uses of that pointer found. These are evidence of an incomplete grain/display
+path; they do not constitute a completed root-cause fix.
+
+A separate **diagnostic-only** preload redirected display-surface sync/download
+to the associated decode surfaces. This recovered exact software-without-grain
+pixels for **6/10 frames**, while four still differed. All timing and frame sizes
+matched. It neither synthesizes grain nor preserves all expected frames and
+**must not be installed or described as a playback workaround**. Proper grain
+synthesis, display-surface ownership and completion need to be addressed together;
+explicit failure would also be preferable to silent blank output while that
+support is unavailable. No source candidate was installed or upstream message
+posted. See the [surface evidence](../reports/2026-10-18-av1-grain-surfaces.json).
