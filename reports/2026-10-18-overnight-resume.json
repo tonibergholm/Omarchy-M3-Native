@@ -22,7 +22,7 @@
     "UPower D-Bus charge-history query returned no samples.",
     "No sleep-only battery loss or wattage inferred."
   ],
-  "operator_wake_and_Touch_ID": "Awaiting confirmation",
+  "operator_wake_and_Touch_ID": "Both lid-open wake and Touch ID unlock confirmed working normally.",
   "audible_playback_tested": false,
   "no_test_armed_at_bedtime": true
 }

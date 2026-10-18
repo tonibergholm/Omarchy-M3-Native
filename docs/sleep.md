@@ -156,7 +156,7 @@ entry at 21:58:47 on October 17 and exit at 08:37:48 on October 18, a
 **10h39m01s journal interval**. This boot's success counter was one and failure
 counter zero after wake. OpenGL and Vulkan readbacks passed; brightness was
 265/77 and speaker protection was active. Audible playback was not tested.
-Physical lid-wake and Touch ID confirmation were still pending at collection.
+The operator confirmed lid-open wake and Touch ID unlock both worked normally.
 
 No dedicated recorder was armed at bedtime. The first inspection several
 minutes after resume found **9% battery**, but no corresponding bedtime battery
