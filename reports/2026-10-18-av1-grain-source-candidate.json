@@ -18,7 +18,7 @@
     ],
     "device": "in-memory V4L2, production codec entry points"
   },
-  "full_offline_validation": "pending; live finite build/test unit",
+  "full_offline_validation": "blocked; both local whole-build attempts stopped by thermal guard before tests; no hosted run",
   "native_candidate_validation": "not run",
   "installed_driver_changed": false,
   "hardware_grain_support_added": false,
@@ -27,6 +27,29 @@
     "No native software-fallback qualification of this source candidate.",
     "No full-suite success claimed.",
     "Existing non-AVD in-place grain/control behavior retained, not newly qualified.",
-    "Parent AV1 synthesis and support qualification remain open."
-  ]
+    "Parent AV1 synthesis and support qualification remain open.",
+    "Thermal spikes remain unexplained; a 49-sample no-build observation ranged from 47.765C to 60.312C, without causal attribution."
+  ],
+  "interrupted_full_builds": [
+    {
+      "attempt": 1,
+      "max_sampled_C": 78.921,
+      "quota": "10% initial, then adaptive 25%/5%",
+      "completed_build_step": 68,
+      "total_build_steps": 411
+    },
+    {
+      "attempt": 2,
+      "max_sampled_C": 78.875,
+      "quota": "fixed 5%",
+      "completed_build_step": 25,
+      "remaining_build_steps_at_start": 343
+    }
+  ],
+  "hosted_ci": {
+    "run_created": false,
+    "blocker": "Current GitHub OAuth credential lacks workflow scope; separate validation workflow push rejected.",
+    "maintainer_request": "https://github.com/omacom/libva-v4l2_request/pull/107#issuecomment-6253809617"
+  },
+  "local_build_jobs": "stopped"
 }

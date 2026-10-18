@@ -396,7 +396,13 @@ entry points and an in-memory V4L2 device; they check rejection before pending
 submission, preservation of the held picture and a subsequent valid picture.
 These are offline controls, not decoder or native client fallback results.
 
-Full offline validation is still pending. The candidate is not installed, and
-hardware grain synthesis remains unresolved. Independent review and a guarded
+Full offline validation is blocked. Both local whole-build attempts stopped
+at the unchanged 78°C guard before tests: sampled peaks were 78.921°C and
+78.875°C, including the fixed-5%-CPU retry. Both partial runs are retained;
+neither counts as a full-suite result. The jobs are stopped. A separate hosted
+validation workflow push was rejected because the current GitHub OAuth credential
+lacks workflow scope, so no CI run was created. The existing-check and independent
+review request is linked in the source report. The candidate is not installed,
+and hardware grain synthesis remains unresolved. Independent review and a guarded
 process-local native test remain open. See the
 [selected source report](../reports/2026-10-18-av1-grain-source-candidate.json).
