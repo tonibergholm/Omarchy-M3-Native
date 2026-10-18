@@ -147,3 +147,20 @@ also remained unchanged. These counters therefore do not independently identify
 the wake source. This is one operator-confirmed trackpad wake, not repeated-cycle
 or closed-lid qualification. No wake policy was changed or persistent sleep hook
 installed. See the [selected report](../reports/2026-10-17-trackpad-wake.json).
+
+
+## Second overnight recovery (2026-10-18)
+
+Following the macOS round trip and return to Linux, the journal records s2idle
+entry at 21:58:47 on October 17 and exit at 08:37:48 on October 18, a
+**10h39m01s journal interval**. This boot's success counter was one and failure
+counter zero after wake. OpenGL and Vulkan readbacks passed; brightness was
+265/77 and speaker protection was active. Audible playback was not tested.
+Physical lid-wake and Touch ID confirmation were still pending at collection.
+
+No dedicated recorder was armed at bedtime. The first inspection several
+minutes after resume found **9% battery**, but no corresponding bedtime battery
+sample exists and the UPower charge-history query returned no samples. This is
+therefore a recovery result with **no quantified overnight battery-loss or
+sleep-wattage claim**. See the
+[selected report](../reports/2026-10-18-overnight-resume.json).

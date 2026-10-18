@@ -1,0 +1,28 @@
+{
+  "board": "Apple J613 / T8122",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "sleep_mode": "s2idle",
+  "journal_suspend_entry": "2026-10-17T21:58:47+03:00",
+  "journal_suspend_exit": "2026-10-18T08:37:48+03:00",
+  "journal_interval_seconds": 38341,
+  "success_after": 1,
+  "fail_after": 0,
+  "GPU_OpenGL_readback": "pass",
+  "GPU_Vulkan_readback": "pass",
+  "brightness_after": {
+    "screen": 265,
+    "keyboard": 77
+  },
+  "speakersafetyd": "active",
+  "capacity_first_inspection_percent": 9,
+  "capacity_inspection_timing": "Several minutes after resume, not a boundary measurement.",
+  "battery_loss_estimate": null,
+  "battery_limitations": [
+    "No dedicated recorder or bedtime boundary battery sample.",
+    "UPower D-Bus charge-history query returned no samples.",
+    "No sleep-only battery loss or wattage inferred."
+  ],
+  "operator_wake_and_Touch_ID": "Awaiting confirmation",
+  "audible_playback_tested": false,
+  "no_test_armed_at_bedtime": true
+}
