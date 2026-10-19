@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-19",
+  "board": "Apple J613 / T8122",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "quickshell": "0.3.2.r7.g2b4501a-1",
+  "hyprland": "0.56.2",
+  "observed_causes": [
+    "ChatGPT window actively requested idle inhibition while global Stay Awake was off.",
+    "Changing IdleMonitor respectInhibitors at runtime left its QML idle state stale even after a native idle event."
+  ],
+  "upstream_reproduction": "https://github.com/quickshell-mirror/quickshell/issues/1309#issuecomment-6260287318",
+  "workaround": {
+    "kind": "user-owned clone of omarchy.idle, no packaged file edits",
+    "policy": "Ignore only ChatGPT when it is the sole reported window inhibitor; respect other reported windows, static/dynamic noidle tags, explicit stay-awake and failed probes.",
+    "monitor_modes": "Separate fixed true/false respectInhibitors monitors; select effective state at QML level.",
+    "poll_interval_s": 5,
+    "probe_fields": [
+      "class",
+      "inhibitingIdle",
+      "tags"
+    ],
+    "screensaver_timeout_s": 150,
+    "lock_timeout_s": 300
+  },
+  "verification": {
+    "model_policy_cases_passed": 13,
+    "isolated_monitor_probe": {
+      "fixed_idle": true,
+      "runtime_changed_idle": false
+    },
+    "normal_screensaver_started_utc": "2026-10-19T05:18:27.864Z",
+    "screensaver_window_observed": true,
+    "normal_lock_timeout_utc": "2026-10-19T05:20:57.866Z",
+    "locked": true,
+    "sessionLocked": true,
+    "secure": true,
+    "internal_display_dpmsStatus_after_lock": false,
+    "timeout_values_changed": false,
+    "forced_lock_used": false
+  },
+  "local_source_hashes": {
+    "Service.qml": "b68c5fa830ecaed8dbd1b4ca9ed64d0a3ba322f2a4a0e517a0122608ce9af5bc",
+    "IdleModel.js": "e141441473c7518050a3dc24e7ddb52f9eba094a6cf184fe669e5dbea32510be",
+    "idle-inhibitors.py": "99b70009468347c95ab1aa880ab2fbeab3c08d6bd5ac32ea747c1dbcdb513927"
+  },
+  "limitations": [
+    "One natural idle/screensaver/lock cycle observed; reboot persistence not yet observed.",
+    "Other-window inhibitor/noidle cases were verified in model controls, not a live video playback test.",
+    "Compositor clients identify window-associated inhibitors; anonymous/non-window attribution is unavailable through this query.",
+    "A user-owned service clone does not automatically incorporate later packaged idle-service updates."
+  ]
+}

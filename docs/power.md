@@ -304,3 +304,30 @@ private recording. Neither real recording contained the synthetic test signals.
 Native logind/freezer ordering and an actual battery-boundary capture remain
 pending natural sleep. See the
 [validation report](../reports/2026-10-18-sleep-observer-bus-validation.json).
+
+
+### Automatic screensaver and lock recovery, 19 October
+
+The desktop's enabled 150-second screensaver / 300-second lock policy was being
+blocked by ChatGPT's reported window idle inhibitor. A user-owned clone of
+Omarchy's idle service now ignores that inhibitor only when ChatGPT is the sole
+reported inhibiting window. Other reported window inhibitors, `noidle`/`noidle*`
+tags, global Stay Awake and failed probes retain normal inhibitor behavior.
+Thirteen model controls cover that policy; live video-inhibitor behavior is not
+yet tested. A five-second query retains only class/inhibitingIdle/tags, not titles.
+
+A second issue affected dynamic monitor updates: installed Quickshell
+`0.3.2.r7.g2b4501a-1` received native idle events after a respectInhibitors change
+but did not propagate them to QML. A separate windowless probe reproduced fixed
+monitor idle=true versus runtime-changed monitor idle=false. The override uses
+two fixed-mode monitors instead. The reproduction is attached to the
+[existing upstream issue](https://github.com/quickshell-mirror/quickshell/issues/1309#issuecomment-6260287318).
+
+The natural **150-second screensaver** appeared, followed by the unchanged
+**300-second lock deadline**. Lock IPC reported locked, sessionLocked and secure
+all true; the internal display subsequently reported DPMS off. No shortened
+user timeout or forced lock was used. Packaged Omarchy/Quickshell files were
+untouched. Reboot persistence, live video inhibition and anonymous/non-window
+inhibitor attribution remain unqualified. The local clone needs maintenance
+when the packaged service changes. See the
+[selected evidence](../reports/2026-10-19-idle-lock-recovery.json).
