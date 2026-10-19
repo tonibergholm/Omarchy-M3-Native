@@ -65,9 +65,10 @@ See the [native observer report](../reports/2026-10-18-sleep-observer-native.jso
 
 AV1 grain correction remains unfinished. The process-local rejection prototype
 demonstrated correct software fallback; a [source safeguard](video.md) now passes
-47 focused sanitizer cases in draft driver PR #107. Full offline validation is
-blocked by two thermal stops and unavailable hosted CI workflow authorization;
-maintainer checks/review have been requested. Native candidate checks remain pending. Installed drivers still have the original
+47 focused sanitizer cases in draft driver PR #107. Hosted validation on
+19 October passed 243/243 sanitizer tests, both software checks and the full
+11-job matrix after one recorded test-helper retry. This supersedes the local
+thermal/CI-authorization blocker. Native candidate checks and independent review remain pending. Installed drivers still have the original
 failing sample behavior; hardware synthesis remains unresolved. Physical peripheral/quality checks and
 thermal/HDR support are separate remaining gates. The
 [earlier audit](../reports/2026-10-18-validation-gates.json) records the state

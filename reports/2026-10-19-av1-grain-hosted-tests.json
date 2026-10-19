@@ -1,0 +1,96 @@
+{
+  "date": "2026-10-19",
+  "candidate_commit": "9265a600f41c0844e7d75e424b35622638046d65",
+  "pinned_source_suite": {
+    "sanitizer_tests_passed": 243,
+    "failed": 0,
+    "software_frame_check": "passed",
+    "software_shared_context_check": "passed",
+    "source_checkout_exact": true
+  },
+  "runs": [
+    {
+      "run_id": "39200534378",
+      "url": "https://github.com/tonibergholm/libva-v4l2_request/actions/runs/39200534378",
+      "workflow_head": "54bc86636ad3d746a2ba49522d053a5ae1062bd3",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "name": "offline",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "run_id": "39200534324",
+      "url": "https://github.com/tonibergholm/libva-v4l2_request/actions/runs/39200534324",
+      "workflow_head": "54bc86636ad3d746a2ba49522d053a5ae1062bd3",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "name": "oldest kernel UAPI (5.4 headers, all stateless codecs compiled out)",
+          "conclusion": "success"
+        },
+        {
+          "name": "configure-time codec option diagnostics (kernel UAPI 5.15)",
+          "conclusion": "success"
+        },
+        {
+          "name": "bounded static analysis and warning-free builds",
+          "conclusion": "success"
+        },
+        {
+          "name": "build-test gcc aarch64 (current dependencies)",
+          "conclusion": "success"
+        },
+        {
+          "name": "build-test gcc x86_64 (current dependencies)",
+          "conclusion": "success"
+        },
+        {
+          "name": "oldest verified dependencies (libva 2.14, kernel UAPI 5.15)",
+          "conclusion": "success"
+        },
+        {
+          "name": "corpus",
+          "conclusion": "success"
+        },
+        {
+          "name": "build-test clang x86_64 (current dependencies)",
+          "conclusion": "success"
+        },
+        {
+          "name": "build-test clang aarch64 (current dependencies)",
+          "conclusion": "success"
+        },
+        {
+          "name": "codec feature options (all disabled and mixed)",
+          "conclusion": "success"
+        },
+        {
+          "name": "userspace",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "matrix_source_difference": [
+    ".github/workflows/j613-offline.yml"
+  ],
+  "original_failure_retained": {
+    "run_id": "39200534324",
+    "attempt": 1,
+    "job": "oldest kernel UAPI (5.4 headers, all stateless codecs compiled out)",
+    "test": "concurrent-va-negative",
+    "error": "PID file read while empty caused ValueError",
+    "retry": "Only failed jobs rerun; older-header job and aggregate subsequently passed. No test changes."
+  },
+  "installed_stack_changed": false,
+  "hardware_candidate_validation": "not run",
+  "review": "independent review pending; draft PR #107",
+  "limitations": [
+    "Hosted offline results are not native hardware decode or fallback qualification.",
+    "Local full-build thermal stops remain retained.",
+    "The matrix CI-only head differs from source candidate solely by added validation workflow; separate pinned job checked exact source candidate."
+  ]
+}

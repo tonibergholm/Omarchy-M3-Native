@@ -406,3 +406,22 @@ review request is linked in the source report. The candidate is not installed,
 and hardware grain synthesis remains unresolved. Independent review and a guarded
 process-local native test remain open. See the
 [selected source report](../reports/2026-10-18-av1-grain-source-candidate.json).
+
+
+### Hosted offline validation, 19 October
+
+The [exact-source run](https://github.com/tonibergholm/libva-v4l2_request/actions/runs/39200534378)
+checked out candidate `9265a600f41c0844e7d75e424b35622638046d65` and passed
+**243/243 ASan/UBSan tests** plus both software frame/shared-context checks.
+The [existing full matrix](https://github.com/tonibergholm/libva-v4l2_request/actions/runs/39200534324)
+finished with **all 11 jobs successful**, covering GCC/Clang on x86-64/ARM64,
+dependency/UAPI tiers, feature options, static analysis and corpus checks. Its
+CI-only head differs solely by the added validation workflow.
+
+The first 5.4-UAPI job failed because `concurrent-va-negative` read an empty PID
+file and raised ValueError. Only failed jobs were rerun; that job and the
+aggregate passed on retry without a code or test change. The original failure
+and both earlier local thermal stops are retained. Hosted offline validation
+is now complete for these environments; hardware grain synthesis, native
+candidate fallback and independent review remain open. Installed drivers are
+unchanged. See the [hosted evidence](../reports/2026-10-19-av1-grain-hosted-tests.json).
