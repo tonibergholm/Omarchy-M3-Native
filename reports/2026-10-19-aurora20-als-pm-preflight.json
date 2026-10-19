@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-19",
+  "board": "J613 / T8122",
+  "source_commit": "c46d7dcdb8712ea9aeb0ce47b439ffae76371e55",
+  "checks": {
+    "drivers/iio/common/aop_sensors/aop_als.rs": {
+      "unchanged_from_original_19": true,
+      "sha256": "23cc4eb6c682221c815a6eb00d1d6ebcca6f38334ae112772668bb58bcde8458"
+    },
+    "rust/kernel/platform.rs": {
+      "unchanged_from_original_19": true,
+      "sha256": "5d1abaaaed09475d811489d2c457cd0ef46823243d45f6dbd09e74c153daa085"
+    },
+    "platform-pm.patch": {
+      "dry_run_exit": 0,
+      "output": "checking file rust/kernel/platform.rs\n"
+    },
+    "j613-als-pm.patch": {
+      "dry_run_exit": 0,
+      "output": "checking file drivers/iio/common/aop_sensors/aop_als.rs\n"
+    }
+  },
+  "meaning": "Aurora .20 retains the original .19 ALS/platform source; prior local PM candidate patches apply cleanly.",
+  "installed": false,
+  "limitations": "Source applicability only; no .20 candidate build/load or native PM qualification. Prior .19 IRQ reduction did not establish battery savings."
+}

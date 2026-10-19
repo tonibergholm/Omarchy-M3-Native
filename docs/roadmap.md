@@ -25,10 +25,17 @@
    with existing enrollments unchanged. Repeat coexistence remains unqualified;
    do not delete or replace either system's authority.
 5. **Audio startup:** reproduce the initial sample-rate failure across boots
-   before changing service ordering. Clear [microphone capture](capture.md) passed; test jack switching and
-   remote-call capture. Protected 44.1/48/96 kHz playback and matching kernel
-   PCM rate negotiation passed after the thermal trial sleep; audible quality
-   is pending and the historical intermittent startup failure remains unresolved.
+   before changing service ordering. Clear [microphone capture](capture.md)
+   passed; test jack switching and remote-call capture. Earlier multi-rate
+   process-exit and PCM-negotiation checks did not establish healthy playback:
+   later rate transitions caused repeated speaker-protection negative-power
+   panics. The local graph is now fixed at 48 kHz. On Aurora .20, continuous
+   and separate short clips were audible, including after lid sleep, without
+   additional protection-daemon restarts. One startup `Invalid sample rate`
+   panic remains unresolved; evidence is on the
+   [existing upstream issue](https://github.com/AsahiLinux/speakersafetyd/issues/16#issuecomment-6264611425).
+   See the [rate-failure report](../reports/2026-10-19-audio-rate-transition-failure.json)
+   and [.20 sleep result](../reports/2026-10-19-aurora20-sleep.json).
 6. **Video/camera:** [initial H.264 checks](video.md) passed decoder equivalence
    and 1080p30 playback; short 1080p60 fast-profile playback improved presentation
    counts. A three-minute 1080p60 fast-profile run completed with zero decoder
