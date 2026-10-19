@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-19",
+  "board": "J613 / T8122",
+  "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+  "os_firmware": "14.7",
+  "system_firmware": "27.0",
+  "candidate_sha256": "a66b08a468eddc915e8db95dcce547fe8d1b22bad5046500c54152a46878dd97",
+  "accessory": "JBL Flip 5",
+  "awake": {
+    "Paired": true,
+    "Trusted": true,
+    "Connected": true,
+    "ServicesResolved": true
+  },
+  "sleep_boundary_seconds": 78.239,
+  "suspend_success_after": "2",
+  "suspend_fail_after": "0",
+  "automatic_reconnect": {
+    "Paired": true,
+    "Trusted": true,
+    "Connected": false,
+    "ServicesResolved": false
+  },
+  "kernel_messages": [
+    "PM: suspend entry (s2idle)",
+    "Bluetooth: hci0: command 0x0c01 tx timeout",
+    "Bluetooth: hci0: Opcode 0x0c01 failed: -110",
+    "Bluetooth: hci0: command 0x0c01 tx timeout",
+    "Bluetooth: hci0: Opcode 0x0c1a failed: -110",
+    "Bluetooth: hci0: command 0x0c01 tx timeout",
+    "Bluetooth: hci0: Opcode 0x202d failed: -110",
+    "Bluetooth: hci0: Unable to disable LL privacy: -110",
+    "Bluetooth: hci0: command 0x0c01 tx timeout",
+    "Bluetooth: hci0: Opcode 0x2041 failed: -110",
+    "Bluetooth: hci0: start background scanning failed: -110",
+    "hci_bcm4377 0000:01:00.1: recovering transport once after resume command timeout",
+    "PM: suspend exit",
+    "Bluetooth: hci0: Opcode 0x0c03 failed: -110",
+    "Bluetooth: hci0: resume transport recovery failed: -110"
+  ],
+  "recovery_callback_exercised": true,
+  "recovery_callback_result": "failed -110; HCI reset opcode 0x0c03 failed -110",
+  "restored": {
+    "Paired": true,
+    "Trusted": true,
+    "Connected": true,
+    "ServicesResolved": true,
+    "candidate_parameter_present": false
+  },
+  "rollback_timer_active": false,
+  "qualification": "FAILED native timeout recovery. Original driver restored; normal connection then succeeded. No persistent installation.",
+  "limitations": "One connected-peripheral candidate cycle. Post-restoration audibility not retested in this cycle; previous original-driver restoration had confirmed audio. Exact transport fault remains unproven."
+}
