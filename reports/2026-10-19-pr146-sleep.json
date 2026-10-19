@@ -1,0 +1,353 @@
+{
+  "date": "2026-10-19",
+  "board": "Apple J613 / T8122",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "candidate": "PR146 DT-only, head8fd1bf481afe6fcadaa04001b2bcd435616b705b",
+  "suspended_seconds": 128.65716390300008,
+  "matched_pre": true,
+  "suspend_success_delta": 1,
+  "suspend_failure_delta": 0,
+  "samples": [
+    {
+      "phase": "prepare-for-sleep",
+      "thermal_zones": [
+        {
+          "type": "macsmc-battery",
+          "temp_mC": "26800",
+          "policy": "power_allocator",
+          "cooling_bindings": 0
+        },
+        {
+          "type": "cpu-e0-thermal",
+          "temp_mC": "42714",
+          "policy": "power_allocator",
+          "cooling_bindings": 2
+        },
+        {
+          "type": "cpu-e1-thermal",
+          "temp_mC": "49854",
+          "policy": "power_allocator",
+          "cooling_bindings": 2
+        },
+        {
+          "type": "cpu-p0-thermal",
+          "temp_mC": "43837",
+          "policy": "power_allocator",
+          "cooling_bindings": 2
+        },
+        {
+          "type": "cpu-p1-thermal",
+          "temp_mC": "44043",
+          "policy": "power_allocator",
+          "cooling_bindings": 2
+        },
+        {
+          "type": "cpu-p2-thermal",
+          "temp_mC": "44005",
+          "policy": "power_allocator",
+          "cooling_bindings": 2
+        },
+        {
+          "type": "cpu-p3-thermal",
+          "temp_mC": "43896",
+          "policy": "power_allocator",
+          "cooling_bindings": 2
+        },
+        {
+          "type": "macsmc_soc_die",
+          "temp_mC": "56953",
+          "policy": "power_allocator",
+          "cooling_bindings": 0
+        }
+      ],
+      "cpu_cooling": [
+        {
+          "type": "cpufreq-cpu0",
+          "state": "0"
+        },
+        {
+          "type": "cpufreq-cpu1",
+          "state": "0"
+        }
+      ],
+      "cpu_limits_kHz": {
+        "policy0": "4056000",
+        "policy1": "2748000"
+      }
+    },
+    {
+      "phase": "resume-signal",
+      "thermal_zones": [
+        {
+          "type": "macsmc-battery",
+          "temp_mC": "26600",
+          "policy": "power_allocator",
+          "cooling_bindings": 0
+        },
+        {
+          "type": "cpu-e0-thermal",
+          "temp_mC": "35779",
+          "policy": "power_allocator",
+          "cooling_bindings": 2
+        },
+        {
+          "type": "cpu-e1-thermal",
+          "temp_mC": "40182",
+          "policy": "power_allocator",
+          "cooling_bindings": 2
+        },
+        {
+          "type": "cpu-p0-thermal",
+          "temp_mC": "36308",
+          "policy": "power_allocator",
+          "cooling_bindings": 2
+        },
+        {
+          "type": "cpu-p1-thermal",
+          "temp_mC": "36790",
+          "policy": "power_allocator",
+          "cooling_bindings": 2
+        },
+        {
+          "type": "cpu-p2-thermal",
+          "temp_mC": "36567",
+          "policy": "power_allocator",
+          "cooling_bindings": 2
+        },
+        {
+          "type": "cpu-p3-thermal",
+          "temp_mC": "36900",
+          "policy": "power_allocator",
+          "cooling_bindings": 2
+        },
+        {
+          "type": "macsmc_soc_die",
+          "temp_mC": "45390",
+          "policy": "power_allocator",
+          "cooling_bindings": 0
+        }
+      ],
+      "cpu_cooling": [
+        {
+          "type": "cpufreq-cpu0",
+          "state": "0"
+        },
+        {
+          "type": "cpufreq-cpu1",
+          "state": "0"
+        }
+      ],
+      "cpu_limits_kHz": {
+        "policy0": "4056000",
+        "policy1": "2748000"
+      }
+    },
+    {
+      "phase": "post-30s",
+      "thermal_zones": [
+        {
+          "type": "macsmc-battery",
+          "temp_mC": "26600",
+          "policy": "power_allocator",
+          "cooling_bindings": 0
+        },
+        {
+          "type": "cpu-e0-thermal",
+          "temp_mC": "37455",
+          "policy": "power_allocator",
+          "cooling_bindings": 2
+        },
+        {
+          "type": "cpu-e1-thermal",
+          "temp_mC": "41885",
+          "policy": "power_allocator",
+          "cooling_bindings": 2
+        },
+        {
+          "type": "cpu-p0-thermal",
+          "temp_mC": "37861",
+          "policy": "power_allocator",
+          "cooling_bindings": 2
+        },
+        {
+          "type": "cpu-p1-thermal",
+          "temp_mC": "38389",
+          "policy": "power_allocator",
+          "cooling_bindings": 2
+        },
+        {
+          "type": "cpu-p2-thermal",
+          "temp_mC": "38423",
+          "policy": "power_allocator",
+          "cooling_bindings": 2
+        },
+        {
+          "type": "cpu-p3-thermal",
+          "temp_mC": "38380",
+          "policy": "power_allocator",
+          "cooling_bindings": 2
+        },
+        {
+          "type": "macsmc_soc_die",
+          "temp_mC": "47281",
+          "policy": "power_allocator",
+          "cooling_bindings": 0
+        }
+      ],
+      "cpu_cooling": [
+        {
+          "type": "cpufreq-cpu0",
+          "state": "0"
+        },
+        {
+          "type": "cpufreq-cpu1",
+          "state": "0"
+        }
+      ],
+      "cpu_limits_kHz": {
+        "policy0": "4056000",
+        "policy1": "2748000"
+      }
+    },
+    {
+      "phase": "post-60s",
+      "thermal_zones": [
+        {
+          "type": "macsmc-battery",
+          "temp_mC": "26600",
+          "policy": "power_allocator",
+          "cooling_bindings": 0
+        },
+        {
+          "type": "cpu-e0-thermal",
+          "temp_mC": "37300",
+          "policy": "power_allocator",
+          "cooling_bindings": 2
+        },
+        {
+          "type": "cpu-e1-thermal",
+          "temp_mC": "41635",
+          "policy": "power_allocator",
+          "cooling_bindings": 2
+        },
+        {
+          "type": "cpu-p0-thermal",
+          "temp_mC": "37854",
+          "policy": "power_allocator",
+          "cooling_bindings": 2
+        },
+        {
+          "type": "cpu-p1-thermal",
+          "temp_mC": "38406",
+          "policy": "power_allocator",
+          "cooling_bindings": 2
+        },
+        {
+          "type": "cpu-p2-thermal",
+          "temp_mC": "38410",
+          "policy": "power_allocator",
+          "cooling_bindings": 2
+        },
+        {
+          "type": "cpu-p3-thermal",
+          "temp_mC": "38407",
+          "policy": "power_allocator",
+          "cooling_bindings": 2
+        },
+        {
+          "type": "macsmc_soc_die",
+          "temp_mC": "47765",
+          "policy": "power_allocator",
+          "cooling_bindings": 0
+        }
+      ],
+      "cpu_cooling": [
+        {
+          "type": "cpufreq-cpu0",
+          "state": "0"
+        },
+        {
+          "type": "cpufreq-cpu1",
+          "state": "0"
+        }
+      ],
+      "cpu_limits_kHz": {
+        "policy0": "4056000",
+        "policy1": "2748000"
+      }
+    },
+    {
+      "phase": "post-120s",
+      "thermal_zones": [
+        {
+          "type": "macsmc-battery",
+          "temp_mC": "26500",
+          "policy": "power_allocator",
+          "cooling_bindings": 0
+        },
+        {
+          "type": "cpu-e0-thermal",
+          "temp_mC": "37238",
+          "policy": "power_allocator",
+          "cooling_bindings": 2
+        },
+        {
+          "type": "cpu-e1-thermal",
+          "temp_mC": "41635",
+          "policy": "power_allocator",
+          "cooling_bindings": 2
+        },
+        {
+          "type": "cpu-p0-thermal",
+          "temp_mC": "37896",
+          "policy": "power_allocator",
+          "cooling_bindings": 2
+        },
+        {
+          "type": "cpu-p1-thermal",
+          "temp_mC": "38279",
+          "policy": "power_allocator",
+          "cooling_bindings": 2
+        },
+        {
+          "type": "cpu-p2-thermal",
+          "temp_mC": "38329",
+          "policy": "power_allocator",
+          "cooling_bindings": 2
+        },
+        {
+          "type": "cpu-p3-thermal",
+          "temp_mC": "38327",
+          "policy": "power_allocator",
+          "cooling_bindings": 2
+        },
+        {
+          "type": "macsmc_soc_die",
+          "temp_mC": "47046",
+          "policy": "power_allocator",
+          "cooling_bindings": 0
+        }
+      ],
+      "cpu_cooling": [
+        {
+          "type": "cpufreq-cpu0",
+          "state": "0"
+        },
+        {
+          "type": "cpufreq-cpu1",
+          "state": "0"
+        }
+      ],
+      "cpu_limits_kHz": {
+        "policy0": "4056000",
+        "policy1": "2748000"
+      }
+    }
+  ],
+  "all_six_cpu_zones_readable_and_bound": true,
+  "both_cooling_devices_present_all_samples": true,
+  "post_resume_sampling_complete": true,
+  "operator_report": "back; no functional assertions inferred",
+  "post_resume_actuator_test": "pending OS authentication",
+  "limitations": "One short sleep cycle; zone presence and sensor changes do not prove post-resume automatic thermal regulation. No battery-drain or sustained thermal claim."
+}
