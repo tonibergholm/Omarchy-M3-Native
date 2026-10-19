@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-19",
+  "board": "Apple J613 / T8122",
+  "running_kernel": "7.1.12-2-20261017.20-sep-ARCH",
+  "installed_speakersafetyd": "2.0.1-1",
+  "observed_failure": "One startup Invalid sample rate panic; automatic restart recovered. No additional restarts during operator-confirmed continuous and separate-clip playback.",
+  "source_observations": {
+    "kernel": {
+      "repository": "https://github.com/omacom/linux-aurora",
+      "commit": "c46d7dcdb8712ea9aeb0ce47b439ffae76371e55",
+      "file": "sound/soc/apple/macaudio.c",
+      "behavior": "Sets speaker_sample_rate from playback hw_params; sets it to zero on speaker close; exposes this value through Speaker Sample Rate."
+    },
+    "daemon": {
+      "repository": "https://github.com/AsahiLinux/speakersafetyd",
+      "tag": "2.0.1",
+      "file": "src/main.rs",
+      "behavior": "Reads initial rate, then processes IV-sense data. Retains previous nonzero rate when control reads zero; panics if no nonzero rate has been obtained."
+    },
+    "newer_releases": {
+      "2.0.2": "J504 speaker-name fix and dependency/logging changes; no sample-rate logic fix.",
+      "3.0.0": "Same behavior as 2.0.2, relicensed GPLv2.",
+      "main_head_checked": "615674e75dc68639d550171e33ba3946538d03b0"
+    }
+  },
+  "hypothesis": "Startup ordering may permit IV-sense samples while the speaker playback rate remains zero. Source plausibility is not a captured ordering trace or proven root cause.",
+  "changes": "None to kernel, daemon, safety limits or service ordering. Existing 48 kHz graph workaround retained.",
+  "remaining": "Capture selected startup ordering evidence and determine which component violates the intended IV-sense/playback contract; do not substitute an assumed rate or weaken protection."
+}
