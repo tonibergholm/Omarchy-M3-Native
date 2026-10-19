@@ -97,7 +97,7 @@
   "GPU_Vulkan_compute_readback": "pass",
   "rollback_service_result": "success",
   "rollback_timer_enabled": "disabled",
-  "qualification": "One cold-plug boot; internal+1080p60 external; short 1080p144; rear hotplug; front-port 1080p60; both-screen DPMS off/on; operator confirmed correct pictures; OpenGL/Vulkan checks after front port and DPMS. System sleep, sustained 144 Hz and repeated boots remain unqualified. Source predicts sleep refusal after dcpext startup.",
+  "qualification": "One cold-plug boot; internal+1080p60 external; short 1080p144; rear hotplug; front-port 1080p60; both-screen DPMS; one approximately 10-second s2idle with front-port display attached and Touch ID recovery. Operator confirmed pictures; GPU checks passed after transitions/resume. Sustained 144 Hz, longer sleep and repeated boots remain unqualified.",
   "serials_EDID_bytes_published": false,
   "date": "2026-10-19",
   "bootloader_trial_running": true,
@@ -444,16 +444,70 @@
     "OpenGL_readback": "pass",
     "Vulkan_compute_readback": "pass"
   },
-  "source_sleep_limit": {
+  "source_sleep_audit": {
     "source_commit": "c46d7dcdb8712ea9aeb0ce47b439ffae76371e55",
     "path": "drivers/gpu/drm/apple/dcp.c",
-    "functions": [
-      "dcp_t6030_ext_native",
-      "dcp_external_sleep_vetoed",
-      "dcp_platform_prepare"
+    "correction": "Earlier source-only refusal prediction was wrong: probe sets external only for apple,t6030-dcpext. J613 apple,t8122-dcpext uses ext_failsafe and does not enter that external guard. No guard code was changed.",
+    "external_flag_assignment_line": 2759,
+    "runtime_counterexample": "Success 0->1, failures 0, about 10.04 clock-suspended seconds; both displays and Touch ID confirmed after resume."
+  },
+  "external_display_suspend": {
+    "start_epoch_s": 1792411572.9174259,
+    "before": {
+      "success": "0",
+      "fail": "0",
+      "failed_prepare": "0"
+    },
+    "normal_request": true,
+    "guard_bypassed": false,
+    "request_exit": 0,
+    "request_output": "",
+    "request_error": "",
+    "after": {
+      "success": "1",
+      "fail": "0",
+      "failed_prepare": "0"
+    },
+    "selected_kernel_lines": [
+      "PM: suspend entry (s2idle)",
+      "PM: suspend exit"
     ],
-    "observation": "Native admission checks apple,t6030-dcpext; this apple,t8122-dcpext path is non-native for that helper. Once firmware/scanout was attempted, PM prepare returns EBUSY; its log says reboot required for retained DMA.",
-    "runtime_sleep_attempt": "not yet tested",
-    "guard_bypassed": false
+    "monitors": [
+      {
+        "name": "eDP-1",
+        "width": 2560,
+        "height": 1664,
+        "refreshRate": 60.0,
+        "dpmsStatus": true
+      },
+      {
+        "name": "DP-2",
+        "width": 1920,
+        "height": 1080,
+        "refreshRate": 60.0,
+        "dpmsStatus": true
+      }
+    ],
+    "PM_events": [
+      {
+        "MESSAGE": "PM: suspend entry (s2idle)",
+        "__REALTIME_TIMESTAMP": "1792411574018772",
+        "__MONOTONIC_TIMESTAMP": "780347097"
+      },
+      {
+        "MESSAGE": "PM: suspend exit",
+        "__REALTIME_TIMESTAMP": "1792411588610151",
+        "__MONOTONIC_TIMESTAMP": "784898695"
+      }
+    ],
+    "entry_exit_wall_seconds": 14.591379,
+    "entry_exit_monotonic_seconds": 4.551598,
+    "estimated_clock_suspended_seconds": 10.039781,
+    "qualification": "One normal s2idle request completed, estimated 10.039781 clock-suspended seconds from journal realtime minus monotonic deltas; both pictures and Touch ID confirmed. No duration/reliability generalization.",
+    "operator_result": "Both correct; Touch ID unlocked",
+    "GPU_after_resume": {
+      "OpenGL_readback": "pass",
+      "Vulkan_compute_readback": "pass"
+    }
   }
 }
