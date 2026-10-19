@@ -32,13 +32,33 @@
     "continuous_stream_protection": "Active before and after; NRestarts remained 1.",
     "separate_short_clips": "Operator heard both separate original Front Left clips, three-second gap, protected sink, stream volume 0.6. NRestarts remained 1."
   },
-  "camera_stream": "not tested this boot",
+  "camera_stream": {
+    "timing": "After the recorded 594.051-second lid cycle",
+    "device": "FaceTime HD Camera / apple-isp",
+    "resolution": [
+      1920,
+      1080
+    ],
+    "format": "NV12",
+    "requested_frames": 90,
+    "completion": "v4l2-ctl stream-count=90 exited 0 within timeout",
+    "reported_fps": [
+      30.01,
+      30.01
+    ],
+    "destination": "/dev/null; no images or recordings retained",
+    "visual_quality": "Not tested this boot",
+    "gpu_after_camera": {
+      "OpenGL": "pass",
+      "Vulkan_compute": "pass"
+    }
+  },
   "TouchID_operator_result": {
     "startup_password": "Operator correctly noted boot requires a password; not a fingerprint test.",
     "desktop_screen_lock_unlock": "Operator confirmed worked on20.",
     "secure_lock_observed": true,
     "fingerprint_authentication_available_during_lock": true
   },
-  "limitations": "Selected .20 boot and one sleep-cycle checks only. Startup speaker protection failure remains unresolved; camera stream not tested this boot; no sustained real-temperature regulation qualification.",
+  "limitations": "Selected .20 boot, one sleep cycle and camera frame-delivery checks only. Startup speaker protection failure remains unresolved; camera image quality not checked this boot; no sustained real-temperature regulation qualification.",
   "sleep": "One 594.051-second lid suspend passed; success 0 to 1, fail remained 0. Touch ID unlock and GPU readbacks passed; see 2026-10-19-aurora20-sleep.json."
 }
