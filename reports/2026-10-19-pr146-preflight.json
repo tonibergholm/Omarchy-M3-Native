@@ -39,12 +39,25 @@
       "reason": "Installed CONFIG_SENSORS_MACSMC_HWMON=y is built in; external module is compile validation only."
     }
   },
-  "installed": false,
-  "boot_files_changed": false,
+  "installed": true,
+  "boot_files_changed": true,
   "limitations": "Sensor availability and source/DT compilation are preliminary compatibility evidence. No native CPU cooling-device binding, energy model, thermal regulation, failure handling or sustained-load result has been tested on this machine. Author measurements belong to a different J613 and are not local qualification. Existing soc_die_keys boot override would take precedence over the candidate default die list.",
   "boot_integration_findings": [
     "update-m1n1 bundles installed linux-aurora DTBs into shared stage2 boot.bin; a separate Limine kernel entry alone does not isolate the device tree.",
     "DT-only CPU thermal zones and OPP power tables are potentially testable with the existing built-in hwmon driver. This is not yet a native result.",
     "The PR C change adds default J613 aggregate and pressure keys; existing soc_die_keys override remains explicit and no pressure-key override is provided."
-  ]
+  ],
+  "native_trial_preparation": {
+    "scope": "PR146 device-tree changes only; current built-in hwmon and explicit aggregate sensor override retained",
+    "normalized_baseline_dtb_matches_installed": true,
+    "rebuilt_baseline_stage2_matches_installed_byte_for_byte": true,
+    "original_stage2_sha256": "79a3ceb5f2b92592c2367bc1c83e49cd688c9deddce2346a972e36cc8f49f008",
+    "candidate_stage2_sha256": "dfdafe5acba95382ed4143404e6ed0cc053d03b6fb784e6ffaf9ff0a00153d92",
+    "dtbs_in_bundle": 115,
+    "only_replaced_dtb": "t8122-j613.dtb",
+    "original_backups_verified": true,
+    "rollback": "Enabled system timer for next boot restores original stage2 after90s and disables itself, refusing overwrite if image changed independently. Running DT remains candidate until a further reboot. Early boot failure still requires external recovery using saved original.",
+    "reboot_triggered": false,
+    "native_thermal_result": "pending"
+  }
 }
