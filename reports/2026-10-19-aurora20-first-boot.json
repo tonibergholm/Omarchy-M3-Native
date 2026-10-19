@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-19",
+  "board": "Apple J613 / T8122",
+  "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+  "booted_test_entry": true,
+  "gpu_readback": {
+    "OpenGL": "pass",
+    "Vulkan_compute": "pass"
+  },
+  "thermal": {
+    "cpu_zones": 6,
+    "both_clusters_bound_each_zone": true,
+    "cooling_devices": 2,
+    "retention_after_reboot": "pass"
+  },
+  "brightness": {
+    "panel": 265,
+    "keyboard": 77,
+    "display_module_opt_in": "Y",
+    "camera_module_opt_in": "Y"
+  },
+  "apple_sep_service": "active, success,0restarts",
+  "audio": {
+    "protected_default_sink": "audio_effect.j613-convolver",
+    "fixed_allowed_graph_rates_Hz": [
+      48000
+    ],
+    "speakersafetyd": "active,1restart",
+    "boot_failure": "src/main.rs:298 Invalid sample rate while PCM advertised8000..192000; service restarted once.",
+    "audible_after_this_boot": "pending"
+  },
+  "camera_stream": "not tested this boot",
+  "TouchID_operator_result": "pending",
+  "limitations": "Boot and selected backend checks only. No blanket20 acceptance; cold-start speaker protection failure remains, and camera/sleep/operator checks on20 remain pending."
+}
