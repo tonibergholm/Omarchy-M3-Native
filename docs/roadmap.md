@@ -1,8 +1,12 @@
 # Remaining work
 
-1. **Thermal policy:** sensor reporting and GPU consumption now work. Check
-   CPU thermal cooling bindings, sensor coverage/freshness, and failure behavior.
-   Keep the GPU state-2 ceiling until a separate higher-clock test is justified.
+1. **Thermal policy:** the [PR146 DT-only native trial](thermal.md) passed
+   six CPU-zone/both-cluster cooling bindings, energy-model registration,
+   simulated temperature-driven power allocation and frequency limiting,
+   short sleep recovery and post-resume cooling controls. The original stage2
+   image was restored for the next boot; the trial remains active in memory.
+   Sustained real-temperature regulation, sensor accuracy and failure behavior
+   remain unqualified. Keep the GPU state-2 ceiling.
 2. **Display brightness/HDR:** the [local J613 backlight candidate](display.md)
    passed visible steps, keys/OSD, bounds rejection and DPMS checks. Verify
    repeated/long suspend before broader acceptance; one normal reboot restored
@@ -20,7 +24,9 @@
    do not delete or replace either system's authority.
 5. **Audio startup:** reproduce the initial sample-rate failure across boots
    before changing service ordering. Clear [microphone capture](capture.md) passed; test jack switching and
-   remote-call capture.
+   remote-call capture. Protected 44.1/48/96 kHz playback and matching kernel
+   PCM rate negotiation passed after the thermal trial sleep; audible quality
+   is pending and the historical intermittent startup failure remains unresolved.
 6. **Video/camera:** [initial H.264 checks](video.md) passed decoder equivalence
    and 1080p30 playback; short 1080p60 fast-profile playback improved presentation
    counts. A three-minute 1080p60 fast-profile run completed with zero decoder
@@ -75,3 +81,13 @@ failing sample behavior; hardware synthesis remains unresolved. Physical periphe
 thermal/HDR support are separate remaining gates. The
 [earlier audit](../reports/2026-10-18-validation-gates.json) records the state
 before the attended Bluetooth cycle.
+
+## Desktop idle repair
+
+The local ChatGPT-only inhibitor workaround passed normal 150-second
+screensaver/300-second secure lock and DPMS, an operator-confirmed reboot
+cycle with Touch ID unlock, and a live mpv inhibitor check beyond five minutes.
+Other reported application inhibitors and Stay Awake remain respected.
+[Quickshell PR1097](https://github.com/quickshell-mirror/quickshell/pull/1097)
+is the existing upstream fix; the local service clone remains in use.
+See [power/idle evidence](power.md).
