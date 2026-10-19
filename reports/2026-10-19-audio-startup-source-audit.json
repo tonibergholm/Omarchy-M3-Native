@@ -9,7 +9,12 @@
       "repository": "https://github.com/omacom/linux-aurora",
       "commit": "c46d7dcdb8712ea9aeb0ce47b439ffae76371e55",
       "file": "sound/soc/apple/macaudio.c",
-      "behavior": "Sets speaker_sample_rate from playback hw_params; sets it to zero on speaker close; exposes this value through Speaker Sample Rate."
+      "behavior": "macaudio_dpcm_hw_params sets speaker_sample_rate from speaker playback hw_params; macaudio_be_hw_free clears it on speaker playback hw_free and clears DAI symmetric rates. Speaker Sample Rate reads the stored value. Sense hw_params inherits the CPU DAI symmetric rate, including zero when playback is not running.",
+      "functions_selected": {
+        "macaudio_dpcm_hw_params": "speaker-rate assignment at line 958; sense capture returns inherited symmetric rate without setting speaker control",
+        "macaudio_be_hw_free": "speaker playback clears control at line 1070",
+        "macaudio_dpcm_shutdown": "clock teardown; does not directly clear speaker_sample_rate"
+      }
     },
     "daemon": {
       "repository": "https://github.com/AsahiLinux/speakersafetyd",
@@ -39,5 +44,6 @@
   "J613_evidence_comment": "https://github.com/AsahiLinux/speakersafetyd/issues/16#issuecomment-6264611425",
   "related_report_scope": "Existing upstream report has the same panic on J413 with older speakersafetyd; shared root cause is not established.",
   "followup_capture": "2026-10-19-audio-startup-rate-zero-progress.json",
-  "followup_finding": "Corrected recorder captured sense hardware/application pointer advancement with sampled zero speaker-rate control and closed speaker PCM, 49.563 ms before the panic. Non-atomic polling cannot exclude brief intervening transitions or establish the faulty component."
+  "followup_finding": "Corrected recorder captured sense hardware/application pointer advancement with sampled zero speaker-rate control and closed speaker PCM, 49.563 ms before the panic. Non-atomic polling cannot exclude brief intervening transitions or establish the faulty component.",
+  "next_trace_requirement": "Capture playback hw_params, playback hw_free, sense stream start/data progression and daemon control reads on a common clock. Polling snapshots cannot distinguish a missed short playback interval from sense progression without a valid playback rate."
 }
