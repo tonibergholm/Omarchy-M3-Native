@@ -43,6 +43,19 @@
       "operator_report": "All three worked: screensaver timeout, automatic lock/display off, and Touch ID unlock.",
       "runtime_check": "Idle service enabled, 150/300 second timeouts, Stay Awake off; lock service recorded unlock at 2026-10-19T07:32:53.752Z.",
       "exact_timeout_timing_instrumented": false
+    },
+    "live_video_inhibitor": {
+      "player": "mpv, no-config, muted software H.264 playback, looped",
+      "observation_duration_s": 332.92,
+      "sample_interval_s": 5,
+      "sample_count": 67,
+      "input_idle_true_from_sample_s": 151.39,
+      "mpv_inhibitor_respected_through_end": true,
+      "stay_awake": false,
+      "screensaver_started": false,
+      "locked_during_playback": false,
+      "test_service_result": "success; player automatically terminated",
+      "scope": "One native mpv window inhibitor; other apps and anonymous inhibitors not qualified."
     }
   },
   "local_source_hashes": {
@@ -52,7 +65,7 @@
   },
   "limitations": [
     "One instrumented natural idle/screensaver/lock cycle and one operator-confirmed post-reboot cycle passed; exact post-reboot timing was not instrumented.",
-    "Other-window inhibitor/noidle cases were verified in model controls, not a live video playback test.",
+    "Other-window inhibitor/noidle cases passed model controls and one live mpv playback test; other media applications remain untested.",
     "Compositor clients identify window-associated inhibitors; anonymous/non-window attribution is unavailable through this query.",
     "A user-owned service clone does not automatically incorporate later packaged idle-service updates."
   ],
