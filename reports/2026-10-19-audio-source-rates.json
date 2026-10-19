@@ -36,8 +36,13 @@
   "context": "After PR146 DT-only trial boot and sleep/resume",
   "playback_target": "audio_effect.j613-convolver",
   "source": "Synthetic one-second quiet440Hz stereo tones, 2.5percent PCM peak and stream volume0.3; hardware and sink volume unchanged.",
-  "operator_audible_result": "pending",
-  "limitations": "Three source rates and matching kernel PCM negotiation passed during this session after sleep. Audible quality remains pending; this does not establish sample accuracy or resolution of the historical intermittent startup failure.",
+  "operator_audible_result": {
+    "original_quiet_tones": "Operator heard nothing; successful playback was not audible confirmation.",
+    "standard_voice_replay": "Initially heard Front Right; on repeat with3-second gap operator confirmed both phrases heard.",
+    "source": "Standard ALSA Front_Left.wav and Front_Right.wav; both mono48kHz, protected target, stream volume0.6; sink remained50percent.",
+    "scope": "Audible protected playback confirmed. Mono phrase names do not establish left/right speaker isolation, and three-rate tone quality remains unconfirmed."
+  },
+  "limitations": "Three source rates and matching kernel PCM negotiation passed. Audible standard48kHz voice playback was confirmed; audible quality at44.1/96kHz and stereo isolation remain unqualified. This does not establish sample accuracy or resolution of the historical intermittent startup failure.",
   "kernel_pcm_negotiation": {
     "method": "Read /proc/asound playback hw_params during separate three-second silent protected-target streams; no direct ALSA playback or hardware writes.",
     "rates_Hz": [
