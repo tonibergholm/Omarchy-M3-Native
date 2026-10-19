@@ -14,6 +14,12 @@
    repeated/long suspend before broader acceptance; one normal reboot restored
    both brightness values exactly. Native HDR
    remains blocked; initial software PQ-to-SDR conversion ran successfully.
+   A local bootloader reservation trial now drives the ARZOPA Z1FC on both
+   USB-C ports at 1080p60, with short 1080p144, rear hotplug, DPMS and one
+   approximately 10-second attached-display suspend passing. Both pictures,
+   Touch ID and GPU checks recovered. The original boot image was restored
+   automatically; repeated boots, longer sleep and sustained 144 Hz remain
+   open. See the [external-display evidence](display.md#arzopa-z1fc-external-display-19-october).
 3. **Sleep/resume:** [short power-button and lid-wake cycles](sleep.md) passed
    Touch ID unlock, brightness, GPU readback and audible protected playback.
    A further unplugged 17½-minute lid cycle and three consecutive attended lid

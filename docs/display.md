@@ -117,3 +117,5 @@ The rear-port unplug/replug and a move to the front (trackpad-side) port both re
 **Short attached-display suspend passed:** a normal s2idle request with the Z1FC on the front port increased success 0→1 with failures remaining zero. Journal realtime minus monotonic deltas estimate **10.040 seconds asleep** (14.591 seconds entry-to-exit wall time, 4.552 seconds monotonic). Both pictures returned correctly, Touch ID unlocked, and OpenGL/Vulkan checks passed. Longer/repeated sleep and daily-use qualification remain open.
 
 Correction to the earlier source-only prediction: the T6030 PM guard does not apply here. Probe sets `external` only for `apple,t6030-dcpext`; J613 uses `apple,t8122-dcpext` and `ext_failsafe`, so it never enters that guard. No kernel guard was removed or bypassed. Rebooting uses the restored original stage2 unless the candidate is staged again.
+
+The complete selected result set was [reported upstream on Aurora #103](https://github.com/omacom/linux-aurora/issues/103#issuecomment-6266857792), including the corrected PM interpretation and measured short suspend.
