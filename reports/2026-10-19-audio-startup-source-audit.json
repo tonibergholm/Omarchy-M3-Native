@@ -25,5 +25,14 @@
   },
   "hypothesis": "Startup ordering may permit IV-sense samples while the speaker playback rate remains zero. Source plausibility is not a captured ordering trace or proven root cause.",
   "changes": "None to kernel, daemon, safety limits or service ordering. Existing 48 kHz graph workaround retained.",
-  "remaining": "Capture selected startup ordering evidence and determine which component violates the intended IV-sense/playback contract; do not substitute an assumed rate or weaken protection."
+  "remaining": "Capture selected startup ordering evidence and determine which component violates the intended IV-sense/playback contract; do not substitute an assumed rate or weaken protection.",
+  "boot_monotonic_seconds": {
+    "speakersafetyd_first_start": 17.420704,
+    "pipewire_start": 18.289554,
+    "wireplumber_start": 18.299363,
+    "invalid_rate_panic": 18.489386,
+    "speakersafetyd_restart": 19.510134,
+    "recovered_daemon_first_logged_48000": 314.949827
+  },
+  "ordering_limit": "Service-start timestamps do not capture PCM hw_params or read/control interleaving; ordering trace still needed."
 }
