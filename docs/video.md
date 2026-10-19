@@ -471,3 +471,16 @@ passed **all 11 jobs on attempt 1**, including the original 5.4-UAPI configurati
 and compiled-worker checks. No retry, suppression or hardware check was used.
 Both this helper PR and AV1 PR #107 are ready for independent review; neither is
 merged or installed. See the [helper evidence](../reports/2026-10-19-pid-publication-fix.json).
+
+### Selected AV1 candidate checks on Aurora .20
+
+The same process-local candidate at `9265a600f41c0844e7d75e424b35622638046d65`
+passed the two selected cases again on `7.1.12-2-20261017.20-sep-ARCH`:
+**10/10** grain-bearing software-reference frames after explicit hardware
+rejection, and **50/50** grain-free hardware frames. The fresh exclusive guard
+ended idle with no timeout, wedge or new decoder fault. Maximum sampled thermal
+zone readings were 61.484/56.546 C; these use a different sensor aggregation
+from the earlier .19 run and are not a thermal-performance comparison.
+Installed libraries remain unchanged. These headless pixel checks do not qualify
+visible playback, broad AV1 support or hardware grain synthesis. See the
+[.20 evidence](../reports/2026-10-19-av1-grain-aurora20.json).
