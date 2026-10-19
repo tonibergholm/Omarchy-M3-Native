@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-19",
+  "board": "Apple J613 / T8122",
+  "method": "120 second read-only capture at 0.5 second intervals during normal use; no synthetic load or clock changes",
+  "samples": 239,
+  "observed_seconds": 119.624,
+  "minimum_mC": 48296,
+  "maximum_mC": 71625,
+  "distinct_readings": 43,
+  "reading_changes": 102,
+  "largest_adjacent_change_mC": 21250,
+  "interpretation": "The aggregate SMC sensor is not permanently frozen during this observation. Changes do not establish physical accuracy, per-channel freshness, CPU throttling behavior or a safe higher clock ceiling.",
+  "pmp_sensor_module": "Packaged J613 25G83-only telemetry module exists but is not loaded; live firmware admission UUID does not match. It was not loaded or modified."
+}
