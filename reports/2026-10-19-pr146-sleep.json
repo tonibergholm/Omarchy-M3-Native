@@ -372,6 +372,16 @@
     "speakersafetyd": "active",
     "screen_brightness": 265,
     "keyboard_brightness": 77,
-    "scope": "Service/device state and GPU correctness only; audible output, visible brightness steps and fingerprint matching not inferred."
+    "scope": "Service/device state and GPU correctness only; audible output, visible brightness steps and fingerprint matching not inferred.",
+    "bluetooth": {
+      "command": "HCI Read Local Version Information 0x1001",
+      "completion_received": true,
+      "status": 0,
+      "elapsed_s": 0.001133,
+      "experimental_recovery_parameter_present": false,
+      "bluetooth_service_active": true,
+      "wifi_connected": true,
+      "scope": "Original driver short-cycle query only; no recovery callback or peripheral connection qualified."
+    }
   }
 }
