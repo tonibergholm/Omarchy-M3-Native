@@ -249,5 +249,11 @@
   "assessment": "Captured sense PCM hardware/application pointer advancement while the speaker-rate control read zero and speaker PCM was sampled closed, shortly before the Invalid sample rate panic.",
   "progress_sample_before_panic_ms": 49.563,
   "ordering_control": "Type=notify recorder reported ready after its first saved sample, before speakersafetyd start. This intentionally alters startup timing.",
-  "causality_limit": "Non-atomic 100 ms snapshots cannot exclude a brief speaker open/rate transition between samples, establish sample contents, or identify which kernel component produced the burst."
+  "causality_limit": "Non-atomic 100 ms snapshots cannot exclude a brief speaker open/rate transition between samples, establish sample contents, or identify which kernel component produced the burst.",
+  "audible_recovery_after_capture": {
+    "operator_reply": "heard",
+    "test": "Two separate original 48 kHz Front Left clips, three-second gap, protected convolver, stream volume 0.6, sink volume 0.5.",
+    "scope": "Audibility confirmed; operator did not explicitly give a clip count.",
+    "speakersafetyd": "active; NRestarts remained 1"
+  }
 }
