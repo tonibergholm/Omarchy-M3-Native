@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-19",
+  "board": "Apple J613 / T8122",
+  "running_kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "base_source": "5ec1028c81526e1ed31db2b97e47edf8663e83cb",
+  "candidate_pr": "https://github.com/omacom/linux-aurora/pull/146",
+  "candidate_head": "8fd1bf481afe6fcadaa04001b2bcd435616b705b",
+  "checks": {
+    "patch_applies_to_pinned_source": true,
+    "six_cpu_keys_readable_float": {
+      "Te05": 41323,
+      "Te0P": 49620,
+      "Tp05": 44899,
+      "Tp0L": 45371,
+      "Tp0b": 45636,
+      "Tp0r": 45962
+    },
+    "mTPL_present_type": "si32, readable, 4 bytes; value not queried",
+    "standalone_dtc_build": "pass; host C preprocessing and dtc, not full kernel W=1 or schema validation",
+    "baseline_warning_count": 12,
+    "candidate_warning_count": 12,
+    "new_warning_messages": [],
+    "compiled_thermal_zones": [
+      "cpu-e0-thermal",
+      "cpu-e1-thermal",
+      "cpu-p0-thermal",
+      "cpu-p1-thermal",
+      "cpu-p2-thermal",
+      "cpu-p3-thermal"
+    ]
+  },
+  "installed": false,
+  "boot_files_changed": false,
+  "limitations": "Sensor availability and source/DT compilation are preliminary compatibility evidence. No native CPU cooling-device binding, energy model, thermal regulation, failure handling or sustained-load result has been tested on this machine. Author measurements belong to a different J613 and are not local qualification. Existing soc_die_keys boot override would take precedence over the candidate default die list."
+}
