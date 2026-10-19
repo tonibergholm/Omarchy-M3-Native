@@ -193,5 +193,14 @@
   "gpu_post_resume": {
     "OpenGL_red_blue_readback": "pass",
     "Vulkan_compute_readback": "pass"
+  },
+  "audio_post_resume": {
+    "operator": "Both separate Front Left phrases heard.",
+    "route": "audio_effect.j613-convolver",
+    "stream_volume": 0.6,
+    "speakersafetyd_restarts_before_after": [
+      1,
+      1
+    ]
   }
 }
