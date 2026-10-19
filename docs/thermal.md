@@ -113,8 +113,11 @@ frequency/power measurements or sustained real-temperature qualification.
 The baseline stage2 image was reproduced byte for byte. The one-boot candidate
 changed only the J613 DTB in its bundle. Its rollback service restored the
 original boot image and disabled its timer; the candidate DT remains in memory
-for this session. A further reboot uses the original configuration unless
-deliberately restaged. The built-in hwmon driver and existing aggregate sensor
+for the trial session. After successful checks, the owner explicitly chose to
+retain the tested controls: the same candidate image was installed again and
+hash-verified, with the original backup preserved and the rollback timer stopped
+and disabled. Future kernel/boot package rebuilds may replace this local image;
+retention is not a general update integration. The built-in hwmon driver and existing aggregate sensor
 override were retained; the PR default-key C change is not installed.
 
 See the [native report](../reports/2026-10-19-pr146-native-bindings.json) and

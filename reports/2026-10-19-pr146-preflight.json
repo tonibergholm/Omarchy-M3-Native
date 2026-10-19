@@ -59,5 +59,15 @@
     "rollback": "Enabled system timer for next boot restores original stage2 after90s and disables itself, refusing overwrite if image changed independently. Running DT remains candidate until a further reboot. Early boot failure still requires external recovery using saved original.",
     "reboot_triggered": false,
     "native_thermal_result": "pending"
+  },
+  "retention_after_successful_trial": {
+    "user_choice": "Keep the tested thermal controls",
+    "candidate_stage2_installed_and_hash_verified": true,
+    "original_backup_hash_verified": true,
+    "one_boot_rollback_timer_stopped_and_disabled": true,
+    "package_owned_dtbs_modified": false,
+    "kernel_or_boot_update_may_replace": true,
+    "reboot_persistence_after_retention": "pending",
+    "scope": "Same DT-only candidate already tested; no additional kernel or clock changes."
   }
 }

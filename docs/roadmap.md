@@ -3,8 +3,10 @@
 1. **Thermal policy:** the [PR146 DT-only native trial](thermal.md) passed
    six CPU-zone/both-cluster cooling bindings, energy-model registration,
    simulated temperature-driven power allocation and frequency limiting,
-   short sleep recovery and post-resume cooling controls. The original stage2
-   image was restored for the next boot; the trial remains active in memory.
+   short sleep recovery and post-resume cooling controls. After the one-boot
+   rollback passed, the owner chose to retain the same tested DT candidate.
+   Its boot image is hash-verified and the original backup is preserved;
+   package rebuilds may replace the local image.
    Sustained real-temperature regulation, sensor accuracy and failure behavior
    remain unqualified. Keep the GPU state-2 ceiling.
 2. **Display brightness/HDR:** the [local J613 backlight candidate](display.md)
