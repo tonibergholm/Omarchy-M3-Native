@@ -81,5 +81,6 @@
     ],
     "meaning": "Charge increased during this short interval; no credible energy-saving or sleep-watts estimate."
   },
-  "limitations": "One native .20 candidate cycle. Repeated cycles, error paths and battery savings unqualified. Original driver restored; test-hook cleanup pending."
+  "limitations": "One native .20 candidate cycle. Repeated cycles, error paths and battery savings unqualified. Original driver restored and one-shot test hook removed.",
+  "test_hook_removed": true
 }
