@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-19",
+  "board": "Apple J613 / T8122",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "method": "Read-only passive 0.5-second sampling during ordinary use; CPU busy from aggregate /proc/stat deltas excluding guest double counting; no synthetic workload.",
+  "samples": 120,
+  "duration_s": 60.169,
+  "temperature_range_mC": [
+    48250,
+    70500
+  ],
+  "aggregate_cpu_busy_range_percent": [
+    4.534005037783375,
+    69.07730673316708
+  ],
+  "exploratory_same_sample_pearson": 0.17853467601293985,
+  "largest_changes": [
+    {
+      "change_mC": 22015,
+      "elapsed_s": 40.104,
+      "cpu_busy_before_percent": 69.07730673316708,
+      "cpu_busy_after_percent": 26.799007444168733
+    },
+    {
+      "change_mC": -19766,
+      "elapsed_s": 42.11,
+      "cpu_busy_before_percent": 8.728179551122194,
+      "cpu_busy_after_percent": 5.012531328320802
+    },
+    {
+      "change_mC": 12969,
+      "elapsed_s": 11.024,
+      "cpu_busy_before_percent": 14.25,
+      "cpu_busy_after_percent": 14.392059553349876
+    },
+    {
+      "change_mC": -12953,
+      "elapsed_s": 13.029,
+      "cpu_busy_before_percent": 7.711442786069652,
+      "cpu_busy_after_percent": 5.7356608478802995
+    },
+    {
+      "change_mC": 12469,
+      "elapsed_s": 16.035,
+      "cpu_busy_before_percent": 9.523809523809524,
+      "cpu_busy_after_percent": 10.972568578553616
+    }
+  ],
+  "finding": "The largest positive TCMz step followed the largest aggregate CPU busy interval. A roughly 19.8 C negative step occurred about two seconds later as busy fraction returned near idle.",
+  "limitations": "Short uncontrolled observation, unknown sensor update latency and physical location. Same-sample correlation is weak and not a causal result. scaling_cur_freq is driver-reported rather than an independent effective-frequency measurement. CPU thermal throttling and sensor accuracy remain unqualified. Preserve protections and existing clock ceiling."
+}
