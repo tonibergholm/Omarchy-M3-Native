@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-19",
+  "board": "Apple J613 / T8122, fanless MacBook Air M3",
+  "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+  "thermal_DT_source": "omacom/linux-aurora PR146 head 8fd1bf481afe6fcadaa04001b2bcd435616b705b; retained local DT-only trial",
+  "zone": "cpu-e1-thermal",
+  "temperature_source": "Native temperature readings; test did not write emul_temp.",
+  "temporary_trips_mC": {
+    "alert": 45000,
+    "control": 50000,
+    "critical_unchanged": 110000
+  },
+  "unchanged": "6 W sustainable power, PID parameters, GPU state-2 ceiling, all other zones and 110 C critical trip.",
+  "workload": "One bounded Python CPU worker requested affinity CPU0 and 100% CPU quota, independently bounded to 45 seconds. CPU-time accounting was unavailable after transient-unit collection.",
+  "observation_seconds": 8.099,
+  "sample_count": 17,
+  "peak_all_zone_mC": 75890,
+  "peak_target_sensor_mC": 54901,
+  "peak_CPU_sensor_mC": 62410,
+  "maximum_observed_cooling_states": {
+    "cpufreq-cpu1": 3,
+    "cpufreq-cpu0": 11
+  },
+  "minimum_observed_frequency_limits_kHz": {
+    "policy0": 2808000,
+    "policy1": 2004000
+  },
+  "limiting_snapshot_count": 14,
+  "stop_reason": "75 C independent guard",
+  "restoration": {
+    "trips_restored": true,
+    "critical_unchanged": true
+  },
+  "limits_after_restore_kHz": {
+    "policy0": 4056000,
+    "policy1": 2748000
+  },
+  "cooling_after_restore": {
+    "cpufreq-cpu1": 0,
+    "cpufreq-cpu0": 0
+  },
+  "restored_trips_mC": [
+    58000,
+    95000,
+    110000
+  ],
+  "cleanup": "Worker and independent rollback timer confirmed inactive.",
+  "assessment": "Observed frequency limiting with native sensor inputs under a temporary lower target, followed by restoration. Not a stable-regulation pass.",
+  "limitations": "One approximately eight-second guarded run. Target did not settle; no normal 95 C control-point, sustained-load, sensor-accuracy or critical-shutdown qualification. Snapshots are non-atomic and may miss transitions."
+}

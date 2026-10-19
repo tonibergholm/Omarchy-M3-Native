@@ -122,3 +122,22 @@ override were retained; the PR default-key C change is not installed.
 
 See the [native report](../reports/2026-10-19-pr146-native-bindings.json) and
 [preflight record](../reports/2026-10-19-pr146-preflight.json).
+
+
+## Bounded lower-target native response on Aurora .20
+
+A temporary test lowered only `cpu-e1-thermal` alert/control trips to 45/50 C,
+retaining the 110 C critical trip, 6 W budget, PID parameters and GPU cap.
+Native sensor inputs were used; no emulated temperature was written. During
+a single-worker test, observed QoS limits reached 2808 MHz on the P cluster
+and 2004 MHz on the E cluster, with maximum cooling states 11 and 3.
+These were limits, not independently measured physical frequencies.
+
+The independent 75 C guard stopped the run after 8.099 seconds when the hottest
+reported zone reached 75.890 C; CPU sensor peak was 62.410 C. Original 58/95 C
+trips and 4056/2748 MHz ceilings were restored, both cooling states returned to
+zero, and the worker and rollback timer stopped. This demonstrates a short
+native-input governor response under a changed target, not stable regulation.
+The target did not settle; normal 95 C control, sustained loading and critical
+shutdown behavior remain unqualified. See the
+[selected report](../reports/2026-10-19-thermal-native-low-target.json).
