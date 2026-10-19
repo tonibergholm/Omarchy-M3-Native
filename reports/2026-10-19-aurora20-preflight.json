@@ -1,0 +1,25 @@
+{
+  "source": "c46d7dcdb8712ea9aeb0ce47b439ffae76371e55",
+  "patch_checks": {
+    "brightness": {
+      "applies_cleanly": true,
+      "diagnostic": ""
+    },
+    "camera": {
+      "applies_cleanly": true,
+      "diagnostic": ""
+    },
+    "thermal": {
+      "applies_cleanly": true,
+      "diagnostic": ""
+    }
+  },
+  "installed": false,
+  "date": "2026-10-19",
+  "board": "Apple J613 / T8122",
+  "installed_kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "candidate_release": "aurora-2026.10.17.20",
+  "release_url": "https://github.com/omacom/linux-aurora/releases/tag/aurora-2026.10.17.20",
+  "downloaded_source_files": 6,
+  "limitations": "git apply --check only. No .20 module build, boot, hardware test or installed package change. Existing .19-built modules cannot be reused as matching .20 binaries. M3 Air is explicitly untested in upstream release validation. Preserve current recovery and fixed48kHz speaker workaround."
+}
