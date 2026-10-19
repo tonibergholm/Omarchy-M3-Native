@@ -37,5 +37,23 @@
   "playback_target": "audio_effect.j613-convolver",
   "source": "Synthetic one-second quiet440Hz stereo tones, 2.5percent PCM peak and stream volume0.3; hardware and sink volume unchanged.",
   "operator_audible_result": "pending",
-  "limitations": "Source-rate acceptance does not prove physical hardware rate switching, sample accuracy, audible quality or resolution of the historical intermittent startup failure."
+  "limitations": "Three source rates and matching kernel PCM negotiation passed during this session after sleep. Audible quality remains pending; this does not establish sample accuracy or resolution of the historical intermittent startup failure.",
+  "kernel_pcm_negotiation": {
+    "method": "Read /proc/asound playback hw_params during separate three-second silent protected-target streams; no direct ALSA playback or hardware writes.",
+    "rates_Hz": [
+      44100,
+      48000,
+      96000
+    ],
+    "source_and_kernel_rate_match_each": true,
+    "kernel_channels": 4,
+    "kernel_format": "S32_LE",
+    "access": "MMAP_INTERLEAVED",
+    "playback_exit_codes": [
+      0,
+      0,
+      0
+    ],
+    "scope": "Negotiated kernel PCM rate, not independent oscillator measurement or acoustic quality."
+  }
 }
