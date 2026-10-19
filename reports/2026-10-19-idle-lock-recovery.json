@@ -36,7 +36,14 @@
     "secure": true,
     "internal_display_dpmsStatus_after_lock": false,
     "timeout_values_changed": false,
-    "forced_lock_used": false
+    "forced_lock_used": false,
+    "post_reboot_operator_test": {
+      "date": "2026-10-19",
+      "boot_local": "2026-10-19T10:26:32+03:00",
+      "operator_report": "All three worked: screensaver timeout, automatic lock/display off, and Touch ID unlock.",
+      "runtime_check": "Idle service enabled, 150/300 second timeouts, Stay Awake off; lock service recorded unlock at 2026-10-19T07:32:53.752Z.",
+      "exact_timeout_timing_instrumented": false
+    }
   },
   "local_source_hashes": {
     "Service.qml": "b68c5fa830ecaed8dbd1b4ca9ed64d0a3ba322f2a4a0e517a0122608ce9af5bc",
@@ -44,7 +51,7 @@
     "idle-inhibitors.py": "99b70009468347c95ab1aa880ab2fbeab3c08d6bd5ac32ea747c1dbcdb513927"
   },
   "limitations": [
-    "One natural idle/screensaver/lock cycle observed; reboot persistence not yet observed.",
+    "One instrumented natural idle/screensaver/lock cycle and one operator-confirmed post-reboot cycle passed; exact post-reboot timing was not instrumented.",
     "Other-window inhibitor/noidle cases were verified in model controls, not a live video playback test.",
     "Compositor clients identify window-associated inhibitors; anonymous/non-window attribution is unavailable through this query.",
     "A user-owned service clone does not automatically incorporate later packaged idle-service updates."
