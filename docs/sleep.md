@@ -259,3 +259,5 @@ recorded its first real matched pre/resume pair. See the
 ### JBL Flip 5 audio, 19 October
 
 On the isolated Aurora .20 boot, the JBL Flip 5 paired, bonded, connected and exposed an SBC/A2DP output. An explicitly targeted voice sample completed and the operator confirmed audible playback. BlueZ still reported paired, trusted, connected and services resolved afterward. This qualifies awake playback only; sleep reconnection and timeout recovery remain untested. See the [selected report](../reports/2026-10-19-jbl-flip5-audio.json).
+
+The first subsequent JBL-connected lid cycle completed about 75.961 seconds between sleep signals, with suspend success increasing and no suspend failure. The paired speaker remained disconnected and its audio sink disappeared. Kernel HCI command timeouts (`0x0c01`, and failed `0x0c1a`, `-110`) accompanied resume; BlueZ automatic reconnection reported busy. A normal manual connection request also failed. This is a failed Bluetooth resume test, not a playback pass. See the [failure report](../reports/2026-10-19-jbl-flip5-sleep-failure.json).

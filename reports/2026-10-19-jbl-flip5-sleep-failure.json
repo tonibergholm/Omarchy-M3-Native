@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-19",
+  "board": "J613 / T8122",
+  "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+  "os_firmware": "14.7",
+  "system_firmware": "27.0",
+  "accessory": "JBL Flip 5",
+  "pre_sleep": "Paired, connected SBC/A2DP voice playback confirmed by operator",
+  "sleep_boundary_seconds": 75.961,
+  "suspend_success_before": "0",
+  "suspend_success_after": "1",
+  "suspend_fail_after": "0",
+  "post_resume": {
+    "Name": "JBL Flip 5",
+    "Paired": true,
+    "Trusted": true,
+    "Connected": false,
+    "ServicesResolved": false
+  },
+  "audio_sink_count_after_resume": 0,
+  "manual_connect": {
+    "connect_call": "failed",
+    "error_code": 36,
+    "error_domain": "g-io-error-quark",
+    "state": {
+      "Paired": true,
+      "Trusted": true,
+      "Connected": false,
+      "ServicesResolved": false
+    }
+  },
+  "kernel_messages": [
+    "command 0x0c01 tx timeout",
+    "Opcode 0x0c01 failed: -110",
+    "Opcode 0x0c1a failed: -110"
+  ],
+  "bluez_message": "Reconnecting services failed: Device or resource busy (16)",
+  "result": "Suspend succeeded; Bluetooth connection and audio route did not recover. Kernel controller command timeouts observed.",
+  "limitations": "Single cycle; speaker physical light/power state awaiting operator. D-Bus manual connection error numeric code alone does not establish its precise remote error. No controller reset, daemon restart or recovery candidate applied."
+}
