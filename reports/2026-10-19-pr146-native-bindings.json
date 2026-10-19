@@ -97,5 +97,28 @@
     "both_original_frequency_limits_restored": true,
     "independent_cleanup_watchdog": true,
     "interpretation": "The governor responded to simulated temperature, then relaxed the ceiling during low load. cpufreq_power2state explicitly normalizes granted power by last measured CPU load, so a high ceiling at idle alone is not evidence of failed regulation. Sustained loaded regulation remains untested. Real critical readings supersede emulation in thermal_zone_get_temp."
+  },
+  "single_thread_emulated_load": {
+    "initial_attempt": "Admission rejected above60C before any mutation or worker; not a test result.",
+    "rerun": "Completed; one CPU0 worker for2s in each normal and emulated phase, 2.25s phase sampling; intervening settle phase.",
+    "simulated_temperature_mC": 100000,
+    "real_TCMz_peak_mC": 71828,
+    "normal_P_limit_kHz": [
+      4056000,
+      4056000
+    ],
+    "emulated_P_limit_kHz": [
+      4056000,
+      4056000
+    ],
+    "observed_P_cooling_states": [
+      0
+    ],
+    "thermal_guard_triggered": false,
+    "emulation_cleared": true,
+    "all_workers_stopped": true,
+    "final_real_zone_mC": 44183,
+    "interpretation": "No frequency-ceiling reduction observed for this small workload. This does not establish working loaded regulation or a failure: granted power is normalized by measured CPU load and a one-thread workload may fit the6W budget. Desktop activity was uncontrolled.",
+    "remaining": "Loaded multi-core power allocation and real sustained temperature regulation remain unqualified."
   }
 }
