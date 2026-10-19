@@ -1,0 +1,87 @@
+{
+  "date": "2026-10-19",
+  "board": "J613 / T8122",
+  "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+  "os_firmware": "14.7",
+  "system_firmware": "27.0",
+  "module": {
+    "vermagic": "7.1.12-2-20261017.20-sep-ARCH SMP preempt mod_unload aarch64",
+    "module_sha256": "9a73c0b8a897ddfd1eae0c5c879c1b2249600da3db2b8a4979f5c4cabe692dd3",
+    "undefined_symbols": 82,
+    "missing_symbols": [],
+    "build": {
+      "returncode": 0,
+      "reason": "completed",
+      "max_sampled_C": 65.531,
+      "cpu_quota_percent": 10,
+      "workers": 1
+    },
+    "loaded": true
+  },
+  "baseline": {
+    "epoch_s": 1792409350.0123286,
+    "awake": {
+      "Paired": true,
+      "Trusted": true,
+      "Connected": true,
+      "ServicesResolved": false
+    },
+    "audible_baseline": "Operator confirmed Front Left clearly from JBL",
+    "baseline_connection_note": "A2DP ConnectProfile succeeded after startup auto-connect did not finish service resolution; targeted audio passed.",
+    "candidate_opt_in": "Y",
+    "rollback_timer_active": true
+  },
+  "sleep_boundary_seconds": 69.185,
+  "suspend_success_after": "4",
+  "suspend_fail_after": "0",
+  "automatic_state_samples": [
+    {
+      "Paired": true,
+      "Trusted": true,
+      "Connected": false,
+      "ServicesResolved": false,
+      "epoch_s": 1792409511.6226401
+    },
+    {
+      "Paired": true,
+      "Trusted": true,
+      "Connected": true,
+      "ServicesResolved": false,
+      "epoch_s": 1792409516.6245782
+    },
+    {
+      "Paired": true,
+      "Trusted": true,
+      "Connected": true,
+      "ServicesResolved": false,
+      "epoch_s": 1792409526.6276436
+    },
+    {
+      "Paired": true,
+      "Trusted": true,
+      "Connected": true,
+      "ServicesResolved": false,
+      "epoch_s": 1792409541.629742
+    }
+  ],
+  "audio": {
+    "audio_sink_count": 1,
+    "manual_connect_requested_after_resume": false
+  },
+  "kernel_messages": [
+    "PM: suspend entry (s2idle)",
+    "PM: suspend exit"
+  ],
+  "post_resume_audio": "Targeted Front Left stream completed; operator confirmed audible JBL playback",
+  "timeout_recovery_exercised": false,
+  "result": "One short sleep cycle recovered link and audible A2DP automatically; no controller timeout observed",
+  "limitations": "ServicesResolved remained false before and after sleep despite working A2DP audio. No timeout meant recovery instrumentation and recovery effectiveness were not exercised; this does not overturn previous failures.",
+  "restored": {
+    "Paired": true,
+    "Trusted": true,
+    "Connected": true,
+    "ServicesResolved": false,
+    "candidate_parameter_present": false
+  },
+  "rollback_timer_active": false
+}
