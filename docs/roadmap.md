@@ -24,8 +24,10 @@
 4. **macOS coexistence:** one round trip passed macOS Touch ID and Linux matching
    with existing enrollments unchanged. Repeat coexistence remains unqualified;
    do not delete or replace either system's authority.
-5. **Audio startup:** reproduce the initial sample-rate failure across boots
-   before changing service ordering. Clear [microphone capture](capture.md)
+5. **Audio startup:** the .20 boot observer captured IV-sense frame progress
+   while the speaker-rate control was zero, immediately before the startup
+   panic. Root cause and a protective fix remain open; do not assume a rate
+   or bypass speaker protection. Clear [microphone capture](capture.md)
    passed; test jack switching and remote-call capture. Earlier multi-rate
    process-exit and PCM-negotiation checks did not establish healthy playback:
    later rate transitions caused repeated speaker-protection negative-power
@@ -53,10 +55,14 @@
    need longer, steadier measurements. Measure settled idle draw, battery runtime,
    shutdown and specific USB-C display/dock combinations. Bluetooth failed a
    local HCI read after overnight resume and normal power-off failed; a
-   default-off J613/BCM4388 recovery candidate passed a temporary load and one
-   70-second sleep cycle. The packaged driver was restored; no timeout recovery
-   callback was exercised.
-   Native recovery and peripheral checks remain pending. No whole-machine
+   default-off J613/BCM4388 recovery candidate initially passed a temporary load
+   and a cycle without a timeout. On .20, awake JBL Flip 5 SBC/A2DP playback
+   passed, but a connected lid cycle lost Bluetooth. The recovery admission
+   candidate exercised its callback and failed HCI reset; a setup-ordering
+   variant failed calibration transfer. One later diagnostic cycle recovered
+   JBL audio automatically without a timeout, so recovery remains unqualified.
+   Original driver reload restored connection; every candidate was removed.
+   See [selected Bluetooth evidence](sleep.md#jbl-flip-5-audio-19-october). No whole-machine
    battery-life claim follows from cpuidle counters.
 
 Publish evidence against exact releases and named hardware. Keep one upstream
@@ -68,9 +74,16 @@ thread for a known issue, and send reusable fixes to their owning project.
 The Bluetooth recovery candidate passed a temporary native load, awake HCI
 reply and one approximately 70-second sleep cycle. Wi-Fi remained connected,
 and the original driver was restored with a successful HCI reply afterward.
-No timeout occurred during the candidate cycle, so recovery, calibration reload
-and peripheral connectivity remain unqualified. See the
-[native Bluetooth report](../reports/2026-10-18-bluetooth-native-short-cycle.json).
+That earlier cycle did not exercise recovery or peripherals. The subsequent
+19 October JBL tests exercised timeout recovery and failed both candidate
+variants, as described above. Awake and one no-timeout resume playback passed;
+reliable Bluetooth sleep recovery remains open. See the
+[earlier native report](../reports/2026-10-18-bluetooth-native-short-cycle.json)
+and [current failure evidence](../reports/2026-10-19-bluetooth-recovery-v2-failure.json).
+A read-only check after four lid cycles verified all six CPU zones still had
+both-cluster cooling bindings and original 58/95/110°C trips. Speaker protection
+was active with only its known startup restart. All Bluetooth candidates and
+rollback timers were inactive; see the [regression snapshot](../reports/2026-10-19-post-bluetooth-regression.json).
 
 The passive observer completed its first real matched sleep/resume capture and
 all three delayed samples at approximately 30, 60 and 120 seconds. Suspend success

@@ -1,0 +1,145 @@
+{
+  "date": "2026-10-19",
+  "board": "J613 / T8122",
+  "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+  "suspend_success": "4",
+  "suspend_fail": "0",
+  "cpu_thermal_zones": [
+    {
+      "type": "cpu-e1-thermal",
+      "temp_mC": 44307,
+      "policy": "power_allocator",
+      "bindings": [
+        {
+          "type": "cpufreq-cpu1",
+          "trip": 1
+        },
+        {
+          "type": "cpufreq-cpu0",
+          "trip": 1
+        }
+      ],
+      "trips_mC": {
+        "trip_point_2_temp": 110000,
+        "trip_point_1_temp": 95000,
+        "trip_point_0_temp": 58000
+      }
+    },
+    {
+      "type": "cpu-p2-thermal",
+      "temp_mC": 40481,
+      "policy": "power_allocator",
+      "bindings": [
+        {
+          "type": "cpufreq-cpu1",
+          "trip": 1
+        },
+        {
+          "type": "cpufreq-cpu0",
+          "trip": 1
+        }
+      ],
+      "trips_mC": {
+        "trip_point_2_temp": 110000,
+        "trip_point_1_temp": 95000,
+        "trip_point_0_temp": 58000
+      }
+    },
+    {
+      "type": "cpu-p0-thermal",
+      "temp_mC": 40397,
+      "policy": "power_allocator",
+      "bindings": [
+        {
+          "type": "cpufreq-cpu1",
+          "trip": 1
+        },
+        {
+          "type": "cpufreq-cpu0",
+          "trip": 1
+        }
+      ],
+      "trips_mC": {
+        "trip_point_2_temp": 110000,
+        "trip_point_1_temp": 95000,
+        "trip_point_0_temp": 58000
+      }
+    },
+    {
+      "type": "cpu-e0-thermal",
+      "temp_mC": 39524,
+      "policy": "power_allocator",
+      "bindings": [
+        {
+          "type": "cpufreq-cpu1",
+          "trip": 1
+        },
+        {
+          "type": "cpufreq-cpu0",
+          "trip": 1
+        }
+      ],
+      "trips_mC": {
+        "trip_point_2_temp": 110000,
+        "trip_point_1_temp": 95000,
+        "trip_point_0_temp": 58000
+      }
+    },
+    {
+      "type": "cpu-p3-thermal",
+      "temp_mC": 40507,
+      "policy": "power_allocator",
+      "bindings": [
+        {
+          "type": "cpufreq-cpu1",
+          "trip": 1
+        },
+        {
+          "type": "cpufreq-cpu0",
+          "trip": 1
+        }
+      ],
+      "trips_mC": {
+        "trip_point_2_temp": 110000,
+        "trip_point_1_temp": 95000,
+        "trip_point_0_temp": 58000
+      }
+    },
+    {
+      "type": "cpu-p1-thermal",
+      "temp_mC": 40593,
+      "policy": "power_allocator",
+      "bindings": [
+        {
+          "type": "cpufreq-cpu1",
+          "trip": 1
+        },
+        {
+          "type": "cpufreq-cpu0",
+          "trip": 1
+        }
+      ],
+      "trips_mC": {
+        "trip_point_2_temp": 110000,
+        "trip_point_1_temp": 95000,
+        "trip_point_0_temp": 58000
+      }
+    }
+  ],
+  "cpu_max_freq_kHz": {
+    "policy0": 4056000,
+    "policy1": 2748000
+  },
+  "speaker_service": [
+    "ActiveState=active",
+    "NRestarts=1"
+  ],
+  "bluetooth_experiment_parameter_present": false,
+  "rollback_timers": {
+    "m3-bt-aurora20-rollback.timer": "inactive",
+    "m3-bt-aurora20-v2-rollback.timer": "inactive",
+    "m3-bt-aurora20-diag-rollback.timer": "inactive"
+  },
+  "operation": "Read-only regression snapshot after four JBL-connected lid cycles; no stress, thermal emulation or control writes.",
+  "limitations": "Bindings, current trips and ceilings verified; no sustained thermal regulation, sensor accuracy or future reliability claim. Speaker daemon retains one known startup restart; this snapshot does not independently qualify audio."
+}
