@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-19",
+  "board": "Apple J613 / T8122, fanless MacBook Air",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "source": "5ec1028c81526e1ed31db2b97e47edf8663e83cb",
+  "read_only_checks": {
+    "soc_temperature_initial_mC": 49703,
+    "linux_cooling_devices": 0,
+    "cpu_scaling_driver": "apple-cpufreq",
+    "cpu_policy_max_kHz": [
+      4056000,
+      2748000
+    ],
+    "cpu_device_tree_compatible": [
+      "apple,t8122-cluster-cpufreq",
+      "apple,t8112-cluster-cpufreq"
+    ],
+    "fast_die_effort_property_present_under_cpus": false,
+    "pmp_and_report_drivers_bound": true,
+    "boot_log_pmp_firmware_endpoint_ready": true,
+    "boot_log_pmp_status_ready": true,
+    "boot_log_gpu_thermal_enabled": true,
+    "gpu_runtime_cap_MHz": [
+      618,
+      618
+    ]
+  },
+  "source_findings": [
+    "apple_fast_die_init returns without creating a limiter if apple,fast-die-effort is absent and the matched SoC does not require that policy. T8122 matches the T8112 fallback driver entry.",
+    "T8122 PMP report source explicitly states temperature record positions are unknown and does not register PMP temperature telemetry."
+  ],
+  "interpretation": "Firmware startup and GPU thermal limiting are evidenced. The optional Linux fast-die CPU QoS limiter is not wired through the current device tree. This does not prove absence of firmware or hardware CPU protection; CPU thermal response remains unqualified. Linux cooling devices can represent throttling and do not imply fans.",
+  "changes_made": "None; no stress load, clock change, register write, module reload or protection change."
+}
