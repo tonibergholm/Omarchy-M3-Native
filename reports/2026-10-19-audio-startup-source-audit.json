@@ -34,5 +34,8 @@
     "speakersafetyd_restart": 19.510134,
     "recovered_daemon_first_logged_48000": 314.949827
   },
-  "ordering_limit": "Service-start timestamps do not capture PCM hw_params or read/control interleaving; ordering trace still needed."
+  "ordering_limit": "Service-start timestamps do not capture PCM hw_params or read/control interleaving; ordering trace still needed.",
+  "upstream_existing_issue": "https://github.com/AsahiLinux/speakersafetyd/issues/16",
+  "J613_evidence_comment": "https://github.com/AsahiLinux/speakersafetyd/issues/16#issuecomment-6264611425",
+  "related_report_scope": "Existing upstream report has the same panic on J413 with older speakersafetyd; shared root cause is not established."
 }
