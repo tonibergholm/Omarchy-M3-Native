@@ -21,7 +21,7 @@
   "candidate_release": "aurora-2026.10.17.20",
   "release_url": "https://github.com/omacom/linux-aurora/releases/tag/aurora-2026.10.17.20",
   "downloaded_source_files": 6,
-  "limitations": "Exact display/ISP files verified against Git blob hashes; patched .20 modules compiled W=1 with matching SDK/compiler and no warning/error lines. Build peaks77.984C and70.687C retained. No .20 installation, boot or hardware acceptance yet. Existing19 recovery and fixed48kHz speaker mitigation must be preserved.",
+  "limitations": "Matching patched20 display/ISP modules compiled and embedded in a separate verified UKI; isolated20 module tree staged without replacing installed19 package state. Existing boot entries and thermal stage2 preserved. No20 native boot or hardware acceptance yet; fixed48kHz audio mitigation remains active.",
   "verified_release_downloads": {
     "linux-aurora-7.1.12.aurora2-20261017.20-aarch64.pkg.tar.zst": "49efa0ec088059aaae6c1fc7fef49521171abbab2c21a3d62bf670148dc0c7d8",
     "linux-aurora-headers-7.1.12.aurora2-20261017.20-aarch64.pkg.tar.zst": "7d8e7370fbc777e8694f29b66e20bf60eb826432234824833ac28ebdf4bee5f8",
@@ -62,5 +62,22 @@
       "build_warning_or_error_lines": 0
     }
   },
-  "packaged_j613_dtb_identical_between_19_and_20": true
+  "packaged_j613_dtb_identical_between_19_and_20": true,
+  "boot_staging": {
+    "entry": "M3 Aurora20 test",
+    "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+    "uki_bytes": 63980544,
+    "embedded_display_camera_module_hashes_verified": true,
+    "drm_dma_helper_embedded": true,
+    "boot_path_blake2b_verified": true,
+    "build_peak_mC": 74484,
+    "thermal_stage2_unchanged": true,
+    "existing19_and_gpu_off_entries_preserved": true,
+    "default_selection_changed": false,
+    "isolated20_modules_staged": true,
+    "pacman_package_state_changed": false,
+    "reboot_triggered": false,
+    "initial_preflight": "100MiB guard rejected93MiB free before mutation; replaced by existingUKI-size-plus15MiB guard and final actual-size reserve check. No old boot artifacts deleted.",
+    "native_boot_result": "pending"
+  }
 }
