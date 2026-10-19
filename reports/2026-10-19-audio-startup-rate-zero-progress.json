@@ -1,0 +1,253 @@
+{
+  "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+  "recorder": {
+    "returncode": 0,
+    "summary": "{\"samples\": 600, \"duration_s\": 60.000317925000004, \"output_created\": true}",
+    "stderr_present": false
+  },
+  "samples": 600,
+  "first_monotonic_s": 11.049198489,
+  "last_monotonic_s": 70.949221028,
+  "control_read_errors": 0,
+  "transitions": [
+    {
+      "monotonic_s": 11.049198489,
+      "boottime_s": 11.049199906,
+      "speaker_rate_Hz": 0,
+      "speaker_pcm": {
+        "state": "closed",
+        "params": "closed"
+      },
+      "sense_pcm": {
+        "state": "closed",
+        "params": "closed"
+      }
+    },
+    {
+      "monotonic_s": 11.149210843,
+      "boottime_s": 11.149213176,
+      "speaker_rate_Hz": 0,
+      "speaker_pcm": {
+        "state": "closed",
+        "params": "closed"
+      },
+      "sense_pcm": {
+        "state": "RUNNING",
+        "delay": "0",
+        "avail": "0",
+        "hw_ptr": "0",
+        "appl_ptr": "0",
+        "format": "S16_LE",
+        "channels": "8",
+        "rate": "0 (8000/1)"
+      }
+    },
+    {
+      "monotonic_s": 11.949205803,
+      "boottime_s": 11.949207803,
+      "speaker_rate_Hz": 0,
+      "speaker_pcm": {
+        "state": "closed",
+        "params": "closed"
+      },
+      "sense_pcm": {
+        "state": "closed",
+        "params": "closed"
+      }
+    },
+    {
+      "monotonic_s": 13.049204406,
+      "boottime_s": 13.049206697,
+      "speaker_rate_Hz": 0,
+      "speaker_pcm": {
+        "state": "closed",
+        "params": "closed"
+      },
+      "sense_pcm": {
+        "state": "RUNNING",
+        "delay": "0",
+        "avail": "0",
+        "hw_ptr": "0",
+        "appl_ptr": "0",
+        "format": "S16_LE",
+        "channels": "8",
+        "rate": "0 (8000/1)"
+      }
+    }
+  ],
+  "sense_progress_while_control_zero": {
+    "observations": 1,
+    "first_examples": [
+      {
+        "monotonic_s": 11.849223258,
+        "boottime_s": 11.84922605,
+        "speaker_rate_Hz": 0,
+        "speaker_pcm": {
+          "state": "closed",
+          "params": "closed"
+        },
+        "sense_pcm": {
+          "state": "RUNNING",
+          "delay": "0",
+          "avail": "0",
+          "hw_ptr": "2544",
+          "appl_ptr": "2544",
+          "format": "S16_LE",
+          "channels": "8",
+          "rate": "0 (8000/1)"
+        }
+      }
+    ]
+  },
+  "daemon_events": [
+    {
+      "monotonic_s": 11.074286,
+      "message": "INFO  [speakersafetyd] Starting up"
+    },
+    {
+      "monotonic_s": 11.078626,
+      "message": "PCM rate: 8000..192000"
+    },
+    {
+      "monotonic_s": 11.898786,
+      "message": "Invalid sample rate"
+    },
+    {
+      "monotonic_s": 13.012672,
+      "message": "speakersafetyd.service: Scheduled restart job, restart counter is at 1."
+    },
+    {
+      "monotonic_s": 13.03278,
+      "message": "INFO  [speakersafetyd] Starting up"
+    },
+    {
+      "monotonic_s": 13.034791,
+      "message": "PCM rate: 8000..192000"
+    }
+  ],
+  "samples_near_panic": [
+    {
+      "monotonic_s": 11.549204031,
+      "boottime_s": 11.549206531,
+      "speaker_rate_Hz": 0,
+      "speaker_pcm": {
+        "state": "closed",
+        "params": "closed"
+      },
+      "sense_pcm": {
+        "state": "RUNNING",
+        "delay": "0",
+        "avail": "0",
+        "hw_ptr": "0",
+        "appl_ptr": "0",
+        "format": "S16_LE",
+        "channels": "8",
+        "rate": "0 (8000/1)"
+      }
+    },
+    {
+      "monotonic_s": 11.649196242,
+      "boottime_s": 11.64919745,
+      "speaker_rate_Hz": 0,
+      "speaker_pcm": {
+        "state": "closed",
+        "params": "closed"
+      },
+      "sense_pcm": {
+        "state": "RUNNING",
+        "delay": "0",
+        "avail": "0",
+        "hw_ptr": "0",
+        "appl_ptr": "0",
+        "format": "S16_LE",
+        "channels": "8",
+        "rate": "0 (8000/1)"
+      }
+    },
+    {
+      "monotonic_s": 11.749206929,
+      "boottime_s": 11.749210696,
+      "speaker_rate_Hz": 0,
+      "speaker_pcm": {
+        "state": "closed",
+        "params": "closed"
+      },
+      "sense_pcm": {
+        "state": "RUNNING",
+        "delay": "0",
+        "avail": "0",
+        "hw_ptr": "0",
+        "appl_ptr": "0",
+        "format": "S16_LE",
+        "channels": "8",
+        "rate": "0 (8000/1)"
+      }
+    },
+    {
+      "monotonic_s": 11.849223258,
+      "boottime_s": 11.84922605,
+      "speaker_rate_Hz": 0,
+      "speaker_pcm": {
+        "state": "closed",
+        "params": "closed"
+      },
+      "sense_pcm": {
+        "state": "RUNNING",
+        "delay": "0",
+        "avail": "0",
+        "hw_ptr": "2544",
+        "appl_ptr": "2544",
+        "format": "S16_LE",
+        "channels": "8",
+        "rate": "0 (8000/1)"
+      }
+    },
+    {
+      "monotonic_s": 11.949205803,
+      "boottime_s": 11.949207803,
+      "speaker_rate_Hz": 0,
+      "speaker_pcm": {
+        "state": "closed",
+        "params": "closed"
+      },
+      "sense_pcm": {
+        "state": "closed",
+        "params": "closed"
+      }
+    },
+    {
+      "monotonic_s": 12.050090332,
+      "boottime_s": 12.050093332,
+      "speaker_rate_Hz": 0,
+      "speaker_pcm": {
+        "state": "closed",
+        "params": "closed"
+      },
+      "sense_pcm": {
+        "state": "closed",
+        "params": "closed"
+      }
+    },
+    {
+      "monotonic_s": 12.149218593,
+      "boottime_s": 12.149221093,
+      "speaker_rate_Hz": 0,
+      "speaker_pcm": {
+        "state": "closed",
+        "params": "closed"
+      },
+      "sense_pcm": {
+        "state": "closed",
+        "params": "closed"
+      }
+    }
+  ],
+  "limits": "100 ms non-atomic polling may miss races and can perturb timing; PCM leading zero rate alone is not an error.",
+  "temporary_service_removed": true,
+  "date": "2026-10-19",
+  "board": "J613 / T8122",
+  "assessment": "Captured sense PCM hardware/application pointer advancement while the speaker-rate control read zero and speaker PCM was sampled closed, shortly before the Invalid sample rate panic.",
+  "progress_sample_before_panic_ms": 49.563,
+  "ordering_control": "Type=notify recorder reported ready after its first saved sample, before speakersafetyd start. This intentionally alters startup timing.",
+  "causality_limit": "Non-atomic 100 ms snapshots cannot exclude a brief speaker open/rate transition between samples, establish sample contents, or identify which kernel component produced the burst."
+}
