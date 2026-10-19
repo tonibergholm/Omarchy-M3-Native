@@ -1,0 +1,41 @@
+{
+  "results": [
+    {
+      "source_rate_Hz": 44100,
+      "channels": 2,
+      "PCM_bits": 16,
+      "duration_s": 1,
+      "exit_code": 0,
+      "elapsed_s": 1.109,
+      "error_output": ""
+    },
+    {
+      "source_rate_Hz": 48000,
+      "channels": 2,
+      "PCM_bits": 16,
+      "duration_s": 1,
+      "exit_code": 0,
+      "elapsed_s": 1.209,
+      "error_output": ""
+    },
+    {
+      "source_rate_Hz": 96000,
+      "channels": 2,
+      "PCM_bits": 16,
+      "duration_s": 1,
+      "exit_code": 0,
+      "elapsed_s": 1.196,
+      "error_output": ""
+    }
+  ],
+  "protected_route_retained": true,
+  "speakersafetyd_active": true,
+  "date": "2026-10-19",
+  "board": "Apple J613 / T8122",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "context": "After PR146 DT-only trial boot and sleep/resume",
+  "playback_target": "audio_effect.j613-convolver",
+  "source": "Synthetic one-second quiet440Hz stereo tones, 2.5percent PCM peak and stream volume0.3; hardware and sink volume unchanged.",
+  "operator_audible_result": "pending",
+  "limitations": "Source-rate acceptance does not prove physical hardware rate switching, sample accuracy, audible quality or resolution of the historical intermittent startup failure."
+}
