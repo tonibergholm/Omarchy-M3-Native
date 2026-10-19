@@ -120,3 +120,19 @@ driver remains the default and no boot image was changed. This
 second native cycle supports the PM behavior, but repeated-cycle reliability,
 error paths and energy savings remain unqualified. See the
 [selected comparison](../reports/2026-10-17-als-energy-comparison.json).
+
+
+## Aurora .20 rebuild and awake-load checks, 19 October
+
+The .20 release at `c46d7dcdb8712ea9aeb0ce47b439ffae76371e55` has unchanged
+ALS and platform-adapter source. Both PM patches apply cleanly. A matching
+isolated SDK retained the packaged configuration byte-for-byte. Reference and
+candidate modules built without warnings/errors, with exact .20 vermagic and
+all 47/52 required symbols found in the release export inventory.
+
+Both modules passed separate temporary awake-load tests: light readings worked,
+the lid-angle sensor remained present, and the candidate opt-in diagnostic was
+observed. Each test restored the original; the packaged module file was unchanged.
+The candidate has not yet exercised its sleep callbacks on .20. This is not a
+battery-saving result or a persistent installation. See the
+[.20 build and runtime evidence](../reports/2026-10-19-aurora20-als-pm-preflight.json).

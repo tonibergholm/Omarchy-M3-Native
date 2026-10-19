@@ -22,5 +22,61 @@
   },
   "meaning": "Aurora .20 retains the original .19 ALS/platform source; prior local PM candidate patches apply cleanly.",
   "installed": false,
-  "limitations": "Source applicability only; no .20 candidate build/load or native PM qualification. Prior .19 IRQ reduction did not establish battery savings."
+  "limitations": "Matching .20 builds and temporary awake loads passed. Original restored. Native .20 candidate sleep callbacks, repeated cycles and battery savings remain unqualified.",
+  "build_validation": {
+    "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+    "config_matches_package": true,
+    "modules": {
+      "reference": {
+        "sha256": "d028fd9038c16e0bf950f68860302a507a17d330d0bb1a7650c41cf5ce85a81a",
+        "vermagic": "7.1.12-2-20261017.20-sep-ARCH SMP preempt mod_unload aarch64",
+        "undefined_symbol_count": 47,
+        "missing_exports": []
+      },
+      "candidate": {
+        "sha256": "74109b817a1771ed5321f3d983569993b0aa5d0238b353b7626e904365364655",
+        "vermagic": "7.1.12-2-20261017.20-sep-ARCH SMP preempt mod_unload aarch64",
+        "undefined_symbol_count": 52,
+        "missing_exports": []
+      }
+    },
+    "prepare_warnings_errors": [],
+    "rust_warnings_errors": [],
+    "als_warnings_errors": [],
+    "candidate_warnings_errors": []
+  },
+  "reference_runtime": {
+    "reference": {
+      "light_readable": true,
+      "lid_angle_present": true
+    },
+    "reference_loaded": true,
+    "original_restored": {
+      "light_readable": true,
+      "lid_angle_present": true
+    },
+    "packaged_file_unchanged": true
+  },
+  "candidate_awake_runtime": {
+    "candidate": {
+      "light_readable": true,
+      "lid_angle_present": true
+    },
+    "optin_probe_message_seen": true,
+    "candidate_awake_passed": true,
+    "original_restored": {
+      "light_readable": true,
+      "lid_angle_present": true
+    },
+    "packaged_file_unchanged": true
+  },
+  "build_controls": {
+    "one_job": true,
+    "CPU_quota_percent": 25,
+    "pause_C": 70,
+    "resume_C": 58,
+    "stop_C": 78,
+    "sensor": "maximum readable thermal-zone temperature"
+  },
+  "candidate_source": "Same .19 native-tested PM candidate: audited patch plus probe-time opt-in diagnostic."
 }
