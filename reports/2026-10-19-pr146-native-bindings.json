@@ -81,5 +81,21 @@
   },
   "protected_audio_route": "audio_effect.j613-convolver",
   "speaker_protection_active": true,
-  "limitations": "No synthetic heat load or closed-loop thermal regulation test yet. Cooling state requests prove QoS ceiling changes, not measured effective frequency or CPU heat regulation. PR C/default-key change is not installed. Next reboot uses original DT unless deliberately restaged."
+  "limitations": "No synthetic heat load or closed-loop thermal regulation test yet. Cooling state requests prove QoS ceiling changes, not measured effective frequency or CPU heat regulation. PR C/default-key change is not installed. Next reboot uses original DT unless deliberately restaged.",
+  "temperature_emulation_check": {
+    "zone": "cpu-p0-thermal",
+    "simulated_temperature_mC": 100000,
+    "critical_trip_mC": 110000,
+    "duration_s": 3,
+    "synthetic_heat_load": false,
+    "initial_p_limit_kHz": 4056000,
+    "first_emulated_p_limit_kHz": 3780000,
+    "first_emulated_cooling_state": 3,
+    "later_emulated_p_limit_kHz": 4056000,
+    "emulation_cleared": true,
+    "final_real_zone_temperature_mC": 39868,
+    "both_original_frequency_limits_restored": true,
+    "independent_cleanup_watchdog": true,
+    "interpretation": "The governor responded to simulated temperature, then relaxed the ceiling during low load. cpufreq_power2state explicitly normalizes granted power by last measured CPU load, so a high ceiling at idle alone is not evidence of failed regulation. Sustained loaded regulation remains untested. Real critical readings supersede emulation in thermal_zone_get_temp."
+  }
 }
