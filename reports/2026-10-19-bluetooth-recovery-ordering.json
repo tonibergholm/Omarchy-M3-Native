@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-19",
+  "board": "J613 / T8122",
+  "source_commit": "c46d7dcdb8712ea9aeb0ce47b439ffae76371e55",
+  "observation": "Hardware reset recovery completed successfully at monotonic 1977.170038; HCI Reset opcode 0x0c03 failed -110 at 1979.232037; recovery callback failed -110 at 1979.238022. Original driver reprobe followed later and normal JBL connection succeeded.",
+  "source_order": [
+    "Recovery sets needs_reset then calls hci_reset_dev_sync (close/open).",
+    "Driver open performs PCI/firmware/RTI reset and marks cal_needed=true, cal_loaded=false.",
+    "Core hci_dev_setup_sync skips setup on normal reopen unless HCI_SETUP or NON_PERSISTENT_SETUP.",
+    "Driver setup_once sends calibration/PTB before normal HCI initialization on fresh probe.",
+    "Driver post_init reloads calibration/PTB only after successful hci_init_sync."
+  ],
+  "hypothesis": "After recovery hardware reset, calibration/PTB may be required before normal HCI initialization. Current post_init reload is unreachable when the preceding HCI Reset times out.",
+  "not_proven": [
+    "Calibration/PTB ordering is the actual cause",
+    "Changed ordering restores Bluetooth after sleep",
+    "Safety and repeated-cycle reliability of revised candidate"
+  ],
+  "next_candidate": "Default-off J613/BCM4388 gated nonpersistent setup callback; run setup on initial setup or cal_needed only, retaining post_init address restoration. Build and review before native testing."
+}
