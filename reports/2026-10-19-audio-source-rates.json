@@ -68,5 +68,6 @@
       0
     ],
     "operator_confirmed_correct_sides_and_both_audible": true
-  }
+  },
+  "superseding_failure_evidence": "2026-10-19-audio-rate-transition-failure.json: later operator checks found missing short-stream audio and speakersafetyd panics during rate changes. Earlier successful process/kernel-rate checks are not reliable-playback qualification."
 }

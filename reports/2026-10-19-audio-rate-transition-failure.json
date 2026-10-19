@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-19",
+  "board": "Apple J613 / T8122",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "observed_failure": {
+    "operator_rate_replay": "Neither44.1/96kHz voice heard; original48kHz repeated control heard only once.",
+    "speakersafetyd_restarts_before_workaround": 13,
+    "journal_failure": "src/types.rs:371: Negative power, bad ivsense data? on tweeter channels during sample-rate transitions",
+    "earlier_result_correction": "Successful pw-play exit and kernel rate negotiation did not establish safe reliable audio. Active snapshots missed intervening protection daemon panics."
+  },
+  "workaround": {
+    "file": "~/.config/pipewire/pipewire.conf.d/99-j613-fixed-rate.conf",
+    "default_clock_rate_Hz": 48000,
+    "allowed_graph_rates_Hz": [
+      48000
+    ],
+    "speaker_protection_retained": true,
+    "hardware_volume_changed": false,
+    "audio_services_restarted": true
+  },
+  "verification": {
+    "kernel_rate_for_all_three_source_rates_Hz": 48000,
+    "daemon_restart_count_after_initial_service_reconfiguration": 14,
+    "restart_count_after_three_silent_rate_controls": 14,
+    "restart_count_after_two_voice_streams": 14,
+    "operator_after_workaround": "Only one of two short voice streams heard; no complete audio fix claimed.",
+    "continuous_stream_three_phrase_test": "Operator heard all three phrases after2-second silent lead-in, one continuous48kHz stream. Protection daemon restart count remained14.",
+    "speaker_pcm_between_streams": "RUNNING while idle; existing package no-suspend policy already present. No extra no-suspend rule applied."
+  },
+  "limitations": "Rate-transition panics no longer reproduced in selected fixed-rate checks; short-stream audible startup loss remains unresolved. No bypass, relaxed safety assertion or raw speaker playback used."
+}
