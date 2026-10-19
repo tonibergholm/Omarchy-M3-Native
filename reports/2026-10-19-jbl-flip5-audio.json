@@ -1,0 +1,23 @@
+{
+  "Name": "JBL Flip 5",
+  "Paired": true,
+  "Trusted": true,
+  "Connected": true,
+  "ServicesResolved": true,
+  "codec": "sbc",
+  "profile": "a2dp-sink",
+  "audible_playback": "User confirmed worked",
+  "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+  "date": "2026-10-19",
+  "board": "J613 / T8122",
+  "os_firmware": "14.7",
+  "system_firmware": "27.0",
+  "installed_kernel_package": "7.1.12.aurora2-20261015.19",
+  "bluez": "5.87-2",
+  "pipewire": "1:1.6.9-1",
+  "wireplumber": "0.5.18-1",
+  "test": "Explicit JBL-targeted padded Front Left sample; playback process exited zero and operator confirmed audible playback.",
+  "limitations": "Sleep/reconnection and prolonged playback not yet tested. Negotiated sample rate not captured. No timeout recovery qualification.",
+  "pairing_note": "Initial one-shot bluetoothctl commands exited zero but reported device unavailable. Persistent discovery/pairing client then verified actual BlueZ state.",
+  "speaker_volume": 0.3
+}

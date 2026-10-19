@@ -255,3 +255,7 @@ parameter disappeared, a fresh HCI read succeeded, and the rollback timer was
 stopped. Nothing was installed persistently. The passive sleep observer also
 recorded its first real matched pre/resume pair. See the
 [selected native report](../reports/2026-10-18-bluetooth-native-short-cycle.json).
+
+### JBL Flip 5 audio, 19 October
+
+On the isolated Aurora .20 boot, the JBL Flip 5 paired, bonded, connected and exposed an SBC/A2DP output. An explicitly targeted voice sample completed and the operator confirmed audible playback. BlueZ still reported paired, trusted, connected and services resolved afterward. This qualifies awake playback only; sleep reconnection and timeout recovery remain untested. See the [selected report](../reports/2026-10-19-jbl-flip5-audio.json).
