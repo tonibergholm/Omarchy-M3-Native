@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-19",
+  "board": "J613 / T8122",
+  "PR": "https://github.com/omacom/linux-aurora/pull/152",
+  "head": "1d1f5c3e7fd2800fb73741a63ccb5e356dfa0a92",
+  "prior_native_tested_head": "843b84dfccd3c1471b8f7ec843fcebb60125e975",
+  "change": "Only module parameter description shortened",
+  "module_sha256": "919da671c036863d0fe422583e6cf8fb4df1acb4936ffb9f641d8cb5a4133365",
+  "vermagic": "7.1.12-2-20261017.20-sep-ARCH SMP preempt mod_unload aarch64",
+  "undefined_symbols": 52,
+  "missing_release_exports": [],
+  "build_warnings_errors": [],
+  "strict_checkpatch": {
+    "errors": 0,
+    "warnings": 0,
+    "checks": 0
+  },
+  "scope": "Local .20 build and patch-style checks. No hosted checks reported. Prior revision native-tested; current description-only revision not loaded. Draft review/DCO and broader validation pending."
+}
