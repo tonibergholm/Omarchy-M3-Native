@@ -103,3 +103,11 @@ decoder result does not qualify HDR decoding or sustained tone-mapping speed.
 The J613 patch and test evidence were [posted to Aurora issue 32](https://github.com/omacom/linux-aurora/issues/32#issuecomment-6217879992)
 on 2026-10-16. This is a submitted hardware report and source candidate, not an
 upstream merge or packaged release.
+
+## ARZOPA Z1FC external display, 19 October
+
+On Aurora .20, the packaged m1n1 left dcpext disabled because its firmware was not reserved. Direct rear-port USB-C detected a power-delivery partner but exposed no external connector. A [local m1n1 reservation candidate](../patches/j613-dcpext-reservation-local.patch), based on the approach reported in [Aurora #103](https://github.com/omacom/linux-aurora/issues/103), passed reference/candidate builds and seven helper controls. It admits J613/T8122 on 14.7 only after the internal handoff marker, reserves firmware and leaves dcpext disabled for the kernel gate. The exact existing DTB/U-Boot/config payload tail, including retained thermal controls, was preserved.
+
+A cold-plug test boot enabled dcpext and its routes; PMP request `0x21800` was acknowledged as `0x218f0`. The internal panel and ARZOPA Z1FC at **1920×1080/60 Hz** both looked correct to the operator, with OpenGL red/blue and Vulkan compute readbacks passing. A 20-second runtime **1080p144** test also looked clear and stable, then returned to 60 Hz automatically. No display configuration file was edited. This establishes short mode operation, not physical refresh calibration or sustained reliability.
+
+The original thermal-enabled stage2 was restored on disk by the 90-second next-boot rollback, without changing the running trial session. Root and ESP backups were verified. Stage1, firmware/calibration contents and package-owned binaries were unchanged. A subsequent reboot uses the original bootloader unless the candidate is staged again. No hotplug, DPMS, external-display sleep or sustained 144 Hz acceptance yet. See [selected native evidence](../reports/2026-10-19-arzopa-z1fc-dcpext.json).

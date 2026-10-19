@@ -1,0 +1,54 @@
+SPDX-License-Identifier: MIT
+Local J613/14.7 experiment; not an upstream merge or general support claim.
+Base: omacom/m1n1 d05ba17dfb771871d608225be42968bbb1e75a18
+Original m1n1 source: Copyright The Asahi Linux Contributors.
+Reservation/disabled-node marker approach reported in omacom/linux-aurora#103.
+Local admission additionally requires J613/T8122, 14.7 and internal handoff marker.
+
+diff --git i/src/kboot.c w/src/kboot.c
+index 70f1d99..a26fef6 100644
+--- i/src/kboot.c
++++ w/src/kboot.c
+@@ -1995,6 +1995,19 @@ static int dt_reserve_dcpext_firmware(void)
+ 
+         // refresh dcpext_node
+         dcpext_node = fdt_path_offset(dt, dcpext_alias);
++        if (!fdt_node_check_compatible(dt, 0, "apple,j613") &&
++            !fdt_node_check_compatible(dt, 0, "apple,t8122")) {
++            /* The kernel gate owns enabling this pipe after panel handoff. */
++            if (dcpext_node < 0)
++                continue;
++            ret = fdt_setprop_string(dt, dcpext_node, "status", "disabled");
++            if (!ret)
++                ret = fdt_setprop_u32(dt, dcpext_node,
++                                     "apple,t8122-dcpext-firmware-ready", 1);
++            if (ret)
++                printf("FDT: failed to mark reserved firmware for '%s'\n", dcpext_alias);
++            continue;
++        }
+         if ((dcpext_node < 0) || (fdt_setprop_string(dt, dcpext_node, "status", "okay") < 0))
+             printf("FDT: failed to enable '%s'\n", dcpext_alias);
+     }
+@@ -2151,9 +2164,20 @@ static int dt_set_display(void)
+         /*
+          * Fail-soft handoff (kboot_display_handoff.c): it always returns 0, never uses the
+          * helpers above (they bail out of kboot or enable nodes) and never enables a node.
+-         * On T8122 it does nothing unless chosen.asahi,t8122-dcp=1.
++         * On T8122 it does nothing unless chosen.asahi,t8122-dcp=1. The local J613
++         * 14.7 reservation below runs only after its successful handoff marker.
+          */
+-        return dt_set_display_handoff(dt);
++        ret = dt_set_display_handoff(dt);
++        int dcp_node = fdt_path_offset(dt, "dcp");
++        if (!ret && os_firmware.version == V14_7 && dcp_node >= 0 &&
++            fdt_getprop(dt, dcp_node, "apple,t8122-handoff", NULL) &&
++            !fdt_node_check_compatible(dt, 0, "apple,j613") &&
++            !fdt_node_check_compatible(dt, 0, "apple,t8122")) {
++            /* Reservation is required; leave activation to the kernel gate. */
++            if (dt_reserve_dcpext_firmware())
++                printf("FDT: J613 dcpext firmware reservation failed; pipe stays disabled\n");
++        }
++        return ret;
+     } else {
+         printf("FDT: unknown compatible, skip display reserved-memory setup\n");
+         return 0;

@@ -1,0 +1,310 @@
+{
+  "board": "J613 / T8122",
+  "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+  "display": "ARZOPA Z1FC",
+  "connection": "Direct USB-C, rear port nearest MagSafe",
+  "build_manifest": {
+    "board": "J613 / T8122",
+    "os_firmware": "14.7",
+    "system_firmware": "27.0",
+    "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+    "source_commit": "d05ba17dfb771871d608225be42968bbb1e75a18",
+    "candidate_build": {
+      "returncode": 0,
+      "reason": "completed",
+      "max_all_zone_C": 77.015,
+      "workers": 1,
+      "CPU_quota_percent": 10,
+      "source_commit": "d05ba17dfb771871d608225be42968bbb1e75a18",
+      "source_changed": true,
+      "installed": false
+    },
+    "reference_build": {
+      "returncode": 0,
+      "reason": "completed",
+      "max_all_zone_C": 74.25,
+      "workers": 1,
+      "CPU_quota_percent": 10,
+      "source_commit": "d05ba17dfb771871d608225be42968bbb1e75a18",
+      "source_changed": false,
+      "installed": false
+    },
+    "compiler": "16.1.1",
+    "candidate_prefix_bytes": 4063232,
+    "candidate_prefix_sha256": "77a206e4ab68aa616237cbc0fa9066a7eb03e7073342c5d71061f44efe2826de",
+    "candidate_stage2_bytes": 9779037,
+    "candidate_stage2_sha256": "de21d571331307eb2468a844fc461ec2208287b49cf9ae85c01a958ccea3f450",
+    "original_stage2_sha256": "dfdafe5acba95382ed4143404e6ed0cc053d03b6fb784e6ffaf9ff0a00153d92",
+    "tail_preserved_byte_for_byte": true,
+    "payload_tail_sha256": "9ae6a2ff9ce89af0920df83437ca0219de5c5cd9a99734d9125c2781044a9b35",
+    "actual_helper_controls": 7,
+    "boot_tested": false,
+    "installed": false,
+    "limitations": "Locally rebuilt m1n1 with newer compiler than packaged binary; unchanged reference build is not a native boot qualification. Helper controls mock firmware outcomes. No display modes or output qualified yet."
+  },
+  "monitors": [
+    {
+      "name": "eDP-1",
+      "width": 2560,
+      "height": 1664,
+      "refreshRate": 60.0,
+      "scale": 1,
+      "x": 0,
+      "y": 0,
+      "disabled": false,
+      "availableModes": [
+        "2560x1664@60.00Hz"
+      ]
+    },
+    {
+      "name": "DP-1",
+      "width": 1920,
+      "height": 1080,
+      "refreshRate": 60.0,
+      "scale": 1,
+      "x": 2560,
+      "y": 0,
+      "disabled": false,
+      "availableModes": [
+        "1920x1080@60.00Hz",
+        "1920x1080@144.00Hz",
+        "1920x1080@120.00Hz",
+        "1920x1080@100.00Hz",
+        "1920x1080@59.94Hz",
+        "1680x1050@60.00Hz",
+        "1600x900@60.00Hz",
+        "1280x1024@75.00Hz",
+        "1280x1024@60.00Hz",
+        "1440x900@60.00Hz",
+        "1280x960@60.00Hz",
+        "1280x720@60.00Hz",
+        "1280x720@59.94Hz",
+        "1024x768@75.00Hz",
+        "1024x768@70.00Hz",
+        "1024x768@60.00Hz",
+        "800x600@75.00Hz",
+        "800x600@72.00Hz",
+        "800x600@60.00Hz",
+        "720x480@60.00Hz",
+        "720x480@59.94Hz",
+        "640x480@60.00Hz",
+        "640x480@59.94Hz"
+      ]
+    }
+  ],
+  "operator_visual_confirmation": "Both screens look correct",
+  "GPU_OpenGL_readback": "pass",
+  "GPU_Vulkan_compute_readback": "pass",
+  "rollback_service_result": "success",
+  "rollback_timer_enabled": "disabled",
+  "qualification": "One cold-plug boot, simultaneous internal and 1080p60 external desktop, short 1080p144 runtime test, operator-confirmed clear/stable display in both modes, OpenGL/Vulkan checks at 60 Hz. Hotplug, DPMS, sleep and sustained 144 Hz remain untested.",
+  "serials_EDID_bytes_published": false,
+  "date": "2026-10-19",
+  "bootloader_trial_running": true,
+  "bootloader_image_on_disk": "Original thermal-enabled image restored automatically by successful rollback service; another reboot will use it unless candidate is staged again.",
+  "mode_144Hz_test": {
+    "epoch_s": 1792411029.1251047,
+    "samples": [
+      {
+        "elapsed_s": 0.29,
+        "monitors": [
+          {
+            "name": "eDP-1",
+            "width": 2560,
+            "height": 1664,
+            "refreshRate": 60.0,
+            "disabled": false
+          },
+          {
+            "name": "DP-1",
+            "width": 1920,
+            "height": 1080,
+            "refreshRate": 144.0,
+            "disabled": false
+          }
+        ]
+      },
+      {
+        "elapsed_s": 2.29,
+        "monitors": [
+          {
+            "name": "eDP-1",
+            "width": 2560,
+            "height": 1664,
+            "refreshRate": 60.0,
+            "disabled": false
+          },
+          {
+            "name": "DP-1",
+            "width": 1920,
+            "height": 1080,
+            "refreshRate": 144.0,
+            "disabled": false
+          }
+        ]
+      },
+      {
+        "elapsed_s": 4.3,
+        "monitors": [
+          {
+            "name": "eDP-1",
+            "width": 2560,
+            "height": 1664,
+            "refreshRate": 60.0,
+            "disabled": false
+          },
+          {
+            "name": "DP-1",
+            "width": 1920,
+            "height": 1080,
+            "refreshRate": 144.0,
+            "disabled": false
+          }
+        ]
+      },
+      {
+        "elapsed_s": 6.31,
+        "monitors": [
+          {
+            "name": "eDP-1",
+            "width": 2560,
+            "height": 1664,
+            "refreshRate": 60.0,
+            "disabled": false
+          },
+          {
+            "name": "DP-1",
+            "width": 1920,
+            "height": 1080,
+            "refreshRate": 144.0,
+            "disabled": false
+          }
+        ]
+      },
+      {
+        "elapsed_s": 8.31,
+        "monitors": [
+          {
+            "name": "eDP-1",
+            "width": 2560,
+            "height": 1664,
+            "refreshRate": 60.0,
+            "disabled": false
+          },
+          {
+            "name": "DP-1",
+            "width": 1920,
+            "height": 1080,
+            "refreshRate": 144.0,
+            "disabled": false
+          }
+        ]
+      },
+      {
+        "elapsed_s": 10.32,
+        "monitors": [
+          {
+            "name": "eDP-1",
+            "width": 2560,
+            "height": 1664,
+            "refreshRate": 60.0,
+            "disabled": false
+          },
+          {
+            "name": "DP-1",
+            "width": 1920,
+            "height": 1080,
+            "refreshRate": 144.0,
+            "disabled": false
+          }
+        ]
+      },
+      {
+        "elapsed_s": 12.32,
+        "monitors": [
+          {
+            "name": "eDP-1",
+            "width": 2560,
+            "height": 1664,
+            "refreshRate": 60.0,
+            "disabled": false
+          },
+          {
+            "name": "DP-1",
+            "width": 1920,
+            "height": 1080,
+            "refreshRate": 144.0,
+            "disabled": false
+          }
+        ]
+      },
+      {
+        "elapsed_s": 14.33,
+        "monitors": [
+          {
+            "name": "eDP-1",
+            "width": 2560,
+            "height": 1664,
+            "refreshRate": 60.0,
+            "disabled": false
+          },
+          {
+            "name": "DP-1",
+            "width": 1920,
+            "height": 1080,
+            "refreshRate": 144.0,
+            "disabled": false
+          }
+        ]
+      },
+      {
+        "elapsed_s": 16.33,
+        "monitors": [
+          {
+            "name": "eDP-1",
+            "width": 2560,
+            "height": 1664,
+            "refreshRate": 60.0,
+            "disabled": false
+          },
+          {
+            "name": "DP-1",
+            "width": 1920,
+            "height": 1080,
+            "refreshRate": 144.0,
+            "disabled": false
+          }
+        ]
+      },
+      {
+        "elapsed_s": 18.34,
+        "monitors": [
+          {
+            "name": "eDP-1",
+            "width": 2560,
+            "height": 1664,
+            "refreshRate": 60.0,
+            "disabled": false
+          },
+          {
+            "name": "DP-1",
+            "width": 1920,
+            "height": 1080,
+            "refreshRate": 144.0,
+            "disabled": false
+          }
+        ]
+      }
+    ],
+    "restored_60Hz": true,
+    "config_files_changed": false,
+    "operator_visual_result": "Clear and stable throughout"
+  },
+  "recent_mode_error_window": {
+    "window_start_epoch": 1792410976.9172175,
+    "lines": []
+  },
+  "firmware_ready_marker": 1,
+  "dcpext_node_status": "okay",
+  "cpu_thermal_retained": "Six CPU zones, each both cluster bindings; 58/95/110 C trips retained"
+}
