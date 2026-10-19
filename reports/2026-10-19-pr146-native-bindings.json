@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-19",
+  "board": "Apple J613 / T8122",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "candidate": "PR146 head8fd1bf481afe6fcadaa04001b2bcd435616b705b DT-only",
+  "boot": "success",
+  "zones": [
+    {
+      "type": "cpu-e1-thermal",
+      "temperature_mC": 43573,
+      "governor": "power_allocator",
+      "sustainable_power_mW": 6000,
+      "cooling_bindings": 2,
+      "emulation_attribute_present": true
+    },
+    {
+      "type": "cpu-p2-thermal",
+      "temperature_mC": 39930,
+      "governor": "power_allocator",
+      "sustainable_power_mW": 6000,
+      "cooling_bindings": 2,
+      "emulation_attribute_present": true
+    },
+    {
+      "type": "cpu-p0-thermal",
+      "temperature_mC": 39642,
+      "governor": "power_allocator",
+      "sustainable_power_mW": 6000,
+      "cooling_bindings": 2,
+      "emulation_attribute_present": true
+    },
+    {
+      "type": "cpu-e0-thermal",
+      "temperature_mC": 39073,
+      "governor": "power_allocator",
+      "sustainable_power_mW": 6000,
+      "cooling_bindings": 2,
+      "emulation_attribute_present": true
+    },
+    {
+      "type": "cpu-p3-thermal",
+      "temperature_mC": 40090,
+      "governor": "power_allocator",
+      "sustainable_power_mW": 6000,
+      "cooling_bindings": 2,
+      "emulation_attribute_present": true
+    },
+    {
+      "type": "cpu-p1-thermal",
+      "temperature_mC": 40063,
+      "governor": "power_allocator",
+      "sustainable_power_mW": 6000,
+      "cooling_bindings": 2,
+      "emulation_attribute_present": true
+    }
+  ],
+  "energy_models_created_for_both_cpu_clusters": true,
+  "cooling_actuator_checks": [
+    {
+      "cluster": "P",
+      "state_requested": 1,
+      "before_max_kHz": 4056000,
+      "limited_max_kHz": 3960000,
+      "restored_max_kHz": 4056000,
+      "restored_state": 0
+    },
+    {
+      "cluster": "E",
+      "state_requested": 1,
+      "before_max_kHz": 2748000,
+      "limited_max_kHz": 2556000,
+      "restored_max_kHz": 2748000,
+      "restored_state": 0
+    }
+  ],
+  "rollback": {
+    "service_result": "success",
+    "original_stage2_hash_verified": true,
+    "timer_disabled_for_future_boots": true,
+    "running_candidate_DT_retained": true
+  },
+  "protected_audio_route": "audio_effect.j613-convolver",
+  "speaker_protection_active": true,
+  "limitations": "No synthetic heat load or closed-loop thermal regulation test yet. Cooling state requests prove QoS ceiling changes, not measured effective frequency or CPU heat regulation. PR C/default-key change is not installed. Next reboot uses original DT unless deliberately restaged."
+}
