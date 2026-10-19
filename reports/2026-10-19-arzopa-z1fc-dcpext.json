@@ -509,5 +509,25 @@
       "OpenGL_readback": "pass",
       "Vulkan_compute_readback": "pass"
     }
+  },
+  "connector_properties_readonly": {
+    "driver": "apple",
+    "connector_property_names": [
+      "DPMS",
+      "EDID",
+      "TILE",
+      "link-status",
+      "non-desktop",
+      "vrr_capable"
+    ],
+    "HDR_OUTPUT_METADATA_present": false,
+    "Colorspace_present": false,
+    "EDID_bytes_saved_or_published": false,
+    "scope": "Read-only connector query; absence does not establish monitor hardware capability.",
+    "preparation_note": "Device-path form rejected by this modetest build; named-driver query succeeded."
+  },
+  "display_audio_observation": {
+    "pipewire_display_audio_sink_exposed": false,
+    "qualification": "Read-only enumeration found no display audio output. Monitor audio playback was not tested; this does not establish a hardware limitation."
   }
 }

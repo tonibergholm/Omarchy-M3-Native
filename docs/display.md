@@ -119,3 +119,5 @@ The rear-port unplug/replug and a move to the front (trackpad-side) port both re
 Correction to the earlier source-only prediction: the T6030 PM guard does not apply here. Probe sets `external` only for `apple,t6030-dcpext`; J613 uses `apple,t8122-dcpext` and `ext_failsafe`, so it never enters that guard. No kernel guard was removed or bypassed. Rebooting uses the restored original stage2 unless the candidate is staged again.
 
 The complete selected result set was [reported upstream on Aurora #103](https://github.com/omacom/linux-aurora/issues/103#issuecomment-6266857792), including the corrected PM interpretation and measured short suspend.
+
+A subsequent read-only `modetest -M apple -c` query exposed DPMS, EDID, TILE, link-status, non-desktop and vrr_capable properties, but no `HDR_OUTPUT_METADATA` or `Colorspace`. No native HDR output was qualified; this does not establish the monitor’s hardware HDR capability. PipeWire also exposed no display-audio output, so display audio playback remains untested. Raw EDID bytes and identifiers were not saved in the public report.
