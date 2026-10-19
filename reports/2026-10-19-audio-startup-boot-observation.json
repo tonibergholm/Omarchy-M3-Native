@@ -1,0 +1,82 @@
+{
+  "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+  "recorder": {
+    "returncode": 0,
+    "summary": "{\"samples\": 600, \"duration_s\": 60.00070865400001, \"output_created\": true}",
+    "stderr_present": false
+  },
+  "samples": 600,
+  "first_monotonic_s": 12.056111063,
+  "last_monotonic_s": 71.956183078,
+  "control_read_errors": 0,
+  "transitions": [
+    {
+      "monotonic_s": 12.056111063,
+      "boottime_s": 12.05611198,
+      "speaker_rate_Hz": 0,
+      "speaker_pcm": {
+        "state": "closed",
+        "params": "closed"
+      },
+      "sense_pcm": {
+        "state": "closed",
+        "params": "closed"
+      }
+    },
+    {
+      "monotonic_s": 12.656158184,
+      "boottime_s": 12.656161101,
+      "speaker_rate_Hz": 0,
+      "speaker_pcm": {
+        "state": "closed",
+        "params": "closed"
+      },
+      "sense_pcm": {
+        "state": "RUNNING",
+        "delay": "0",
+        "avail": "0",
+        "hw_ptr": "0",
+        "appl_ptr": "0",
+        "format": "S16_LE",
+        "channels": "8",
+        "rate": "0 (8000/1)"
+      }
+    }
+  ],
+  "sense_progress_while_control_zero": {
+    "observations": 0,
+    "first_examples": []
+  },
+  "daemon_events": [
+    {
+      "monotonic_s": 10.570928,
+      "message": "INFO  [speakersafetyd] Starting up"
+    },
+    {
+      "monotonic_s": 10.572843,
+      "message": "PCM rate: 8000..192000"
+    },
+    {
+      "monotonic_s": 11.526791,
+      "message": "Invalid sample rate"
+    },
+    {
+      "monotonic_s": 12.581705,
+      "message": "speakersafetyd.service: Scheduled restart job, restart counter is at 1."
+    },
+    {
+      "monotonic_s": 12.595156,
+      "message": "INFO  [speakersafetyd] Starting up"
+    },
+    {
+      "monotonic_s": 12.596219,
+      "message": "PCM rate: 8000..192000"
+    }
+  ],
+  "samples_near_panic": [],
+  "limits": "100 ms non-atomic polling may miss races and can perturb timing; PCM leading zero rate alone is not an error.",
+  "temporary_service_removed": true,
+  "assessment": "The startup failure reproduced, but first sample was after the panic. This capture cannot establish its cause.",
+  "first_sample_after_panic_seconds": 0.52932,
+  "followup": "Recorder readiness must precede daemon startup; sampling and the resulting startup delay remain confounders."
+}

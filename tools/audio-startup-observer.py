@@ -85,11 +85,24 @@ def pcm(card, name):
             out['params'] = 'closed'
     return out
 
+def notify_ready():
+    import socket
+    address = os.environ['NOTIFY_SOCKET']
+    if address.startswith('@'):
+        address = '\0' + address[1:]
+    with socket.socket(socket.AF_UNIX, socket.SOCK_DGRAM) as connection:
+        connection.connect(address)
+        connection.sendall(b'READY=1')
+
 def main():
     p = argparse.ArgumentParser()
     p.add_argument('--duration', type=float, default=60)
     p.add_argument('--output', type=Path, required=True)
+    p.add_argument('--notify-ready', action='store_true',
+                   help='Notify systemd after saving the first sample')
     args = p.parse_args()
+    if args.notify_ready and not os.environ.get('NOTIFY_SOCKET'):
+        p.error('--notify-ready requires NOTIFY_SOCKET')
     if not 0 < args.duration <= 60:
         p.error('duration must be >0 and <=60 seconds')
     if b'apple,j613\x00' not in Path('/sys/firmware/devicetree/base/compatible').read_bytes():
@@ -118,6 +131,8 @@ def main():
                 else:
                     row['card'] = 'not-yet-present'
                 output.write(json.dumps(row) + '\n')
+                if count == 0 and args.notify_ready:
+                    notify_ready()
                 count += 1
                 next_sample += 0.1
                 time.sleep(max(0, next_sample - time.monotonic()))

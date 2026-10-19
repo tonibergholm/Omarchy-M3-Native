@@ -36,7 +36,13 @@ short transitions, reads are not atomic across control/PCM fields, and observer
 activity can alter timing. A missing event does not prove the race is absent.
 The sense PCM can display `rate: 0 (48000/1)` during healthy 48 kHz operation;
 interpret the control value and stream progression together, not just that
-leading zero. The recorder does not install a boot service.
+leading zero. The optional `--notify-ready` sends systemd readiness only after the first
+sample is saved; it requires `NOTIFY_SOCKET`. A private Unix-socket test and
+a short native systemd notify-service test passed. A first boot recorder
+using plain exec readiness started sampling 0.529 seconds after the panic;
+its successful 600-sample recording therefore did not capture the failing
+transition. See the [selected boot observation](../reports/2026-10-19-audio-startup-boot-observation.json).
+The recorder does not install a boot service.
 
 ## Keyboard backlight
 
