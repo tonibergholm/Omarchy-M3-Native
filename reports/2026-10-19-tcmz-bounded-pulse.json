@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-19",
+  "board": "Apple J613 / T8122",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "method": "One 0.75-second single-thread busy loop pinned to CPU1 in the lower-frequency cluster, after five seconds baseline. Further pulses require TCMz <=65C; monitor stops at78C. No clock or protection change.",
+  "result": "First pulse ran; second was skipped and test ended because admission temperature exceeded65C. No third pulse ran.",
+  "first_pulse_before_range_mC": [
+    49281,
+    49703
+  ],
+  "first_pulse_following_four_seconds_range_mC": [
+    49031,
+    49953
+  ],
+  "observed_maximum_mC": 69750,
+  "samples": 149,
+  "interpretation": "A small efficiency-core pulse did not reproduce the large TCMz rise. A later rise occurred before the next test worker started; normal concurrent desktop work was uncontrolled. No causal sensor or throttling conclusion follows.",
+  "all_workers_stopped": true
+}
