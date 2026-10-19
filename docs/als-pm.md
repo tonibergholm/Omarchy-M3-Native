@@ -141,3 +141,5 @@ this short test, so it provides no usable power-saving estimate. The original
 module was restored automatically. Repeated-cycle/error-path qualification
 remains open. See the [.20 sleep evidence](../reports/2026-10-19-aurora20-als-pm-sleep.json)
 and [.20 build evidence](../reports/2026-10-19-aurora20-als-pm-preflight.json).
+
+The tested opt-in source candidate is proposed in [draft Aurora PR152](https://github.com/omacom/linux-aurora/pull/152). Generic PM adapter/design review, broader validation and author DCO certification remain pending. The original module remains active locally; the completed .20 test hook was removed.
