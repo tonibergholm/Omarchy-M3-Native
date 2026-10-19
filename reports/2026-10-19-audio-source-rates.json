@@ -42,7 +42,7 @@
     "source": "Standard ALSA Front_Left.wav and Front_Right.wav; both mono48kHz, protected target, stream volume0.6; sink remained50percent.",
     "scope": "Audible protected playback confirmed. Mono phrase names do not establish left/right speaker isolation, and three-rate tone quality remains unconfirmed."
   },
-  "limitations": "Three source rates and matching kernel PCM negotiation passed. Audible standard48kHz voice playback was confirmed; audible quality at44.1/96kHz and stereo isolation remain unqualified. This does not establish sample accuracy or resolution of the historical intermittent startup failure.",
+  "limitations": "Three source rates and matching kernel PCM negotiation passed. Audible48kHz voice playback and isolated left/right routing were operator-confirmed. Audible quality at44.1/96kHz remains unqualified; no sample-accuracy or historical intermittent startup-failure resolution claim.",
   "kernel_pcm_negotiation": {
     "method": "Read /proc/asound playback hw_params during separate three-second silent protected-target streams; no direct ALSA playback or hardware writes.",
     "rates_Hz": [
@@ -60,5 +60,13 @@
       0
     ],
     "scope": "Negotiated kernel PCM rate, not independent oscillator measurement or acoustic quality."
+  },
+  "stereo_isolation": {
+    "method": "Standard48kHz mono voice samples converted to stereo with the opposite channel zeroed; left-only Front Left then right-only Front Right, three-second gap; protected target and stream volume0.6.",
+    "playback_exit_codes": [
+      0,
+      0
+    ],
+    "operator_confirmed_correct_sides_and_both_audible": true
   }
 }
