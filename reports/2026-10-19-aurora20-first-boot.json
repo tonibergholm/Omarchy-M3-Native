@@ -39,5 +39,6 @@
     "secure_lock_observed": true,
     "fingerprint_authentication_available_during_lock": true
   },
-  "limitations": "Boot and selected backend checks only. No blanket20 acceptance; cold-start speaker protection failure remains, and camera/sleep/operator checks on20 remain pending."
+  "limitations": "Selected .20 boot and one sleep-cycle checks only. Startup speaker protection failure remains unresolved; camera stream not tested this boot; no sustained real-temperature regulation qualification.",
+  "sleep": "One 594.051-second lid suspend passed; success 0 to 1, fail remained 0. Touch ID unlock and GPU readbacks passed; see 2026-10-19-aurora20-sleep.json."
 }

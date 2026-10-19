@@ -1,0 +1,197 @@
+{
+  "date": "2026-10-19",
+  "board": "Apple J613 / T8122",
+  "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+  "suspended_seconds": 594.051,
+  "suspend_success_before": 0,
+  "suspend_success_after": 1,
+  "suspend_fail_before": 0,
+  "suspend_fail_after": 0,
+  "observations": [
+    {
+      "phase": "prepare-for-sleep",
+      "cpu_sensor_readings_mC": {
+        "cpu-e0-thermal": 43905,
+        "cpu-e1-thermal": 48401,
+        "cpu-p0-thermal": 44952,
+        "cpu-p1-thermal": 44765,
+        "cpu-p2-thermal": 44775,
+        "cpu-p3-thermal": 44787
+      },
+      "cpu_sensor_cooling_bindings": {
+        "cpu-e0-thermal": 2,
+        "cpu-e1-thermal": 2,
+        "cpu-p0-thermal": 2,
+        "cpu-p1-thermal": 2,
+        "cpu-p2-thermal": 2,
+        "cpu-p3-thermal": 2
+      },
+      "cpu_cooling": [
+        {
+          "type": "cpufreq-cpu0",
+          "state": "0"
+        },
+        {
+          "type": "cpufreq-cpu1",
+          "state": "0"
+        }
+      ],
+      "cpu_limits_kHz": {
+        "policy0": "4056000",
+        "policy1": "2748000"
+      },
+      "panel": "265",
+      "keyboard": "77"
+    },
+    {
+      "phase": "resume-signal",
+      "cpu_sensor_readings_mC": {
+        "cpu-e0-thermal": 38329,
+        "cpu-e1-thermal": 42604,
+        "cpu-p0-thermal": 38854,
+        "cpu-p1-thermal": 39219,
+        "cpu-p2-thermal": 38958,
+        "cpu-p3-thermal": 39247
+      },
+      "cpu_sensor_cooling_bindings": {
+        "cpu-e0-thermal": 2,
+        "cpu-e1-thermal": 2,
+        "cpu-p0-thermal": 2,
+        "cpu-p1-thermal": 2,
+        "cpu-p2-thermal": 2,
+        "cpu-p3-thermal": 2
+      },
+      "cpu_cooling": [
+        {
+          "type": "cpufreq-cpu0",
+          "state": "0"
+        },
+        {
+          "type": "cpufreq-cpu1",
+          "state": "0"
+        }
+      ],
+      "cpu_limits_kHz": {
+        "policy0": "4056000",
+        "policy1": "2748000"
+      },
+      "panel": "265",
+      "keyboard": "77"
+    },
+    {
+      "phase": "post-30s",
+      "cpu_sensor_readings_mC": {
+        "cpu-e0-thermal": 42033,
+        "cpu-e1-thermal": 50088,
+        "cpu-p0-thermal": 43890,
+        "cpu-p1-thermal": 44379,
+        "cpu-p2-thermal": 44232,
+        "cpu-p3-thermal": 44099
+      },
+      "cpu_sensor_cooling_bindings": {
+        "cpu-e0-thermal": 2,
+        "cpu-e1-thermal": 2,
+        "cpu-p0-thermal": 2,
+        "cpu-p1-thermal": 2,
+        "cpu-p2-thermal": 2,
+        "cpu-p3-thermal": 2
+      },
+      "cpu_cooling": [
+        {
+          "type": "cpufreq-cpu0",
+          "state": "0"
+        },
+        {
+          "type": "cpufreq-cpu1",
+          "state": "0"
+        }
+      ],
+      "cpu_limits_kHz": {
+        "policy0": "4056000",
+        "policy1": "2748000"
+      },
+      "panel": "265",
+      "keyboard": "77"
+    },
+    {
+      "phase": "post-60s",
+      "cpu_sensor_readings_mC": {
+        "cpu-e0-thermal": 40759,
+        "cpu-e1-thermal": 45995,
+        "cpu-p0-thermal": 41152,
+        "cpu-p1-thermal": 41358,
+        "cpu-p2-thermal": 41582,
+        "cpu-p3-thermal": 41506
+      },
+      "cpu_sensor_cooling_bindings": {
+        "cpu-e0-thermal": 2,
+        "cpu-e1-thermal": 2,
+        "cpu-p0-thermal": 2,
+        "cpu-p1-thermal": 2,
+        "cpu-p2-thermal": 2,
+        "cpu-p3-thermal": 2
+      },
+      "cpu_cooling": [
+        {
+          "type": "cpufreq-cpu0",
+          "state": "0"
+        },
+        {
+          "type": "cpufreq-cpu1",
+          "state": "0"
+        }
+      ],
+      "cpu_limits_kHz": {
+        "policy0": "4056000",
+        "policy1": "2748000"
+      },
+      "panel": "265",
+      "keyboard": "77"
+    },
+    {
+      "phase": "post-120s",
+      "cpu_sensor_readings_mC": {
+        "cpu-e0-thermal": 41279,
+        "cpu-e1-thermal": 45745,
+        "cpu-p0-thermal": 41920,
+        "cpu-p1-thermal": 42133,
+        "cpu-p2-thermal": 42055,
+        "cpu-p3-thermal": 42026
+      },
+      "cpu_sensor_cooling_bindings": {
+        "cpu-e0-thermal": 2,
+        "cpu-e1-thermal": 2,
+        "cpu-p0-thermal": 2,
+        "cpu-p1-thermal": 2,
+        "cpu-p2-thermal": 2,
+        "cpu-p3-thermal": 2
+      },
+      "cpu_cooling": [
+        {
+          "type": "cpufreq-cpu0",
+          "state": "0"
+        },
+        {
+          "type": "cpufreq-cpu1",
+          "state": "0"
+        }
+      ],
+      "cpu_limits_kHz": {
+        "policy0": "4056000",
+        "policy1": "2748000"
+      },
+      "panel": "265",
+      "keyboard": "77"
+    }
+  ],
+  "services_after_resume": {
+    "speakersafetyd": "active; NRestarts remained 1",
+    "apple-sep": "active; NRestarts remained 0"
+  },
+  "operator": "Confirmed Touch ID unlocked after opening the lid.",
+  "limitations": "One lid cycle; no sustained thermal regulation or battery drain qualification.",
+  "gpu_post_resume": {
+    "OpenGL_red_blue_readback": "pass",
+    "Vulkan_compute_readback": "pass"
+  }
+}
