@@ -364,5 +364,14 @@
     "original_stage2_hash_verified_again": true,
     "synthetic_workload": false
   },
-  "limitations": "One short sleep cycle; zone presence and sensor changes do not prove post-resume automatic thermal regulation. No battery-drain or sustained thermal claim."
+  "limitations": "One short sleep cycle; zone presence and sensor changes do not prove post-resume automatic thermal regulation. No battery-drain or sustained thermal claim.",
+  "post_resume_regression_checks": {
+    "aurora_m3_gpu_check": "exit0; OpenGL red/blue pixel readback and Vulkan compute readback pass",
+    "apple_sep_service": "active, Result=success",
+    "protected_audio_default_sink": "audio_effect.j613-convolver",
+    "speakersafetyd": "active",
+    "screen_brightness": 265,
+    "keyboard_brightness": 77,
+    "scope": "Service/device state and GPU correctness only; audible output, visible brightness steps and fingerprint matching not inferred."
+  }
 }
