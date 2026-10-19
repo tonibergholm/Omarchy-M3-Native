@@ -48,5 +48,13 @@
     "Other-window inhibitor/noidle cases were verified in model controls, not a live video playback test.",
     "Compositor clients identify window-associated inhibitors; anonymous/non-window attribution is unavailable through this query.",
     "A user-owned service clone does not automatically incorporate later packaged idle-service updates."
-  ]
+  ],
+  "existing_upstream_fix": {
+    "pr": "https://github.com/quickshell-mirror/quickshell/pull/1097",
+    "head": "1cbf9ee8444f1a65d605c5cc0308040595d831ff",
+    "state": "open, unmerged",
+    "mechanism": "Clear notification property before deleting/replacing the previous notification.",
+    "native_patched_binary_tested": false,
+    "installed": false
+  }
 }

@@ -331,3 +331,8 @@ untouched. Reboot persistence, live video inhibition and anonymous/non-window
 inhibitor attribution remain unqualified. The local clone needs maintenance
 when the packaged service changes. See the
 [selected evidence](../reports/2026-10-19-idle-lock-recovery.json).
+
+An [existing Quickshell fix PR #1097](https://github.com/quickshell-mirror/quickshell/pull/1097)
+clears the notification property before replacement, matching the observed
+address-reuse mechanism. It remains unmerged; that patched binary has not been
+tested here or installed. The tested local workaround remains active.
