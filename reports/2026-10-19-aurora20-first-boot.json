@@ -30,6 +30,11 @@
     "audible_after_this_boot": "pending"
   },
   "camera_stream": "not tested this boot",
-  "TouchID_operator_result": "pending",
+  "TouchID_operator_result": {
+    "startup_password": "Operator correctly noted boot requires a password; not a fingerprint test.",
+    "desktop_screen_lock_unlock": "Operator confirmed worked on20.",
+    "secure_lock_observed": true,
+    "fingerprint_authentication_available_during_lock": true
+  },
   "limitations": "Boot and selected backend checks only. No blanket20 acceptance; cold-start speaker protection failure remains, and camera/sleep/operator checks on20 remain pending."
 }
