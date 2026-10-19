@@ -36,5 +36,15 @@
   ],
   "bluez_message": "Reconnecting services failed: Device or resource busy (16)",
   "result": "Suspend succeeded; Bluetooth connection and audio route did not recover. Kernel controller command timeouts observed.",
-  "limitations": "Single cycle; speaker physical light/power state awaiting operator. D-Bus manual connection error numeric code alone does not establish its precise remote error. No controller reset, daemon restart or recovery candidate applied."
+  "limitations": "Single failed sleep cycle and successful manual driver-reload recovery. Exact timeout cause and automatic recovery remain unqualified.",
+  "operator_after_resume": "JBL on; no blinking lights",
+  "recovery": {
+    "action": "Reloaded original matching hci_bcm4377 with modprobe -r then modprobe; requested normal BlueZ connection",
+    "paired": true,
+    "trusted": true,
+    "connected": true,
+    "services_resolved": true,
+    "explicit_JBL_playback": "Completed; operator confirmed audible phrase",
+    "experimental_driver_loaded": false
+  }
 }
