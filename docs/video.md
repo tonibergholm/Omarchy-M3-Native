@@ -425,3 +425,32 @@ and both earlier local thermal stops are retained. Hosted offline validation
 is now complete for these environments; hardware grain synthesis, native
 candidate fallback and independent review remain open. Installed drivers are
 unchanged. See the [hosted evidence](../reports/2026-10-19-av1-grain-hosted-tests.json).
+
+
+### Selected native source-candidate test, 19 October
+
+A separate release driver built from candidate `9265a60` (SHA256
+`7a95c10704f815784954a73fb598625f193684b1cb795038be467f0c983e997b`)
+was selected only through the test processes' library path, without a preload
+or installation. The driver-only build completed at a sampled maximum 68.578°C.
+The installed kernel, library, firmware and desktop settings were unchanged.
+
+The grain-bearing reference produced **10/10 P010 pixel hashes matching the
+grain-enabled software reference** after the candidate rejected three hardware
+grain requests. This demonstrates selected correct output through the fallback
+path; no explicit mpv hwdec-current property was captured. It is not hardware
+grain synthesis. A separate grain-free control required hardware frames and
+matched **50/50 NV12 pixel hashes** with the AVD backend confirmed. Playback
+maxima were 56.781°C and 68.343°C respectively.
+
+Three guarded attempts are retained: a runner name collision stopped the first
+before any media child; an overly strict log-phrase assertion stopped the
+second after its successful grain playback. The ten-frame output was verified
+offline and reused, not decoded again. The final guard ran the missing grain-free
+control and ended successfully, decoder idle. All final guard records report
+no timeout, wedge or abort reason. No driver reset or automatic recovery occurred.
+
+These are two short selected cases. Broader playback/direct-surface correctness,
+hardware grain synthesis and independent review remain open. No media, raw
+frames or full logs are published. See the
+[selected native report](../reports/2026-10-19-av1-grain-native-candidate.json).

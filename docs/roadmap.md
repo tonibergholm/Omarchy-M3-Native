@@ -68,7 +68,9 @@ demonstrated correct software fallback; a [source safeguard](video.md) now passe
 47 focused sanitizer cases in draft driver PR #107. Hosted validation on
 19 October passed 243/243 sanitizer tests, both software checks and the full
 11-job matrix after one recorded test-helper retry. This supersedes the local
-thermal/CI-authorization blocker. Native candidate checks and independent review remain pending. Installed drivers still have the original
+thermal/CI-authorization blocker. A selected native candidate check subsequently
+matched all ten grain-fallback frames and all 50 grain-free hardware frames.
+Broader qualification and independent review remain pending. Installed drivers still have the original
 failing sample behavior; hardware synthesis remains unresolved. Physical peripheral/quality checks and
 thermal/HDR support are separate remaining gates. The
 [earlier audit](../reports/2026-10-18-validation-gates.json) records the state
