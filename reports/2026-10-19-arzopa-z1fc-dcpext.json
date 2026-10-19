@@ -97,7 +97,7 @@
   "GPU_Vulkan_compute_readback": "pass",
   "rollback_service_result": "success",
   "rollback_timer_enabled": "disabled",
-  "qualification": "One cold-plug boot, simultaneous internal and 1080p60 external desktop, short 1080p144 runtime test, operator-confirmed clear/stable display in both modes, OpenGL/Vulkan checks at 60 Hz. Hotplug, DPMS, sleep and sustained 144 Hz remain untested.",
+  "qualification": "One cold-plug boot; internal+1080p60 external; short 1080p144; rear hotplug; front-port 1080p60; both-screen DPMS off/on; operator confirmed correct pictures; OpenGL/Vulkan checks after front port and DPMS. System sleep, sustained 144 Hz and repeated boots remain unqualified. Source predicts sleep refusal after dcpext startup.",
   "serials_EDID_bytes_published": false,
   "date": "2026-10-19",
   "bootloader_trial_running": true,
@@ -306,5 +306,154 @@
   },
   "firmware_ready_marker": 1,
   "dcpext_node_status": "okay",
-  "cpu_thermal_retained": "Six CPU zones, each both cluster bindings; 58/95/110 C trips retained"
+  "cpu_thermal_retained": "Six CPU zones, each both cluster bindings; 58/95/110 C trips retained",
+  "rear_hotplug": {
+    "unplug": {
+      "epoch_s": 1792411137.1729922,
+      "DP1_status": "disconnected",
+      "monitors": [
+        {
+          "name": "eDP-1",
+          "width": 2560,
+          "height": 1664,
+          "refreshRate": 60.0,
+          "disabled": false
+        }
+      ]
+    },
+    "replug": {
+      "epoch_s": 1792411171.904694,
+      "monitors": [
+        {
+          "name": "eDP-1",
+          "width": 2560,
+          "height": 1664,
+          "refreshRate": 60.0,
+          "disabled": false
+        },
+        {
+          "name": "DP-1",
+          "width": 1920,
+          "height": 1080,
+          "refreshRate": 60.0,
+          "disabled": false
+        }
+      ]
+    },
+    "operator_visual": "Yes, looks correct",
+    "selected_error_lines": [
+      "apple-dcp 28ec00000.dcp: copy_edid failed: -ENODEV"
+    ],
+    "qualification": "One rear-port unplug/replug cycle; no external-DCP timeout/fault captured. Existing internal-panel copy_edid warning repeated."
+  },
+  "GPU_after_rear_hotplug": {
+    "OpenGL_readback": "pass",
+    "Vulkan_compute_readback": "pass"
+  },
+  "front_port": {
+    "epoch_s": 1792411302.8332176,
+    "port_mapping": "Physical front/trackpad-side port -> sysfs port2, DRM DP-2",
+    "partners": [
+      "port2-partner"
+    ],
+    "monitors": [
+      {
+        "name": "eDP-1",
+        "width": 2560,
+        "height": 1664,
+        "refreshRate": 60.0,
+        "disabled": false
+      },
+      {
+        "name": "DP-2",
+        "width": 1920,
+        "height": 1080,
+        "refreshRate": 60.0,
+        "disabled": false
+      }
+    ],
+    "observation_note": "Initial watcher expected sysfs port1; direct inspection identified actual port2. This was a harness mapping assumption, not a hardware failure.",
+    "operator_visual": "Yes, looks correct"
+  },
+  "GPU_after_front_port": {
+    "OpenGL_readback": "pass",
+    "Vulkan_compute_readback": "pass"
+  },
+  "DPMS": {
+    "start_epoch_s": 1792411399.1854687,
+    "off_seconds": 3,
+    "config_files_changed": false,
+    "before": [
+      {
+        "name": "eDP-1",
+        "width": 2560,
+        "height": 1664,
+        "refreshRate": 60.0,
+        "dpmsStatus": true,
+        "disabled": false
+      },
+      {
+        "name": "DP-2",
+        "width": 1920,
+        "height": 1080,
+        "refreshRate": 60.0,
+        "dpmsStatus": true,
+        "disabled": false
+      }
+    ],
+    "preparation_note": "Legacy DPMS forms rejected before changing state; typed Lua dispatcher verified.",
+    "off": [
+      {
+        "name": "eDP-1",
+        "width": 2560,
+        "height": 1664,
+        "refreshRate": 60.0,
+        "dpmsStatus": false,
+        "disabled": false
+      },
+      {
+        "name": "DP-2",
+        "width": 1920,
+        "height": 1080,
+        "refreshRate": 60.0,
+        "dpmsStatus": false,
+        "disabled": false
+      }
+    ],
+    "after": [
+      {
+        "name": "eDP-1",
+        "width": 2560,
+        "height": 1664,
+        "refreshRate": 60.0,
+        "dpmsStatus": true,
+        "disabled": false
+      },
+      {
+        "name": "DP-2",
+        "width": 1920,
+        "height": 1080,
+        "refreshRate": 60.0,
+        "dpmsStatus": true,
+        "disabled": false
+      }
+    ],
+    "operator_visual": "Both screens turned off briefly and recovered correctly"
+  },
+  "GPU_after_DPMS": {
+    "OpenGL_readback": "pass",
+    "Vulkan_compute_readback": "pass"
+  },
+  "source_sleep_limit": {
+    "source_commit": "c46d7dcdb8712ea9aeb0ce47b439ffae76371e55",
+    "path": "drivers/gpu/drm/apple/dcp.c",
+    "functions": [
+      "dcp_t6030_ext_native",
+      "dcp_external_sleep_vetoed",
+      "dcp_platform_prepare"
+    ],
+    "observation": "Native admission checks apple,t6030-dcpext; this apple,t8122-dcpext path is non-native for that helper. Once firmware/scanout was attempted, PM prepare returns EBUSY; its log says reboot required for retained DMA.",
+    "runtime_sleep_attempt": "not yet tested",
+    "guard_bypassed": false
+  }
 }
