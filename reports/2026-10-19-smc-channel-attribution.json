@@ -1,0 +1,105 @@
+{
+  "date": "2026-10-19",
+  "board": "Apple J613 / T8122",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "samples": 119,
+  "duration_s": 59.638,
+  "max_channel_scan_s": 0.0112,
+  "channels": {
+    "Tg0i": {
+      "min_mC": 33053,
+      "max_mC": 39318,
+      "largest_adjacent_delta_mC": 4413,
+      "largest_delta_from_mC": 34905,
+      "largest_delta_to_mC": 39318
+    },
+    "Tg0X": {
+      "min_mC": 36918,
+      "max_mC": 40422,
+      "largest_adjacent_delta_mC": 1085,
+      "largest_delta_from_mC": 39337,
+      "largest_delta_to_mC": 40422
+    },
+    "Tg0O": {
+      "min_mC": 32790,
+      "max_mC": 37823,
+      "largest_adjacent_delta_mC": 1838,
+      "largest_delta_from_mC": 35303,
+      "largest_delta_to_mC": 37141
+    },
+    "Tg0j": {
+      "min_mC": 37453,
+      "max_mC": 43718,
+      "largest_adjacent_delta_mC": 4413,
+      "largest_delta_from_mC": 39305,
+      "largest_delta_to_mC": 43718
+    },
+    "TCMz": {
+      "min_mC": 48500,
+      "max_mC": 72593,
+      "largest_adjacent_delta_mC": 21375,
+      "largest_delta_from_mC": 51218,
+      "largest_delta_to_mC": 72593
+    },
+    "Tg0a": {
+      "min_mC": 33058,
+      "max_mC": 36893,
+      "largest_adjacent_delta_mC": 1156,
+      "largest_delta_from_mC": 35737,
+      "largest_delta_to_mC": 36893
+    },
+    "Tg0P": {
+      "min_mC": 37190,
+      "max_mC": 42223,
+      "largest_adjacent_delta_mC": 1838,
+      "largest_delta_from_mC": 39703,
+      "largest_delta_to_mC": 41541
+    },
+    "Tg0u": {
+      "min_mC": 32659,
+      "max_mC": 38021,
+      "largest_adjacent_delta_mC": 2253,
+      "largest_delta_from_mC": 35289,
+      "largest_delta_to_mC": 37542
+    },
+    "Tg0C": {
+      "min_mC": 32788,
+      "max_mC": 36868,
+      "largest_adjacent_delta_mC": 1125,
+      "largest_delta_from_mC": 35743,
+      "largest_delta_to_mC": 36868
+    },
+    "Tg0b": {
+      "min_mC": 37458,
+      "max_mC": 41293,
+      "largest_adjacent_delta_mC": 1156,
+      "largest_delta_from_mC": 40137,
+      "largest_delta_to_mC": 41293
+    },
+    "Tg0v": {
+      "min_mC": 37059,
+      "max_mC": 42421,
+      "largest_adjacent_delta_mC": 2253,
+      "largest_delta_from_mC": 39689,
+      "largest_delta_to_mC": 41942
+    },
+    "Tg0W": {
+      "min_mC": 32518,
+      "max_mC": 36022,
+      "largest_adjacent_delta_mC": 1085,
+      "largest_delta_from_mC": 34937,
+      "largest_delta_to_mC": 36022
+    },
+    "Tg0D": {
+      "min_mC": 37188,
+      "max_mC": 41268,
+      "largest_adjacent_delta_mC": 1125,
+      "largest_delta_from_mC": 40143,
+      "largest_delta_to_mC": 41268
+    }
+  },
+  "method": "Read-only 0.5-second sampling during normal use, no synthetic workload. Channels are read sequentially, not atomically.",
+  "finding": "TCMz accounts for the large observed aggregate jumps; GPU-labelled channels changed less during this window.",
+  "source_inspection": "All admitted die keys use the same IEEE-754 conversion. Aggregate rereads each key and chooses the maximum; it does not interpolate. No conversion defect established.",
+  "limitations": "Channel name does not prove physical sensor location. This observation cannot distinguish real CPU hotspot transients, firmware-derived telemetry, or sampling artifacts; it does not qualify CPU thermal protection. No filtering or protection changes made."
+}
