@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-19",
+  "board": "J613 / T8122",
+  "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+  "candidate": "Default-off J613/BCM4388 admission to existing resume timeout recovery path",
+  "source_byte_identical_to_prior_19_baseline": true,
+  "vermagic": "7.1.12-2-20261017.20-sep-ARCH SMP preempt mod_unload aarch64",
+  "undefined_symbols": 80,
+  "unresolved_symbols": [],
+  "module_sha256": "a66b08a468eddc915e8db95dcce547fe8d1b22bad5046500c54152a46878dd97",
+  "build": {
+    "returncode": 0,
+    "reason": "completed",
+    "max_sampled_C": 66.921,
+    "cpu_quota_percent": 10,
+    "workers": 1
+  },
+  "loaded": false,
+  "installed": false,
+  "limitations": "Compile/symbol checks only on .20. Previous .19 temporary test did not exercise recovery callback. Recovery after actual timeout remains unqualified."
+}
