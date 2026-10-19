@@ -28,7 +28,8 @@
     ],
     "speakersafetyd": "active,1restart",
     "boot_failure": "src/main.rs:298 Invalid sample rate while PCM advertised8000..192000; service restarted once.",
-    "audible_after_this_boot": "pending"
+    "audible_after_this_boot": "Operator heard all three Front Left phrases in one continuous 48 kHz stream.",
+    "continuous_stream_protection": "Active before and after; NRestarts remained 1. Separate short-clip loss not yet retested on .20."
   },
   "camera_stream": "not tested this boot",
   "TouchID_operator_result": {
