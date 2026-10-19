@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-19",
+  "board": "J613 / T8122",
+  "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+  "candidate_sha256": "74109b817a1771ed5321f3d983569993b0aa5d0238b353b7626e904365364655",
+  "suspended_seconds": 135.784,
+  "suspend_success": [
+    1,
+    2
+  ],
+  "suspend_fail": [
+    0,
+    0
+  ],
+  "candidate_callback_messages": {
+    "paused_for_suspend": true,
+    "restored_after_resume": true
+  },
+  "AOP_interrupts": {
+    "boundary_delta": 152,
+    "boundary_delta_per_suspended_second": 1.119,
+    "awake_after_resume": {
+      "duration_s": 2.001474200000075,
+      "AOP_irq_delta": 12,
+      "sensors": {
+        "light_present": true,
+        "light_readable": true,
+        "lid_angle_present": true
+      }
+    },
+    "limit": "Hook window includes entry/exit activity; not exact suspended interrupt attribution."
+  },
+  "native_sensors_after_resume": {
+    "light_present": true,
+    "light_readable": true,
+    "lid_angle_present": true
+  },
+  "original_restored_sensors": {
+    "light_present": true,
+    "light_readable": true,
+    "lid_angle_present": true
+  },
+  "brightness_before_after": {
+    "panel": [
+      "265",
+      "265"
+    ],
+    "keyboard": [
+      "77",
+      "77"
+    ]
+  },
+  "operator": "Confirmed returned and unlocked with Touch ID.",
+  "GPU_post_resume": {
+    "OpenGL": "pass",
+    "Vulkan_compute": "pass"
+  },
+  "services": "speakersafetyd active, NRestarts unchanged at 1; apple-sep active, NRestarts unchanged at 0.",
+  "battery": {
+    "external_power_before_after": [
+      [
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    ],
+    "capacity_before_after": [
+      "74",
+      "74"
+    ],
+    "charge_uAh_before_after": [
+      "2861000",
+      "2915000"
+    ],
+    "meaning": "Charge increased during this short interval; no credible energy-saving or sleep-watts estimate."
+  },
+  "limitations": "One native .20 candidate cycle. Repeated cycles, error paths and battery savings unqualified. Original driver restored; test-hook cleanup pending."
+}

@@ -22,7 +22,7 @@
   },
   "meaning": "Aurora .20 retains the original .19 ALS/platform source; prior local PM candidate patches apply cleanly.",
   "installed": false,
-  "limitations": "Matching .20 builds and temporary awake loads passed. Original restored. Native .20 candidate sleep callbacks, repeated cycles and battery savings remain unqualified.",
+  "limitations": "Matching .20 builds, temporary awake loads and one native candidate sleep cycle passed. Original restored. Repeated cycles, error paths and battery savings unqualified.",
   "build_validation": {
     "kernel": "7.1.12-2-20261017.20-sep-ARCH",
     "config_matches_package": true,
@@ -78,5 +78,6 @@
     "stop_C": 78,
     "sensor": "maximum readable thermal-zone temperature"
   },
-  "candidate_source": "Same .19 native-tested PM candidate: audited patch plus probe-time opt-in diagnostic."
+  "candidate_source": "Same .19 native-tested PM candidate: audited patch plus probe-time opt-in diagnostic.",
+  "native_sleep_report": "2026-10-19-aurora20-als-pm-sleep.json"
 }
