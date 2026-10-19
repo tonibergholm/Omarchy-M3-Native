@@ -143,5 +143,44 @@
     "observed_behavior": "Temperature simulation reduced allocator budget; measured model requests stayed below budget, explaining lack of a frequency ceiling reduction in the small workload.",
     "scope": "Kernel energy-model power estimates, not independent electrical power measurements. No real sustained thermal regulation claim.",
     "emulation_cleared_and_workers_stopped": true
+  },
+  "loaded_budget_crossing_check": {
+    "method": "Same bounded2-second single-CPU0 workload and separate real TCMz78C guard; simulated cpu-p0 zone108C below110C critical; private filtered allocator trace.",
+    "real_TCMz_peak_mC": 72062,
+    "emulated_phase_real_TCMz_peak_mC": 68781,
+    "normal_P_limit_kHz": [
+      4056000
+    ],
+    "emulated_P_limits_kHz": [
+      3288000,
+      3636000,
+      4056000
+    ],
+    "emulated_P_cooling_states": [
+      0,
+      5,
+      8
+    ],
+    "allocator_requested_granted_mW": [
+      [
+        3905,
+        3054
+      ],
+      [
+        2616,
+        2635
+      ],
+      [
+        2688,
+        2216
+      ]
+    ],
+    "final_P_limit_kHz": 4056000,
+    "final_real_zone_temperature_mC": 49496,
+    "thermal_guard_triggered": false,
+    "emulation_cleared": true,
+    "workers_stopped": true,
+    "trace_instance_removed": true,
+    "interpretation": "Temperature-driven allocator budget reduction crossed estimated workload demand and caused CPU QoS ceiling reductions under load. End-to-end governor/actuator response demonstrated under emulation. Sustained real-temperature regulation, independent effective-frequency measurement and calibrated sensor accuracy remain unqualified."
   }
 }

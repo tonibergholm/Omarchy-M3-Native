@@ -90,3 +90,32 @@ qualified whole-machine thermal policy. No Linux cooling devices or SMC thermal
 pressure attribute were exposed. CPU firmware protection and sustained-load
 safety remain unqualified. Clocks and protection settings were unchanged.
 See the [selected report](../reports/2026-10-17-thermal-policy-check.json).
+
+## PR146 one-boot native trial (19 October)
+
+[Upstream PR146](https://github.com/omacom/linux-aurora/pull/146), head
+`8fd1bf481afe6fcadaa04001b2bcd435616b705b`, supplied the J613 CPU thermal
+device-tree changes for a one-boot trial on the same pinned kernel. All six
+CPU sensors were readable on this firmware. Six `power_allocator` zones at
+6 W, both cluster energy models, and both CPU cooling devices registered.
+Manual conservative cooling requests lowered and restored both cluster QoS
+ceilings. This supersedes the earlier absence of CPU cooling bindings only
+for the running trial session.
+
+A bounded temperature-emulation check demonstrated the automatic path without
+heating the machine to the emulated temperature. At a simulated 108 C, a short
+single-thread workload exceeded the allocator budget and the P-cluster ceiling
+dropped from 4056 MHz to 3636/3288 MHz. Real TCMz stayed below 73 C. Simulation
+and tracing were cleared, workers stopped, and the original ceiling recovered.
+These are QoS limits and energy-model power estimates, not independent physical
+frequency/power measurements or sustained real-temperature qualification.
+
+The baseline stage2 image was reproduced byte for byte. The one-boot candidate
+changed only the J613 DTB in its bundle. Its rollback service restored the
+original boot image and disabled its timer; the candidate DT remains in memory
+for this session. A further reboot uses the original configuration unless
+deliberately restaged. The built-in hwmon driver and existing aggregate sensor
+override were retained; the PR default-key C change is not installed.
+
+See the [native report](../reports/2026-10-19-pr146-native-bindings.json) and
+[preflight record](../reports/2026-10-19-pr146-preflight.json).
