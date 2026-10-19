@@ -17,7 +17,8 @@
     "panel": 265,
     "keyboard": 77,
     "display_module_opt_in": "Y",
-    "camera_module_opt_in": "Y"
+    "camera_module_opt_in": "Y",
+    "operator_key_and_visible_change_test": "Passed: brightness-down then brightness-up visibly changed screen and restored level."
   },
   "apple_sep_service": "active, success,0restarts",
   "audio": {
