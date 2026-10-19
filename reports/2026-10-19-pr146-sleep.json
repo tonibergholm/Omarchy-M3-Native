@@ -348,6 +348,21 @@
   "both_cooling_devices_present_all_samples": true,
   "post_resume_sampling_complete": true,
   "operator_report": "back; no functional assertions inferred",
-  "post_resume_actuator_test": "pending OS authentication",
+  "post_resume_actuator_test": {
+    "result": "pass",
+    "P_ceiling_kHz": [
+      4056000,
+      3960000,
+      4056000
+    ],
+    "E_ceiling_kHz": [
+      2748000,
+      2556000,
+      2748000
+    ],
+    "both_cooling_states_restored_to_zero": true,
+    "original_stage2_hash_verified_again": true,
+    "synthetic_workload": false
+  },
   "limitations": "One short sleep cycle; zone presence and sensor changes do not prove post-resume automatic thermal regulation. No battery-drain or sustained thermal claim."
 }
