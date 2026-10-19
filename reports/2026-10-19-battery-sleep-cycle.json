@@ -1,0 +1,70 @@
+{
+  "date": "2026-10-19",
+  "board": "Apple J613 / T8122",
+  "kernel": "7.1.12-2-20261015.19-sep-ARCH",
+  "suspended_seconds": 839.2899975830001,
+  "matched_pre": true,
+  "external_power_absent_all_samples": true,
+  "suspend_success_delta": 1,
+  "suspend_failure_delta": 0,
+  "brightness_stable": true,
+  "battery_samples": [
+    {
+      "phase": "prepare-for-sleep",
+      "status": "Discharging",
+      "capacity": "97",
+      "charge_now": "3737000",
+      "energy_now": "42601800",
+      "energy_full": "46249800",
+      "power_now": "-7795000",
+      "voltage_now": "12492000"
+    },
+    {
+      "phase": "resume-signal",
+      "status": "Discharging",
+      "capacity": "97",
+      "charge_now": "3767000",
+      "energy_now": "42943800",
+      "energy_full": "46899600",
+      "power_now": "-1423000",
+      "voltage_now": "12595000"
+    },
+    {
+      "phase": "post-30s",
+      "status": "Discharging",
+      "capacity": "97",
+      "charge_now": "3709000",
+      "energy_now": "42282600",
+      "energy_full": "46295400",
+      "power_now": "-6164000",
+      "voltage_now": "12504000"
+    },
+    {
+      "phase": "post-60s",
+      "status": "Discharging",
+      "capacity": "96",
+      "charge_now": "3705000",
+      "energy_now": "42237000",
+      "energy_full": "46295400",
+      "power_now": "-6146000",
+      "voltage_now": "12492000"
+    },
+    {
+      "phase": "post-120s",
+      "status": "Discharging",
+      "capacity": "96",
+      "charge_now": "3697000",
+      "energy_now": "42145800",
+      "energy_full": "46295400",
+      "power_now": "-6391000",
+      "voltage_now": "12484000"
+    }
+  ],
+  "post_resume_samples_s": [
+    30.45438488900004,
+    60.47252551800011,
+    120.50248775800014
+  ],
+  "interpretation": "Resume completed and both brightness values stayed stable. Battery energy and charge increased at resume while unplugged, and energy_full changed; gauge settling prevents a defensible sleep-drain estimate. Post-resume changes include awake use.",
+  "operator_functional_checks": "pending; operator reported back only"
+}
