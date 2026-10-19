@@ -120,5 +120,28 @@
     "final_real_zone_mC": 44183,
     "interpretation": "No frequency-ceiling reduction observed for this small workload. This does not establish working loaded regulation or a failure: granted power is normalized by measured CPU load and a one-thread workload may fit the6W budget. Desktop activity was uncontrolled.",
     "remaining": "Loaded multi-core power allocation and real sustained temperature regulation remain unqualified."
+  },
+  "allocator_trace_check": {
+    "method": "Private tracefs instance filtered to cpu-p0 zone ID3; allocator, PID and actor events only. Repeated bounded single-thread normal/emulated workload; instance disabled and removed afterward.",
+    "child_exit_code": 0,
+    "trace_actor_events": 18,
+    "normal_max_allocatable_mW": 13968,
+    "simulated_temperature_mC": 100000,
+    "emulated_power_budgets_mW": [
+      5028,
+      4867,
+      4706,
+      4544,
+      4383
+    ],
+    "loaded_requested_mW": [
+      3309,
+      3246,
+      3369,
+      3340
+    ],
+    "observed_behavior": "Temperature simulation reduced allocator budget; measured model requests stayed below budget, explaining lack of a frequency ceiling reduction in the small workload.",
+    "scope": "Kernel energy-model power estimates, not independent electrical power measurements. No real sustained thermal regulation claim.",
+    "emulation_cleared_and_workers_stopped": true
   }
 }
