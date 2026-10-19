@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-19",
+  "board": "J613 / T8122",
+  "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+  "unit": "m3-passive-sleep.service",
+  "startup_record_verified": true,
+  "startup_thermal_zone_count": 8,
+  "startup_CPU_counter_count": 8,
+  "AOP_counter_present": true,
+  "output_mode": "0o600",
+  "runtime_limit": "7 days; transient service does not restart after reboot",
+  "CPU_quota_percent": 5,
+  "memory_limit": "128 MiB",
+  "helper_sha256": "daddf14a557f0c690932642daf12f0a242937d660977a670e30fdfbe148a62a6",
+  "operation": "Read-only logind PrepareForSleep observation; no sleep trigger or inhibitor. Selected boundary and +30/+60/+120-second battery, brightness, thermal/cooling, AOP IRQ and CPU s2idle-entry counters.",
+  "limitations": "No natural cycle in this new recording yet. IRQ totals include all AOP mailbox activity and entry/exit; counters are not energy or physical residency measurements. No battery-saving claim."
+}
