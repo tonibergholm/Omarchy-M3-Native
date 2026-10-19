@@ -454,3 +454,20 @@ These are two short selected cases. Broader playback/direct-surface correctness,
 hardware grain synthesis and independent review remain open. No media, raw
 frames or full logs are published. See the
 [selected native report](../reports/2026-10-19-av1-grain-native-candidate.json).
+
+
+### CI PID-publication race fixed separately
+
+The empty-PID-file race encountered in the original older-header job has a
+separate helper-only fix, [PR #109](https://github.com/omacom/libva-v4l2_request/pull/109),
+source `5fcfbbe3c4a643e347c8d2afd591b4315758a058`. Its regression forces the reader
+to observe the empty file before allowing the writer to publish a PID, and
+fails the original helper. The fix retains the four-second default deadline,
+waits for valid PID contents and keeps incomplete publication from masking
+cleanup errors. Production decoder and shared runner code are unchanged.
+
+Its [hosted workflow](https://github.com/tonibergholm/libva-v4l2_request/actions/runs/39202125946)
+passed **all 11 jobs on attempt 1**, including the original 5.4-UAPI configuration
+and compiled-worker checks. No retry, suppression or hardware check was used.
+Both this helper PR and AV1 PR #107 are ready for independent review; neither is
+merged or installed. See the [helper evidence](../reports/2026-10-19-pid-publication-fix.json).

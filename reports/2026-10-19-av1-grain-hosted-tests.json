@@ -87,7 +87,7 @@
   },
   "installed_stack_changed": false,
   "hardware_candidate_validation": "not run",
-  "review": "independent review pending; draft PR #107",
+  "review": "independent review pending; PR #107 ready for review",
   "limitations": [
     "Hosted offline results are not native hardware decode or fallback qualification.",
     "Local full-build thermal stops remain retained.",

@@ -65,7 +65,7 @@ See the [native observer report](../reports/2026-10-18-sleep-observer-native.jso
 
 AV1 grain correction remains unfinished. The process-local rejection prototype
 demonstrated correct software fallback; a [source safeguard](video.md) now passes
-47 focused sanitizer cases in draft driver PR #107. Hosted validation on
+47 focused sanitizer cases in driver PR #107, now ready for review. Hosted validation on
 19 October passed 243/243 sanitizer tests, both software checks and the full
 11-job matrix after one recorded test-helper retry. This supersedes the local
 thermal/CI-authorization blocker. A selected native candidate check subsequently
