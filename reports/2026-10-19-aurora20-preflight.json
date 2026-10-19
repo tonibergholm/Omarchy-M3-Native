@@ -21,5 +21,13 @@
   "candidate_release": "aurora-2026.10.17.20",
   "release_url": "https://github.com/omacom/linux-aurora/releases/tag/aurora-2026.10.17.20",
   "downloaded_source_files": 6,
-  "limitations": "git apply --check only. No .20 module build, boot, hardware test or installed package change. Existing .19-built modules cannot be reused as matching .20 binaries. M3 Air is explicitly untested in upstream release validation. Preserve current recovery and fixed48kHz speaker workaround."
+  "limitations": "git apply --check only. No .20 module build, boot, hardware test or installed package change. Existing .19-built modules cannot be reused as matching .20 binaries. M3 Air is explicitly untested in upstream release validation. Preserve current recovery and fixed48kHz speaker workaround.",
+  "verified_release_downloads": {
+    "linux-aurora-7.1.12.aurora2-20261017.20-aarch64.pkg.tar.zst": "49efa0ec088059aaae6c1fc7fef49521171abbab2c21a3d62bf670148dc0c7d8",
+    "linux-aurora-headers-7.1.12.aurora2-20261017.20-aarch64.pkg.tar.zst": "7d8e7370fbc777e8694f29b66e20bf60eb826432234824833ac28ebdf4bee5f8",
+    "linux-aurora-recipe-20261017.20.tar.gz": "6e5ff423f0ef07d6e478c39c8c9c0739a2cc12050afa8c9f90ec49e5bd0ddcc3"
+  },
+  "private_package_extraction_complete": true,
+  "sdk_compiler": "clang22.1.8 / LLD22.1.8, matching existing toolchain",
+  "driver_source_fetch": "Incomplete: raw GitHub returned HTTP429 during parallel directory fetch. No build attempted from partial sources."
 }
