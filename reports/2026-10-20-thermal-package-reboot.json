@@ -1,0 +1,110 @@
+{
+  "date": "2026-10-20",
+  "board": "J613 / T8122",
+  "running_kernel": "7.1.12-2-20261017.20-sep-ARCH",
+  "installed_kernel_package": "linux-aurora 7.1.12.aurora2-20261015.19",
+  "thermal_zones": [
+    {
+      "type": "cpu-e1-thermal",
+      "policy": "power_allocator",
+      "temperature_mC": 43999,
+      "trip_temperatures_mC": [
+        58000,
+        95000,
+        110000
+      ],
+      "cooling_device_types": [
+        "cpufreq-cpu1",
+        "cpufreq-cpu0"
+      ],
+      "sustainable_power_mW": 6000
+    },
+    {
+      "type": "cpu-p2-thermal",
+      "policy": "power_allocator",
+      "temperature_mC": 47448,
+      "trip_temperatures_mC": [
+        58000,
+        95000,
+        110000
+      ],
+      "cooling_device_types": [
+        "cpufreq-cpu1",
+        "cpufreq-cpu0"
+      ],
+      "sustainable_power_mW": 6000
+    },
+    {
+      "type": "cpu-p0-thermal",
+      "policy": "power_allocator",
+      "temperature_mC": 43926,
+      "trip_temperatures_mC": [
+        58000,
+        95000,
+        110000
+      ],
+      "cooling_device_types": [
+        "cpufreq-cpu1",
+        "cpufreq-cpu0"
+      ],
+      "sustainable_power_mW": 6000
+    },
+    {
+      "type": "cpu-e0-thermal",
+      "policy": "power_allocator",
+      "temperature_mC": 43819,
+      "trip_temperatures_mC": [
+        58000,
+        95000,
+        110000
+      ],
+      "cooling_device_types": [
+        "cpufreq-cpu1",
+        "cpufreq-cpu0"
+      ],
+      "sustainable_power_mW": 6000
+    },
+    {
+      "type": "cpu-p3-thermal",
+      "policy": "power_allocator",
+      "temperature_mC": 42921,
+      "trip_temperatures_mC": [
+        58000,
+        95000,
+        110000
+      ],
+      "cooling_device_types": [
+        "cpufreq-cpu1",
+        "cpufreq-cpu0"
+      ],
+      "sustainable_power_mW": 6000
+    },
+    {
+      "type": "cpu-p1-thermal",
+      "policy": "power_allocator",
+      "temperature_mC": 43716,
+      "trip_temperatures_mC": [
+        58000,
+        95000,
+        110000
+      ],
+      "cooling_device_types": [
+        "cpufreq-cpu1",
+        "cpufreq-cpu0"
+      ],
+      "sustainable_power_mW": 6000
+    }
+  ],
+  "screen_brightness": 265,
+  "keyboard_brightness": 77,
+  "GPU_OpenGL_readback": "pass",
+  "GPU_Vulkan_compute_readback": "pass",
+  "speaker_protection": {
+    "active": true,
+    "startup_restarts": 1,
+    "known_Invalid_sample_rate_panic_recurred": true
+  },
+  "failed_system_services": "",
+  "external_display_node_status": "disabled",
+  "qualification": "One native reboot of package-managed thermal stage2 with isolated .20 kernel; default installed .19 entry not boot-qualified by this result. No new audible playback or Touch ID unlock confirmation."
+}
