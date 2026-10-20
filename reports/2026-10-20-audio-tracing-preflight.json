@@ -57,5 +57,32 @@
       "/sys/kernel/btf/snd_soc_macaudio": "78e93638ce21d85424598c69d1ad75f7833808c2a7edf83a3bbf98d3205e882b"
     }
   },
-  "qualification": "Actual rate-value tracing works. No lifecycle events observed during the protected chime, so hw_params/hw_free/trigger fetch fields are registered but not yet runtime-qualified. Speaker PCM was still RUNNING at 48 kHz afterward, with trigger timestamp preceding the capture. No startup root cause or fix established. Caller identity was not retained in this first selected trace; collector now retains only amixer/speakersafetyd/other classification for future capture."
+  "qualification": "Actual rate-value tracing works. No lifecycle events observed during the protected chime, so hw_params/hw_free/trigger fetch fields are registered but not yet runtime-qualified. Speaker PCM was still RUNNING at 48 kHz afterward, with trigger timestamp preceding the capture. No startup root cause or fix established. Caller identity was not retained in this first selected trace; collector now retains only amixer/speakersafetyd/other classification for future capture.",
+  "one_boot_capture": {
+    "warm_test": {
+      "events": 71,
+      "daemon_rate_reads": 36,
+      "daemon_completed_PCM_reads": 35,
+      "lost_events": 0,
+      "cleanup_passed": true,
+      "protection_restarts_before": 1,
+      "protection_restarts_after": 1
+    },
+    "enabled_next_eligible_20_boot": true,
+    "active_now": false,
+    "duration_s": 60,
+    "unit_runtime_limit_s": 75,
+    "start_timeout_s": 5,
+    "reboot_triggered": false,
+    "audio_data_recorded": false,
+    "user_audio_streams_interrupted": false,
+    "kernel_lifecycle_fields_runtime_qualified": false,
+    "cleanup": "ExecStopPost removes only owned probes and trace instance and disables the one-boot unit; armed marker is consumed once.",
+    "startup_perturbation": "Type=notify unit arms userspace probes before speakersafetyd. This adds an instrumentation delay; missing reproduction cannot qualify a fix. Kernel lifecycle probes arm after matching module BTF appears, so earlier kernel events may be missed.",
+    "source_hashes": {
+      "capture.py": "ec664da9b99313bfce00d84e7b3a3f6a65b1ef293f500d3783ce04c01fcaf13c",
+      "cleanup.py": "d126ae9d90e5dabe8441049f0f994e2f0af2efe490efe6a2634afed64f381c54",
+      "offsets.json": "b7a95d1f184013f2e86b391e86c52c8d249cf7e0fb981087d631201067b077c2"
+    }
+  }
 }
