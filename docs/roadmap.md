@@ -5,8 +5,12 @@
    simulated temperature-driven power allocation and frequency limiting,
    short sleep recovery and post-resume cooling controls. After the one-boot
    rollback passed, the owner chose to retain the same tested DT candidate.
-   Its boot image is hash-verified and the original backup is preserved;
-   package rebuilds may replace the local image.
+   The retained controls are now integrated into package-managed boot verification
+   through local `omarchy-mac-boot 20261020-2.1` and
+   `omarchy-m3-thermal-local 20261020-2`. An initial overlay reversed the
+   hwmon channel order; package 2 corrects it, and an order-sensitive verifier
+   plus the actual .20 reboot confirmed all six sensor identities. Boot-chain
+   and Omarchy update verification passed; original backups are preserved.
    Sustained real-temperature regulation, sensor accuracy and failure behavior
    remain unqualified. Keep the GPU state-2 ceiling.
 2. **Display brightness/HDR:** the [local J613 backlight candidate](display.md)
@@ -16,9 +20,13 @@
    remains blocked; initial software PQ-to-SDR conversion ran successfully.
    A local bootloader reservation trial now drives the ARZOPA Z1FC on both
    USB-C ports at 1080p60, with short 1080p144, rear hotplug, DPMS and one
-   approximately 10-second attached-display suspend passing. Both pictures,
-   Touch ID and GPU checks recovered. The original boot image was restored
-   automatically. A later 200.77-second 144 Hz run was visually stable,
+   approximately 10-second attached-display suspend passing. On the refreshed
+   candidate with corrected thermal mapping, a further 20.66-second attached
+   sleep recovered both pictures and Touch ID; GPU checks passed. A five-minute
+   passive 60 Hz observation retained both outputs in all 60 samples. The
+   reservation candidate remains active only in memory; the verified normal
+   bootloader is restored on disk. In the earlier trial, a 200.77-second
+   144 Hz run was visually stable,
    then stopped by the test temperature guard. A separate instrumented repeat
    traced its cutoff to SMC TCMz; the earlier unexpected disconnect remains
    unresolved. Repeated boots, longer sleep and five-minute 144 Hz remain open. See the [external-display evidence](display.md#arzopa-z1fc-external-display-19-october).
@@ -34,7 +42,10 @@
    do not delete or replace either system's authority.
 5. **Audio startup:** the .20 boot observer captured IV-sense frame progress
    while the speaker-rate control was zero, immediately before the startup
-   panic. Root cause and a protective fix remain open; do not assume a rate
+   panic. A subsequent event/return trace captured successful WirePlumber
+   playback configure/free calls and a transient nonzero rate between the
+   daemon's two zero-rate reads. The intended buffered-sense/rate lifetime
+   contract and a protective fix remain open; do not assume a rate
    or bypass speaker protection. Clear [microphone capture](capture.md)
    passed; test jack switching and remote-call capture. Earlier multi-rate
    process-exit and PCM-negotiation checks did not establish healthy playback:
