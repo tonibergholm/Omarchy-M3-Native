@@ -53,14 +53,52 @@
       "gcc",
       "clang"
     ],
-    "status": "updated exact-parent comparison awaiting run",
+    "status": "success",
     "prior_run": {
       "url": "https://github.com/tonibergholm/Omarchy-M3-Native/actions/runs/39473076874",
       "head": "7080122cd746846df03d219f932364dfb17ec7a6",
       "gcc": "success",
       "clang": "failure",
       "reason": "Serialized .20 reference performs a pre-existing unaligned s64 load; Clang UBSan caught it. PR parent already uses memcpy. Serialized reference changed to exact PR parent; all sanitizer checks remain enabled."
-    }
+    },
+    "run_url": "https://github.com/tonibergholm/Omarchy-M3-Native/actions/runs/39473334029",
+    "tested_commit": "cd9aa14b9a57e3f81284e4de4a3ddd66d564737a",
+    "fixed_cases_per_compiler": 24,
+    "patch_applies_and_matches_tested_fixed_source": true,
+    "artifact_checks": [
+      {
+        "artifact_file": "colorimetry-clang/colorimetry-parser/serialized-results.json",
+        "sha256": "12f7b4673d3998116241cf40bdf03a739ec3df7d5a8a45b1e9f0d62de17d758c",
+        "reference_existing_behavior_pass": true,
+        "upstream_expected_failures": 1,
+        "fixed_passed": 15,
+        "diagnostics": 0
+      },
+      {
+        "artifact_file": "colorimetry-clang/colorimetry-selection/selection-results.json",
+        "sha256": "36d8b2ba4c65d901afb2d9cc2c1251704b33a0072bb7d8b9692601982fad9cc1",
+        "reference_existing_behavior_pass": true,
+        "upstream_expected_failures": 7,
+        "fixed_passed": 9,
+        "diagnostics": 0
+      },
+      {
+        "artifact_file": "colorimetry-gcc/colorimetry-parser/serialized-results.json",
+        "sha256": "12f7b4673d3998116241cf40bdf03a739ec3df7d5a8a45b1e9f0d62de17d758c",
+        "reference_existing_behavior_pass": true,
+        "upstream_expected_failures": 1,
+        "fixed_passed": 15,
+        "diagnostics": 0
+      },
+      {
+        "artifact_file": "colorimetry-gcc/colorimetry-selection/selection-results.json",
+        "sha256": "36d8b2ba4c65d901afb2d9cc2c1251704b33a0072bb7d8b9692601982fad9cc1",
+        "reference_existing_behavior_pass": true,
+        "upstream_expected_failures": 7,
+        "fixed_passed": 9,
+        "diagnostics": 0
+      }
+    ]
   },
   "installed": false,
   "limitations": [
