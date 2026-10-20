@@ -1,0 +1,162 @@
+{
+  "date": "2026-10-20",
+  "board": "J613 / T8122",
+  "running_kernel": "7.1.12-2-20261017.20-sep-ARCH",
+  "problem": "Local overlay extraction added each temperature node in a separate fragment. libfdt prepended the new siblings, reversing the indexed temperature ABI relative to the original compiled PR146 candidate.",
+  "runtime_confirmed_before_fix": {
+    "cpu-e0-thermal": "Tp0r",
+    "cpu-e1-thermal": "Tp0b",
+    "cpu-p0-thermal": "Tp0L",
+    "cpu-p1-thermal": "Tp05",
+    "cpu-p2-thermal": "Te0P",
+    "cpu-p3-thermal": "Te05"
+  },
+  "original_retained_candidate_correct": true,
+  "prior_verification_gap": "Sorted full-tree property comparison resolved phandles but discarded child order. It could not establish the indexed hwmon sensor ABI.",
+  "impact": "All six selected CPU temperature channels remained present with the same trip values and both-cluster cooling policy, but zone names referred to the reversed channels. Per-zone sensor attribution after the first package integration was wrong. This does not explain the independent TCMz aggregate spikes.",
+  "fix": "Generate the six new temperature fragments in reverse insertion order so the resulting DTB matches the original candidate sensor order. No threshold, budget or GPU clock change.",
+  "tests": {
+    "old_overlay_negative_control": {
+      "first_six": [
+        "Tp0r",
+        "Tp0b",
+        "Tp0L",
+        "Tp05",
+        "Te0P",
+        "Te05"
+      ],
+      "mapping": {
+        "cpu-e0-thermal": "Tp0r",
+        "cpu-e1-thermal": "Tp0b",
+        "cpu-p0-thermal": "Tp0L",
+        "cpu-p1-thermal": "Tp05",
+        "cpu-p2-thermal": "Te0P",
+        "cpu-p3-thermal": "Te05"
+      },
+      "correct": false
+    },
+    "original_retained_candidate": {
+      "first_six": [
+        "Te05",
+        "Te0P",
+        "Tp05",
+        "Tp0L",
+        "Tp0b",
+        "Tp0r"
+      ],
+      "mapping": {
+        "cpu-e0-thermal": "Te05",
+        "cpu-e1-thermal": "Te0P",
+        "cpu-p0-thermal": "Tp05",
+        "cpu-p1-thermal": "Tp0L",
+        "cpu-p2-thermal": "Tp0b",
+        "cpu-p3-thermal": "Tp0r"
+      },
+      "correct": true
+    },
+    "7.1.12-2-20261015.19-sep-ARCH": {
+      "first_six": [
+        "Te05",
+        "Te0P",
+        "Tp05",
+        "Tp0L",
+        "Tp0b",
+        "Tp0r"
+      ],
+      "mapping": {
+        "cpu-e0-thermal": "Te05",
+        "cpu-e1-thermal": "Te0P",
+        "cpu-p0-thermal": "Tp05",
+        "cpu-p1-thermal": "Tp0L",
+        "cpu-p2-thermal": "Tp0b",
+        "cpu-p3-thermal": "Tp0r"
+      },
+      "correct": true
+    },
+    "7.1.12-2-20261017.20-sep-ARCH": {
+      "first_six": [
+        "Te05",
+        "Te0P",
+        "Tp05",
+        "Tp0L",
+        "Tp0b",
+        "Tp0r"
+      ],
+      "mapping": {
+        "cpu-e0-thermal": "Te05",
+        "cpu-e1-thermal": "Te0P",
+        "cpu-p0-thermal": "Tp05",
+        "cpu-p1-thermal": "Tp0L",
+        "cpu-p2-thermal": "Tp0b",
+        "cpu-p3-thermal": "Tp0r"
+      },
+      "correct": true
+    }
+  },
+  "installation": {
+    "package": "omarchy-m3-thermal-local 20261020-2",
+    "boot_sha256": "2f4037b0f5c40a8864480199ce29aa61360aaffdf655803e035859024f537604",
+    "boot_chain_check_exit": 0,
+    "EFI_images_preserved": true,
+    "backup": "/var/lib/m3-thermal-sensor-order-20261020",
+    "runtime_requalification_pending": true,
+    "reboot_triggered": false
+  },
+  "postcheck": {
+    "embedded_dtb_count": 115,
+    "J613_sensor_mappings": [
+      {
+        "first_six": [
+          "Te05",
+          "Te0P",
+          "Tp05",
+          "Tp0L",
+          "Tp0b",
+          "Tp0r"
+        ],
+        "mapping": {
+          "cpu-e0-thermal": "Te05",
+          "cpu-e1-thermal": "Te0P",
+          "cpu-p0-thermal": "Tp05",
+          "cpu-p1-thermal": "Tp0L",
+          "cpu-p2-thermal": "Tp0b",
+          "cpu-p3-thermal": "Tp0r"
+        },
+        "correct": true,
+        "compatible": [
+          "apple,j613",
+          "apple,t8122",
+          "apple,arm-platform"
+        ]
+      },
+      {
+        "first_six": [
+          "Te05",
+          "Te0P",
+          "Tp05",
+          "Tp0L",
+          "Tp0b",
+          "Tp0r"
+        ],
+        "mapping": {
+          "cpu-e0-thermal": "Te05",
+          "cpu-e1-thermal": "Te0P",
+          "cpu-p0-thermal": "Tp05",
+          "cpu-p1-thermal": "Tp0L",
+          "cpu-p2-thermal": "Tp0b",
+          "cpu-p3-thermal": "Tp0r"
+        },
+        "correct": true,
+        "compatible": [
+          "apple,j613",
+          "apple,t8122",
+          "apple,arm-platform"
+        ]
+      }
+    ],
+    "update_verification_exit": 0,
+    "runtime_mapping_correction_requires_reboot": true
+  },
+  "harness_correction": "Initial postcheck assumed one J613-compatible DTB. Actual stage2 contains two J613-compatible variants, both verified correct; all 115 embedded DTBs were counted.",
+  "qualification": "Corrected package and on-disk boot image verified. Running DT remains unchanged until reboot; native mapping and recovery checks are pending."
+}
