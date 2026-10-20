@@ -1,0 +1,274 @@
+{
+  "date": "2026-10-20",
+  "board": "J613 / T8122",
+  "candidate_sha256": "ff1cc419f93244f27612a20b33b5fde22fbc1850771f487f8898279b60d24c53",
+  "thermal_package": "omarchy-m3-thermal-local 20261020-2",
+  "connection": "ARZOPA disconnected during boot, then directly connected to rear USB-C nearest MagSafe; lid open",
+  "boot_and_rollback": {
+    "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+    "uptime_s": 167.42,
+    "firmware_ready_markers": [
+      {
+        "node": "soc/dcp@31ac00000",
+        "value": 1
+      }
+    ],
+    "dcpext_status": "okay",
+    "thermal_zones": [
+      {
+        "type": "cpu-e1-thermal",
+        "policy": "power_allocator",
+        "trips_mC": [
+          58000,
+          95000,
+          110000
+        ],
+        "cooling_devices": [
+          "cpufreq-cpu1",
+          "cpufreq-cpu0"
+        ]
+      },
+      {
+        "type": "cpu-p2-thermal",
+        "policy": "power_allocator",
+        "trips_mC": [
+          58000,
+          95000,
+          110000
+        ],
+        "cooling_devices": [
+          "cpufreq-cpu1",
+          "cpufreq-cpu0"
+        ]
+      },
+      {
+        "type": "cpu-p0-thermal",
+        "policy": "power_allocator",
+        "trips_mC": [
+          58000,
+          95000,
+          110000
+        ],
+        "cooling_devices": [
+          "cpufreq-cpu1",
+          "cpufreq-cpu0"
+        ]
+      },
+      {
+        "type": "cpu-e0-thermal",
+        "policy": "power_allocator",
+        "trips_mC": [
+          58000,
+          95000,
+          110000
+        ],
+        "cooling_devices": [
+          "cpufreq-cpu1",
+          "cpufreq-cpu0"
+        ]
+      },
+      {
+        "type": "cpu-p3-thermal",
+        "policy": "power_allocator",
+        "trips_mC": [
+          58000,
+          95000,
+          110000
+        ],
+        "cooling_devices": [
+          "cpufreq-cpu1",
+          "cpufreq-cpu0"
+        ]
+      },
+      {
+        "type": "cpu-p1-thermal",
+        "policy": "power_allocator",
+        "trips_mC": [
+          58000,
+          95000,
+          110000
+        ],
+        "cooling_devices": [
+          "cpufreq-cpu1",
+          "cpufreq-cpu0"
+        ]
+      }
+    ],
+    "screen_brightness": 265,
+    "keyboard_brightness": 77,
+    "on_disk_stage2_sha256": "2f4037b0f5c40a8864480199ce29aa61360aaffdf655803e035859024f537604",
+    "rollback_service_result": "success",
+    "rollback_timer_enabled": "disabled",
+    "baseline_restored_on_disk": true,
+    "booted_sensor_mapping": {
+      "board": "J613 / T8122",
+      "zones": [
+        {
+          "zone": "cpu-e0-thermal",
+          "index": 0,
+          "key": "Te05",
+          "expected_key": "Te05",
+          "matches": true
+        },
+        {
+          "zone": "cpu-e1-thermal",
+          "index": 1,
+          "key": "Te0P",
+          "expected_key": "Te0P",
+          "matches": true
+        },
+        {
+          "zone": "cpu-p0-thermal",
+          "index": 2,
+          "key": "Tp05",
+          "expected_key": "Tp05",
+          "matches": true
+        },
+        {
+          "zone": "cpu-p1-thermal",
+          "index": 3,
+          "key": "Tp0L",
+          "expected_key": "Tp0L",
+          "matches": true
+        },
+        {
+          "zone": "cpu-p2-thermal",
+          "index": 4,
+          "key": "Tp0b",
+          "expected_key": "Tp0b",
+          "matches": true
+        },
+        {
+          "zone": "cpu-p3-thermal",
+          "index": 5,
+          "key": "Tp0r",
+          "expected_key": "Tp0r",
+          "matches": true
+        }
+      ],
+      "mapping_matches": true,
+      "scope": "DT sensor indices; not calibration or cooling qualification"
+    },
+    "update_verification_exit": 0
+  },
+  "unplugged_desktop_monitor_observation": [
+    {
+      "name": "eDP-1",
+      "width": 2560,
+      "height": 1664,
+      "refreshRate": 60.0,
+      "disabled": false
+    }
+  ],
+  "unplugged_GPU_readbacks": {
+    "OpenGL": "pass",
+    "Vulkan": "pass"
+  },
+  "hotplug": {
+    "window_start_epoch_s": 1792517221.6473956,
+    "detected_epoch_s": 1792517240.603846,
+    "monitors": [
+      {
+        "name": "eDP-1",
+        "width": 2560,
+        "height": 1664,
+        "refreshRate": 60.0,
+        "dpmsStatus": true,
+        "disabled": false
+      },
+      {
+        "name": "DP-1",
+        "width": 1920,
+        "height": 1080,
+        "refreshRate": 60.0,
+        "dpmsStatus": true,
+        "disabled": false
+      }
+    ],
+    "typec_partner_names_this_boot": [
+      "port0-partner",
+      "port1-partner"
+    ],
+    "DRM_DP_status": {
+      "card2-DP-2": "disconnected",
+      "card2-DP-1": "connected"
+    }
+  },
+  "hotplug_operator_picture": "Both look correct",
+  "hotplug_GPU_readbacks": {
+    "OpenGL": "pass",
+    "Vulkan": "pass"
+  },
+  "mode_switch_trial": {
+    "planned_cycles": 3,
+    "high_interval_s": 10,
+    "low_interval_s": 5,
+    "transitions": [
+      {
+        "cycle": 1,
+        "requested_Hz": 144,
+        "elapsed_s": 0.004
+      },
+      {
+        "cycle": 1,
+        "requested_Hz": 60,
+        "elapsed_s": 10.042
+      }
+    ],
+    "configuration_files_changed": false,
+    "independent_fallback_timer_armed": true,
+    "stop_reason": "75 C temperature guard or missing readings",
+    "completed_cycles": 0,
+    "elapsed_s": 14.995,
+    "restored_60Hz": true,
+    "sample_count": 29,
+    "last_sample": {
+      "elapsed_s": 14.995,
+      "expected_Hz": 60,
+      "thermal_mC": {
+        "cpu-e1-thermal": 54182,
+        "macsmc-battery": 29000,
+        "macsmc_soc_die": 77015,
+        "cpu-p2-thermal": 52202,
+        "cpu-p0-thermal": 51850,
+        "cpu-e0-thermal": 47784,
+        "cpu-p3-thermal": 51555,
+        "cpu-p1-thermal": 51668
+      },
+      "monitors": [
+        {
+          "name": "eDP-1",
+          "width": 2560,
+          "height": 1664,
+          "refreshRate": 60.0,
+          "disabled": false
+        },
+        {
+          "name": "DP-1",
+          "width": 1920,
+          "height": 1080,
+          "refreshRate": 60.0,
+          "disabled": false
+        }
+      ]
+    },
+    "sampled_peak_mC": 77015,
+    "operator_final_picture": "Both look correct",
+    "interpretation": "One high/low transition pair was observed, followed by guard stop during 60 Hz dwell; the planned three full dwell cycles did not complete."
+  },
+  "after_mode_trial_GPU_readbacks": {
+    "OpenGL": "pass",
+    "Vulkan": "pass"
+  },
+  "mode_trial_fallback_timer": "inactive after verified 60 Hz restoration",
+  "configuration_files_changed": false,
+  "limitations": [
+    "Current session uses local display bootloader candidate; on-disk baseline restored and verified",
+    "Only one native boot and one rear-port hotplug on this exact corrected-order candidate",
+    "Three-cycle and five-minute 144 Hz qualification remain incomplete",
+    "No unexpected disconnect observed in this short run; earlier unexplained dropout not resolved",
+    "Stop recorded macsmc_soc_die aggregate, not each underlying SMC key",
+    "Type-C numbering is specific to this boot; not a persistent physical-port mapping",
+    "No HDR, display audio or long attached-sleep qualification added"
+  ]
+}
