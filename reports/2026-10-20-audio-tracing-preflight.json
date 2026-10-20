@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-20",
+  "board": "J613 / T8122",
+  "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+  "selected_rate_uprobe_test": {
+    "query_exit": 0,
+    "selected_values": [
+      {
+        "rate_Hz": 48000,
+        "control": "Speaker Sample Rate"
+      },
+      {
+        "rate_Hz": 48000,
+        "control": "Speaker Sample Rate"
+      },
+      {
+        "rate_Hz": 48000,
+        "control": "Speaker Sample Rate"
+      }
+    ],
+    "libasound_sha256": "5ab60457a31f4f47ff5bfa9d6541631828eb826e71bd49672949b4444b4ff92e",
+    "getter_code_guard_passed": true,
+    "audio_payloads_recorded": false,
+    "audio_opened": false,
+    "control_written": false,
+    "probe_and_instance_removed": true
+  },
+  "bounded_lifecycle_check": {
+    "seconds": 20,
+    "events": 335,
+    "event_types": [
+      "rate"
+    ],
+    "rates_Hz": [
+      48000
+    ],
+    "lost_events": 0,
+    "all_probes_removed": true,
+    "instance_removed": true,
+    "audio_samples_captured": false,
+    "daemon_restarted": false
+  },
+  "offsets": {
+    "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+    "source": "running kernel and loaded macaudio split BTF",
+    "substream_stream_offset": 60,
+    "hw_params_intervals_offset": 260,
+    "interval_size": 12,
+    "interval_min_offset": 0,
+    "interval_max_offset": 4,
+    "substream_pcm_offset": 0,
+    "pcm_device_offset": 24,
+    "rate_interval_min_offset": 296,
+    "rate_interval_max_offset": 300,
+    "BTF_hashes": {
+      "/sys/kernel/btf/vmlinux": "e9b23373cc5c5d3569a379201576fdb3bdc2030cd10886ea7174debc7e9be2ed",
+      "/sys/kernel/btf/snd_soc_macaudio": "78e93638ce21d85424598c69d1ad75f7833808c2a7edf83a3bbf98d3205e882b"
+    }
+  },
+  "qualification": "Actual rate-value tracing works. No lifecycle events observed during the protected chime, so hw_params/hw_free/trigger fetch fields are registered but not yet runtime-qualified. Speaker PCM was still RUNNING at 48 kHz afterward, with trigger timestamp preceding the capture. No startup root cause or fix established. Caller identity was not retained in this first selected trace; collector now retains only amixer/speakersafetyd/other classification for future capture."
+}
