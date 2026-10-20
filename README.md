@@ -43,6 +43,8 @@ Read-only checks:
 ```sh
 python3 tools/m3-status.py
 python3 tools/thermal-watch.py --seconds 10
+# Read-only booted-FDT mapping check (root read access, python-libfdt required):
+sudo python3 tools/thermal-mapping.py
 python3 tools/radio-status.py
 python3 tools/sleep-observer.py
 aurora-m3-gpu-check

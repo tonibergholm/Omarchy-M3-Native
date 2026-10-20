@@ -1,0 +1,154 @@
+{
+  "date": "2026-10-20",
+  "board": "J613 / T8122",
+  "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+  "thermal_package": "omarchy-m3-thermal-local 20261020-2",
+  "booted_mapping": {
+    "board": "J613 / T8122",
+    "zones": [
+      {
+        "zone": "cpu-e0-thermal",
+        "index": 0,
+        "key": "Te05",
+        "expected_key": "Te05",
+        "matches": true
+      },
+      {
+        "zone": "cpu-e1-thermal",
+        "index": 1,
+        "key": "Te0P",
+        "expected_key": "Te0P",
+        "matches": true
+      },
+      {
+        "zone": "cpu-p0-thermal",
+        "index": 2,
+        "key": "Tp05",
+        "expected_key": "Tp05",
+        "matches": true
+      },
+      {
+        "zone": "cpu-p1-thermal",
+        "index": 3,
+        "key": "Tp0L",
+        "expected_key": "Tp0L",
+        "matches": true
+      },
+      {
+        "zone": "cpu-p2-thermal",
+        "index": 4,
+        "key": "Tp0b",
+        "expected_key": "Tp0b",
+        "matches": true
+      },
+      {
+        "zone": "cpu-p3-thermal",
+        "index": 5,
+        "key": "Tp0r",
+        "expected_key": "Tp0r",
+        "matches": true
+      }
+    ],
+    "mapping_matches": true,
+    "scope": "DT sensor indices; not calibration or cooling qualification",
+    "source": "booted FDT"
+  },
+  "runtime_zones": [
+    {
+      "zone": "cpu-e1-thermal",
+      "policy": "power_allocator",
+      "trips_mC": [
+        58000,
+        95000,
+        110000
+      ],
+      "cooling_types": [
+        "cpufreq-cpu0",
+        "cpufreq-cpu1"
+      ],
+      "sustainable_power_mW": 6000
+    },
+    {
+      "zone": "cpu-p2-thermal",
+      "policy": "power_allocator",
+      "trips_mC": [
+        58000,
+        95000,
+        110000
+      ],
+      "cooling_types": [
+        "cpufreq-cpu0",
+        "cpufreq-cpu1"
+      ],
+      "sustainable_power_mW": 6000
+    },
+    {
+      "zone": "cpu-p0-thermal",
+      "policy": "power_allocator",
+      "trips_mC": [
+        58000,
+        95000,
+        110000
+      ],
+      "cooling_types": [
+        "cpufreq-cpu0",
+        "cpufreq-cpu1"
+      ],
+      "sustainable_power_mW": 6000
+    },
+    {
+      "zone": "cpu-e0-thermal",
+      "policy": "power_allocator",
+      "trips_mC": [
+        58000,
+        95000,
+        110000
+      ],
+      "cooling_types": [
+        "cpufreq-cpu0",
+        "cpufreq-cpu1"
+      ],
+      "sustainable_power_mW": 6000
+    },
+    {
+      "zone": "cpu-p3-thermal",
+      "policy": "power_allocator",
+      "trips_mC": [
+        58000,
+        95000,
+        110000
+      ],
+      "cooling_types": [
+        "cpufreq-cpu0",
+        "cpufreq-cpu1"
+      ],
+      "sustainable_power_mW": 6000
+    },
+    {
+      "zone": "cpu-p1-thermal",
+      "policy": "power_allocator",
+      "trips_mC": [
+        58000,
+        95000,
+        110000
+      ],
+      "cooling_types": [
+        "cpufreq-cpu0",
+        "cpufreq-cpu1"
+      ],
+      "sustainable_power_mW": 6000
+    }
+  ],
+  "GPU_OpenGL_readback": "pass",
+  "GPU_Vulkan_compute_readback": "pass",
+  "speaker_protection": {
+    "active": "active",
+    "NRestarts": 1
+  },
+  "limitations": [
+    "No new sleep cycle or audible playback confirmation in this check",
+    "TCMz calibration and transient spike cause remain unresolved",
+    "Installed .19 default entry not boot-tested here",
+    "External display disconnected; DCPEXT candidate not staged"
+  ]
+}
