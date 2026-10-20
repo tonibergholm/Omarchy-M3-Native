@@ -1096,5 +1096,30 @@
     "No audio contents, energy output or calibration measured",
     "No model, control, graph or service-order workaround installed"
   ],
-  "documentation_source": "https://pipewire.pages.freedesktop.org/wireplumber/daemon/configuration/alsa.html"
+  "documentation_source": "https://pipewire.pages.freedesktop.org/wireplumber/daemon/configuration/alsa.html",
+  "rate_observation_window_analysis": {
+    "initial_daemon_read_s": 12.847445,
+    "post_buffer_daemon_read_s": 13.728951,
+    "gap_seconds": 0.881506,
+    "other_client_nonzero_reads_s": [
+      13.627277,
+      13.627279
+    ],
+    "last_nonzero_observation_before_daemon_read_seconds": 0.101672,
+    "kernel_source_commit": "c46d7dcdb8712ea9aeb0ce47b439ffae76371e55",
+    "kernel_source_blob": "095a0391ea411cd14f2c9006247bd07d5a3185d6",
+    "kernel_source_sha256": "694c6652a909ad8bc5f1a213ffe828d79ee359f1919cd5abf278ac6c4dd5c163",
+    "source_path": "sound/soc/apple/macaudio.c",
+    "source_semantics": [
+      "Speaker playback hw_params assigns speaker_sample_rate from params_rate",
+      "Speaker playback hw_free sets speaker_sample_rate to zero and notifies controls",
+      "The control getter returns the current field; it does not preserve a history of rates"
+    ],
+    "inference": "A nonzero control value was visible to another client between two zero reads by the daemon. Successful setup does not imply the daemon must observe the configured rate after its blocking buffer read.",
+    "not_established": [
+      "Exact duration of a continuous 48000 control interval",
+      "Physical rate and rate transitions within buffered sense samples",
+      "A safe fallback rate or permission to skip protection modeling"
+    ]
+  }
 }
