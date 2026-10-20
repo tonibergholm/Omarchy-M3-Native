@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-20",
+  "board": "J613 / T8122",
+  "running_kernel": "7.1.12-2-20261017.20-sep-ARCH",
+  "candidate_sha256": "ff1cc419f93244f27612a20b33b5fde22fbc1850771f487f8898279b60d24c53",
+  "baseline_sha256": "2f4037b0f5c40a8864480199ce29aa61360aaffdf655803e035859024f537604",
+  "candidate_staged": true,
+  "independent_stage_readback": true,
+  "baseline_backups_verified": true,
+  "EFI_images_preserved": true,
+  "rollback_enabled_next_boot": true,
+  "rollback_active_now": false,
+  "timer_delay_s": 90,
+  "reboot_triggered": false,
+  "native_boot_tested": false,
+  "planned_test": "Boot isolated .20 entry with ARZOPA disconnected and lid open; verify boot and thermal mapping before hotplug",
+  "qualification": "Staging and rollback controls verified; native boot/display reliability pending. Current running firmware is unchanged."
+}
