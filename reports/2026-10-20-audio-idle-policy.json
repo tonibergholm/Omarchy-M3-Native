@@ -1,0 +1,51 @@
+{
+  "source": {
+    "rate_Hz": 48000,
+    "duration_s": 3.0
+  },
+  "stimulus": "Zero-valued PCM through protected default speaker sink",
+  "player_started_s": 2.0062573750000183,
+  "player_finished_observed_s": 5.2745442450000155,
+  "player_exit": 0,
+  "player_stderr": "",
+  "protection_before": "ActiveState=active\nNRestarts=1",
+  "protection_after": "ActiveState=active\nNRestarts=1",
+  "configuration_changed": false,
+  "date": "2026-10-20",
+  "board": "J613 / T8122",
+  "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+  "sample_count": 140,
+  "last_observed_elapsed_s": 34.966,
+  "transitions": [
+    {
+      "elapsed_s": 0.0,
+      "playback_states": {
+        "card0/pcm0p/sub0/status": "closed",
+        "card0/pcm1p/sub0/status": "closed"
+      }
+    },
+    {
+      "elapsed_s": 2.259,
+      "playback_states": {
+        "card0/pcm0p/sub0/status": "closed",
+        "card0/pcm1p/sub0/status": "state: RUNNING"
+      }
+    }
+  ],
+  "last_sample": {
+    "elapsed_s": 34.966,
+    "playback_states": {
+      "card0/pcm0p/sub0/status": "closed",
+      "card0/pcm1p/sub0/status": "state: RUNNING"
+    }
+  },
+  "policy_file": "/usr/share/wireplumber/wireplumber.conf.d/asahi-audio-no-suspend.conf",
+  "policy_owner": "omarchy-mac 0.1.4-1",
+  "policy": "ALSA AppleJ playback devices 0/1 get session.suspend-timeout-seconds=0; node.pause-on-idle is false",
+  "interpretation": "The speaker PCM remained running beyond stream completion through this 35-second observation, consistent with the installed anti-pop keep-open policy. It was closed before first playback in this boot. This is not evidence of an unexplained persistent application stream.",
+  "limits": [
+    "No electrical-power measurement or battery impact established",
+    "No amplifier-pop listening comparison performed",
+    "Policy and routing unchanged; silent sample played only through protected sink"
+  ]
+}

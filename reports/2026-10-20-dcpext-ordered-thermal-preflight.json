@@ -1,0 +1,48 @@
+{
+  "board": "J613 / T8122",
+  "kernel_scope": "installed .19 DTBs with package-owned corrected sensor-order thermal overlay (20261020-2); isolated .20 native boot planned",
+  "baseline_sha256": "2f4037b0f5c40a8864480199ce29aa61360aaffdf655803e035859024f537604",
+  "candidate_sha256": "ff1cc419f93244f27612a20b33b5fde22fbc1850771f487f8898279b60d24c53",
+  "tail_sha256": "9ef82cce4c0dd66d044c71dbf97477603d4917d3bf060a38e540b9d09eb711e1",
+  "tail_identical": true,
+  "changed_component": "same previously tested local m1n1 prefix only",
+  "DTB_count": 115,
+  "installed": false,
+  "boot_tested": false,
+  "baseline_prefix_bytes": 4063232,
+  "candidate_prefix_bytes": 4063232,
+  "sensor_order_checks": [
+    {
+      "image": "baseline.bin",
+      "DTB_count": 115,
+      "J613_variants": 2,
+      "all_J613_mappings_correct": true
+    },
+    {
+      "image": "candidate.bin",
+      "DTB_count": 115,
+      "J613_variants": 2,
+      "all_J613_mappings_correct": true
+    }
+  ],
+  "rollback_controls": [
+    {
+      "case": "candidate",
+      "expected_result_verified": true,
+      "service_calls_mocked": true
+    },
+    {
+      "case": "already-original",
+      "expected_result_verified": true,
+      "service_calls_mocked": true
+    },
+    {
+      "case": "foreign",
+      "expected_result_verified": true,
+      "service_calls_mocked": true
+    }
+  ],
+  "date": "2026-10-20",
+  "status": "Prepared only; not staged and not native boot-tested",
+  "qualification": "Reproduces corrected package baseline and keeps its DTB/U-Boot/config tail identical in candidate. Order-sensitive checks pass both embedded J613 variants. Fixture rollback checks mock systemctl and do not prove a native rollback."
+}
