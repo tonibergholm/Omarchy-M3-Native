@@ -35,9 +35,14 @@ result = {
     'sdk_kernel': kernel,
     'runner_arch': platform.machine(),
     'compiler': subprocess.check_output(['clang', '--version'], text=True).splitlines()[0],
+    'pahole_version': subprocess.check_output(['pahole', '--version'], text=True).strip(),
+    'pahole_source_commit': subprocess.check_output(['git', '-C', str(Path(os.environ['RUNNER_TEMP']) / 'pahole-source'), 'rev-parse', 'HEAD'], text=True).strip(),
+    'pahole_libbpf_commit': subprocess.check_output(['git', '-C', str(Path(os.environ['RUNNER_TEMP']) / 'pahole-source/lib/bpf'), 'rev-parse', 'HEAD'], text=True).strip(),
     'archives': archives,
     'builds': [],
 }
+assert result['pahole_version'] == 'v1.32'
+assert result['pahole_source_commit'] == 'fa725d687ce3a712ef296b46bc63ea57ef466014'
 
 def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
