@@ -1,0 +1,54 @@
+name: Aurora20 display module ARM64 preflight
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/display-arm64.yml
+      - .github/scripts/build-display-arm64.py
+      - patches/aurora20-external-sdr-colorimetry-candidate.patch
+      - patches/j613-v14-backlight-candidate.patch
+  pull_request:
+    paths:
+      - .github/workflows/display-arm64.yml
+      - .github/scripts/build-display-arm64.py
+      - patches/aurora20-external-sdr-colorimetry-candidate.patch
+      - patches/j613-v14-backlight-candidate.patch
+
+permissions:
+  contents: read
+
+jobs:
+  module-build:
+    runs-on: ubuntu-24.04-arm
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Set up LLVM 22 in the disposable runner
+        shell: bash
+        run: |
+          curl --fail --silent --show-error --location https://apt.llvm.org/llvm-snapshot.gpg.key -o "$RUNNER_TEMP/llvm.asc"
+          python3 - <<'PY'
+          import os
+          import subprocess
+          from pathlib import Path
+          key = Path(os.environ['RUNNER_TEMP']) / 'llvm.asc'
+          details = subprocess.check_output(['gpg', '--show-keys', '--with-colons', str(key)], text=True)
+          fingerprints = [line.split(':')[9] for line in details.splitlines() if line.startswith('fpr:')]
+          assert '6084F3CF814B57C1CF12EFD515CF4D18AF4F7421' in fingerprints
+          PY
+          gpg --dearmor < "$RUNNER_TEMP/llvm.asc" | sudo tee /usr/share/keyrings/llvm22-ci.gpg > /dev/null
+          echo 'deb [arch=arm64 signed-by=/usr/share/keyrings/llvm22-ci.gpg] https://apt.llvm.org/noble/ llvm-toolchain-noble-22 main' | sudo tee /etc/apt/sources.list.d/llvm22-ci.list > /dev/null
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y clang-22 llvm-22 lld-22 zstd kmod dwarves
+          echo /usr/lib/llvm-22/bin >> "$GITHUB_PATH"
+      - name: Build reference and candidate against the pinned matching SDK
+        run: python3 .github/scripts/build-display-arm64.py --work "$RUNNER_TEMP/display-arm64"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: display-arm64-preflight
+          if-no-files-found: warn
+          path: |
+            ${{ runner.temp }}/display-arm64/build-result.json
+            ${{ runner.temp }}/display-arm64/*-build.log
