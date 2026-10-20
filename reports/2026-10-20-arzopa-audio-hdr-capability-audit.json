@@ -1,0 +1,73 @@
+{
+  "date": "2026-10-20",
+  "board": "J613 / T8122",
+  "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+  "OS_firmware": "14.7",
+  "monitor": "ARZOPA Z1FC",
+  "connection": "Direct USB-C rear port, current local display reservation candidate, 1080p60",
+  "EDID_selected_capabilities": {
+    "base_and_CTA_checksums_valid": true,
+    "CTA_revision": 3,
+    "basic_audio": true,
+    "LPCM_max_channels": 2,
+    "LPCM_rates_Hz": [
+      32000,
+      44100,
+      48000
+    ],
+    "LPCM_bits": [
+      16,
+      20,
+      24
+    ],
+    "speaker_allocation": "Front Left/Right",
+    "EOTFs": [
+      "Traditional SDR gamma",
+      "SMPTE ST2084 PQ"
+    ],
+    "HDR_static_metadata_type_1": true,
+    "colorimetry": [
+      "BT2020YCC",
+      "BT2020RGB"
+    ],
+    "decoder_crosscheck": "edid-decode agreed with selected CTA parsing; no raw EDID or monitor identity fields retained"
+  },
+  "runtime": {
+    "CONFIG_DRM_APPLE_AUDIO": "y",
+    "appledrm_hdmi_audio": "N",
+    "booted_dpaudio_nodes": [],
+    "ALSA_cards": [
+      "macaudio J613",
+      "aop_audio J613 HPAI"
+    ],
+    "display_audio_card_present": false,
+    "ELD_entries": 0,
+    "HDR_OUTPUT_METADATA_property_present": false,
+    "Colorspace_property_present": false
+  },
+  "source_audit": {
+    "commit": "c46d7dcdb8712ea9aeb0ce47b439ffae76371e55",
+    "av_c_blob": "f79fbd8e32614d0cbc1bd6a92abe1aaa9823298f",
+    "audio_c_blob": "cfdfd606cf129e51514a4f08dc4951e15f1acaf6",
+    "local_files_match_pinned_upstream": true,
+    "avep_init_firmware_cases": [
+      "12.3",
+      "13.5"
+    ],
+    "other_profiles": "default returns -ENODEV with Audio not supported for firmware",
+    "audio_card_gate": "dcpaud_init_snd_card returns -ENODEV unless hdmi_audio is enabled",
+    "DT_requirements": "apple,dpaudio endpoint linked to DCP and a valid tx DMA provider; no such node in this boot",
+    "sources": [
+      "https://github.com/omacom/linux-aurora/blob/c46d7dcdb8712ea9aeb0ce47b439ffae76371e55/drivers/gpu/drm/apple/av.c",
+      "https://github.com/omacom/linux-aurora/blob/c46d7dcdb8712ea9aeb0ce47b439ffae76371e55/drivers/gpu/drm/apple/audio.c"
+    ]
+  },
+  "conclusion": "The monitor advertises audio and PQ/static HDR metadata, but current kernel/DT integration does not expose those interfaces. Enabling hdmi_audio alone cannot supply the missing DT graph or supported firmware AV protocol.",
+  "changes_made": false,
+  "limitations": [
+    "EDID advertisement is not an acoustic, HDR luminance, color accuracy or bit-depth measurement",
+    "No audio route or HDR mode enabled",
+    "No firmware protocol or DMA channel guessed",
+    "Current HDMI-audio switch is module-wide; no hot toggle attempted"
+  ]
+}
