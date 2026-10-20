@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-20",
+  "board": "J613 / T8122",
+  "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+  "thermal_package": "omarchy-m3-thermal-local 20261020-2",
+  "external_display": "Disconnected; stock m1n1 baseline boot",
+  "PR146_head": "8fd1bf481afe6fcadaa04001b2bcd435616b705b",
+  "samples": 90,
+  "last_sample_elapsed_s": 89.742,
+  "added_workload": false,
+  "thermal_configuration_changed": false,
+  "shadow_only": true,
+  "active_keys": "TCMz plus twelve Tg* channels (existing override)",
+  "shadow_keys": [
+    "Tg0D",
+    "Tg0P",
+    "Tg0X",
+    "Tg0b",
+    "Tg0j",
+    "Tg0v",
+    "Te05",
+    "Te0P",
+    "Tp05",
+    "Tp0L",
+    "Tp0b",
+    "Tp0r"
+  ],
+  "TCMz_peak_mC": 74718,
+  "active_aggregate_peak_mC": 74718,
+  "shadow_maximum_peak_mC": 53213,
+  "TCMz_peak_sample": {
+    "elapsed_s": 13.099,
+    "channels_mC": {
+      "Tg0D": 42189,
+      "Tg0P": 42981,
+      "Tg0X": 41576,
+      "Tg0b": 42195,
+      "Tg0j": 43527,
+      "Tg0v": 43148,
+      "Te05": 45924,
+      "Te0P": 53213,
+      "Tp05": 49241,
+      "Tp0L": 49209,
+      "Tp0b": 48710,
+      "Tp0r": 48879,
+      "TCMz": 74718
+    },
+    "active_aggregate_mC": 74718,
+    "shadow_PR146_max_mC": 53213
+  },
+  "interpretation": "The proposed default list and the active override produce materially different temperatures on this machine. This does not establish physical calibration, that TCMz is faulty, or which policy should replace the current one.",
+  "limits": [
+    "Sequential reads are not atomic",
+    "Passive short desktop sample; no sustained CPU/GPU load qualification",
+    "Proposed max calculated in userspace, not installed as the kernel policy",
+    "No guard, threshold or clock changes"
+  ],
+  "sources": [
+    {
+      "url": "https://github.com/omacom/linux-aurora/pull/146",
+      "claim": "PR explains selection using CPU-only/GPU-only load response; does not explicitly diagnose TCMz"
+    },
+    {
+      "url": "https://www.oshi.ooo/xref/oshi/util/platform/mac/SmcUtil.html",
+      "claim": "OSHI source describes TCMz as firmware-computed CPU-die maximum and TCMb as average; not J613 calibration evidence"
+    }
+  ]
+}
