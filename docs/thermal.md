@@ -157,3 +157,5 @@ The subsequent [native reboot](../reports/2026-10-20-thermal-package-reboot.json
 ## 20 October display-test cutoff attribution
 
 A guarded 144 Hz repeat logged all thirteen configured SMC channels and stopped after 101.79 seconds. At the stop, both `TCMz` and `macsmc_soc_die` read **77.281 °C**, following 55.546 °C in the previous one-second sample. GPU-family channels remained below 45 °C throughout this run. The final individual CPU-zone readings were below 50 °C. The external display remained connected at 144 Hz until automatic restoration to 60 Hz. This attributes this cutoff to TCMz; it does not prove a sensor fault, calibrate a hotspot, or retrospectively identify the earlier peaks. Reads are sequential, not atomic. No limits were changed. See [selected channel evidence](../reports/2026-10-20-smc-144hz-cutoff-source.json).
+
+A subsequent passive 60 Hz comparison captured 120 samples over about 123 seconds, with both display modes remaining at 60 Hz. TCMz peaked at **77.046 °C** without an added test workload. These spikes therefore also occur outside 144 Hz operation; this does not establish their cause or accuracy.

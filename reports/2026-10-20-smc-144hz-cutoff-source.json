@@ -108,5 +108,55 @@
     "No calibration, sensor-fault diagnosis or physical hotspot confirmation",
     "No thermal thresholds changed; five-minute qualification remains incomplete"
   ],
-  "source_review": "The installed-kernel source implementation queries each configured die channel on each aggregate read and returns the maximum; no aggregate cache is present in this function."
+  "source_review": "The installed-kernel source implementation queries each configured die channel on each aggregate read and returns the maximum; no aggregate cache is present in this function.",
+  "passive_60Hz_comparison": {
+    "sample_count": 120,
+    "last_sample_elapsed_s": 121.625,
+    "added_test_workload": false,
+    "TCMz_peak_mC": 77046,
+    "peak_sample": {
+      "elapsed_s": 28.548,
+      "smc_mC": {
+        "SoC die Tg0O": 39055,
+        "SoC die Tg0a": 38278,
+        "SoC die TCMz": 77046,
+        "SoC die Tg0j": 43858,
+        "SoC die Tg0P": 43455,
+        "SoC die Tg0b": 42678,
+        "SoC die Tg0C": 38215,
+        "SoC die Tg0u": 39045,
+        "SoC die Tg0W": 37567,
+        "SoC die Tg0D": 42615,
+        "SoC die Tg0v": 43445,
+        "SoC die Tg0X": 41967,
+        "SoC die Tg0i": 39458
+      },
+      "thermal_mC": {
+        "cpu-e1-thermal": 49447,
+        "macsmc-battery": 28800,
+        "macsmc_soc_die": 77046,
+        "cpu-p2-thermal": 52260,
+        "cpu-p0-thermal": 50714,
+        "cpu-e0-thermal": 49012,
+        "cpu-p3-thermal": 46502,
+        "cpu-p1-thermal": 49583
+      },
+      "display_modes": [
+        {
+          "name": "eDP-1",
+          "width": 2560,
+          "height": 1664,
+          "refreshRate": 60.0
+        },
+        {
+          "name": "DP-1",
+          "width": 1920,
+          "height": 1080,
+          "refreshRate": 60.0
+        }
+      ]
+    },
+    "all_samples_both_displays_60Hz": true,
+    "interpretation": "TCMz also exceeded 75 C during ordinary 60 Hz desktop operation. The spike is not exclusive to 144 Hz; causation and calibration remain unproven."
+  }
 }
