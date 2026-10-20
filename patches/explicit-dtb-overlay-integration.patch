@@ -1,0 +1,130 @@
+diff --git i/omarchy-mac-boot/README.md w/omarchy-mac-boot/README.md
+index 5dee5f0..7dcdc46 100644
+--- i/omarchy-mac-boot/README.md
++++ w/omarchy-mac-boot/README.md
+@@ -24,3 +24,5 @@ A package can add a device tree node that the kernel's device trees do not have
+ - Refuse a snapshot restore the live boot files do not match. `omarchy-mac-snapshot-check` is limine-snapper-sync's pre hook `04-omarchy-mac-snapshot-check` and post hook `99-omarchy-mac-snapshot-check`. Before the restore, a Limine Mac must be booted into the snapshot, and that root must pass `omarchy-apple-silicon-boot-check --boot-chain`: what the next boot reads, as `update-verify` checks it, with no reboot pending. The restore's own list can still put back another snapshot, so after it the restored `@` must hold the booted root's kernel, device trees, m1n1, U-Boot and Limine, and the UKI the restore put on the ESP must carry that kernel; otherwise it says not to reboot and how to put the backup back, and the pre hook lets that one undo through while the booted root fails its check, since the ESP then holds the refused root's boot files. The restored root must also carry the Limine activation, ESP, crypttab and root mount of the booted root. A restored root that cannot be read is reported unchecked and arms no undo. The pre hook sorts before the activation gate so a GRUB Mac is told why: Omarchy's restore is limine-snapper-restore alone, with no subvolume swap for GRUB. The hooks run from the booted snapshot, so they protect snapshots taken with this package or later.
+ 
+ Do not duplicate shared snapshot/UI/password policy here. Historical GRUB fallback remains for compatibility; this refactor qualifies fresh Limine images, not upgrades of old factory snapshots. Moving an existing Mac onto these packages is a standalone migration, outside this package.
++
++An administrator selecting package-owned DTB files explicitly can opt into overlays with `OMARCHY_DTB_OVERLAYS_EXPLICIT=1`, set `DTBS` before calling `dtb_overlays_update_m1n1`, and retain the same overlay verification. Without that flag, explicit `DTBS` continues to leave overlays out. This is useful when a newer isolated module tree is present alongside the installed kernel. The boot check still requires every base DTB to belong to the selected installed kernel.
+diff --git i/omarchy-mac-boot/bin/omarchy-apple-silicon-boot-check w/omarchy-mac-boot/bin/omarchy-apple-silicon-boot-check
+index 5d66339..6cb2322 100755
+--- i/omarchy-mac-boot/bin/omarchy-apple-silicon-boot-check
++++ w/omarchy-mac-boot/bin/omarchy-apple-silicon-boot-check
+@@ -583,13 +583,13 @@ for name in SOURCE M1N1 U_BOOT CONFIG; do
+ done
+ 
+ # Only what update-m1n1 takes from its configuration, read in a clean shell.
+-SOURCE="" M1N1="" U_BOOT="" CONFIG="" DTBS="" disabled=""
++SOURCE="" M1N1="" U_BOOT="" CONFIG="" DTBS="" disabled="" explicit_overlays=""
+ config_file=$(path /etc/default/update-m1n1)
+ if [[ -e $config_file ]]; then
+   env -i PATH=/usr/bin:/bin OMARCHY_DTB_OVERLAYS=0 bash --noprofile --norc -c '
+     unset DTBS SOURCE M1N1 U_BOOT CONFIG M1N1_UPDATE_DISABLED
+     . "$1" >/dev/null 2>&1 || exit 1
+-    for name in DTBS SOURCE M1N1 U_BOOT CONFIG M1N1_UPDATE_DISABLED; do
++    for name in DTBS SOURCE M1N1 U_BOOT CONFIG M1N1_UPDATE_DISABLED OMARCHY_DTB_OVERLAYS_EXPLICIT; do
+       printf "%s=%s\0" "$name" "${!name-}"
+     done
+   ' _ "$config_file" >"$workdir/config" || fail "/etc/default/update-m1n1 cannot be read"
+@@ -602,10 +602,11 @@ if [[ -e $config_file ]]; then
+       CONFIG) CONFIG=$value ;;
+       DTBS) DTBS=$value ;;
+       M1N1_UPDATE_DISABLED) disabled=$value ;;
++      OMARCHY_DTB_OVERLAYS_EXPLICIT) explicit_overlays=$value ;;
+     esac
+   done <"$workdir/config"
+ fi
+-# dtb-overlays.sh leaves a DTBS the administrator set alone, overlays and all.
++# Explicit DTBS keep their old behavior unless the owner opts into overlays.
+ config_dtbs=$DTBS
+ # update-m1n1 applies overlays only where its configuration calls for them,
+ # which an edited copy kept over the packaged one's .pacnew does not.
+@@ -709,7 +710,7 @@ if (( ${#overlays[@]} )); then
+   done
+   if (( ! overlays_called )); then
+     echo "Apple Silicon boot check: warning: /etc/default/update-m1n1 does not apply the device tree overlays, so update-m1n1 leaves them out; merge its .pacnew if there is one" >&2
+-  elif [[ -n $config_dtbs ]]; then
++  elif [[ -n $config_dtbs && $explicit_overlays != 1 ]]; then
+     echo "Apple Silicon boot check: warning: DTBS is set in /etc/default/update-m1n1, so update-m1n1 leaves the device tree overlays out" >&2
+   elif ! dtb_overlays_supported "$script"; then
+     echo "Apple Silicon boot check: warning: /usr/bin/update-m1n1 has a DTBS default the device tree overlays do not follow, so it leaves them out" >&2
+diff --git i/omarchy-mac-boot/lib/dtb-overlays.sh w/omarchy-mac-boot/lib/dtb-overlays.sh
+index 06ee0c1..43ec2d9 100644
+--- i/omarchy-mac-boot/lib/dtb-overlays.sh
++++ w/omarchy-mac-boot/lib/dtb-overlays.sh
+@@ -146,13 +146,13 @@ dtb_overlays_apply() {
+   done
+ }
+ 
+-# Sets DTBS for update-m1n1 when an overlay applies to one of the newest
+-# kernel's device trees; otherwise leaves DTBS as it was.
++# Applies overlays to the newest kernel, or explicitly selected DTBS when
++# OMARCHY_DTB_OVERLAYS_EXPLICIT=1. Otherwise leaves DTBS as it was.
+ dtb_overlays_update_m1n1() {
+-  local root="${OMARCHY_DTB_OVERLAYS_ROOT:-}" modules outdir list="" path
++  local root="${OMARCHY_DTB_OVERLAYS_ROOT:-}" modules outdir list="" path inputs
+   outdir=$root/run/omarchy-dtb-overlays
+   [ "${OMARCHY_DTB_OVERLAYS:-1}" != 0 ] || return 0
+-  [ -z "${DTBS:-}" ] || return 0
++  [ -z "${DTBS:-}" ] || [ "${OMARCHY_DTB_OVERLAYS_EXPLICIT:-0}" = 1 ] || return 0
+   [ -n "$(dtb_overlays_list)" ] || return 0
+   if ! dtb_overlays_supported "$root/usr/bin/update-m1n1"; then
+     echo "dtb-overlays: /usr/bin/update-m1n1 has a DTBS default this does not reproduce; device tree overlays are not applied" >&2
+@@ -162,10 +162,15 @@ dtb_overlays_update_m1n1() {
+     echo "dtb-overlays: device tree overlays need dtc 1.7.1 or newer (dtc, fdtoverlay and fdtget); install or update dtc" >&2
+     return 0
+   fi
+-  modules=$(/bin/ls -d "$root"/lib/modules/*-ARCH | sort -rV | head -1)
++  if [ -n "${DTBS:-}" ]; then
++    inputs=$DTBS
++  else
++    modules=$(/bin/ls -d "$root"/lib/modules/*-ARCH | sort -rV | head -1)
++    inputs="$modules/dtbs/*.dtb"
++  fi
+   rm -rf -- "$outdir"
+   mkdir -p -- "$outdir" || return 0
+-  for path in $(dtb_overlays_apply "$outdir" "$modules"/dtbs/*.dtb); do
++  for path in $(dtb_overlays_apply "$outdir" $inputs); do
+     list="$list $path"
+   done
+   case "$list" in
+diff --git i/omarchy-mac-boot/test/apple-silicon-boot-check-test.sh w/omarchy-mac-boot/test/apple-silicon-boot-check-test.sh
+index 7cb2141..a8d8751 100644
+--- i/omarchy-mac-boot/test/apple-silicon-boot-check-test.sh
++++ w/omarchy-mac-boot/test/apple-silicon-boot-check-test.sh
+@@ -585,6 +585,17 @@ run_check --boot-chain
+ expect_pass "an administrator's DTBS, which update-m1n1 builds without the overlays"
+ grep -Fq "DTBS is set in /etc/default/update-m1n1" "$test_tmp/err" ||
+   fail "the check says an administrator's DTBS leaves the overlays out" "$(cat "$test_tmp/err")"
++printf 'OMARCHY_DTB_OVERLAYS_EXPLICIT=1\n' >>"$root/etc/default/update-m1n1"
++run_check --boot-chain
++expect_fail "explicit overlays reject a stale unoverlaid image" "m1n1/boot.bin"
++{
++  cat "$root/usr/lib/asahi-boot/m1n1.bin" "$root${dtbs[0]}" "$root${dtbs[1]}" "$overlaid"
++  gzip -c "$root/usr/lib/asahi-boot/u-boot-nodtb.bin"
++  printf 'chosen.asahi,efi-system-partition=1234\ndisplay=2560x1600\nmitigations=off\n'
++} >"$esp/m1n1/boot.bin"
++run_check --boot-chain
++expect_pass "explicit package-owned DTBS overlays verify against rebuilt image"
++write_boot_bin "${dtbs[@]}"
+ # An edited configuration kept over the packaged one's .pacnew, and no
+ # configuration at all: update-m1n1 never applies the overlays, nor does the rebuild.
+ printf 'export LC_ALL=C\n# dtb_overlays_update_m1n1\n' >"$root/etc/default/update-m1n1"
+diff --git i/omarchy-mac-boot/test/dtb-overlays-test.sh w/omarchy-mac-boot/test/dtb-overlays-test.sh
+index 1b04b4c..2036566 100755
+--- i/omarchy-mac-boot/test/dtb-overlays-test.sh
++++ w/omarchy-mac-boot/test/dtb-overlays-test.sh
+@@ -199,6 +199,11 @@ has_ane "$out/t8103-j293.dtb" apple,t8103-ane || fail "update-m1n1's copy carrie
+ DTBS=/custom.dtb
+ dtb_overlays_update_m1n1
+ [[ $DTBS == /custom.dtb ]] || fail "a DTBS the administrator set is kept"
++DTBS="$dtbs/t8103-j293.dtb"
++OMARCHY_DTB_OVERLAYS_EXPLICIT=1 dtb_overlays_update_m1n1
++[[ $DTBS == "$out/t8103-j293.dtb" ]] || fail "explicit DTBS opt-in applies the matching overlay: $DTBS"
++has_ane "$DTBS" apple,t8103-ane || fail "explicit DTBS output contains the overlay"
++pass "explicit DTBS opt-in applies overlays; default explicit paths stay unchanged"
+ unset DTBS
+ OMARCHY_DTB_OVERLAYS=0 dtb_overlays_update_m1n1
+ [[ -z ${DTBS:-} ]] || fail "OMARCHY_DTB_OVERLAYS=0 leaves DTBS alone"

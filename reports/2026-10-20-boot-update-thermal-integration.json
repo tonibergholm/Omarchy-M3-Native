@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-20",
+  "board": "J613 / T8122",
+  "installed_kernel": "7.1.12.aurora2-20261015.19",
+  "running_kernel": "7.1.12-2-20261017.20-sep-ARCH",
+  "cause": "On-disk stage2 exactly matched retained thermal experiment; installed boot verifier expected an image reconstructed from package inputs.",
+  "old_stage2_sha256": "dfdafe5acba95382ed4143404e6ed0cc053d03b6fb784e6ffaf9ff0a00153d92",
+  "new_stage2_sha256": "23cc92841bf7701fdb34039817c61e2a408c20c2839aa067673a51cceb195e1e",
+  "packages": [
+    "omarchy-mac-boot 20261020-2.1",
+    "omarchy-m3-thermal-local 20261020-1"
+  ],
+  "overlay_semantically_matches_retained_candidate": true,
+  "boot_chain_check_exit": 0,
+  "update_verify_postcheck": "passed, exit 0",
+  "verification_bypassed": false,
+  "kernel_and_boot_package_pinned_by_thermal_package": true,
+  "qualified_scope": "Integration into installed .19 boot files; no new native boot yet. Alternate firmware DTB overlay apply checked, not native alternate-firmware qualification.",
+  "tests": {
+    "boot_suite_pass_lines": 227,
+    "pinned_integration_pass_lines": 55,
+    "runtime_commit": "e1b0e5e9bb72b15dc494458925655bf32656382b",
+    "source_base_commit": "7c2f985b4033d45423ca177a1ff43c22492138b8",
+    "latest_runtime_integration_failure": "Factory-reset fixture ESP_MNT unbound; pinned runtime integration passed",
+    "variant_dtb_overlay_compile_apply": "passed; not native acceptance of alternate firmware"
+  },
+  "backups": "Root-private boot and configuration backups retained; original thermal and display trial backups also retained.",
+  "postcheck": {
+    "retained_thermal_dtb_exact_bytes_present": true,
+    "packaged_m1n1_prefix_present": true,
+    "experimental_and_fallback_EFI_images_unchanged": true,
+    "owner_managed_verification_override": false,
+    "reboot_triggered": false
+  }
+}

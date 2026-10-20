@@ -141,3 +141,13 @@ native-input governor response under a changed target, not stable regulation.
 The target did not settle; normal 95 C control, sustained loading and critical
 shutdown behavior remain unqualified. See the
 [selected report](../reports/2026-10-19-thermal-native-low-target.json).
+
+## Package-managed retention and update verification, 20 October
+
+An Omarchy update rejected the retained thermal stage2 because it differed from the image reconstructed from installed package inputs. Its SHA-256 exactly matched the known retained image; no unknown image change was found. The owner chose to retain thermal controls and integrate them with package-managed verification.
+
+A local `omarchy-m3-thermal-local 20261020-1` package now owns an opt-in J613 thermal overlay. Applying it to the installed .19 base DTB reproduces the complete retained candidate semantically, resolving phandle references; the package-owned kernel DTBs remain unchanged. A local `omarchy-mac-boot 20261020-2.1` adapts overlay application and verification to an explicit list of installed package-owned DTBs, avoiding selection of the newer isolated .20 module tree. Explicit DTBS retain their old behavior unless the new option is selected. See the [source integration patch](../patches/explicit-dtb-overlay-integration.patch).
+
+The boot-package suite passed 227 checks and integration passed 55 against its pinned Omarchy runtime. An initial integration run against latest runtime failed an unrelated factory-reset fixture; that run is not counted as passing. Native installation rebuilt m1n1 and initramfs through package hooks. Both the boot-chain check and Omarchy's actual update-verification entrypoint passed. The exact retained thermal DTB is in the on-disk bundle, package integrity checks pass, and experimental/fallback EFI images stayed byte-identical. No owner-managed boot-check exception was created and no reboot was triggered. This verifies on-disk integration, not a new native boot.
+
+The thermal package pins the qualified .19 kernel and local boot package. Future kernel/boot-package upgrades need an updated integration and requalification; normal application updates remain available. Original EFI/configuration backups remain root-private. The bootloader reservation candidate for external displays remains a separate experiment. See the [selected repair report](../reports/2026-10-20-boot-update-thermal-integration.json).
