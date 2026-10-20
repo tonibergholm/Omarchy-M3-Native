@@ -1,0 +1,319 @@
+{
+  "date": "2026-10-20",
+  "board": "J613 / T8122",
+  "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+  "scope": "One operator-requested s2idle cycle with JBL Flip 5 and ARZOPA Z1FC attached",
+  "sleep": {
+    "before": {
+      "monotonic_s": 4641.482732809,
+      "boottime_s": 4662.139409625,
+      "suspend_stats": {
+        "success": 1,
+        "fail": 0,
+        "failed_prepare": 0
+      },
+      "zones": [
+        {
+          "type": "cpu-e1-thermal",
+          "temp_mC": 50573,
+          "trips_mC": [
+            58000,
+            95000,
+            110000
+          ],
+          "cooling_types": [
+            "cpufreq-cpu0",
+            "cpufreq-cpu1"
+          ]
+        },
+        {
+          "type": "cpu-p2-thermal",
+          "temp_mC": 45917,
+          "trips_mC": [
+            58000,
+            95000,
+            110000
+          ],
+          "cooling_types": [
+            "cpufreq-cpu0",
+            "cpufreq-cpu1"
+          ]
+        },
+        {
+          "type": "cpu-p0-thermal",
+          "temp_mC": 45347,
+          "trips_mC": [
+            58000,
+            95000,
+            110000
+          ],
+          "cooling_types": [
+            "cpufreq-cpu0",
+            "cpufreq-cpu1"
+          ]
+        },
+        {
+          "type": "cpu-e0-thermal",
+          "temp_mC": 44156,
+          "trips_mC": [
+            58000,
+            95000,
+            110000
+          ],
+          "cooling_types": [
+            "cpufreq-cpu0",
+            "cpufreq-cpu1"
+          ]
+        },
+        {
+          "type": "cpu-p3-thermal",
+          "temp_mC": 45301,
+          "trips_mC": [
+            58000,
+            95000,
+            110000
+          ],
+          "cooling_types": [
+            "cpufreq-cpu0",
+            "cpufreq-cpu1"
+          ]
+        },
+        {
+          "type": "cpu-p1-thermal",
+          "temp_mC": 45678,
+          "trips_mC": [
+            58000,
+            95000,
+            110000
+          ],
+          "cooling_types": [
+            "cpufreq-cpu0",
+            "cpufreq-cpu1"
+          ]
+        }
+      ],
+      "speaker_protection": "ActiveState=active\nNRestarts=1"
+    },
+    "sleep_request_origin": "Operator manual; recorder does not request sleep",
+    "guard_bypassed": false,
+    "configuration_changed": false,
+    "mem_sleep": "[s2idle]",
+    "pre_hci_query": {
+      "command": "HCI Read Local Version Information",
+      "opcode": "0x1001",
+      "controller_index": 0,
+      "timeout_s": 3,
+      "state_change_requested": false,
+      "phase": "receive",
+      "status": 0,
+      "completion_received": true,
+      "hci_version": 12,
+      "hci_revision": 34940,
+      "lmp_version": 12,
+      "manufacturer": 15,
+      "lmp_subversion": 425,
+      "elapsed_s": 0.001119
+    },
+    "sleep_inhibitors_before": [
+      {
+        "who": "NetworkManager",
+        "what": "sleep",
+        "mode": "delay"
+      },
+      {
+        "who": "Realtime Kit",
+        "what": "sleep",
+        "mode": "delay"
+      },
+      {
+        "who": "UPower",
+        "what": "sleep",
+        "mode": "delay"
+      },
+      {
+        "who": "net.reactivated.Fprint",
+        "what": "sleep",
+        "mode": "delay"
+      },
+      {
+        "who": "Omarchy",
+        "what": "sleep",
+        "mode": "delay"
+      }
+    ],
+    "sleep_success_observed": true,
+    "post_hci_query": {
+      "command": "HCI Read Local Version Information",
+      "opcode": "0x1001",
+      "controller_index": 0,
+      "timeout_s": 3,
+      "state_change_requested": false,
+      "phase": "receive",
+      "status": 0,
+      "completion_received": true,
+      "hci_version": 12,
+      "hci_revision": 34940,
+      "lmp_version": 12,
+      "manufacturer": 15,
+      "lmp_subversion": 425,
+      "elapsed_s": 0.00135
+    },
+    "after": {
+      "monotonic_s": 4666.456656492,
+      "boottime_s": 4716.209234709,
+      "suspend_stats": {
+        "success": 2,
+        "fail": 0,
+        "failed_prepare": 0
+      },
+      "zones": [
+        {
+          "type": "cpu-e1-thermal",
+          "temp_mC": 45260,
+          "trips_mC": [
+            58000,
+            95000,
+            110000
+          ],
+          "cooling_types": [
+            "cpufreq-cpu0",
+            "cpufreq-cpu1"
+          ]
+        },
+        {
+          "type": "cpu-p2-thermal",
+          "temp_mC": 41526,
+          "trips_mC": [
+            58000,
+            95000,
+            110000
+          ],
+          "cooling_types": [
+            "cpufreq-cpu0",
+            "cpufreq-cpu1"
+          ]
+        },
+        {
+          "type": "cpu-p0-thermal",
+          "temp_mC": 41409,
+          "trips_mC": [
+            58000,
+            95000,
+            110000
+          ],
+          "cooling_types": [
+            "cpufreq-cpu0",
+            "cpufreq-cpu1"
+          ]
+        },
+        {
+          "type": "cpu-e0-thermal",
+          "temp_mC": 40850,
+          "trips_mC": [
+            58000,
+            95000,
+            110000
+          ],
+          "cooling_types": [
+            "cpufreq-cpu0",
+            "cpufreq-cpu1"
+          ]
+        },
+        {
+          "type": "cpu-p3-thermal",
+          "temp_mC": 41614,
+          "trips_mC": [
+            58000,
+            95000,
+            110000
+          ],
+          "cooling_types": [
+            "cpufreq-cpu0",
+            "cpufreq-cpu1"
+          ]
+        },
+        {
+          "type": "cpu-p1-thermal",
+          "temp_mC": 41664,
+          "trips_mC": [
+            58000,
+            95000,
+            110000
+          ],
+          "cooling_types": [
+            "cpufreq-cpu0",
+            "cpufreq-cpu1"
+          ]
+        }
+      ],
+      "speaker_protection": "ActiveState=active\nNRestarts=1"
+    },
+    "clock_suspended_s": 29.095901,
+    "selected_kernel_lines": [
+      {
+        "monotonic_s": 4662.156699,
+        "message": "PM: suspend entry (s2idle)"
+      },
+      {
+        "monotonic_s": 4666.426112,
+        "message": "PM: suspend exit"
+      }
+    ],
+    "bluetooth_window_counts": {
+      "hci_command_timeout": 0,
+      "set_event_mask_timeout": 0,
+      "resume_recovery_attempt": 0,
+      "resume_recovery_failure": 0
+    },
+    "capture_scope": "JBL + ARZOPA attached, operator requests normal sleep; HCI local-version queries only, no scan/pair/reset/power change"
+  },
+  "desktop_after": {
+    "jbl_connected": true,
+    "jbl_sinks": [
+      {
+        "description": "JBL Flip 5",
+        "codec": "sbc",
+        "profile": "a2dp-sink"
+      }
+    ],
+    "monitors": [
+      {
+        "name": "eDP-1",
+        "width": 2560,
+        "height": 1664,
+        "refreshRate": 60.0,
+        "dpmsStatus": true,
+        "disabled": false,
+        "currentFormat": "XRGB8888"
+      },
+      {
+        "name": "DP-1",
+        "width": 1920,
+        "height": 1080,
+        "refreshRate": 60.0,
+        "dpmsStatus": true,
+        "disabled": false,
+        "currentFormat": "XRGB8888"
+      }
+    ],
+    "speaker_protection": "ActiveState=active\nNRestarts=1"
+  },
+  "playback_after": {
+    "sink_description": "JBL Flip 5",
+    "test_master_percent": 45,
+    "stream_volume": 65536,
+    "lead_in_seconds": 0,
+    "exit_code": 0,
+    "elapsed_seconds": 0.7196663180002361,
+    "original_volume_restored": true
+  },
+  "operator_audio_confirmation": "pending",
+  "operator_picture_and_unlock_confirmation": "pending",
+  "limitations": [
+    "One successful cycle does not resolve previously observed intermittent Bluetooth resume failures",
+    "Playback process success does not prove audible output; operator confirmation is pending",
+    "Display enumeration does not prove correct pictures; operator confirmation is pending",
+    "Three preceding automated launch attempts were refused before suspend; they are neither resume passes nor kernel suspend failures",
+    "No new Bluetooth recovery driver, configuration change or guard bypass was applied"
+  ]
+}
