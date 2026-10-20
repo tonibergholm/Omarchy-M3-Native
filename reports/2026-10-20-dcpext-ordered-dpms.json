@@ -1,0 +1,308 @@
+{
+  "before": [
+    {
+      "name": "eDP-1",
+      "width": 2560,
+      "height": 1664,
+      "refreshRate": 60.0,
+      "dpmsStatus": true,
+      "disabled": false
+    },
+    {
+      "name": "DP-1",
+      "width": 1920,
+      "height": 1080,
+      "refreshRate": 60.0,
+      "dpmsStatus": true,
+      "disabled": false
+    }
+  ],
+  "off_seconds_requested": 3,
+  "samples": [
+    {
+      "elapsed_s": 0.006,
+      "monitors": [
+        {
+          "name": "eDP-1",
+          "width": 2560,
+          "height": 1664,
+          "refreshRate": 60.0,
+          "dpmsStatus": false,
+          "disabled": false
+        },
+        {
+          "name": "DP-1",
+          "width": 1920,
+          "height": 1080,
+          "refreshRate": 60.0,
+          "dpmsStatus": false,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "elapsed_s": 0.262,
+      "monitors": [
+        {
+          "name": "eDP-1",
+          "width": 2560,
+          "height": 1664,
+          "refreshRate": 60.0,
+          "dpmsStatus": false,
+          "disabled": false
+        },
+        {
+          "name": "DP-1",
+          "width": 1920,
+          "height": 1080,
+          "refreshRate": 60.0,
+          "dpmsStatus": false,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "elapsed_s": 0.517,
+      "monitors": [
+        {
+          "name": "eDP-1",
+          "width": 2560,
+          "height": 1664,
+          "refreshRate": 60.0,
+          "dpmsStatus": false,
+          "disabled": false
+        },
+        {
+          "name": "DP-1",
+          "width": 1920,
+          "height": 1080,
+          "refreshRate": 60.0,
+          "dpmsStatus": false,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "elapsed_s": 0.771,
+      "monitors": [
+        {
+          "name": "eDP-1",
+          "width": 2560,
+          "height": 1664,
+          "refreshRate": 60.0,
+          "dpmsStatus": false,
+          "disabled": false
+        },
+        {
+          "name": "DP-1",
+          "width": 1920,
+          "height": 1080,
+          "refreshRate": 60.0,
+          "dpmsStatus": false,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "elapsed_s": 1.025,
+      "monitors": [
+        {
+          "name": "eDP-1",
+          "width": 2560,
+          "height": 1664,
+          "refreshRate": 60.0,
+          "dpmsStatus": false,
+          "disabled": false
+        },
+        {
+          "name": "DP-1",
+          "width": 1920,
+          "height": 1080,
+          "refreshRate": 60.0,
+          "dpmsStatus": false,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "elapsed_s": 1.279,
+      "monitors": [
+        {
+          "name": "eDP-1",
+          "width": 2560,
+          "height": 1664,
+          "refreshRate": 60.0,
+          "dpmsStatus": false,
+          "disabled": false
+        },
+        {
+          "name": "DP-1",
+          "width": 1920,
+          "height": 1080,
+          "refreshRate": 60.0,
+          "dpmsStatus": false,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "elapsed_s": 1.533,
+      "monitors": [
+        {
+          "name": "eDP-1",
+          "width": 2560,
+          "height": 1664,
+          "refreshRate": 60.0,
+          "dpmsStatus": false,
+          "disabled": false
+        },
+        {
+          "name": "DP-1",
+          "width": 1920,
+          "height": 1080,
+          "refreshRate": 60.0,
+          "dpmsStatus": false,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "elapsed_s": 1.786,
+      "monitors": [
+        {
+          "name": "eDP-1",
+          "width": 2560,
+          "height": 1664,
+          "refreshRate": 60.0,
+          "dpmsStatus": false,
+          "disabled": false
+        },
+        {
+          "name": "DP-1",
+          "width": 1920,
+          "height": 1080,
+          "refreshRate": 60.0,
+          "dpmsStatus": false,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "elapsed_s": 2.041,
+      "monitors": [
+        {
+          "name": "eDP-1",
+          "width": 2560,
+          "height": 1664,
+          "refreshRate": 60.0,
+          "dpmsStatus": false,
+          "disabled": false
+        },
+        {
+          "name": "DP-1",
+          "width": 1920,
+          "height": 1080,
+          "refreshRate": 60.0,
+          "dpmsStatus": false,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "elapsed_s": 2.294,
+      "monitors": [
+        {
+          "name": "eDP-1",
+          "width": 2560,
+          "height": 1664,
+          "refreshRate": 60.0,
+          "dpmsStatus": false,
+          "disabled": false
+        },
+        {
+          "name": "DP-1",
+          "width": 1920,
+          "height": 1080,
+          "refreshRate": 60.0,
+          "dpmsStatus": false,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "elapsed_s": 2.549,
+      "monitors": [
+        {
+          "name": "eDP-1",
+          "width": 2560,
+          "height": 1664,
+          "refreshRate": 60.0,
+          "dpmsStatus": false,
+          "disabled": false
+        },
+        {
+          "name": "DP-1",
+          "width": 1920,
+          "height": 1080,
+          "refreshRate": 60.0,
+          "dpmsStatus": false,
+          "disabled": false
+        }
+      ]
+    },
+    {
+      "elapsed_s": 2.803,
+      "monitors": [
+        {
+          "name": "eDP-1",
+          "width": 2560,
+          "height": 1664,
+          "refreshRate": 60.0,
+          "dpmsStatus": false,
+          "disabled": false
+        },
+        {
+          "name": "DP-1",
+          "width": 1920,
+          "height": 1080,
+          "refreshRate": 60.0,
+          "dpmsStatus": false,
+          "disabled": false
+        }
+      ]
+    }
+  ],
+  "configuration_files_changed": false,
+  "independent_fallback_armed": true,
+  "after": [
+    {
+      "name": "eDP-1",
+      "width": 2560,
+      "height": 1664,
+      "refreshRate": 60.0,
+      "dpmsStatus": true,
+      "disabled": false
+    },
+    {
+      "name": "DP-1",
+      "width": 1920,
+      "height": 1080,
+      "refreshRate": 60.0,
+      "dpmsStatus": true,
+      "disabled": false
+    }
+  ],
+  "restored_both_on": true,
+  "elapsed_s": 5.935,
+  "date": "2026-10-20",
+  "board": "J613 / T8122",
+  "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+  "candidate_sha256": "ff1cc419f93244f27612a20b33b5fde22fbc1850771f487f8898279b60d24c53",
+  "connection": "Direct rear USB-C ARZOPA at 1080p60; lid open",
+  "operator_confirmation": "Yes, both recovered correctly",
+  "GPU_OpenGL_readback": "pass",
+  "GPU_Vulkan_compute_readback": "pass",
+  "fallback_timer_after": "inactive",
+  "harness_note": "First direct dispatcher-object invocation was rejected on the idempotent on preparation before any state change. Corrected form uses hl.dispatch(hl.dsp.dpms({action=...})).",
+  "qualification": "One sampled DPMS off/on cycle with operator-confirmed recovery; not system suspend, repeated recovery or long-duration qualification."
+}
