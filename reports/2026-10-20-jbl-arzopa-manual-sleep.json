@@ -305,14 +305,13 @@
     "lead_in_seconds": 0,
     "exit_code": 0,
     "elapsed_seconds": 0.7196663180002361,
-    "original_volume_restored": true
+    "original_volume_restored": true,
+    "operator_heard": true
   },
-  "operator_audio_confirmation": "pending",
-  "operator_picture_and_unlock_confirmation": "pending",
+  "operator_audio_confirmation": "Single short JBL chime heard",
+  "operator_picture_and_unlock_confirmation": "Both screens correct; Touch ID unlocked",
   "limitations": [
     "One successful cycle does not resolve previously observed intermittent Bluetooth resume failures",
-    "Playback process success does not prove audible output; operator confirmation is pending",
-    "Display enumeration does not prove correct pictures; operator confirmation is pending",
     "Three preceding automated launch attempts were refused before suspend; they are neither resume passes nor kernel suspend failures",
     "No new Bluetooth recovery driver, configuration change or guard bypass was applied"
   ],
