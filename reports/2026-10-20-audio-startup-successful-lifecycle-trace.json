@@ -1,0 +1,1100 @@
+{
+  "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+  "duration_requested_s": 60.0,
+  "timeline": [
+    {
+      "monotonic_s": 12.816054858,
+      "stage": "userspace_probes_enabled"
+    },
+    {
+      "monotonic_s": 12.821801288,
+      "stage": "kernel_lifecycle_probes_enabled"
+    },
+    {
+      "monotonic_s": 72.862652242,
+      "stage": "capture_stopped"
+    }
+  ],
+  "kernel_lifecycle_probes_armed": true,
+  "lost_events": 0,
+  "kernel_probe_profile": [
+    {
+      "event": "hw_params",
+      "hits": 23,
+      "missed": 0
+    },
+    {
+      "event": "hw_free",
+      "hits": 12,
+      "missed": 0
+    },
+    {
+      "event": "trigger",
+      "hits": 6,
+      "missed": 0
+    },
+    {
+      "event": "hw_params_return",
+      "hits": 23,
+      "missed": 0
+    },
+    {
+      "event": "hw_free_return",
+      "hits": 12,
+      "missed": 0
+    }
+  ],
+  "all_probes_removed": true,
+  "instance_removed": true,
+  "audio_samples_recorded": false,
+  "control_writes": false,
+  "daemon_restart_requested": false,
+  "selected_daemon_journal": [
+    {
+      "monotonic_s": 12.839862,
+      "message": "INFO  [speakersafetyd] Starting up"
+    },
+    {
+      "monotonic_s": 12.84664,
+      "message": "INFO  [speakersafetyd] Startup mode: Cold boot"
+    },
+    {
+      "monotonic_s": 13.729102,
+      "message": "Invalid sample rate"
+    },
+    {
+      "monotonic_s": 13.742557,
+      "message": "speakersafetyd.service: Main process exited, code=exited, status=101/n/a"
+    },
+    {
+      "monotonic_s": 14.761113,
+      "message": "INFO  [speakersafetyd] Starting up"
+    },
+    {
+      "monotonic_s": 14.76234,
+      "message": "INFO  [speakersafetyd] Startup mode: Cold boot"
+    }
+  ],
+  "one_boot_unit_disabled": true,
+  "armed_marker_consumed": true,
+  "cleanup_independently_verified": true,
+  "date": "2026-10-20",
+  "board": "J613 / T8122",
+  "scope": "Aurora .20, OS firmware 14.7 / system firmware 27.0, fixed 48 kHz PipeWire graph, corrected package-managed thermal overlay; external display disconnected",
+  "successful_same_thread_call_pairs": [
+    {
+      "operation": "hw_params",
+      "entry_s": 12.847181,
+      "return_s": 12.847187,
+      "stream": 1,
+      "pcm_device": 3,
+      "return": 0,
+      "caller": "speakersafetyd"
+    },
+    {
+      "operation": "hw_params",
+      "entry_s": 12.84719,
+      "return_s": 12.847191,
+      "stream": 1,
+      "pcm_device": 4,
+      "return": 0,
+      "caller": "speakersafetyd"
+    },
+    {
+      "operation": "hw_params",
+      "entry_s": 12.847192,
+      "return_s": 12.847193,
+      "stream": 1,
+      "pcm_device": 2,
+      "return": 0,
+      "caller": "speakersafetyd"
+    },
+    {
+      "operation": "hw_params",
+      "entry_s": 13.610016,
+      "return_s": 13.6114,
+      "stream": 0,
+      "pcm_device": 3,
+      "return": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "operation": "hw_params",
+      "entry_s": 13.612224,
+      "return_s": 13.613597,
+      "stream": 0,
+      "pcm_device": 4,
+      "return": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "operation": "hw_params",
+      "entry_s": 13.614441,
+      "return_s": 13.614443,
+      "stream": 0,
+      "pcm_device": 1,
+      "return": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "operation": "hw_params",
+      "entry_s": 13.616841,
+      "return_s": 13.616842,
+      "stream": 0,
+      "pcm_device": 5,
+      "return": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "operation": "hw_params",
+      "entry_s": 13.622214,
+      "return_s": 13.622214,
+      "stream": 0,
+      "pcm_device": 0,
+      "return": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "operation": "hw_params",
+      "entry_s": 13.626049,
+      "return_s": 13.626049,
+      "stream": 1,
+      "pcm_device": 5,
+      "return": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "operation": "hw_params",
+      "entry_s": 13.627118,
+      "return_s": 13.627119,
+      "stream": 1,
+      "pcm_device": 0,
+      "return": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "operation": "hw_free",
+      "entry_s": 13.647563,
+      "return_s": 13.647565,
+      "stream": 0,
+      "pcm_device": 3,
+      "return": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "operation": "hw_free",
+      "entry_s": 13.668025,
+      "return_s": 13.668029,
+      "stream": 0,
+      "pcm_device": 4,
+      "return": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "operation": "hw_free",
+      "entry_s": 13.668807,
+      "return_s": 13.668808,
+      "stream": 0,
+      "pcm_device": 5,
+      "return": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "operation": "hw_free",
+      "entry_s": 13.670811,
+      "return_s": 13.670812,
+      "stream": 1,
+      "pcm_device": 5,
+      "return": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "operation": "hw_params",
+      "entry_s": 13.67152,
+      "return_s": 13.671523,
+      "stream": 0,
+      "pcm_device": 5,
+      "return": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "operation": "hw_params",
+      "entry_s": 13.678821,
+      "return_s": 13.678827,
+      "stream": 0,
+      "pcm_device": 0,
+      "return": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "operation": "hw_free",
+      "entry_s": 13.683886,
+      "return_s": 13.68389,
+      "stream": 0,
+      "pcm_device": 5,
+      "return": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "operation": "hw_params",
+      "entry_s": 13.684275,
+      "return_s": 13.684278,
+      "stream": 1,
+      "pcm_device": 5,
+      "return": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "operation": "hw_params",
+      "entry_s": 13.687146,
+      "return_s": 13.687148,
+      "stream": 1,
+      "pcm_device": 0,
+      "return": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "operation": "hw_free",
+      "entry_s": 13.69142,
+      "return_s": 13.691424,
+      "stream": 1,
+      "pcm_device": 5,
+      "return": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "operation": "hw_params",
+      "entry_s": 13.691824,
+      "return_s": 13.693212,
+      "stream": 0,
+      "pcm_device": 3,
+      "return": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "operation": "hw_params",
+      "entry_s": 13.694051,
+      "return_s": 13.69544,
+      "stream": 0,
+      "pcm_device": 4,
+      "return": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "operation": "hw_params",
+      "entry_s": 13.696273,
+      "return_s": 13.696274,
+      "stream": 0,
+      "pcm_device": 1,
+      "return": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "operation": "hw_free",
+      "entry_s": 13.719071,
+      "return_s": 13.719085,
+      "stream": 0,
+      "pcm_device": 3,
+      "return": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "operation": "hw_free",
+      "entry_s": 13.740047,
+      "return_s": 13.740052,
+      "stream": 0,
+      "pcm_device": 4,
+      "return": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "operation": "hw_free",
+      "entry_s": 13.74015,
+      "return_s": 13.740151,
+      "stream": 1,
+      "pcm_device": 3,
+      "return": 0,
+      "caller": "speakersafetyd"
+    },
+    {
+      "operation": "hw_free",
+      "entry_s": 13.740153,
+      "return_s": 13.740153,
+      "stream": 1,
+      "pcm_device": 4,
+      "return": 0,
+      "caller": "speakersafetyd"
+    },
+    {
+      "operation": "hw_params",
+      "entry_s": 13.741652,
+      "return_s": 13.741655,
+      "stream": 1,
+      "pcm_device": 3,
+      "return": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "operation": "hw_params",
+      "entry_s": 13.741657,
+      "return_s": 13.741658,
+      "stream": 1,
+      "pcm_device": 4,
+      "return": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "operation": "hw_params",
+      "entry_s": 13.741659,
+      "return_s": 13.741659,
+      "stream": 1,
+      "pcm_device": 2,
+      "return": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "operation": "hw_free",
+      "entry_s": 13.742036,
+      "return_s": 13.742037,
+      "stream": 1,
+      "pcm_device": 3,
+      "return": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "operation": "hw_free",
+      "entry_s": 13.742039,
+      "return_s": 13.742039,
+      "stream": 1,
+      "pcm_device": 4,
+      "return": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "operation": "hw_params",
+      "entry_s": 14.762801,
+      "return_s": 14.762805,
+      "stream": 1,
+      "pcm_device": 3,
+      "return": 0,
+      "caller": "speakersafetyd"
+    },
+    {
+      "operation": "hw_params",
+      "entry_s": 14.762808,
+      "return_s": 14.762808,
+      "stream": 1,
+      "pcm_device": 4,
+      "return": 0,
+      "caller": "speakersafetyd"
+    },
+    {
+      "operation": "hw_params",
+      "entry_s": 14.762809,
+      "return_s": 14.76281,
+      "stream": 1,
+      "pcm_device": 2,
+      "return": 0,
+      "caller": "speakersafetyd"
+    }
+  ],
+  "events": [
+    {
+      "monotonic_s": 12.847181,
+      "event": "hw_params",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 3,
+      "rate_min": 8000,
+      "rate_max": 8000,
+      "caller": "speakersafetyd"
+    },
+    {
+      "monotonic_s": 12.847187,
+      "event": "hw_params_return",
+      "fetch_fault": false,
+      "ret": 0,
+      "caller": "speakersafetyd"
+    },
+    {
+      "monotonic_s": 12.84719,
+      "event": "hw_params",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 4,
+      "rate_min": 8000,
+      "rate_max": 8000,
+      "caller": "speakersafetyd"
+    },
+    {
+      "monotonic_s": 12.847191,
+      "event": "hw_params_return",
+      "fetch_fault": false,
+      "ret": 0,
+      "caller": "speakersafetyd"
+    },
+    {
+      "monotonic_s": 12.847192,
+      "event": "hw_params",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 2,
+      "rate_min": 8000,
+      "rate_max": 8000,
+      "caller": "speakersafetyd"
+    },
+    {
+      "monotonic_s": 12.847193,
+      "event": "hw_params_return",
+      "fetch_fault": false,
+      "ret": 0,
+      "caller": "speakersafetyd"
+    },
+    {
+      "monotonic_s": 12.847445,
+      "event": "rate",
+      "fetch_fault": false,
+      "rate": 0,
+      "caller": "speakersafetyd"
+    },
+    {
+      "monotonic_s": 12.848804,
+      "event": "trigger",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 3,
+      "cmd": 1,
+      "caller": "speakersafetyd"
+    },
+    {
+      "monotonic_s": 12.848808,
+      "event": "trigger",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 4,
+      "cmd": 1,
+      "caller": "speakersafetyd"
+    },
+    {
+      "monotonic_s": 13.610016,
+      "event": "hw_params",
+      "fetch_fault": false,
+      "stream": 0,
+      "pcm_device": 3,
+      "rate_min": 48000,
+      "rate_max": 48000,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.6114,
+      "event": "hw_params_return",
+      "fetch_fault": false,
+      "ret": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.612224,
+      "event": "hw_params",
+      "fetch_fault": false,
+      "stream": 0,
+      "pcm_device": 4,
+      "rate_min": 48000,
+      "rate_max": 48000,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.613597,
+      "event": "hw_params_return",
+      "fetch_fault": false,
+      "ret": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.614441,
+      "event": "hw_params",
+      "fetch_fault": false,
+      "stream": 0,
+      "pcm_device": 1,
+      "rate_min": 48000,
+      "rate_max": 48000,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.614443,
+      "event": "hw_params_return",
+      "fetch_fault": false,
+      "ret": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.616841,
+      "event": "hw_params",
+      "fetch_fault": false,
+      "stream": 0,
+      "pcm_device": 5,
+      "rate_min": 48000,
+      "rate_max": 48000,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.616842,
+      "event": "hw_params_return",
+      "fetch_fault": false,
+      "ret": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.622214,
+      "event": "hw_params",
+      "fetch_fault": false,
+      "stream": 0,
+      "pcm_device": 0,
+      "rate_min": 48000,
+      "rate_max": 48000,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.622214,
+      "event": "hw_params_return",
+      "fetch_fault": false,
+      "ret": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.626049,
+      "event": "hw_params",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 5,
+      "rate_min": 48000,
+      "rate_max": 48000,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.626049,
+      "event": "hw_params_return",
+      "fetch_fault": false,
+      "ret": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.627118,
+      "event": "hw_params",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 0,
+      "rate_min": 48000,
+      "rate_max": 48000,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.627119,
+      "event": "hw_params_return",
+      "fetch_fault": false,
+      "ret": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.627277,
+      "event": "rate",
+      "fetch_fault": false,
+      "rate": 48000,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.627279,
+      "event": "rate",
+      "fetch_fault": false,
+      "rate": 48000,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.647563,
+      "event": "hw_free",
+      "fetch_fault": false,
+      "stream": 0,
+      "pcm_device": 3,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.647565,
+      "event": "hw_free_return",
+      "fetch_fault": false,
+      "ret": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.668025,
+      "event": "hw_free",
+      "fetch_fault": false,
+      "stream": 0,
+      "pcm_device": 4,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.668029,
+      "event": "hw_free_return",
+      "fetch_fault": false,
+      "ret": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.668807,
+      "event": "hw_free",
+      "fetch_fault": false,
+      "stream": 0,
+      "pcm_device": 5,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.668808,
+      "event": "hw_free_return",
+      "fetch_fault": false,
+      "ret": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.670811,
+      "event": "hw_free",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 5,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.670812,
+      "event": "hw_free_return",
+      "fetch_fault": false,
+      "ret": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.67152,
+      "event": "hw_params",
+      "fetch_fault": false,
+      "stream": 0,
+      "pcm_device": 5,
+      "rate_min": 48000,
+      "rate_max": 48000,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.671523,
+      "event": "hw_params_return",
+      "fetch_fault": false,
+      "ret": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.678821,
+      "event": "hw_params",
+      "fetch_fault": false,
+      "stream": 0,
+      "pcm_device": 0,
+      "rate_min": 48000,
+      "rate_max": 48000,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.678827,
+      "event": "hw_params_return",
+      "fetch_fault": false,
+      "ret": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.683886,
+      "event": "hw_free",
+      "fetch_fault": false,
+      "stream": 0,
+      "pcm_device": 5,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.68389,
+      "event": "hw_free_return",
+      "fetch_fault": false,
+      "ret": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.684275,
+      "event": "hw_params",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 5,
+      "rate_min": 48000,
+      "rate_max": 48000,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.684278,
+      "event": "hw_params_return",
+      "fetch_fault": false,
+      "ret": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.687146,
+      "event": "hw_params",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 0,
+      "rate_min": 48000,
+      "rate_max": 48000,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.687148,
+      "event": "hw_params_return",
+      "fetch_fault": false,
+      "ret": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.69142,
+      "event": "hw_free",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 5,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.691424,
+      "event": "hw_free_return",
+      "fetch_fault": false,
+      "ret": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.691824,
+      "event": "hw_params",
+      "fetch_fault": false,
+      "stream": 0,
+      "pcm_device": 3,
+      "rate_min": 48000,
+      "rate_max": 48000,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.693212,
+      "event": "hw_params_return",
+      "fetch_fault": false,
+      "ret": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.694051,
+      "event": "hw_params",
+      "fetch_fault": false,
+      "stream": 0,
+      "pcm_device": 4,
+      "rate_min": 48000,
+      "rate_max": 48000,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.69544,
+      "event": "hw_params_return",
+      "fetch_fault": false,
+      "ret": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.696273,
+      "event": "hw_params",
+      "fetch_fault": false,
+      "stream": 0,
+      "pcm_device": 1,
+      "rate_min": 48000,
+      "rate_max": 48000,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.696274,
+      "event": "hw_params_return",
+      "fetch_fault": false,
+      "ret": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.719071,
+      "event": "hw_free",
+      "fetch_fault": false,
+      "stream": 0,
+      "pcm_device": 3,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.719085,
+      "event": "hw_free_return",
+      "fetch_fault": false,
+      "ret": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.728931,
+      "event": "read_return",
+      "fetch_fault": false,
+      "frames": 4096,
+      "caller": "speakersafetyd"
+    },
+    {
+      "monotonic_s": 13.728951,
+      "event": "rate",
+      "fetch_fault": false,
+      "rate": 0,
+      "caller": "speakersafetyd"
+    },
+    {
+      "monotonic_s": 13.72906,
+      "event": "trigger",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 3,
+      "cmd": 0,
+      "caller": "speakersafetyd"
+    },
+    {
+      "monotonic_s": 13.729065,
+      "event": "trigger",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 4,
+      "cmd": 0,
+      "caller": "speakersafetyd"
+    },
+    {
+      "monotonic_s": 13.740047,
+      "event": "hw_free",
+      "fetch_fault": false,
+      "stream": 0,
+      "pcm_device": 4,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.740052,
+      "event": "hw_free_return",
+      "fetch_fault": false,
+      "ret": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.74015,
+      "event": "hw_free",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 3,
+      "caller": "speakersafetyd"
+    },
+    {
+      "monotonic_s": 13.740151,
+      "event": "hw_free_return",
+      "fetch_fault": false,
+      "ret": 0,
+      "caller": "speakersafetyd"
+    },
+    {
+      "monotonic_s": 13.740153,
+      "event": "hw_free",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 4,
+      "caller": "speakersafetyd"
+    },
+    {
+      "monotonic_s": 13.740153,
+      "event": "hw_free_return",
+      "fetch_fault": false,
+      "ret": 0,
+      "caller": "speakersafetyd"
+    },
+    {
+      "monotonic_s": 13.741652,
+      "event": "hw_params",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 3,
+      "rate_min": 48000,
+      "rate_max": 48000,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.741655,
+      "event": "hw_params_return",
+      "fetch_fault": false,
+      "ret": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.741657,
+      "event": "hw_params",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 4,
+      "rate_min": 48000,
+      "rate_max": 48000,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.741658,
+      "event": "hw_params_return",
+      "fetch_fault": false,
+      "ret": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.741659,
+      "event": "hw_params",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 2,
+      "rate_min": 48000,
+      "rate_max": 48000,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.741659,
+      "event": "hw_params_return",
+      "fetch_fault": false,
+      "ret": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.742036,
+      "event": "hw_free",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 3,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.742037,
+      "event": "hw_free_return",
+      "fetch_fault": false,
+      "ret": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.742039,
+      "event": "hw_free",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 4,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.742039,
+      "event": "hw_free_return",
+      "fetch_fault": false,
+      "ret": 0,
+      "caller": "wireplumber"
+    },
+    {
+      "monotonic_s": 13.742383,
+      "event": "rate",
+      "fetch_fault": false,
+      "rate": 0,
+      "caller": "wp-client"
+    },
+    {
+      "monotonic_s": 13.742387,
+      "event": "rate",
+      "fetch_fault": false,
+      "rate": 0,
+      "caller": "wp-client"
+    },
+    {
+      "monotonic_s": 14.762801,
+      "event": "hw_params",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 3,
+      "rate_min": 8000,
+      "rate_max": 8000,
+      "caller": "speakersafetyd"
+    },
+    {
+      "monotonic_s": 14.762805,
+      "event": "hw_params_return",
+      "fetch_fault": false,
+      "ret": 0,
+      "caller": "speakersafetyd"
+    },
+    {
+      "monotonic_s": 14.762808,
+      "event": "hw_params",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 4,
+      "rate_min": 8000,
+      "rate_max": 8000,
+      "caller": "speakersafetyd"
+    },
+    {
+      "monotonic_s": 14.762808,
+      "event": "hw_params_return",
+      "fetch_fault": false,
+      "ret": 0,
+      "caller": "speakersafetyd"
+    },
+    {
+      "monotonic_s": 14.762809,
+      "event": "hw_params",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 2,
+      "rate_min": 8000,
+      "rate_max": 8000,
+      "caller": "speakersafetyd"
+    },
+    {
+      "monotonic_s": 14.76281,
+      "event": "hw_params_return",
+      "fetch_fault": false,
+      "ret": 0,
+      "caller": "speakersafetyd"
+    },
+    {
+      "monotonic_s": 14.763053,
+      "event": "rate",
+      "fetch_fault": false,
+      "rate": 0,
+      "caller": "speakersafetyd"
+    },
+    {
+      "monotonic_s": 14.764602,
+      "event": "trigger",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 3,
+      "cmd": 1,
+      "caller": "speakersafetyd"
+    },
+    {
+      "monotonic_s": 14.764605,
+      "event": "trigger",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 4,
+      "cmd": 1,
+      "caller": "speakersafetyd"
+    }
+  ],
+  "findings": [
+    "23 hw_params and 12 hw_free calls matched same-thread entry/return stacks; all returned zero",
+    "WirePlumber successfully configured 48 kHz playback and freed speaker backend device 3 before the first daemon sense read returned",
+    "Daemon sense configuration initially succeeded at 8000 Hz; speaker control initially read zero",
+    "WirePlumber read a 48000 Hz speaker control during the interval; daemon later read zero after a 4096-frame sense return and panicked",
+    "No playback trigger occurred before panic in covered interval",
+    "Normal automatic daemon restart recovered; startup unit disabled and probes removed"
+  ],
+  "interpretation": "This identifies WirePlumber as the caller in this captured boot and confirms successful configuration/free calls. Profile probing is consistent with the documented ACP behavior but not proven by a userspace call stack. It does not assign fault ownership or establish a safe fix.",
+  "limitations": [
+    "Trace notify readiness adds startup ordering delay",
+    "Sense PCM negotiated 8000 Hz does not establish the physical rate of every sample while shared backend rates change",
+    "No audio contents, energy output or calibration measured",
+    "No model, control, graph or service-order workaround installed"
+  ],
+  "documentation_source": "https://pipewire.pages.freedesktop.org/wireplumber/daemon/configuration/alsa.html"
+}
