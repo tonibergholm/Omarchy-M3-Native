@@ -1,0 +1,136 @@
+{
+  "date": "2026-10-20",
+  "board": "J613 / T8122",
+  "running_kernel_unchanged": "7.1.12-2-20261017.20-sep-ARCH",
+  "upstream_pr": "https://github.com/omacom/linux-aurora/pull/157",
+  "head": "9d3aeb24cb864d5f99a7172e9004884bf3c1a9a0",
+  "sources": [
+    {
+      "path": "drivers/gpu/drm/apple/parser.c",
+      "commit": "9d3aeb24cb864d5f99a7172e9004884bf3c1a9a0",
+      "blob": "bb8a49378fb005e055d688846a00bc6d44ba5f02"
+    },
+    {
+      "path": "drivers/gpu/drm/apple/parser.h",
+      "commit": "9d3aeb24cb864d5f99a7172e9004884bf3c1a9a0",
+      "blob": "0557cc09e63e449213f2815806a163a7c0632aea"
+    }
+  ],
+  "reference_parser_blob": "2dfd85a19be3cf1c84d026a2f8a49578bc8c0cd4",
+  "finding": "An invalid higher-ranked external RGB candidate clears a valid slot and advances best_sdr_rank despite fill_color_mode rejecting it",
+  "three_record_example": [
+    {
+      "id": 71,
+      "colorimetry": "BT709",
+      "depth": 8,
+      "range": 0,
+      "score": 100
+    },
+    {
+      "id": 68,
+      "colorimetry": "BT2020_RGB",
+      "depth": 10,
+      "range": 0,
+      "score": 447999
+    },
+    {
+      "id": 99,
+      "colorimetry": "sRGB",
+      "depth": 7,
+      "range": 0,
+      "score": 500000
+    }
+  ],
+  "example_outcome": {
+    "upstream": "sdr_rgb.score=-1; final slot-priority fallback picks 68 (BT2020_RGB)",
+    "fixed": "valid BT709 slot retained; selects 71"
+  },
+  "test_scope": "Extracted actual fill_color_mode, colorimetry ranking, SDR slot selection and final slot-priority selection; synthetic decoded records, not serialized firmware parsing or hardware",
+  "cases_per_variant": 9,
+  "host_results": [
+    {
+      "variant": "reference",
+      "exit_code": 0,
+      "stdout": "invalid_field=0 invalid_after_valid=0 id=69 score=440999 pass=1\ninvalid_field=0 invalid_after_valid=1 id=69 score=440999 pass=1\ninvalid_field=1 invalid_after_valid=0 id=69 score=440999 pass=1\ninvalid_field=1 invalid_after_valid=1 id=69 score=440999 pass=1\ninvalid_field=2 invalid_after_valid=0 id=69 score=440999 pass=1\ninvalid_field=2 invalid_after_valid=1 id=69 score=440999 pass=1\nvalid_preference id=68 pass=1\npreference_disabled id=68 pass=1\nmalformed_preferred_overall id=68 pass=1\nTOTAL=9 FAILED=0\n",
+      "stderr": "",
+      "compiler_stderr": ""
+    },
+    {
+      "variant": "upstream",
+      "exit_code": 1,
+      "stdout": "invalid_field=0 invalid_after_valid=0 id=0 score=-1 pass=0\ninvalid_field=0 invalid_after_valid=1 id=69 score=-1 pass=0\ninvalid_field=1 invalid_after_valid=0 id=0 score=-1 pass=0\ninvalid_field=1 invalid_after_valid=1 id=69 score=-1 pass=0\ninvalid_field=2 invalid_after_valid=0 id=0 score=-1 pass=0\ninvalid_field=2 invalid_after_valid=1 id=69 score=-1 pass=0\nvalid_preference id=70 pass=1\npreference_disabled id=68 pass=1\nmalformed_preferred_overall id=68 pass=0\nTOTAL=9 FAILED=7\n",
+      "stderr": "",
+      "compiler_stderr": ""
+    },
+    {
+      "variant": "fixed",
+      "exit_code": 0,
+      "stdout": "invalid_field=0 invalid_after_valid=0 id=69 score=440999 pass=1\ninvalid_field=0 invalid_after_valid=1 id=69 score=440999 pass=1\ninvalid_field=1 invalid_after_valid=0 id=69 score=440999 pass=1\ninvalid_field=1 invalid_after_valid=1 id=69 score=440999 pass=1\ninvalid_field=2 invalid_after_valid=0 id=69 score=440999 pass=1\ninvalid_field=2 invalid_after_valid=1 id=69 score=440999 pass=1\nvalid_preference id=70 pass=1\npreference_disabled id=68 pass=1\nmalformed_preferred_overall id=71 pass=1\nTOTAL=9 FAILED=0\n",
+      "stderr": "",
+      "compiler_stderr": ""
+    }
+  ],
+  "sanitizers": [
+    "AddressSanitizer",
+    "UndefinedBehaviorSanitizer"
+  ],
+  "reproducer": "tools/test-colorimetry-selection.py",
+  "patch": "patches/dcp-colorimetry-valid-replacement.patch",
+  "patch_sha256": "4a49f3f610e669e20c624384edb685d4d730b0878c8636d3ad6e36e0b9bdcc2a",
+  "arm64_preflight": {
+    "base": "c46d7dcdb8712ea9aeb0ce47b439ffae76371e55",
+    "sdk": "7.1.12-2-20261017.20-sep-ARCH",
+    "compiler": "LLVM 22; one efficiency-core job; W=1",
+    "four_object_reference_attempt": [
+      {
+        "compiler_affinity_cpu": 1,
+        "compiler_cluster": "2748 MHz maximum efficiency policy",
+        "variant": "reference",
+        "exit_code": -9,
+        "stop_reason": "75 C guard",
+        "peak_mC": 75875,
+        "elapsed_s": 6.583,
+        "target": "parser.o, plane.o, dcp.o, iomfb_v14_7_tpl.o; no module link/install/load"
+      }
+    ],
+    "reference_parser_target_recheck": [
+      {
+        "compiler_affinity_cpu": 1,
+        "compiler_cluster": "2748 MHz maximum efficiency policy",
+        "variant": "reference",
+        "exit_code": 0,
+        "stop_reason": null,
+        "peak_mC": 62656,
+        "elapsed_s": 0.937,
+        "target": "parser.o only; no module link/install/load"
+      }
+    ],
+    "fixed_backport_parser_compile": [
+      {
+        "compiler_affinity_cpu": 1,
+        "compiler_cluster": "2748 MHz maximum efficiency policy",
+        "variant": "candidate",
+        "exit_code": 0,
+        "stop_reason": null,
+        "peak_mC": 58890,
+        "elapsed_s": 2.803,
+        "target": "parser.o only; no module link/install/load"
+      }
+    ],
+    "limitations": [
+      "Reference parser/plane/dcp objects were produced before the larger reference build stopped in its template-object step; no complete four-object pass",
+      "The subsequent reference parser-only target was already up to date",
+      "Candidate parser-only compilation passed; the complete backport/module is not build-qualified",
+      "PR patch did not apply cleanly to .20; private adaptation required context placement correction before compilation"
+    ]
+  },
+  "installed": false,
+  "native_color_tested": false,
+  "hdr_support_added": false,
+  "limitations": [
+    "Host tests omit serialized record decoding, H17P-specific selection, real firmware replies and display output",
+    "No malformed firmware record was observed on this ARZOPA; this is a synthetic robustness regression",
+    "No colorimetric calibration or 10-bit/HDR output is qualified",
+    "No thermal or speaker safety policy changed"
+  ]
+}

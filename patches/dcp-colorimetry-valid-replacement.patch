@@ -1,0 +1,30 @@
+Subject: drm/apple: commit external RGB rank only after validating its mode
+
+Against PR157 head 9d3aeb24cb864d5f99a7172e9004884bf3c1a9a0.
+An invalid higher-tier entry currently clears a valid RGB score and advances
+best_sdr_rank even when fill_color_mode rejects the replacement. Validate
+into a temporary slot and commit both the slot and its rank on success.
+
+Original parser.c: GPL-2.0-only OR MIT; Copyright 2021 Alyssa Rosenzweig.
+Host selection regression checked; no native display acceptance claimed.
+
+--- a/drivers/gpu/drm/apple/parser.c
++++ b/drivers/gpu/drm/apple/parser.c
+@@ -710,10 +710,14 @@
+ 					external_colorimetry_rank(&cmode) : 0;
+ 
+ 				if (rank >= best_sdr_rank) {
++					struct dcp_color_mode selected = out->sdr_rgb;
++
+ 					if (rank > best_sdr_rank)
+-						out->sdr_rgb.score = -1;
+-					fill_color_mode(&out->sdr_rgb, &cmode);
+-					best_sdr_rank = rank;
++						selected.score = -1;
++					if (!fill_color_mode(&selected, &cmode)) {
++						out->sdr_rgb = selected;
++						best_sdr_rank = rank;
++					}
+ 				}
+ 			} else if (cmode.pixel_encoding == DCP_COLOR_FORMAT_YCBCR444 &&
+ 				cmode.depth <= 10)
