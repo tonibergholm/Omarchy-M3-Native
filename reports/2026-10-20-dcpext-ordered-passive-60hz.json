@@ -1,0 +1,73 @@
+{
+  "planned_duration_s": 300,
+  "elapsed_s": 300.404,
+  "stop_reason": "completed",
+  "mode_or_configuration_changes_requested": false,
+  "added_workload": false,
+  "date": "2026-10-20",
+  "board": "J613 / T8122",
+  "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+  "candidate_sha256": "ff1cc419f93244f27612a20b33b5fde22fbc1850771f487f8898279b60d24c53",
+  "scope": "After the short attached-display s2idle cycle; rear direct USB-C ARZOPA, lid open",
+  "sample_interval_requested_s": 5,
+  "sample_count": 60,
+  "all_samples_both_outputs_enabled_on_at_60Hz": true,
+  "all_samples_DRM_external_connected": true,
+  "first_sample": {
+    "elapsed_s": 0.004,
+    "monitors": [
+      {
+        "name": "eDP-1",
+        "width": 2560,
+        "height": 1664,
+        "refreshRate": 60.0,
+        "disabled": false,
+        "dpmsStatus": true
+      },
+      {
+        "name": "DP-1",
+        "width": 1920,
+        "height": 1080,
+        "refreshRate": 60.0,
+        "disabled": false,
+        "dpmsStatus": true
+      }
+    ],
+    "DRM_DP_status": {
+      "card2-DP-2": "disconnected",
+      "card2-DP-1": "connected"
+    }
+  },
+  "last_sample": {
+    "elapsed_s": 295.403,
+    "monitors": [
+      {
+        "name": "eDP-1",
+        "width": 2560,
+        "height": 1664,
+        "refreshRate": 60.0,
+        "disabled": false,
+        "dpmsStatus": true
+      },
+      {
+        "name": "DP-1",
+        "width": 1920,
+        "height": 1080,
+        "refreshRate": 60.0,
+        "disabled": false,
+        "dpmsStatus": true
+      }
+    ],
+    "DRM_DP_status": {
+      "card2-DP-2": "disconnected",
+      "card2-DP-1": "connected"
+    }
+  },
+  "interpretation": "No sampled mode/power/link loss during this five-minute passive desktop observation.",
+  "limitations": [
+    "Five-second polling cannot exclude a shorter event between samples",
+    "No continuous visual confirmation, motion workload or refresh calibration",
+    "Does not resolve earlier 144 Hz dropout or qualify sustained 144 Hz",
+    "No battery-power or long-sleep qualification"
+  ]
+}

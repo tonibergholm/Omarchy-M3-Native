@@ -140,6 +140,8 @@ A subsequent [DPMS cycle](../reports/2026-10-20-dcpext-ordered-dpms.json) on thi
 
 One subsequent [normal attached-display s2idle cycle](../reports/2026-10-20-dcpext-ordered-attached-sleep.json) passed on the rear port with lid open: suspend success 0→1, failures unchanged at zero, approximately 20.657 seconds clock-suspended. The owner confirmed both pictures correct and Touch ID unlock. GPU readbacks passed; brightness stayed 265/77, all six CPU-zone trips and both-cluster bindings remained, and protection stayed active with NRestarts=1. No guard was bypassed. This adds one short cycle on the corrected-order candidate, not longer/repeated sleep or battery-drain qualification.
 
+A following [five-minute passive 60 Hz observation](../reports/2026-10-20-dcpext-ordered-passive-60hz.json) completed in 300.404 seconds. All 60 five-second samples retained both outputs enabled/on at 60 Hz and an external DRM connection. No mode/configuration changes or workload were requested. This establishes sampled desktop continuity for that interval, not continuous visual/refresh validation, events between samples or 144 Hz reliability.
+
 ## ARZOPA advertised audio/HDR versus Linux interfaces
 
 A [read-only capability/source audit](../reports/2026-10-20-arzopa-audio-hdr-capability-audit.json), cross-checked with `edid-decode`, found valid CTA advertisement of stereo LPCM (32/44.1/48 kHz, 16/20/24-bit), front-left/right speakers, PQ/ST2084, static metadata type 1 and BT.2020 RGB/YCC. This is advertised input capability, not measured HDR quality, luminance, bit depth or audible playback.
