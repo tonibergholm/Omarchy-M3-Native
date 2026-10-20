@@ -1,0 +1,86 @@
+{
+  "next_eligible_20_boot_armed": true,
+  "active_now": false,
+  "duration_s": 60,
+  "protection_restart_count": 1,
+  "reboot_triggered": false,
+  "source_hashes": {
+    "capture.py": "8e2f815611a7372f7c187ec5853442d183ca8e9fef2144a94343ab40ec74bb54",
+    "cleanup.py": "9f33169ba0a51d7635435d2211cea79d4225b30b83bb20207ff934b2f06d58bc",
+    "offsets.json": "b7a95d1f184013f2e86b391e86c52c8d249cf7e0fb981087d631201067b077c2"
+  },
+  "warm_validation": {
+    "paired_calls": [
+      {
+        "operation": "hw_params",
+        "stream": 0,
+        "pcm_device": 5,
+        "return": 0,
+        "same_thread": true,
+        "caller_role": "PipeWire"
+      },
+      {
+        "operation": "hw_params",
+        "stream": 0,
+        "pcm_device": 0,
+        "return": 0,
+        "same_thread": true,
+        "caller_role": "PipeWire"
+      },
+      {
+        "operation": "hw_free",
+        "stream": 0,
+        "pcm_device": 5,
+        "return": 0,
+        "same_thread": true,
+        "caller_role": "PipeWire"
+      }
+    ],
+    "kernel_probe_profile": [
+      {
+        "event": "hw_params",
+        "hits": 2,
+        "missed": 0
+      },
+      {
+        "event": "hw_free",
+        "hits": 1,
+        "missed": 0
+      },
+      {
+        "event": "trigger",
+        "hits": 2,
+        "missed": 0
+      },
+      {
+        "event": "hw_params_return",
+        "hits": 2,
+        "missed": 0
+      },
+      {
+        "event": "hw_free_return",
+        "hits": 1,
+        "missed": 0
+      }
+    ],
+    "events": 359,
+    "lost_events": 0,
+    "fetch_faults": 0,
+    "independent_cleanup": true,
+    "protection_state": "ActiveState=active\nNRestarts=1\n"
+  },
+  "date": "2026-10-20",
+  "board": "J613 / T8122",
+  "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+  "status": "Armed; startup evidence pending",
+  "audio_samples_recorded": false,
+  "control_writes": false,
+  "scope": "Temporary read-only trace instrumentation; private caller/TID values are not included in this report",
+  "harness_failure_retained": "Previous warm run captured hw_free and return but missed-profile parser expected a group prefix; assertion failed after successful cleanup. Corrected parser matches unique event names and refuses pre-existing name conflicts.",
+  "limitations": [
+    "Warm validation is not startup reproduction",
+    "Notify readiness perturbs startup ordering; kernel probes arm after matching module BTF becomes available",
+    "Pair returns by same-thread entry/return stack; a missing entry or missed return must invalidate that pairing",
+    "No speaker protection, graph configuration, model or safety limit changes"
+  ]
+}
