@@ -2,7 +2,7 @@
   "date": "2026-10-20",
   "board": "J613 / T8122",
   "upstream_head": "9d3aeb24cb864d5f99a7172e9004884bf3c1a9a0",
-  "reference_commit": "c46d7dcdb8712ea9aeb0ce47b439ffae76371e55",
+  "reference_commit": "44d5afc79da79bb3b17a3ee7494cb8d07a1f1aaa",
   "fixed_parser_blob": "8791e63a140fe0db0e7cc700d36321e7aaf3702e",
   "source_verification": "Input git-blob hashes checked before extracting or compiling",
   "scope": "Unchanged production parser prefix from DCP_PARSE_HEADER through parse_mode(), compiled in userspace with allocation/error-pointer/DRM platform stubs; actual serialized synthetic dictionary input, parse() header validation, parse_mode() and timing clock computation",
@@ -53,7 +53,14 @@
       "gcc",
       "clang"
     ],
-    "status": "not yet run"
+    "status": "updated exact-parent comparison awaiting run",
+    "prior_run": {
+      "url": "https://github.com/tonibergholm/Omarchy-M3-Native/actions/runs/39473076874",
+      "head": "7080122cd746846df03d219f932364dfb17ec7a6",
+      "gcc": "success",
+      "clang": "failure",
+      "reason": "Serialized .20 reference performs a pre-existing unaligned s64 load; Clang UBSan caught it. PR parent already uses memcpy. Serialized reference changed to exact PR parent; all sanitizer checks remain enabled."
+    }
   },
   "installed": false,
   "limitations": [
@@ -61,5 +68,6 @@
     "One synthetic H17P ranking fixture is not general H17P qualification",
     "The DRM wrapper supplies a reduced display-mode structure and stub naming/trace operations; kernel ABI and logging are not tested",
     "No native color, 10-bit or HDR output qualification; no malformed ARZOPA firmware record observed"
-  ]
+  ],
+  "reference_parser_blob": "0de67aa8fe710e98b9471b188d459fdba3ca8063"
 }

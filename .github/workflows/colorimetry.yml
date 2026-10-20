@@ -38,6 +38,7 @@ jobs:
           root = Path(os.environ['RUNNER_TEMP']) / 'colorimetry-source'
           inputs = {
               'reference': ('c46d7dcdb8712ea9aeb0ce47b439ffae76371e55', ['parser.c']),
+              'parser-base': ('44d5afc79da79bb3b17a3ee7494cb8d07a1f1aaa', ['parser.c']),
               'candidate': ('9d3aeb24cb864d5f99a7172e9004884bf3c1a9a0', ['parser.c', 'parser.h']),
           }
           for variant, (revision, names) in inputs.items():
@@ -57,7 +58,7 @@ jobs:
             --candidate-dir "$RUNNER_TEMP/colorimetry-source/candidate" \
             --output "$RUNNER_TEMP/colorimetry-selection"
           python3 tools/test-colorimetry-parser.py \
-            --reference-dir "$RUNNER_TEMP/colorimetry-source/reference" \
+            --reference-dir "$RUNNER_TEMP/colorimetry-source/parser-base" \
             --candidate-dir "$RUNNER_TEMP/colorimetry-source/candidate" \
             --fixed-parser "$RUNNER_TEMP/colorimetry-selection/upstream-parser-fixed.c" \
             --output "$RUNNER_TEMP/colorimetry-parser"
