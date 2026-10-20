@@ -315,5 +315,37 @@
     "Display enumeration does not prove correct pictures; operator confirmation is pending",
     "Three preceding automated launch attempts were refused before suspend; they are neither resume passes nor kernel suspend failures",
     "No new Bluetooth recovery driver, configuration change or guard bypass was applied"
-  ]
+  ],
+  "post_resume_gpu_check": {
+    "command": "timeout 15s /opt/mesa-m3/bin/mesa-m3-probe",
+    "exit_code": 0,
+    "result": "pass",
+    "gl_renderer": "zink Vulkan 1.4(Apple M3 (G15G C0) (MESA_HONEYKRISP))",
+    "gl_version": "OpenGL ES 3.2 Mesa 26.1.4",
+    "gl_readback": {
+      "left_rgba": [
+        255,
+        0,
+        0,
+        255
+      ],
+      "right_rgba": [
+        0,
+        0,
+        255,
+        255
+      ],
+      "glerror": "0x0",
+      "result": "pass"
+    },
+    "gl_swap": "pass",
+    "vulkan_device": "Apple M3 (G15G C0)",
+    "vulkan_driver": "Honeykrisp Mesa 26.1.4",
+    "vulkan_job": {
+      "words": 65536,
+      "wrong": 0,
+      "result": "pass"
+    },
+    "scope": "Small native GPU rendering/readback and compute check after resume, not a stress test or visual confirmation of both outputs"
+  }
 }
