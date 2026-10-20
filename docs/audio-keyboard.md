@@ -63,3 +63,11 @@ o.bind("SUPER + F6", "Keyboard brightness up", "omarchy-brightness-keyboard up",
 
 Hyprland reload and configuration-error checks passed. Back up personal bindings
 and check for conflicts before applying the same shortcuts elsewhere.
+
+## Event trace of the startup panic, 20 October
+
+A one-boot trace captured the panic with both userspace and kernel probes armed before daemon startup, 49 selected events, zero buffer losses and no fetch faults. The daemon read rate zero at 11.968814 s. Other ALSA reads saw 48000 at 12.816313/12.816314 s during playback configuration; playback `hw_free` entries followed, including device 3 at 12.902241 s. At 12.911171 s the daemon's sense read returned 4096 frames; at 12.911198 s it read rate zero again; the panic journal timestamp was 12.911462 s. The initial and post-read zero values therefore missed a valid 48 kHz control interval. This strengthens the missed-transient-rate explanation that 100 ms polling could not establish.
+
+No playback trigger was observed in the covered interval, so this does not establish audible playback or unknown-energy output. Kernel lifecycle probes capture entry arguments, not return success. The trace records no audio samples. It does not justify substituting the negotiated sense rate or retaining an assumed rate as a fix. Protection restarted normally once; no restart was requested by the test.
+
+The one-boot unit adds a notify ordering delay, so the trace is instrumented evidence rather than unchanged boot timing. It stopped after 60 seconds, removed its probes/instance, consumed its arm marker and disabled itself; cleanup was independently checked. See the [selected event trace](../reports/2026-10-20-audio-startup-event-trace.json).

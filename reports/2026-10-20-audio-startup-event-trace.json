@@ -1,0 +1,508 @@
+{
+  "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+  "duration_requested_s": 60.0,
+  "timeline": [
+    {
+      "monotonic_s": 11.947023596,
+      "stage": "userspace_probes_enabled"
+    },
+    {
+      "monotonic_s": 11.951647101,
+      "stage": "kernel_lifecycle_probes_enabled"
+    },
+    {
+      "monotonic_s": 71.976735717,
+      "stage": "capture_stopped"
+    }
+  ],
+  "events": [
+    {
+      "monotonic_s": 11.968591,
+      "event": "hw_params",
+      "caller": "speakersafetyd",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 3,
+      "rate_min": 8000,
+      "rate_max": 8000
+    },
+    {
+      "monotonic_s": 11.968595,
+      "event": "hw_params",
+      "caller": "speakersafetyd",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 4,
+      "rate_min": 8000,
+      "rate_max": 8000
+    },
+    {
+      "monotonic_s": 11.968596,
+      "event": "hw_params",
+      "caller": "speakersafetyd",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 2,
+      "rate_min": 8000,
+      "rate_max": 8000
+    },
+    {
+      "monotonic_s": 11.968814,
+      "event": "rate",
+      "caller": "speakersafetyd",
+      "fetch_fault": false,
+      "rate": 0
+    },
+    {
+      "monotonic_s": 11.970115,
+      "event": "trigger",
+      "caller": "speakersafetyd",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 3,
+      "cmd": 1
+    },
+    {
+      "monotonic_s": 11.970116,
+      "event": "trigger",
+      "caller": "speakersafetyd",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 4,
+      "cmd": 1
+    },
+    {
+      "monotonic_s": 12.7988,
+      "event": "hw_params",
+      "caller": "other",
+      "fetch_fault": false,
+      "stream": 0,
+      "pcm_device": 3,
+      "rate_min": 48000,
+      "rate_max": 48000
+    },
+    {
+      "monotonic_s": 12.801022,
+      "event": "hw_params",
+      "caller": "other",
+      "fetch_fault": false,
+      "stream": 0,
+      "pcm_device": 4,
+      "rate_min": 48000,
+      "rate_max": 48000
+    },
+    {
+      "monotonic_s": 12.80324,
+      "event": "hw_params",
+      "caller": "other",
+      "fetch_fault": false,
+      "stream": 0,
+      "pcm_device": 1,
+      "rate_min": 48000,
+      "rate_max": 48000
+    },
+    {
+      "monotonic_s": 12.805748,
+      "event": "hw_params",
+      "caller": "other",
+      "fetch_fault": false,
+      "stream": 0,
+      "pcm_device": 5,
+      "rate_min": 48000,
+      "rate_max": 48000
+    },
+    {
+      "monotonic_s": 12.81112,
+      "event": "hw_params",
+      "caller": "other",
+      "fetch_fault": false,
+      "stream": 0,
+      "pcm_device": 0,
+      "rate_min": 48000,
+      "rate_max": 48000
+    },
+    {
+      "monotonic_s": 12.815062,
+      "event": "hw_params",
+      "caller": "other",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 5,
+      "rate_min": 48000,
+      "rate_max": 48000
+    },
+    {
+      "monotonic_s": 12.816137,
+      "event": "hw_params",
+      "caller": "other",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 0,
+      "rate_min": 48000,
+      "rate_max": 48000
+    },
+    {
+      "monotonic_s": 12.816313,
+      "event": "rate",
+      "caller": "other",
+      "fetch_fault": false,
+      "rate": 48000
+    },
+    {
+      "monotonic_s": 12.816314,
+      "event": "rate",
+      "caller": "other",
+      "fetch_fault": false,
+      "rate": 48000
+    },
+    {
+      "monotonic_s": 12.836832,
+      "event": "hw_free",
+      "caller": "other",
+      "fetch_fault": false,
+      "stream": 0,
+      "pcm_device": 3
+    },
+    {
+      "monotonic_s": 12.857042,
+      "event": "hw_free",
+      "caller": "other",
+      "fetch_fault": false,
+      "stream": 0,
+      "pcm_device": 4
+    },
+    {
+      "monotonic_s": 12.857796,
+      "event": "hw_free",
+      "caller": "other",
+      "fetch_fault": false,
+      "stream": 0,
+      "pcm_device": 5
+    },
+    {
+      "monotonic_s": 12.85926,
+      "event": "hw_free",
+      "caller": "other",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 5
+    },
+    {
+      "monotonic_s": 12.859699,
+      "event": "hw_params",
+      "caller": "other",
+      "fetch_fault": false,
+      "stream": 0,
+      "pcm_device": 5,
+      "rate_min": 48000,
+      "rate_max": 48000
+    },
+    {
+      "monotonic_s": 12.862576,
+      "event": "hw_params",
+      "caller": "other",
+      "fetch_fault": false,
+      "stream": 0,
+      "pcm_device": 0,
+      "rate_min": 48000,
+      "rate_max": 48000
+    },
+    {
+      "monotonic_s": 12.867159,
+      "event": "hw_free",
+      "caller": "other",
+      "fetch_fault": false,
+      "stream": 0,
+      "pcm_device": 5
+    },
+    {
+      "monotonic_s": 12.867328,
+      "event": "hw_params",
+      "caller": "other",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 5,
+      "rate_min": 48000,
+      "rate_max": 48000
+    },
+    {
+      "monotonic_s": 12.87018,
+      "event": "hw_params",
+      "caller": "other",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 0,
+      "rate_min": 48000,
+      "rate_max": 48000
+    },
+    {
+      "monotonic_s": 12.874139,
+      "event": "hw_free",
+      "caller": "other",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 5
+    },
+    {
+      "monotonic_s": 12.874272,
+      "event": "hw_params",
+      "caller": "other",
+      "fetch_fault": false,
+      "stream": 0,
+      "pcm_device": 3,
+      "rate_min": 48000,
+      "rate_max": 48000
+    },
+    {
+      "monotonic_s": 12.876507,
+      "event": "hw_params",
+      "caller": "other",
+      "fetch_fault": false,
+      "stream": 0,
+      "pcm_device": 4,
+      "rate_min": 48000,
+      "rate_max": 48000
+    },
+    {
+      "monotonic_s": 12.878741,
+      "event": "hw_params",
+      "caller": "other",
+      "fetch_fault": false,
+      "stream": 0,
+      "pcm_device": 1,
+      "rate_min": 48000,
+      "rate_max": 48000
+    },
+    {
+      "monotonic_s": 12.902241,
+      "event": "hw_free",
+      "caller": "other",
+      "fetch_fault": false,
+      "stream": 0,
+      "pcm_device": 3
+    },
+    {
+      "monotonic_s": 12.911171,
+      "event": "read_return",
+      "caller": "speakersafetyd",
+      "fetch_fault": false,
+      "frames": 4096
+    },
+    {
+      "monotonic_s": 12.911198,
+      "event": "rate",
+      "caller": "speakersafetyd",
+      "fetch_fault": false,
+      "rate": 0
+    },
+    {
+      "monotonic_s": 12.911328,
+      "event": "trigger",
+      "caller": "speakersafetyd",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 3,
+      "cmd": 0
+    },
+    {
+      "monotonic_s": 12.911334,
+      "event": "trigger",
+      "caller": "speakersafetyd",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 4,
+      "cmd": 0
+    },
+    {
+      "monotonic_s": 12.923483,
+      "event": "hw_free",
+      "caller": "other",
+      "fetch_fault": false,
+      "stream": 0,
+      "pcm_device": 4
+    },
+    {
+      "monotonic_s": 12.923736,
+      "event": "hw_free",
+      "caller": "speakersafetyd",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 3
+    },
+    {
+      "monotonic_s": 12.923741,
+      "event": "hw_free",
+      "caller": "speakersafetyd",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 4
+    },
+    {
+      "monotonic_s": 12.926343,
+      "event": "hw_params",
+      "caller": "other",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 3,
+      "rate_min": 48000,
+      "rate_max": 48000
+    },
+    {
+      "monotonic_s": 12.926347,
+      "event": "hw_params",
+      "caller": "other",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 4,
+      "rate_min": 48000,
+      "rate_max": 48000
+    },
+    {
+      "monotonic_s": 12.926348,
+      "event": "hw_params",
+      "caller": "other",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 2,
+      "rate_min": 48000,
+      "rate_max": 48000
+    },
+    {
+      "monotonic_s": 12.92712,
+      "event": "hw_free",
+      "caller": "other",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 3
+    },
+    {
+      "monotonic_s": 12.927123,
+      "event": "hw_free",
+      "caller": "other",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 4
+    },
+    {
+      "monotonic_s": 12.930043,
+      "event": "rate",
+      "caller": "other",
+      "fetch_fault": false,
+      "rate": 0
+    },
+    {
+      "monotonic_s": 12.930049,
+      "event": "rate",
+      "caller": "other",
+      "fetch_fault": false,
+      "rate": 0
+    },
+    {
+      "monotonic_s": 13.981103,
+      "event": "hw_params",
+      "caller": "speakersafetyd",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 3,
+      "rate_min": 8000,
+      "rate_max": 8000
+    },
+    {
+      "monotonic_s": 13.981109,
+      "event": "hw_params",
+      "caller": "speakersafetyd",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 4,
+      "rate_min": 8000,
+      "rate_max": 8000
+    },
+    {
+      "monotonic_s": 13.98111,
+      "event": "hw_params",
+      "caller": "speakersafetyd",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 2,
+      "rate_min": 8000,
+      "rate_max": 8000
+    },
+    {
+      "monotonic_s": 13.981366,
+      "event": "rate",
+      "caller": "speakersafetyd",
+      "fetch_fault": false,
+      "rate": 0
+    },
+    {
+      "monotonic_s": 13.983012,
+      "event": "trigger",
+      "caller": "speakersafetyd",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 3,
+      "cmd": 1
+    },
+    {
+      "monotonic_s": 13.983029,
+      "event": "trigger",
+      "caller": "speakersafetyd",
+      "fetch_fault": false,
+      "stream": 1,
+      "pcm_device": 4,
+      "cmd": 1
+    }
+  ],
+  "kernel_lifecycle_probes_armed": true,
+  "lost_events": 0,
+  "all_probes_removed": true,
+  "instance_removed": true,
+  "audio_samples_recorded": false,
+  "control_writes": false,
+  "daemon_restart_requested": false,
+  "instrumentation_limit": "Userspace probes precede daemon when started by notify unit; this adds a small ordering delay. Kernel probes arm only after matching module BTF appears, so earlier kernel events may be missed. No fault reproduction means no startup acceptance.",
+  "selected_daemon_journal": [
+    {
+      "monotonic_s": 11.966807,
+      "message": "INFO  [speakersafetyd] Starting up"
+    },
+    {
+      "monotonic_s": 11.968225,
+      "message": "INFO  [speakersafetyd] Startup mode: Cold boot"
+    },
+    {
+      "monotonic_s": 12.911462,
+      "message": "Invalid sample rate"
+    },
+    {
+      "monotonic_s": 12.9302,
+      "message": "speakersafetyd.service: Main process exited, code=exited, status=101/n/a"
+    },
+    {
+      "monotonic_s": 13.979339,
+      "message": "INFO  [speakersafetyd] Starting up"
+    },
+    {
+      "monotonic_s": 13.980612,
+      "message": "INFO  [speakersafetyd] Startup mode: Cold boot"
+    }
+  ],
+  "one_boot_unit_disabled": true,
+  "armed_marker_consumed": true,
+  "cleanup_independently_verified": true,
+  "date": "2026-10-20",
+  "board": "J613 / T8122",
+  "daemon_package": "speakersafetyd 2.0.1-1",
+  "interpretation": {
+    "observed_sequence": "Initial daemon rate=0; intervening other-caller rate reads=48000 during playback configuration; playback hw_free; daemon readi returns 4096; daemon rate=0; Invalid sample rate panic.",
+    "stronger_than_prior_polling": "The valid 48 kHz control interval occurred between the daemon reads. Initial polling could not exclude this; event tracing directly captured it.",
+    "playback_trigger_events": 0,
+    "limits": "No playback-trigger event was observed in the covered interval. Do not infer audible output or unknown-energy playback. hw_params/hw_free probes are entry events, not success-return probes. No sample contents were recorded; no exclusive kernel-component cause or safe fix is established.",
+    "safety": "No model rate was assumed, no safety limits changed, and no daemon restart was requested; its normal failure restart occurred."
+  },
+  "key_intervals_ms": {
+    "read_return_to_zero_control_read": 0.027,
+    "zero_control_read_to_journal_panic": 0.264,
+    "last_playback_hw_free_entry_to_read_return": 8.93
+  }
+}
