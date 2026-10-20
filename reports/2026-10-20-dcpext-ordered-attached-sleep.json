@@ -1,0 +1,236 @@
+{
+  "before": {
+    "monotonic_s": 585.805211606,
+    "boottime_s": 585.805213648,
+    "suspend_stats": {
+      "success": 0,
+      "fail": 0,
+      "failed_prepare": 0
+    },
+    "zones": [
+      {
+        "type": "cpu-e1-thermal",
+        "temp_mC": 51291,
+        "trips_mC": [
+          58000,
+          95000,
+          110000
+        ],
+        "cooling_types": [
+          "cpufreq-cpu0",
+          "cpufreq-cpu1"
+        ]
+      },
+      {
+        "type": "cpu-p2-thermal",
+        "temp_mC": 46719,
+        "trips_mC": [
+          58000,
+          95000,
+          110000
+        ],
+        "cooling_types": [
+          "cpufreq-cpu0",
+          "cpufreq-cpu1"
+        ]
+      },
+      {
+        "type": "cpu-p0-thermal",
+        "temp_mC": 46072,
+        "trips_mC": [
+          58000,
+          95000,
+          110000
+        ],
+        "cooling_types": [
+          "cpufreq-cpu0",
+          "cpufreq-cpu1"
+        ]
+      },
+      {
+        "type": "cpu-e0-thermal",
+        "temp_mC": 44889,
+        "trips_mC": [
+          58000,
+          95000,
+          110000
+        ],
+        "cooling_types": [
+          "cpufreq-cpu0",
+          "cpufreq-cpu1"
+        ]
+      },
+      {
+        "type": "cpu-p3-thermal",
+        "temp_mC": 46695,
+        "trips_mC": [
+          58000,
+          95000,
+          110000
+        ],
+        "cooling_types": [
+          "cpufreq-cpu0",
+          "cpufreq-cpu1"
+        ]
+      },
+      {
+        "type": "cpu-p1-thermal",
+        "temp_mC": 46355,
+        "trips_mC": [
+          58000,
+          95000,
+          110000
+        ],
+        "cooling_types": [
+          "cpufreq-cpu0",
+          "cpufreq-cpu1"
+        ]
+      }
+    ],
+    "speaker_protection": "ActiveState=active\nNRestarts=1"
+  },
+  "normal_suspend_request": true,
+  "guard_bypassed": false,
+  "configuration_changed": false,
+  "mem_sleep": "[s2idle]",
+  "request_exit": 0,
+  "request_stdout": "",
+  "request_stderr": "",
+  "after": {
+    "monotonic_s": 591.421995902,
+    "boottime_s": 612.078672885,
+    "suspend_stats": {
+      "success": 1,
+      "fail": 0,
+      "failed_prepare": 0
+    },
+    "zones": [
+      {
+        "type": "cpu-e1-thermal",
+        "temp_mC": 45260,
+        "trips_mC": [
+          58000,
+          95000,
+          110000
+        ],
+        "cooling_types": [
+          "cpufreq-cpu0",
+          "cpufreq-cpu1"
+        ]
+      },
+      {
+        "type": "cpu-p2-thermal",
+        "temp_mC": 41635,
+        "trips_mC": [
+          58000,
+          95000,
+          110000
+        ],
+        "cooling_types": [
+          "cpufreq-cpu0",
+          "cpufreq-cpu1"
+        ]
+      },
+      {
+        "type": "cpu-p0-thermal",
+        "temp_mC": 41765,
+        "trips_mC": [
+          58000,
+          95000,
+          110000
+        ],
+        "cooling_types": [
+          "cpufreq-cpu0",
+          "cpufreq-cpu1"
+        ]
+      },
+      {
+        "type": "cpu-e0-thermal",
+        "temp_mC": 41116,
+        "trips_mC": [
+          58000,
+          95000,
+          110000
+        ],
+        "cooling_types": [
+          "cpufreq-cpu0",
+          "cpufreq-cpu1"
+        ]
+      },
+      {
+        "type": "cpu-p3-thermal",
+        "temp_mC": 41893,
+        "trips_mC": [
+          58000,
+          95000,
+          110000
+        ],
+        "cooling_types": [
+          "cpufreq-cpu0",
+          "cpufreq-cpu1"
+        ]
+      },
+      {
+        "type": "cpu-p1-thermal",
+        "temp_mC": 42014,
+        "trips_mC": [
+          58000,
+          95000,
+          110000
+        ],
+        "cooling_types": [
+          "cpufreq-cpu0",
+          "cpufreq-cpu1"
+        ]
+      }
+    ],
+    "speaker_protection": "ActiveState=active\nNRestarts=1"
+  },
+  "clock_suspended_s": 20.656675,
+  "selected_kernel_lines": [
+    {
+      "monotonic_s": 586.863042,
+      "message": "PM: suspend entry (s2idle)"
+    },
+    {
+      "monotonic_s": 591.412301,
+      "message": "PM: suspend exit"
+    }
+  ],
+  "date": "2026-10-20",
+  "board": "J613 / T8122",
+  "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+  "candidate_sha256": "ff1cc419f93244f27612a20b33b5fde22fbc1850771f487f8898279b60d24c53",
+  "connection": "ARZOPA Z1FC, rear USB-C nearest MagSafe, lid open, 1080p60",
+  "operator_confirmation": "Both correct; Touch ID unlocked",
+  "resumed_desktop": {
+    "monitors": [
+      {
+        "name": "eDP-1",
+        "width": 2560,
+        "height": 1664,
+        "refreshRate": 60.0,
+        "dpmsStatus": true,
+        "disabled": false
+      },
+      {
+        "name": "DP-1",
+        "width": 1920,
+        "height": 1080,
+        "refreshRate": 60.0,
+        "dpmsStatus": true,
+        "disabled": false
+      }
+    ],
+    "screen_brightness": 265,
+    "keyboard_brightness": 77
+  },
+  "GPU_OpenGL_readback": "pass",
+  "GPU_Vulkan_compute_readback": "pass",
+  "limitations": [
+    "One short s2idle cycle; not repeated/long suspend or energy qualification",
+    "No audible playback confirmation added",
+    "Current runtime has local m1n1 reservation candidate; disk had verified package baseline before request",
+    "Wake method requested was power button; actual wake IRQ not attributed here"
+  ]
+}
