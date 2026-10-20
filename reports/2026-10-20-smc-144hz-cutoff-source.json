@@ -1,0 +1,112 @@
+{
+  "date": "2026-10-20",
+  "board": "J613 / T8122",
+  "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+  "scope": "Same refreshed local DCPEXT candidate and single-cable ARZOPA setup as earlier retests",
+  "elapsed_s": 101.79,
+  "sample_count": 100,
+  "planned_duration_s": 300,
+  "stop_reason": "75 C temperature guard or missing readings",
+  "restored_60Hz": true,
+  "operator_visual_confirmation": "Not requested for this instrumented repeat",
+  "last_three_samples": [
+    {
+      "elapsed_s": 99.73,
+      "max_zone_C": 53.625,
+      "smc_channels_mC": {
+        "SoC die Tg0O": 37399,
+        "SoC die Tg0a": 37491,
+        "SoC die TCMz": 53625,
+        "SoC die Tg0j": 41474,
+        "SoC die Tg0P": 41799,
+        "SoC die Tg0b": 41891,
+        "SoC die Tg0C": 37260,
+        "SoC die Tg0u": 37529,
+        "SoC die Tg0W": 37050,
+        "SoC die Tg0D": 41660,
+        "SoC die Tg0v": 41929,
+        "SoC die Tg0X": 41450,
+        "SoC die Tg0i": 37074
+      },
+      "named_thermal_mC": {
+        "cpu-e1-thermal": 44336,
+        "macsmc-battery": 28700,
+        "macsmc_soc_die": 53625,
+        "cpu-p2-thermal": 48651,
+        "cpu-p0-thermal": 44870,
+        "cpu-e0-thermal": 44065,
+        "cpu-p3-thermal": 43353,
+        "cpu-p1-thermal": 44327
+      },
+      "DRM_DP1_status": "connected"
+    },
+    {
+      "elapsed_s": 100.76,
+      "max_zone_C": 55.546,
+      "smc_channels_mC": {
+        "SoC die Tg0O": 37421,
+        "SoC die Tg0a": 37453,
+        "SoC die TCMz": 55546,
+        "SoC die Tg0j": 41764,
+        "SoC die Tg0P": 41821,
+        "SoC die Tg0b": 41853,
+        "SoC die Tg0C": 37136,
+        "SoC die Tg0u": 37576,
+        "SoC die Tg0W": 36925,
+        "SoC die Tg0D": 41536,
+        "SoC die Tg0v": 41976,
+        "SoC die Tg0X": 41325,
+        "SoC die Tg0i": 37364
+      },
+      "named_thermal_mC": {
+        "cpu-e1-thermal": 45084,
+        "macsmc-battery": 28700,
+        "macsmc_soc_die": 55546,
+        "cpu-p2-thermal": 48885,
+        "cpu-p0-thermal": 45294,
+        "cpu-e0-thermal": 44785,
+        "cpu-p3-thermal": 43480,
+        "cpu-p1-thermal": 44952
+      },
+      "DRM_DP1_status": "connected"
+    },
+    {
+      "elapsed_s": 101.77,
+      "max_zone_C": 77.281,
+      "smc_channels_mC": {
+        "SoC die Tg0O": 38034,
+        "SoC die Tg0a": 37558,
+        "SoC die TCMz": 77281,
+        "SoC die Tg0j": 43419,
+        "SoC die Tg0P": 42434,
+        "SoC die Tg0b": 41958,
+        "SoC die Tg0C": 37435,
+        "SoC die Tg0u": 38247,
+        "SoC die Tg0W": 37097,
+        "SoC die Tg0D": 41835,
+        "SoC die Tg0v": 42647,
+        "SoC die Tg0X": 41497,
+        "SoC die Tg0i": 39019
+      },
+      "named_thermal_mC": {
+        "cpu-e1-thermal": 46776,
+        "macsmc-battery": 28700,
+        "macsmc_soc_die": 77281,
+        "cpu-p2-thermal": 49854,
+        "cpu-p0-thermal": 46863,
+        "cpu-e0-thermal": 48832,
+        "cpu-p3-thermal": 44245,
+        "cpu-p1-thermal": 46129
+      },
+      "DRM_DP1_status": "connected"
+    }
+  ],
+  "observation": "At cutoff, TCMz and macsmc_soc_die independently read 77281 mC; all Tg channels were lower. DP-1 remained connected at 144 Hz in every sample.",
+  "interpretation_limits": [
+    "This identifies the cutoff source for this run, not the earlier runs without individual channel logging",
+    "Sequential sysfs reads are not an atomic sensor snapshot",
+    "No calibration, sensor-fault diagnosis or physical hotspot confirmation",
+    "No thermal thresholds changed; five-minute qualification remains incomplete"
+  ],
+  "source_review": "The installed-kernel source implementation queries each configured die channel on each aggregate read and returns the maximum; no aggregate cache is present in this function."
+}

@@ -18,8 +18,10 @@
    USB-C ports at 1080p60, with short 1080p144, rear hotplug, DPMS and one
    approximately 10-second attached-display suspend passing. Both pictures,
    Touch ID and GPU checks recovered. The original boot image was restored
-   automatically; repeated boots, longer sleep and sustained 144 Hz remain
-   open. See the [external-display evidence](display.md#arzopa-z1fc-external-display-19-october).
+   automatically. A later 200.77-second 144 Hz run was visually stable,
+   then stopped by the test temperature guard. A separate instrumented repeat
+   traced its cutoff to SMC TCMz; the earlier unexpected disconnect remains
+   unresolved. Repeated boots, longer sleep and five-minute 144 Hz remain open. See the [external-display evidence](display.md#arzopa-z1fc-external-display-19-october).
 3. **Sleep/resume:** [short power-button and lid-wake cycles](sleep.md) passed
    Touch ID unlock, brightness, GPU readback and audible protected playback.
    A further unplugged 17½-minute lid cycle and three consecutive attended lid
