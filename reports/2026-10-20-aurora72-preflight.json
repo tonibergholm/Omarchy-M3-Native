@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-20",
+  "board": "J613 / T8122",
+  "scope": "Read-only inspection of newer edge kernel; not installed or booted",
+  "repository_package": "linux-aurora 7.2.10.aurora1-2",
+  "kernel_release": "7.2.10-1-2-ARCH",
+  "package_sha256": "b7d2da14945d0c457c90ee6af1d0aa77f497601ebfdc889e26a6bb3cbb5a3d6c",
+  "signature": "Good signature verified against the locally shipped Omarchy public key, converted to a private temporary binary keyring",
+  "source_commit": "1b4997bbab620051e01fb807c6561a483c0f06f6",
+  "M3_GPU": {
+    "source": "drivers/gpu/drm/asahi/m3/mod.rs",
+    "entry": "refuse_probe",
+    "behavior": "Returns ENODEV for M3; backend is compile-only. T8122 identity may be admitted but firmware/hardware configuration is incomplete and startup refused.",
+    "binary_cross_check": "The signed package asahi.ko contains the corresponding startup refused and M3 unavailable messages."
+  },
+  "thermal_zones_in_packaged_J613_DTB": false,
+  "local_j613_backlight_module_parameter_in_package": false,
+  "recommendation": "Retain working .20 experimental entry and installed .19 package. Do not replace them with this package as an accelerated M3 upgrade. Wait for or port the missing runtime with independent qualification.",
+  "changes_to_installed_system": false,
+  "source_links": [
+    "https://github.com/omacom/linux-aurora/blob/1b4997bbab620051e01fb807c6561a483c0f06f6/drivers/gpu/drm/asahi/m3/mod.rs",
+    "https://github.com/omacom/omarchy-pkgs/tree/master/pkgbuilds/linux-aurora"
+  ],
+  "channel_finding": "Configured packages already use edge. Dev uses edge packages plus a source checkout; held packages and thermal dependencies prevent a transparent kernel upgrade."
+}

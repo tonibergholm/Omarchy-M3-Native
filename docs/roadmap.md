@@ -119,3 +119,7 @@ Other reported application inhibitors and Stay Awake remain respected.
 [Quickshell PR1097](https://github.com/quickshell-mirror/quickshell/pull/1097)
 is the existing upstream fix; the local service clone remains in use.
 See [power/idle evidence](power.md).
+
+## Newer repository kernel audit, 20 October
+
+Edge already offers `linux-aurora 7.2.10.aurora1-2`, newer than the installed .19 and isolated .20 experiments. Checking only the experimental SEP release list had missed this package lineage. Dev mode would use the same edge repository. The signed package and pinned source explicitly refuse M3 GPU startup (`refuse_probe` returns `ENODEV`), and its J613 DTB has no thermal zones. It is not a replacement that preserves the working M3 acceleration and thermal setup. No package/channel change or boot was performed. See the [read-only preflight](../reports/2026-10-20-aurora72-preflight.json).
