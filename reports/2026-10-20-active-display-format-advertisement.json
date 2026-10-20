@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-20",
+  "board": "J613 / T8122",
+  "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+  "methods": [
+    "hyprctl -j monitors, selected fields",
+    "modetest -M apple -p, decoded active primary-plane format names only",
+    "modetest -M apple -c, HDR/Colorspace property-name presence only"
+  ],
+  "outputs": [
+    {
+      "output": "eDP-1",
+      "active_size": [
+        2560,
+        1664
+      ],
+      "current_compositor_format": "XRGB8888",
+      "color_management_preset": "srgb",
+      "sdr_brightness": 1,
+      "sdr_saturation": 1,
+      "primary_plane_formats": [
+        "XR24",
+        "AR24"
+      ],
+      "format_mapping_method": "Active CRTC dimensions matched uniquely to current compositor output; no persistent numeric CRTC/plane identity assumed"
+    },
+    {
+      "output": "DP-1",
+      "active_size": [
+        1920,
+        1080
+      ],
+      "current_compositor_format": "XRGB8888",
+      "color_management_preset": "srgb",
+      "sdr_brightness": 1,
+      "sdr_saturation": 1,
+      "primary_plane_formats": [
+        "XR30",
+        "AR30",
+        "XR24",
+        "AR24",
+        "XB24",
+        "AB24",
+        "NV12",
+        "NV16",
+        "NV24",
+        "P010",
+        "P210"
+      ],
+      "format_mapping_method": "Active CRTC dimensions matched uniquely to current compositor output; no persistent numeric CRTC/plane identity assumed"
+    }
+  ],
+  "hdr_connector_properties_found": [],
+  "mode_or_configuration_change_requested": false,
+  "limitations": [
+    "KMS framebuffer-format advertisement does not establish actual DP link bit depth, physical panel bit depth, HDR output or calibrated colour",
+    "Both compositor outputs currently use 8-bit XRGB8888; 10-bit scanout was not requested",
+    "No raw EDID or DRM property blob bytes published"
+  ]
+}
