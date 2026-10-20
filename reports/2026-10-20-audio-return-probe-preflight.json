@@ -1,0 +1,69 @@
+{
+  "captures": [
+    {
+      "capture": "awake-no-stream.json",
+      "events": 0,
+      "event_types": [],
+      "lost_events": 0,
+      "fetch_faults": 0,
+      "kernel_probes_armed": true,
+      "cleanup_reported": true,
+      "hw_params_returns": [],
+      "hw_free_returns": []
+    },
+    {
+      "capture": "awake-speaker-stream.json",
+      "events": 353,
+      "event_types": [
+        "rate",
+        "read_return"
+      ],
+      "lost_events": 0,
+      "fetch_faults": 0,
+      "kernel_probes_armed": true,
+      "cleanup_reported": true,
+      "hw_params_returns": [],
+      "hw_free_returns": []
+    },
+    {
+      "capture": "awake-selected.json",
+      "events": 472,
+      "event_types": [
+        "hw_params",
+        "hw_params_return",
+        "rate",
+        "read_return",
+        "trigger"
+      ],
+      "lost_events": 0,
+      "fetch_faults": 0,
+      "kernel_probes_armed": true,
+      "cleanup_reported": true,
+      "hw_params_returns": [
+        0,
+        0
+      ],
+      "hw_free_returns": []
+    }
+  ],
+  "independent_cleanup": true,
+  "date": "2026-10-20",
+  "board": "J613 / T8122",
+  "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+  "installed_speakersafetyd": "2.0.1-1",
+  "upstream_checked_commit": "615674e75dc68639d550171e33ba3946538d03b0",
+  "upstream_latest_source": "https://github.com/AsahiLinux/speakersafetyd/blob/615674e75dc68639d550171e33ba3946538d03b0/src/main.rs",
+  "source_finding": "Current upstream retains initial zero rate plus post-blocking-read zero => Invalid sample rate panic; no verified upgrade fix. Configured repository still offers 2.0.1-1.",
+  "stimulus": "Silent protected-speaker playback, then silent unused-headphone-sink playback; default sink unchanged",
+  "audio_recorded": false,
+  "speaker_protection_restarts_before": 1,
+  "speaker_protection_restarts_after": 1,
+  "next_boot_trace_armed": false,
+  "limitations": [
+    "Warm instrumentation preflight, not startup reproduction",
+    "Hardware-free return probe registered but not exercised",
+    "No kretprobe missed-instance accounting yet; add before boot capture",
+    "Caller process identity observed here applies to this warm run only; prior startup other caller remains unidentified",
+    "First no-stream capture had zero events and failed the event-presence assertion despite successful registration/cleanup"
+  ]
+}
