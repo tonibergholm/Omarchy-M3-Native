@@ -1,0 +1,54 @@
+{
+  "date": "2026-10-20",
+  "board": "Apple J613 / T8122, M3 MacBook Air",
+  "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+  "display": "ARZOPA Z1FC",
+  "connection": "Direct USB-C, powered only by the MacBook cable, lid open",
+  "boot_scope": "Refreshed local m1n1 DCPEXT candidate with package-managed thermal overlay; original package-managed image restored on disk during this boot",
+  "runs": [
+    {
+      "mode": "1920x1080@144",
+      "elapsed_s": 25.35,
+      "result": "Unexpected external disconnect; internal display remained active",
+      "operator": "Cable untouched",
+      "maximum_sampled_temperature_mC": 61265,
+      "cause": "Unresolved; Type-C numbering is boot-dependent and power loss was not established"
+    },
+    {
+      "mode": "1920x1080@60",
+      "elapsed_s": 105.14,
+      "result": "Stable until deliberately interrupted for an operator-requested 144 Hz retry; not a five-minute pass"
+    },
+    {
+      "mode": "1920x1080@144",
+      "elapsed_s": 15.33,
+      "result": "75 C test guard stopped run; restored 60 Hz",
+      "maximum_sampled_temperature_mC": 79343,
+      "sensor_identity": "Not captured"
+    },
+    {
+      "mode": "1920x1080@144",
+      "elapsed_s": 200.77,
+      "samples": 199,
+      "result": "Picture clear and stable throughout, confirmed by operator; stopped by 75 C test guard",
+      "maximum_sampled_temperature_mC": 77750,
+      "hottest_named_sensor": "macsmc_soc_die",
+      "restored_60Hz": true
+    }
+  ],
+  "recovery": "Replug initially left Hyprland DP-1 disabled. Explicit disabled=false with the 60 Hz runtime rule restored the picture, confirmed by operator. This explains recovery, not the original disconnect.",
+  "thermal_observation": {
+    "battery_peak_mC": 29100,
+    "individual_cpu_zone_peak_mC": 54416,
+    "soc_aggregate_peak_mC": 77750,
+    "aggregate_source": "Maximum of configured TCMz and twelve Tg* SMC channels; individual source of the peak not yet captured",
+    "qualification": "Sensor calibration and sustained real-temperature regulation remain unqualified; no limits changed"
+  },
+  "validation": "OpenGL red/blue and Vulkan compute readbacks passed after restoration; speaker protection remained active",
+  "limitations": [
+    "Latest stable 144 Hz interval was 200.77 seconds, not the planned 300 seconds",
+    "Earlier unexpected disconnect remains unresolved",
+    "No physical refresh calibration, HDR, or display audio qualification",
+    "No display configuration files changed"
+  ]
+}

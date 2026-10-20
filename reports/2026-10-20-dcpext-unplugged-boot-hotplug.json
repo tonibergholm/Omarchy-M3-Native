@@ -1,0 +1,263 @@
+{
+  "date": "2026-10-20",
+  "board": "J613 / T8122",
+  "monitor": "ARZOPA Z1FC",
+  "connection": "Direct USB-C rear port nearest MagSafe; display disconnected throughout boot",
+  "preflight": {
+    "board": "J613 / T8122",
+    "kernel_scope": "installed .19 DTBs with package-owned retained thermal overlay; isolated .20 native boot planned",
+    "baseline_sha256": "23cc92841bf7701fdb34039817c61e2a408c20c2839aa067673a51cceb195e1e",
+    "candidate_sha256": "53519feefb76520ebc226c2885adc6a051ee33ccb44b538ea72d2384be062093",
+    "tail_sha256": "302bad77e499577c90cd0dada6aeadc13487b9ef66aba6dc6b945ee5c46f62e2",
+    "tail_identical": true,
+    "changed_component": "same previously tested local m1n1 prefix only",
+    "DTB_count": 115,
+    "installed": false,
+    "boot_tested": true,
+    "staged_for_native_trial": true
+  },
+  "unplugged_boot": {
+    "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+    "uptime_s": 61.31,
+    "firmware_ready_markers": [
+      {
+        "node": "soc/dcp@31ac00000",
+        "value": 1
+      }
+    ],
+    "dcpext_status": "okay",
+    "thermal_zones": [
+      {
+        "type": "cpu-e1-thermal",
+        "policy": "power_allocator",
+        "trips_mC": [
+          58000,
+          95000,
+          110000
+        ],
+        "cooling_devices": [
+          "cpufreq-cpu1",
+          "cpufreq-cpu0"
+        ]
+      },
+      {
+        "type": "cpu-p2-thermal",
+        "policy": "power_allocator",
+        "trips_mC": [
+          58000,
+          95000,
+          110000
+        ],
+        "cooling_devices": [
+          "cpufreq-cpu1",
+          "cpufreq-cpu0"
+        ]
+      },
+      {
+        "type": "cpu-p0-thermal",
+        "policy": "power_allocator",
+        "trips_mC": [
+          58000,
+          95000,
+          110000
+        ],
+        "cooling_devices": [
+          "cpufreq-cpu1",
+          "cpufreq-cpu0"
+        ]
+      },
+      {
+        "type": "cpu-e0-thermal",
+        "policy": "power_allocator",
+        "trips_mC": [
+          58000,
+          95000,
+          110000
+        ],
+        "cooling_devices": [
+          "cpufreq-cpu1",
+          "cpufreq-cpu0"
+        ]
+      },
+      {
+        "type": "cpu-p3-thermal",
+        "policy": "power_allocator",
+        "trips_mC": [
+          58000,
+          95000,
+          110000
+        ],
+        "cooling_devices": [
+          "cpufreq-cpu1",
+          "cpufreq-cpu0"
+        ]
+      },
+      {
+        "type": "cpu-p1-thermal",
+        "policy": "power_allocator",
+        "trips_mC": [
+          58000,
+          95000,
+          110000
+        ],
+        "cooling_devices": [
+          "cpufreq-cpu1",
+          "cpufreq-cpu0"
+        ]
+      }
+    ],
+    "screen_brightness": 265,
+    "keyboard_brightness": 77,
+    "monitors": [
+      {
+        "name": "eDP-1",
+        "width": 2560,
+        "height": 1664,
+        "refreshRate": 60.0,
+        "dpmsStatus": true
+      }
+    ],
+    "on_disk_stage2_sha256": "53519feefb76520ebc226c2885adc6a051ee33ccb44b538ea72d2384be062093",
+    "rollback_service_result": "success",
+    "rollback_timer_enabled": "enabled",
+    "baseline_restored_on_disk": false
+  },
+  "rollback_postcheck": {
+    "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+    "uptime_s": 128.34,
+    "firmware_ready_markers": [
+      {
+        "node": "soc/dcp@31ac00000",
+        "value": 1
+      }
+    ],
+    "dcpext_status": "okay",
+    "thermal_zones": [
+      {
+        "type": "cpu-e1-thermal",
+        "policy": "power_allocator",
+        "trips_mC": [
+          58000,
+          95000,
+          110000
+        ],
+        "cooling_devices": [
+          "cpufreq-cpu1",
+          "cpufreq-cpu0"
+        ]
+      },
+      {
+        "type": "cpu-p2-thermal",
+        "policy": "power_allocator",
+        "trips_mC": [
+          58000,
+          95000,
+          110000
+        ],
+        "cooling_devices": [
+          "cpufreq-cpu1",
+          "cpufreq-cpu0"
+        ]
+      },
+      {
+        "type": "cpu-p0-thermal",
+        "policy": "power_allocator",
+        "trips_mC": [
+          58000,
+          95000,
+          110000
+        ],
+        "cooling_devices": [
+          "cpufreq-cpu1",
+          "cpufreq-cpu0"
+        ]
+      },
+      {
+        "type": "cpu-e0-thermal",
+        "policy": "power_allocator",
+        "trips_mC": [
+          58000,
+          95000,
+          110000
+        ],
+        "cooling_devices": [
+          "cpufreq-cpu1",
+          "cpufreq-cpu0"
+        ]
+      },
+      {
+        "type": "cpu-p3-thermal",
+        "policy": "power_allocator",
+        "trips_mC": [
+          58000,
+          95000,
+          110000
+        ],
+        "cooling_devices": [
+          "cpufreq-cpu1",
+          "cpufreq-cpu0"
+        ]
+      },
+      {
+        "type": "cpu-p1-thermal",
+        "policy": "power_allocator",
+        "trips_mC": [
+          58000,
+          95000,
+          110000
+        ],
+        "cooling_devices": [
+          "cpufreq-cpu1",
+          "cpufreq-cpu0"
+        ]
+      }
+    ],
+    "screen_brightness": 265,
+    "keyboard_brightness": 77,
+    "monitors": [],
+    "on_disk_stage2_sha256": "23cc92841bf7701fdb34039817c61e2a408c20c2839aa067673a51cceb195e1e",
+    "rollback_service_result": "success",
+    "rollback_timer_enabled": "disabled",
+    "baseline_restored_on_disk": true,
+    "update_verification_exit": 0
+  },
+  "hotplug": {
+    "window_start_epoch_s": 1792513836.634373,
+    "detected_epoch_s": 1792513844.7273242,
+    "monitors": [
+      {
+        "name": "eDP-1",
+        "width": 2560,
+        "height": 1664,
+        "refreshRate": 60.0,
+        "dpmsStatus": true,
+        "disabled": false
+      },
+      {
+        "name": "DP-1",
+        "width": 1920,
+        "height": 1080,
+        "refreshRate": 60.0,
+        "dpmsStatus": true,
+        "disabled": false
+      }
+    ],
+    "selected_errors": [
+      "apple-dcp 28ec00000.dcp: copy_edid failed: -ENODEV"
+    ],
+    "GPU_OpenGL_readback": "pass",
+    "GPU_Vulkan_compute_readback": "pass"
+  },
+  "operator_visual_result": "Both look correct",
+  "GPU_after_unplugged_boot": {
+    "OpenGL_readback": "pass",
+    "Vulkan_compute_readback": "pass"
+  },
+  "GPU_after_hotplug": {
+    "OpenGL_readback": "pass",
+    "Vulkan_compute_readback": "pass"
+  },
+  "harness_note": "First root collector desktop query via runuser failed; monitor enumeration was collected separately from the real desktop session. This was an inspection-environment failure, not display recovery failure.",
+  "qualification": "One native boot without display followed by rear-port 1080p60 hotplug on .20, with package-managed thermal DTB tail. Restored on-disk baseline passes Omarchy update verification. Longer sleep/reliability remain unqualified.",
+  "current_on_disk_image": "Package-managed baseline restored by automatic rollback"
+}
