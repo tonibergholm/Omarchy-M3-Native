@@ -1,0 +1,25 @@
+Subject: Research prerequisite: admit the existing 14.7 template AV profile
+
+Extracted from omacom/linux-aurora at
+1b4997bbab620051e01fb807c6561a483c0f06f6 (av.c blob
+8a19f2a295bbcec39e9bebdd3fe23a419965acda), compared with Aurora .20
+c46d7dcdb8712ea9aeb0ce47b439ffae76371e55. This is existing upstream
+profile admission, not a new firmware protocol implementation.
+
+Original av.c: SPDX-License-Identifier: GPL-2.0-only OR MIT
+Copyright 2023 Martin Povišer. Upstream attribution and file licence remain.
+
+Compile-checked only; not installed. J613 display audio still requires a
+validated SIO DMA/device-tree path. Do not treat this patch as an audio fix
+or enable a firmware endpoint merely to test that it accepts commands.
+
+--- a/drivers/gpu/drm/apple/av.c
++++ b/drivers/gpu/drm/apple/av.c
+@@ -418,6 +418,7 @@
+ 		audiosrv_data->cmds = dcp_av_audio_cmds_v12_3;
+ 		break;
+ 	case DCP_FIRMWARE_V_13_5:
++	case DCP_FIRMWARE_V_14_7_TEMPLATE:
+ 		audiosrv_data->cmds = dcp_av_audio_cmds_v13_5;
+ 		break;
+ 	default:

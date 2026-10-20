@@ -1,0 +1,78 @@
+{
+  "date": "2026-10-20",
+  "board": "J613 / T8122",
+  "comparison_source": {
+    "commit": "1b4997bbab620051e01fb807c6561a483c0f06f6",
+    "files": [
+      {
+        "path": "drivers/gpu/drm/apple/av.c",
+        "available": true,
+        "blob_sha": "8a19f2a295bbcec39e9bebdd3fe23a419965acda"
+      },
+      {
+        "path": "drivers/gpu/drm/apple/audio.c",
+        "available": true,
+        "blob_sha": "cc54ae2a9b5874bf9c87541b5c067a757ae8b625"
+      },
+      {
+        "path": "arch/arm64/boot/dts/apple/t8122.dtsi",
+        "available": true,
+        "blob_sha": "3e190bd9c4317d49a1261cf134320aa30cd606da"
+      }
+    ]
+  },
+  "findings": [
+    "Newer AV source admits DCP_FIRMWARE_V_14_7_TEMPLATE using the existing v13_5 command table",
+    "The .20 DCP selector maps apple,t8122-dcpext with firmware-compat 14.7.0 to that template profile",
+    "Newer pinned T8122 DT still contains neither a dpaudio node nor a SIO DMA provider node",
+    "The older T8112 display-audio graph uses SIO, not the MCA ADMAC controller; its channel numbers are not evidence for T8122"
+  ],
+  "patch": "patches/aurora20-template-audio-gate-prerequisite.patch",
+  "patch_sha256": "6932e225e108140cea80a77676cc59832794c25c5874bdb5b85f14b4014f974d",
+  "build_scope": "Isolated av.o against matching extracted .20 SDK, LLVM 22, W=1, one job; no module link/install/load",
+  "builds": [
+    {
+      "compiler_affinity_cpu": 1,
+      "compiler_cluster": "2748 MHz maximum efficiency policy",
+      "variant": "reference",
+      "exit_code": 0,
+      "stop_reason": null,
+      "peak_mC": 56062,
+      "elapsed_s": 1.769,
+      "target": "av.o only; no module linking, installation or loading"
+    },
+    {
+      "compiler_affinity_cpu": 1,
+      "compiler_cluster": "2748 MHz maximum efficiency policy",
+      "variant": "candidate",
+      "exit_code": 0,
+      "stop_reason": null,
+      "peak_mC": 57203,
+      "elapsed_s": 1.668,
+      "target": "av.o only; no module linking, installation or loading"
+    }
+  ],
+  "objects_AArch64_ELF": true,
+  "warnings": 0,
+  "prior_attempts": [
+    {
+      "result": "Reference compile failed because isolated header copy omitted epic subdirectory; harness corrected, log retained"
+    },
+    {
+      "result": "Reference compile stopped at unchanged 75 C guard, peak 75187 mC; log retained. Retry used process affinity to an efficiency core, no clock/limit changes."
+    }
+  ],
+  "installed": false,
+  "hardware_audio_tested": false,
+  "remaining_work": [
+    "Derive T8122 SIO provider, DMA channel, power/reset and DCP endpoint data from authoritative M3 firmware/device-tree evidence",
+    "Validate the SIO transport and audio graph on J613 before AV/audio lifecycle testing",
+    "Qualify connect/replug, formats, playback and suspend with the completed path"
+  ],
+  "sources": [
+    "https://github.com/omacom/linux-aurora/blob/1b4997bbab620051e01fb807c6561a483c0f06f6/drivers/gpu/drm/apple/av.c",
+    "https://github.com/omacom/linux-aurora/blob/c46d7dcdb8712ea9aeb0ce47b439ffae76371e55/drivers/gpu/drm/apple/dcp.c",
+    "https://github.com/omacom/linux-aurora/blob/1b4997bbab620051e01fb807c6561a483c0f06f6/arch/arm64/boot/dts/apple/t8122.dtsi"
+  ],
+  "running_kernel_unchanged": "7.1.12-2-20261017.20-sep-ARCH"
+}
