@@ -504,5 +504,6 @@
     "read_return_to_zero_control_read": 0.027,
     "zero_control_read_to_journal_panic": 0.264,
     "last_playback_hw_free_entry_to_read_return": 8.93
-  }
+  },
+  "upstream_updated_comment": "https://github.com/AsahiLinux/speakersafetyd/issues/16#issuecomment-6264611425"
 }

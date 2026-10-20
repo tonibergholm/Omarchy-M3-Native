@@ -1,0 +1,31 @@
+{
+  "board": "J613 / T8122",
+  "kernel_scope": "installed .19 DTBs with package-owned retained thermal overlay; isolated .20 native boot planned",
+  "baseline_sha256": "23cc92841bf7701fdb34039817c61e2a408c20c2839aa067673a51cceb195e1e",
+  "candidate_sha256": "53519feefb76520ebc226c2885adc6a051ee33ccb44b538ea72d2384be062093",
+  "tail_sha256": "302bad77e499577c90cd0dada6aeadc13487b9ef66aba6dc6b945ee5c46f62e2",
+  "tail_identical": true,
+  "changed_component": "same previously tested local m1n1 prefix only",
+  "DTB_count": 115,
+  "installed": false,
+  "boot_tested": false,
+  "rollback_controls": [
+    {
+      "case": "candidate",
+      "expected_result_verified": true,
+      "service_calls_mocked": true
+    },
+    {
+      "case": "already-original",
+      "expected_result_verified": true,
+      "service_calls_mocked": true
+    },
+    {
+      "case": "foreign",
+      "expected_result_verified": true,
+      "service_calls_mocked": true
+    }
+  ],
+  "staging_script_syntax": "pass",
+  "ESP_mutated": false
+}
