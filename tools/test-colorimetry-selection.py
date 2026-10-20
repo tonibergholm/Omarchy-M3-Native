@@ -7,7 +7,7 @@ into a new output directory. Extracted DCP code retains GPL-2.0-only OR MIT and
 Copyright 2021 Alyssa Rosenzweig. No firmware or hardware calls are made.
 """
 from pathlib import Path
-import argparse,hashlib,subprocess,json
+import argparse,hashlib,subprocess,json,os
 p=argparse.ArgumentParser(description=__doc__)
 p.add_argument('--reference-dir',type=Path,required=True,help='.20 apple driver source directory')
 p.add_argument('--candidate-dir',type=Path,required=True,help='PR157 pinned apple driver source directory')
@@ -105,9 +105,14 @@ for name,s in [('reference',ref),('upstream',up),('fixed',fixed)]:
  parts+='static struct dcp_display_mode choose_all(struct color_mode *m,unsigned int n,bool prefer_colorimetry) {\nstruct dcp_display_mode result={0},*out=&result; out->sdr_rgb.score=out->sdr_444.score=out->sdr.score=out->best.score=-1; unsigned int best_sdr_rank=0; (void)best_sdr_rank;(void)prefer_colorimetry;\nfor(unsigned int i=0;i<n;i++){struct color_mode cmode=m[i];\n'+selection(s)+'\n}return result;}\n' + wrappers + runner
  if name=='reference':parts=parts.replace('pass=got.id==70','pass=got.id==68').replace('pass=chosen==71','pass=chosen==68')
  p=r/('selection-'+name+'.c');p.write_text(parts)
- build=subprocess.run(['cc','-Wall','-Wextra','-Wno-misleading-indentation','-fsanitize=address,undefined','-g',str(p),'-o',str(p.with_suffix(''))],capture_output=True,text=True,timeout=30)
+ build=subprocess.run([os.environ.get('CC','cc'),'-Wall','-Wextra','-Wno-misleading-indentation','-fsanitize=address,undefined','-g',str(p),'-o',str(p.with_suffix(''))],capture_output=True,text=True,timeout=30)
  assert build.returncode==0,build.stderr
  run=subprocess.run([str(p.with_suffix(''))],capture_output=True,text=True,timeout=30)
  results.append({'variant':name,'exit_code':run.returncode,'stdout':run.stdout,'stderr':run.stderr,'compiler_stderr':build.stderr})
 print(json.dumps(results,indent=2));(r/'selection-results.json').write_text(json.dumps(results,indent=2)+'\n')
-raise SystemExit(0 if [x['exit_code'] for x in results]==[0,1,0] else 1)
+expected = [(0, 'TOTAL=9 FAILED=0'), (1, 'TOTAL=9 FAILED=7'), (0, 'TOTAL=9 FAILED=0')]
+passed = all(result['exit_code'] == code
+             and result['stdout'].splitlines()[-1:] == [last_line]
+             and not result['stderr'] and not result['compiler_stderr']
+             for result, (code, last_line) in zip(results, expected))
+raise SystemExit(0 if passed else 1)

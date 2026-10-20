@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-20",
+  "board": "J613 / T8122",
+  "upstream_head": "9d3aeb24cb864d5f99a7172e9004884bf3c1a9a0",
+  "reference_commit": "c46d7dcdb8712ea9aeb0ce47b439ffae76371e55",
+  "fixed_parser_blob": "8791e63a140fe0db0e7cc700d36321e7aaf3702e",
+  "source_verification": "Input git-blob hashes checked before extracting or compiling",
+  "scope": "Unchanged production parser prefix from DCP_PARSE_HEADER through parse_mode(), compiled in userspace with allocation/error-pointer/DRM platform stubs; actual serialized synthetic dictionary input, parse() header validation, parse_mode() and timing clock computation",
+  "reproducer": "tools/test-colorimetry-parser.py",
+  "cases_per_variant": 15,
+  "selected_mode_failures": {
+    "reference_existing_behavior": 0,
+    "upstream": 1,
+    "fixed": 0
+  },
+  "host_results": [
+    {
+      "variant": "reference",
+      "exit_code": 0,
+      "stdout": "depth7_before ret=0 id=69 clock=148500 pass=1\ndepth7_after ret=0 id=69 clock=148500 pass=1\nmissing_depth_before ret=0 id=69 clock=148500 pass=1\nmissing_depth_after ret=0 id=69 clock=148500 pass=1\nmissing_range_before ret=0 id=69 clock=148500 pass=1\nmissing_range_after ret=0 id=69 clock=148500 pass=1\nwide_gamut_fallback ret=0 id=68 clock=148500 pass=1\nvalid_preference ret=0 id=68 clock=148500 pass=1\npreference_disabled ret=0 id=68 clock=148500 pass=1\ninternal_keeps_score ret=0 id=68 clock=148500 pass=1\nh17p_existing_rank ret=0 id=70 clock=148500 pass=1\nsame_tier_score ret=0 id=72 clock=148500 pass=1\nno_valid_color ret=-22 id=0 clock=0 pass=1\nbad_header ret=-22 id=0 clock=0 pass=1\ntruncated_record ret=-22 id=0 clock=0 pass=1\nTOTAL=15 FAILED=0\n",
+      "stderr": "",
+      "compiler_stderr": ""
+    },
+    {
+      "variant": "upstream",
+      "exit_code": 1,
+      "stdout": "depth7_before ret=0 id=69 clock=148500 pass=1\ndepth7_after ret=0 id=69 clock=148500 pass=1\nmissing_depth_before ret=0 id=69 clock=148500 pass=1\nmissing_depth_after ret=0 id=69 clock=148500 pass=1\nmissing_range_before ret=0 id=69 clock=148500 pass=1\nmissing_range_after ret=0 id=69 clock=148500 pass=1\nwide_gamut_fallback ret=0 id=68 clock=148500 pass=0\nvalid_preference ret=0 id=70 clock=148500 pass=1\npreference_disabled ret=0 id=68 clock=148500 pass=1\ninternal_keeps_score ret=0 id=68 clock=148500 pass=1\nh17p_existing_rank ret=0 id=70 clock=148500 pass=1\nsame_tier_score ret=0 id=72 clock=148500 pass=1\nno_valid_color ret=-22 id=0 clock=0 pass=1\nbad_header ret=-22 id=0 clock=0 pass=1\ntruncated_record ret=-22 id=0 clock=0 pass=1\nTOTAL=15 FAILED=1\n",
+      "stderr": "",
+      "compiler_stderr": ""
+    },
+    {
+      "variant": "fixed",
+      "exit_code": 0,
+      "stdout": "depth7_before ret=0 id=69 clock=148500 pass=1\ndepth7_after ret=0 id=69 clock=148500 pass=1\nmissing_depth_before ret=0 id=69 clock=148500 pass=1\nmissing_depth_after ret=0 id=69 clock=148500 pass=1\nmissing_range_before ret=0 id=69 clock=148500 pass=1\nmissing_range_after ret=0 id=69 clock=148500 pass=1\nwide_gamut_fallback ret=0 id=71 clock=148500 pass=1\nvalid_preference ret=0 id=70 clock=148500 pass=1\npreference_disabled ret=0 id=68 clock=148500 pass=1\ninternal_keeps_score ret=0 id=68 clock=148500 pass=1\nh17p_existing_rank ret=0 id=70 clock=148500 pass=1\nsame_tier_score ret=0 id=72 clock=148500 pass=1\nno_valid_color ret=-22 id=0 clock=0 pass=1\nbad_header ret=-22 id=0 clock=0 pass=1\ntruncated_record ret=-22 id=0 clock=0 pass=1\nTOTAL=15 FAILED=0\n",
+      "stderr": "",
+      "compiler_stderr": ""
+    }
+  ],
+  "interpretation": [
+    "The three-record BT709/BT2020/invalid-sRGB fixture reproduces final selection of mode 68 instead of valid mode 71 on the unmodified PR; fix retains mode 71",
+    "Six simple malformed-plus-valid fixtures still return the same final mode through fallback; the earlier slot-level tests expose their corrupted RGB slot rather than six additional wrong-output cases",
+    "Valid preference, disabled preference, internal-panel score behavior, one H17P rank case, same-tier scores, no-valid-color rejection, bad header and truncated record checks pass with the fix"
+  ],
+  "sanitizers": [
+    "AddressSanitizer",
+    "UndefinedBehaviorSanitizer"
+  ],
+  "compiler_diagnostics": "none",
+  "runtime_sanitizer_diagnostics": "none",
+  "ci": {
+    "workflow": ".github/workflows/colorimetry.yml",
+    "compilers": [
+      "gcc",
+      "clang"
+    ],
+    "status": "not yet run"
+  },
+  "installed": false,
+  "limitations": [
+    "Not a KUnit or full-kernel run; no mode catalog enumeration, publication, firmware command or DRM scanout execution",
+    "One synthetic H17P ranking fixture is not general H17P qualification",
+    "The DRM wrapper supplies a reduced display-mode structure and stub naming/trace operations; kernel ABI and logging are not tested",
+    "No native color, 10-bit or HDR output qualification; no malformed ARZOPA firmware record observed"
+  ]
+}

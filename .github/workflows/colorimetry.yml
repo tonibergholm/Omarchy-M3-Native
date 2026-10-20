@@ -1,0 +1,77 @@
+name: DCP colour-selection regression
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/colorimetry.yml
+      - tools/test-colorimetry-*.py
+      - patches/dcp-colorimetry-valid-replacement.patch
+  pull_request:
+    paths:
+      - .github/workflows/colorimetry.yml
+      - tools/test-colorimetry-*.py
+      - patches/dcp-colorimetry-valid-replacement.patch
+
+permissions:
+  contents: read
+
+jobs:
+  host-parser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    strategy:
+      fail-fast: false
+      matrix:
+        compiler: [gcc, clang]
+    env:
+      CC: ${{ matrix.compiler }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Fetch pinned public source inputs
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import os
+          from pathlib import Path
+          from urllib.request import urlopen
+          root = Path(os.environ['RUNNER_TEMP']) / 'colorimetry-source'
+          inputs = {
+              'reference': ('c46d7dcdb8712ea9aeb0ce47b439ffae76371e55', ['parser.c']),
+              'candidate': ('9d3aeb24cb864d5f99a7172e9004884bf3c1a9a0', ['parser.c', 'parser.h']),
+          }
+          for variant, (revision, names) in inputs.items():
+              destination = root / variant
+              destination.mkdir(parents=True)
+              for name in names:
+                  url = f'https://raw.githubusercontent.com/omacom/linux-aurora/{revision}/drivers/gpu/drm/apple/{name}'
+                  with urlopen(url, timeout=30) as response:
+                      (destination / name).write_bytes(response.read())
+          PY
+      - name: Check selection and serialized parser with ASan and UBSan
+        shell: bash
+        run: |
+          command -v "$CC"
+          python3 tools/test-colorimetry-selection.py \
+            --reference-dir "$RUNNER_TEMP/colorimetry-source/reference" \
+            --candidate-dir "$RUNNER_TEMP/colorimetry-source/candidate" \
+            --output "$RUNNER_TEMP/colorimetry-selection"
+          python3 tools/test-colorimetry-parser.py \
+            --reference-dir "$RUNNER_TEMP/colorimetry-source/reference" \
+            --candidate-dir "$RUNNER_TEMP/colorimetry-source/candidate" \
+            --fixed-parser "$RUNNER_TEMP/colorimetry-selection/upstream-parser-fixed.c" \
+            --output "$RUNNER_TEMP/colorimetry-parser"
+          mkdir "$RUNNER_TEMP/colorimetry-applied"
+          cp "$RUNNER_TEMP/colorimetry-source/candidate/parser.c" "$RUNNER_TEMP/colorimetry-applied/"
+          git -C "$RUNNER_TEMP/colorimetry-applied" apply -p5 \
+            "$GITHUB_WORKSPACE/patches/dcp-colorimetry-valid-replacement.patch"
+          cmp "$RUNNER_TEMP/colorimetry-applied/parser.c" \
+            "$RUNNER_TEMP/colorimetry-selection/upstream-parser-fixed.c"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: colorimetry-${{ matrix.compiler }}
+          if-no-files-found: warn
+          path: |
+            ${{ runner.temp }}/colorimetry-selection/selection-results.json
+            ${{ runner.temp }}/colorimetry-parser/serialized-results.json
