@@ -150,5 +150,50 @@
     "TCMz calibration and transient spike cause remain unresolved",
     "Installed .19 default entry not boot-tested here",
     "External display disconnected; DCPEXT candidate not staged"
-  ]
+  ],
+  "passive_internal_display_observation": {
+    "samples": 60,
+    "last_sample_elapsed_s": 60.533,
+    "added_workload": false,
+    "TCMz_peak_mC": 72125,
+    "TCMz_median_mC": 52656.0,
+    "CPU_busy_median_percent": 10.725,
+    "peak_temperature_sample": {
+      "elapsed_s": 11.07,
+      "CPU_busy_percent": 22.38,
+      "TCMz_mC": 72125,
+      "thermal_mC": {
+        "cpu-e1-thermal": 52979,
+        "macsmc_soc_die": 72125,
+        "cpu-p2-thermal": 48098,
+        "cpu-p0-thermal": 48134,
+        "cpu-e0-thermal": 44756,
+        "cpu-p3-thermal": 48405,
+        "cpu-p1-thermal": 48669
+      },
+      "policy_frequency_kHz": {
+        "policy0": 696000,
+        "policy1": 1044000
+      }
+    },
+    "peak_busy_sample": {
+      "elapsed_s": 36.292,
+      "CPU_busy_percent": 23.04,
+      "TCMz_mC": 52171,
+      "thermal_mC": {
+        "cpu-e1-thermal": 46963,
+        "macsmc_soc_die": 52171,
+        "cpu-p2-thermal": 43251,
+        "cpu-p0-thermal": 42952,
+        "cpu-e0-thermal": 42548,
+        "cpu-p3-thermal": 43202,
+        "cpu-p1-thermal": 43297
+      },
+      "policy_frequency_kHz": {
+        "policy0": 696000,
+        "policy1": 744000
+      }
+    },
+    "interpretation": "This short sample did not reach 75 C. CPU busy percentage and sampled frequencies do not establish the cause or physical accuracy of TCMz transients."
+  }
 }
