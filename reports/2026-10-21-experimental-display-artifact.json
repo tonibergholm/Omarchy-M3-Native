@@ -17,5 +17,27 @@
   "limitations": [
     "Identical binary and metadata do not qualify native output, initialization failure or suspend",
     "Artifact is not an installer; exact matching kernel and controlled recovery are required for any future trial"
-  ]
+  ],
+  "imported_symbol_preflight": {
+    "date": "2026-10-21",
+    "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+    "module_version_crcs_available": false,
+    "reason": "Matching SDK config has CONFIG_MODVERSIONS disabled; modprobe --show-modversions reports no data",
+    "reference_import_count": 503,
+    "candidate_import_count": 504,
+    "added_imports": [
+      "param_ops_int"
+    ],
+    "removed_imports": [],
+    "imports_not_found_in_matching_sdk_exports": [],
+    "sdk_symvers_sha256": "b11a088f7f63a0d367352c2e464d46b0a0f8eaa54e48342f217db8a50e4d43b4",
+    "candidate_sha256": "681eb3fdcdebb64e2d9a5a88a15ddb28899c96fe77d808bacb5c82c598dd7e57",
+    "installed": false,
+    "loaded": false,
+    "limitations": [
+      "Symbol-name availability is weaker than signature/ABI qualification; no CRC agreement is claimed",
+      "Exact source/header/config provenance remains necessary",
+      "No initialization, native scanout or suspend qualification"
+    ]
+  }
 }
