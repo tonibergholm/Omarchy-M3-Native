@@ -6,12 +6,14 @@ on:
     paths:
       - .github/workflows/display-arm64.yml
       - .github/scripts/build-display-arm64.py
+      - patches/aurora20-parser-unaligned-source-type.patch
       - patches/aurora20-external-sdr-colorimetry-candidate.patch
       - patches/j613-v14-backlight-candidate.patch
   pull_request:
     paths:
       - .github/workflows/display-arm64.yml
       - .github/scripts/build-display-arm64.py
+      - patches/aurora20-parser-unaligned-source-type.patch
       - patches/aurora20-external-sdr-colorimetry-candidate.patch
       - patches/j613-v14-backlight-candidate.patch
 

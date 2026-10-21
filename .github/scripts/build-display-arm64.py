@@ -97,6 +97,12 @@ try:
     }
     for name, digest in candidate_hashes.items():
         assert sha(candidate / prefix / name) == digest, f'Backport source mismatch: {name}'
+    result['candidate_source_hashes_before_alignment_prerequisite'] = dict(candidate_hashes)
+    alignment = repo / 'patches/aurora20-parser-unaligned-source-type.patch'
+    apply(candidate, alignment)
+    candidate_hashes['parser.c'] = '91775654d398284ba5f7d970de462711317243a7aa1fe29bb20937d1b92fdbe6'
+    assert sha(candidate / prefix / 'parser.c') == candidate_hashes['parser.c']
+    result['patches'][alignment.name] = sha(alignment)
     result['candidate_source_hashes'] = candidate_hashes
 
     sdk_root = work / 'sdk'
