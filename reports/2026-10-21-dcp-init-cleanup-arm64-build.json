@@ -1,0 +1,94 @@
+{
+  "scope": "Full appledrm external-module compilation only; no install/load/native output test",
+  "source_commit": "c46d7dcdb8712ea9aeb0ce47b439ffae76371e55",
+  "sdk_kernel": "7.1.12-2-20261017.20-sep-ARCH",
+  "runner_arch": "aarch64",
+  "compiler": "Ubuntu clang version 22.1.8 (++20260714014902+ca7933e47d3a-1~exp1~20260714135019.80)",
+  "pahole_version": "v1.32",
+  "pahole_source_commit": "fa725d687ce3a712ef296b46bc63ea57ef466014",
+  "pahole_libbpf_commit": "dd92bef7f6c7a00bb0312554119b6d9cf38e4f32",
+  "archives": {
+    "aurora-linux-c46d7dcdb8712ea9aeb0ce47b439ffae76371e55.tar.gz": "493ed9fb4a9e245fd59a92a2396d3c968516be932749b8059757a29380652509",
+    "linux-aurora-headers-7.1.12.aurora2-20261017.20-aarch64.pkg.tar.zst": "7d8e7370fbc777e8694f29b66e20bf60eb826432234824833ac28ebdf4bee5f8"
+  },
+  "builds": [
+    {
+      "variant": "reference",
+      "exit_code": 0,
+      "elapsed_s": 20.757,
+      "diagnostic_warning_lines": [
+        "warning: the compiler differs from the one used to build the kernel",
+        "WARNING: modpost: appledrm: section mismatch in reference: init_module+0x60 (section: .init.text) -> dcp_unregister (section: .exit.text)",
+        "WARNING: modpost: appledrm: section mismatch in reference: init_module+0x6c (section: .init.text) -> dcp_audio_unregister (section: .exit.text)"
+      ],
+      "module_sha256": "94a98f7e8738cc1e71a58d9b62962bd95f3a87588a35b0163a1fc8174b131413",
+      "module_architecture": "ELF64 little-endian AArch64",
+      "vermagic": "7.1.12-2-20261017.20-sep-ARCH SMP preempt mod_unload aarch64",
+      "module_size": 10488376
+    },
+    {
+      "variant": "candidate",
+      "exit_code": 0,
+      "elapsed_s": 20.652,
+      "diagnostic_warning_lines": [
+        "warning: the compiler differs from the one used to build the kernel"
+      ],
+      "module_sha256": "681eb3fdcdebb64e2d9a5a88a15ddb28899c96fe77d808bacb5c82c598dd7e57",
+      "module_architecture": "ELF64 little-endian AArch64",
+      "vermagic": "7.1.12-2-20261017.20-sep-ARCH SMP preempt mod_unload aarch64",
+      "module_size": 10491592
+    }
+  ],
+  "retained_brightness_source_hashes": {
+    "iomfb_v14_7.c": "aed10fb4f74f07032f8d4c05f7e5eee4023b8346ee61cc2f3863318131cf5d03",
+    "iomfb_v14_7_swap.h": "86451a3e0e644959e563770f04ffcadc4c428a650c45a101a913c54b8dcd36a2"
+  },
+  "patches": {
+    "j613-v14-backlight-candidate.patch": "b2874774868ed36701df3bb1db19c321eabd49ec6893df85aae2c36804177f77",
+    "aurora20-external-sdr-colorimetry-candidate.patch": "1667994b1f38d6101b6f77b444ea1bb059678dca605a8e3b37cbcb07f5d5a031",
+    "aurora20-parser-unaligned-source-type.patch": "2027d8c16c9f74aa681b80d71d14648258e8d38438c36fa3954fbe46760b7374",
+    "aurora20-dcp-init-cleanup-sections.patch": "d188f07ab30579025840b761fb17d8e2ef1ad1ea01df41a4c52fe65cacd6c272"
+  },
+  "candidate_source_hashes_before_alignment_prerequisite": {
+    "dcp-internal.h": "a83a164de370825221e0119e371b69b880b63e9522e55499f00a4f8bbdd539ad",
+    "dcp.c": "d68ec655998b3c7156e283fa11e918fc5f00da45b05fa119d7be60546549c2b7",
+    "iomfb_template.c": "c04f10ad6d0f4b29ddad8b8a979c43d12a2eb97aec68162521ad179314508f58",
+    "parser.c": "2edaccdb280081f38dfb3a2b7eb5cf9612ceb5cccfdf4fce0cfe6a1cc267ab1b",
+    "plane.c": "5a8feca7225386c1227ea2f51087292fc34b02e4f9e5632d7e5ceee37e4800e2"
+  },
+  "candidate_source_hashes_before_cleanup_prerequisite": {
+    "dcp-internal.h": "a83a164de370825221e0119e371b69b880b63e9522e55499f00a4f8bbdd539ad",
+    "dcp.c": "d68ec655998b3c7156e283fa11e918fc5f00da45b05fa119d7be60546549c2b7",
+    "iomfb_template.c": "c04f10ad6d0f4b29ddad8b8a979c43d12a2eb97aec68162521ad179314508f58",
+    "parser.c": "91775654d398284ba5f7d970de462711317243a7aa1fe29bb20937d1b92fdbe6",
+    "plane.c": "5a8feca7225386c1227ea2f51087292fc34b02e4f9e5632d7e5ceee37e4800e2"
+  },
+  "candidate_source_hashes": {
+    "dcp-internal.h": "a83a164de370825221e0119e371b69b880b63e9522e55499f00a4f8bbdd539ad",
+    "dcp.c": "572624ea339ce588629a55dbba055ee523dac4d2f03da0ff2a62ed8e185da51f",
+    "iomfb_template.c": "c04f10ad6d0f4b29ddad8b8a979c43d12a2eb97aec68162521ad179314508f58",
+    "parser.c": "91775654d398284ba5f7d970de462711317243a7aa1fe29bb20937d1b92fdbe6",
+    "plane.c": "5a8feca7225386c1227ea2f51087292fc34b02e4f9e5632d7e5ceee37e4800e2",
+    "dcp.h": "3821bfa0d5a3a2c28df4ecd7b8120cdf3f6d4f8a53068cd0c015081d3b5e9071",
+    "audio.c": "416ba1ca6c09ccbadb1bf16c217bd8e2f73cfcf141f80a6c6f66a65cb0208a55"
+  },
+  "sdk_config_sha256": "a8fa907587d5e1da631d816b44ec520e424d322d4bfc84ce2f70b9751b3b4275",
+  "success": true,
+  "date": "2026-10-21",
+  "board_target": "J613 / T8122",
+  "tested_commit": "16a0e2e847b09339c2d36089898406c249fd9818",
+  "run_url": "https://github.com/tonibergholm/Omarchy-M3-Native/actions/runs/39541944737",
+  "installed": false,
+  "loaded": false,
+  "btf_make_targets_completed": true,
+  "artifact_sha256": {
+    "candidate-build.log": "2c94ff78a3526a7f57efc891b8d3aae02543e15cadbc1cda5f21d2176bce9ac9",
+    "build-result.json": "a675ef5614ac766414ec621aecb3d1691d6a3892855adf05948d76564c209843",
+    "reference-build.log": "71e11b53c9f4877ac3327fef5cbdf5565a44f15b6ec41ae44e4a31f7d5c69dc9"
+  },
+  "limitations": [
+    "Compile/link/BTF and source-hash qualification only; no failure injection or native scanout test",
+    "Candidate retains compiler-vendor-string warning; not a warning-free build",
+    "No native driver, bootloader, firmware or settings changed"
+  ]
+}
