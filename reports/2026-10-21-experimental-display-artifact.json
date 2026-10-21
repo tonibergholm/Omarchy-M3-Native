@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-21",
+  "scope": "Downloaded experimental module identity; no install/load",
+  "run": "https://github.com/tonibergholm/Omarchy-M3-Native/actions/runs/39542966376",
+  "workflow_commit": "074f72db54f982658fd96dd7be2e6831146d868a",
+  "module_sha256": "681eb3fdcdebb64e2d9a5a88a15ddb28899c96fe77d808bacb5c82c598dd7e57",
+  "byte_identical_to_previous_ci_candidate": true,
+  "metadata": {
+    "vermagic": "7.1.12-2-20261017.20-sep-ARCH SMP preempt mod_unload aarch64",
+    "depends": "drm_dma_helper,dcp-fabric-core",
+    "name": "appledrm"
+  },
+  "architecture": "ELF64 little-endian AArch64",
+  "manifest_sha256": "a8f1c58562380e8c3142918ded99f690b77892747b7cb379219a6e913b8b7cae",
+  "installed": false,
+  "loaded": false,
+  "limitations": [
+    "Identical binary and metadata do not qualify native output, initialization failure or suspend",
+    "Artifact is not an installer; exact matching kernel and controlled recovery are required for any future trial"
+  ]
+}
