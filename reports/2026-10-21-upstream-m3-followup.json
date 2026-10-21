@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-21",
+  "board": "J613 / T8122; runtime reports 10 active GPU cores",
+  "exact_backport_host_ci": {
+    "run": "https://github.com/tonibergholm/Omarchy-M3-Native/actions/runs/39541221008",
+    "tested_commit": "b9b735674df2832df98e8911e5031d0326ec46ee",
+    "compilers": [
+      "GCC",
+      "Clang"
+    ],
+    "aurora20_cases_each": 15,
+    "diagnostics_empty": true,
+    "artifact_checks": [
+      {
+        "artifact": "colorimetry-clang/colorimetry-parser/serialized-results.json",
+        "sha256": "14fd3494f4d123da15ffe82d6b7a40d0b456d8ad54dc3dc277b46706985f6149",
+        "exact_aurora20_cases": 15,
+        "diagnostics_empty": true
+      },
+      {
+        "artifact": "colorimetry-gcc/colorimetry-parser/serialized-results.json",
+        "sha256": "14fd3494f4d123da15ffe82d6b7a40d0b456d8ad54dc3dc277b46706985f6149",
+        "exact_aurora20_cases": 15,
+        "diagnostics_empty": true
+      }
+    ]
+  },
+  "pending_7211_rebase": {
+    "url": "https://github.com/omacom/linux-aurora/pull/158",
+    "head": "bd526b3c11ccf8e91d6240261beb3219d8f17f03",
+    "driver_blob": "510a70ba4f0bd94f8da8e52c33838e9146132988",
+    "m3_module_blob": "3d900a80fef382756831af6c14fa561857080eb4",
+    "finding": "driver.rs dispatches T8122 to m3::refuse_probe; that function logs incomplete image/hardware configuration and returns ENODEV. Not a working accelerated upgrade for this laptop."
+  },
+  "higher_gpu_states": {
+    "url": "https://github.com/omacom/linux-aurora/issues/164",
+    "scope": "Another J613 with 8 active GPU cores; local state6-8 admission extension and thermal tests reported",
+    "local_action": "No cap increase; our 10-core hardware is not qualified by that report"
+  },
+  "other_candidates": [
+    {
+      "url": "https://github.com/omacom/linux-aurora/pull/163",
+      "finding": "Display-plus-dock errno branch exists in .20; selected helper comparison recorded separately. Physical dock validation outstanding."
+    },
+    {
+      "url": "https://github.com/Kb2uka/Omarchy-M4-Native/pull/156",
+      "finding": "MCA arithmetic and DockChannel bounds hardening available for source review; M4 packages not transferable as M3 support"
+    }
+  ],
+  "official_feature_status": "https://asahilinux.org/docs/platform/feature-support/m3/",
+  "system_changes": false,
+  "limitations": [
+    "Source and host-test findings do not establish native output correctness, complete Thunderbolt networking or higher-state GPU stability",
+    "No reboot, module replacement or firmware change requested"
+  ]
+}
