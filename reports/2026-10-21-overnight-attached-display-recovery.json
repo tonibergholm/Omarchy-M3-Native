@@ -1,0 +1,163 @@
+{
+  "checked_at": "2026-10-21T06:44:14+0300",
+  "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+  "uptime_s": 37211.24,
+  "suspend_stats": {
+    "success": "3",
+    "fail": "0",
+    "failed_prepare": "0",
+    "last_failed_dev": "",
+    "last_failed_errno": "0",
+    "last_failed_step": ""
+  },
+  "battery": [
+    {
+      "status": "Charging",
+      "capacity": "76",
+      "energy_now": "34963800",
+      "energy_full": "46751400",
+      "power_now": "36777000",
+      "voltage_now": "12695000",
+      "current_now": "2897000"
+    }
+  ],
+  "speaker_protection": "ActiveState=active\nNRestarts=1",
+  "monitors": [
+    {
+      "name": "eDP-1",
+      "width": 2560,
+      "height": 1664,
+      "refreshRate": 60.0,
+      "dpmsStatus": true,
+      "disabled": false,
+      "currentFormat": "XRGB8888"
+    },
+    {
+      "name": "DP-1",
+      "width": 1920,
+      "height": 1080,
+      "refreshRate": 60.0,
+      "dpmsStatus": true,
+      "disabled": false,
+      "currentFormat": "XRGB8888"
+    }
+  ],
+  "overnight_sleep": {
+    "entry_time": "2026-10-20T21:52:13.723627+03:00",
+    "exit_time": "2026-10-21T06:38:50.266369+03:00",
+    "wall_seconds": 31596.543,
+    "entry_message": "PM: suspend entry (s2idle)",
+    "exit_message": "PM: suspend exit"
+  },
+  "post_resume_gpu": {
+    "gl_readback": "pass",
+    "gl_swap": "pass",
+    "vulkan_words": 65536,
+    "vulkan_wrong": 0,
+    "result": "pass"
+  },
+  "limitations": [
+    "No battery sample immediately before overnight sleep; discharge cannot be calculated from this observation",
+    "JBL sink absent; accessory power state not established"
+  ],
+  "selected_resume_log_audit": {
+    "start_local": "2026-10-21 06:38:45+03:00",
+    "end_local": "2026-10-21 06:44:15+03:00",
+    "kernel_records_read": 126,
+    "pattern_counts": {
+      "bluetooth_timeout": 0,
+      "gpu_fault": 0,
+      "display_timeout": 0,
+      "firmware_crash": 0
+    },
+    "limitation": "Selected literal message patterns only; zero matches does not establish absence of all faults"
+  },
+  "operator_confirmation": {
+    "both_screens_correct": true,
+    "touch_id_unlocked": true,
+    "macbook_speaker_chime_clear": true
+  },
+  "date": "2026-10-21",
+  "board": "J613 / T8122",
+  "thermal_zones_after_resume": [
+    {
+      "type": "cpu-e1-thermal",
+      "temp_mC": 45026,
+      "trips_mC": [
+        110000,
+        95000,
+        58000
+      ],
+      "cooling_types": [
+        "cpufreq-cpu1",
+        "cpufreq-cpu0"
+      ]
+    },
+    {
+      "type": "cpu-p2-thermal",
+      "temp_mC": 41500,
+      "trips_mC": [
+        110000,
+        95000,
+        58000
+      ],
+      "cooling_types": [
+        "cpufreq-cpu1",
+        "cpufreq-cpu0"
+      ]
+    },
+    {
+      "type": "cpu-p0-thermal",
+      "temp_mC": 41165,
+      "trips_mC": [
+        110000,
+        95000,
+        58000
+      ],
+      "cooling_types": [
+        "cpufreq-cpu1",
+        "cpufreq-cpu0"
+      ]
+    },
+    {
+      "type": "cpu-e0-thermal",
+      "temp_mC": 40419,
+      "trips_mC": [
+        110000,
+        95000,
+        58000
+      ],
+      "cooling_types": [
+        "cpufreq-cpu1",
+        "cpufreq-cpu0"
+      ]
+    },
+    {
+      "type": "cpu-p3-thermal",
+      "temp_mC": 41382,
+      "trips_mC": [
+        110000,
+        95000,
+        58000
+      ],
+      "cooling_types": [
+        "cpufreq-cpu1",
+        "cpufreq-cpu0"
+      ]
+    },
+    {
+      "type": "cpu-p1-thermal",
+      "temp_mC": 41278,
+      "trips_mC": [
+        110000,
+        95000,
+        58000
+      ],
+      "cooling_types": [
+        "cpufreq-cpu1",
+        "cpufreq-cpu0"
+      ]
+    }
+  ],
+  "thermal_scope": "Runtime temperatures, trips and cooling bindings; flattened-DT sensor ordering not reverified after sleep"
+}
