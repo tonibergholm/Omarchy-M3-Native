@@ -116,5 +116,21 @@
     "Zero/negative GPU-labelled readings may relate to power state or validity; cause not established",
     "TCMz physical meaning and calibration remain unqualified; no sensor excluded from guards",
     "No higher GPU state, safety threshold or sensor override changed"
-  ]
+  ],
+  "release20_source_audit": {
+    "commit": "c46d7dcdb8712ea9aeb0ce47b439ffae76371e55",
+    "path": "drivers/hwmon/macsmc-hwmon.c",
+    "blob": "06d2c6e2d0ac38e70d37172c8f7843be567530f5",
+    "sha256": "7b1e86ee9479416ff69834b6fb03bb62db9b228766cdd73052209acf6eb542d4",
+    "local_source_matches_published": true,
+    "facts": [
+      "Float decoder propagates negative read status as an error and preserves numeric float sign on success",
+      "NaN and infinity return ENODATA rather than a numeric temperature",
+      "Aggregate accepts numeric values from -40000 to 150000 mC, then returns hottest selected die channel",
+      "Zero and -2849 mC are inside that range; they do not by themselves invalidate the aggregate"
+    ],
+    "inference": "Observed numeric nonpositive inputs are compatible with aggregate success; no proof of physical sensor validity or power-gating cause",
+    "runtime_override": "TCMz,Tg0C,Tg0D,Tg0O,Tg0P,Tg0W,Tg0X,Tg0a,Tg0b,Tg0i,Tg0j,Tg0u,Tg0v",
+    "scope": "Published source semantics plus selected runtime override, not a relocated module-text audit"
+  }
 }
