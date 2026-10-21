@@ -141,6 +141,19 @@ try:
         assert vermagic.startswith(kernel + ' ')
         entry.update({'module_sha256': sha(module), 'module_architecture': 'ELF64 little-endian AArch64', 'vermagic': vermagic, 'module_size': module.stat().st_size})
         print(json.dumps(entry), flush=True)
+    if os.environ.get('RETAIN_EXPERIMENTAL_CANDIDATE') == 'true':
+        assert os.environ.get('GITHUB_EVENT_NAME') == 'workflow_dispatch'
+        export = work / 'experimental-candidate'
+        export.mkdir()
+        shutil.copy2(work / 'candidate/drivers/gpu/drm/apple/appledrm.ko', export / 'appledrm.ko')
+        assert sha(export / 'appledrm.ko') == result['builds'][-1]['module_sha256']
+        (export / 'README.txt').write_text(
+            'J613 experimental display module, compile-qualified only.\n'
+            'No installer or automatic loading. Requires the exact recorded kernel/SDK.\n'
+            'Not native display, HDR, initialization-failure or suspend qualification.\n')
+        result['experimental_candidate_retained'] = True
     result['success'] = True
 finally:
     (work / 'build-result.json').write_text(json.dumps(result, indent=2) + '\n')
+    if result.get('experimental_candidate_retained'):
+        (work / 'experimental-candidate/build-result.json').write_text(json.dumps(result, indent=2) + '\n')

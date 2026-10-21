@@ -2,6 +2,11 @@ name: Aurora20 display module ARM64 preflight
 
 on:
   workflow_dispatch:
+    inputs:
+      retain_candidate:
+        description: Retain experimental module and manifest for a later controlled test
+        type: boolean
+        default: false
   push:
     paths:
       - .github/workflows/display-arm64.yml
@@ -60,6 +65,8 @@ jobs:
           cmake --install "$RUNNER_TEMP/pahole-build"
           echo "$RUNNER_TEMP/pahole-tools/bin" >> "$GITHUB_PATH"
       - name: Build reference and candidate against the pinned matching SDK
+        env:
+          RETAIN_EXPERIMENTAL_CANDIDATE: ${{ github.event_name == 'workflow_dispatch' && inputs.retain_candidate && 'true' || 'false' }}
         run: python3 .github/scripts/build-display-arm64.py --work "$RUNNER_TEMP/display-arm64"
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
@@ -69,3 +76,11 @@ jobs:
           path: |
             ${{ runner.temp }}/display-arm64/build-result.json
             ${{ runner.temp }}/display-arm64/*-build.log
+
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: success() && github.event_name == 'workflow_dispatch' && inputs.retain_candidate
+        with:
+          name: experimental-j613-display-candidate
+          retention-days: 7
+          if-no-files-found: error
+          path: ${{ runner.temp }}/display-arm64/experimental-candidate/
