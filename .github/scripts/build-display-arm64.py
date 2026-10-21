@@ -103,6 +103,14 @@ try:
     candidate_hashes['parser.c'] = '91775654d398284ba5f7d970de462711317243a7aa1fe29bb20937d1b92fdbe6'
     assert sha(candidate / prefix / 'parser.c') == candidate_hashes['parser.c']
     result['patches'][alignment.name] = sha(alignment)
+    result['candidate_source_hashes_before_cleanup_prerequisite'] = dict(candidate_hashes)
+    cleanup = repo / 'patches/aurora20-dcp-init-cleanup-sections.patch'
+    apply(candidate, cleanup)
+    cleanup_hashes = {'dcp.h': '3821bfa0d5a3a2c28df4ecd7b8120cdf3f6d4f8a53068cd0c015081d3b5e9071', 'dcp.c': '572624ea339ce588629a55dbba055ee523dac4d2f03da0ff2a62ed8e185da51f', 'audio.c': '416ba1ca6c09ccbadb1bf16c217bd8e2f73cfcf141f80a6c6f66a65cb0208a55'}
+    for name, digest in cleanup_hashes.items():
+        assert sha(candidate / prefix / name) == digest
+    candidate_hashes.update(cleanup_hashes)
+    result['patches'][cleanup.name] = sha(cleanup)
     result['candidate_source_hashes'] = candidate_hashes
 
     sdk_root = work / 'sdk'
@@ -124,6 +132,8 @@ try:
         if build.returncode:
             print(log.read_text()[-6000:], flush=True)
         assert build.returncode == 0, f'{name} module build failed'
+        if name == 'candidate':
+            assert 'section mismatch' not in log.read_text(), 'Candidate cleanup-section warning remains'
         module = driver / 'appledrm.ko'
         header = module.read_bytes()[:20]
         assert header[:6] == b'\x7fELF\x02\x01' and struct.unpack('<H', header[18:20])[0] == 183
