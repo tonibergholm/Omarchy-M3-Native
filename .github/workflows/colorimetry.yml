@@ -7,11 +7,15 @@ on:
       - .github/workflows/colorimetry.yml
       - tools/test-colorimetry-*.py
       - patches/dcp-colorimetry-valid-replacement.patch
+      - patches/aurora20-external-sdr-colorimetry-candidate.patch
+      - patches/aurora20-parser-unaligned-source-type.patch
   pull_request:
     paths:
       - .github/workflows/colorimetry.yml
       - tools/test-colorimetry-*.py
       - patches/dcp-colorimetry-valid-replacement.patch
+      - patches/aurora20-external-sdr-colorimetry-candidate.patch
+      - patches/aurora20-parser-unaligned-source-type.patch
 
 permissions:
   contents: read
@@ -37,7 +41,7 @@ jobs:
           from urllib.request import urlopen
           root = Path(os.environ['RUNNER_TEMP']) / 'colorimetry-source'
           inputs = {
-              'reference': ('c46d7dcdb8712ea9aeb0ce47b439ffae76371e55', ['parser.c']),
+              'reference': ('c46d7dcdb8712ea9aeb0ce47b439ffae76371e55', ['parser.c', 'parser.h']),
               'parser-base': ('44d5afc79da79bb3b17a3ee7494cb8d07a1f1aaa', ['parser.c']),
               'candidate': ('9d3aeb24cb864d5f99a7172e9004884bf3c1a9a0', ['parser.c', 'parser.h']),
           }
@@ -57,10 +61,17 @@ jobs:
             --reference-dir "$RUNNER_TEMP/colorimetry-source/reference" \
             --candidate-dir "$RUNNER_TEMP/colorimetry-source/candidate" \
             --output "$RUNNER_TEMP/colorimetry-selection"
+          mkdir "$RUNNER_TEMP/colorimetry-aurora20"
+          cp "$RUNNER_TEMP/colorimetry-source/reference/"parser.* "$RUNNER_TEMP/colorimetry-aurora20/"
+          git -C "$RUNNER_TEMP/colorimetry-aurora20" apply -p5 --include=parser.c \
+            "$GITHUB_WORKSPACE/patches/aurora20-external-sdr-colorimetry-candidate.patch"
+          git -C "$RUNNER_TEMP/colorimetry-aurora20" apply -p5 \
+            "$GITHUB_WORKSPACE/patches/aurora20-parser-unaligned-source-type.patch"
           python3 tools/test-colorimetry-parser.py \
             --reference-dir "$RUNNER_TEMP/colorimetry-source/parser-base" \
             --candidate-dir "$RUNNER_TEMP/colorimetry-source/candidate" \
             --fixed-parser "$RUNNER_TEMP/colorimetry-selection/upstream-parser-fixed.c" \
+            --aurora20-dir "$RUNNER_TEMP/colorimetry-aurora20" \
             --output "$RUNNER_TEMP/colorimetry-parser"
           mkdir "$RUNNER_TEMP/colorimetry-applied"
           cp "$RUNNER_TEMP/colorimetry-source/candidate/parser.c" "$RUNNER_TEMP/colorimetry-applied/"

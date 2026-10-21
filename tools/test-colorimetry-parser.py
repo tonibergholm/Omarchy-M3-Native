@@ -12,6 +12,7 @@ p=argparse.ArgumentParser(description=__doc__)
 p.add_argument('--reference-dir',type=Path,required=True,help='PR157 parent apple driver source directory')
 p.add_argument('--candidate-dir',type=Path,required=True)
 p.add_argument('--fixed-parser',type=Path,required=True)
+p.add_argument('--aurora20-dir',type=Path,help='exact patched .20 parser and matching header; adds 15 cases')
 p.add_argument('--output',type=Path,required=True,help='new output directory')
 a=p.parse_args()
 def checked(path,expected):
@@ -23,6 +24,9 @@ up=checked(a.candidate_dir/'parser.c','bb8a49378fb005e055d688846a00bc6d44ba5f02'
 ref=checked(a.reference_dir/'parser.c','0de67aa8fe710e98b9471b188d459fdba3ca8063')
 fixed=checked(a.fixed_parser,'8791e63a140fe0db0e7cc700d36321e7aaf3702e')
 h=checked(a.candidate_dir/'parser.h','0557cc09e63e449213f2815806a163a7c0632aea')
+extra=[]
+if a.aurora20_dir:
+ extra.append(('aurora20',checked(a.aurora20_dir/'parser.c','40e08a9be8b2a066639392a6c7071c4fe4f99856'),checked(a.aurora20_dir/'parser.h','610e601d947fd95a5c541749fdd4ca3c727d04bb')))
 r=a.output.resolve();r.mkdir(parents=True,exist_ok=False)
 
 def unit(s,marker):
@@ -75,8 +79,7 @@ struct drm_display_mode {int type,clock,vdisplay,vsync_start,vsync_end,vtotal,hd
 static void drm_mode_set_name(struct drm_display_mode *m){(void)m;}
 struct dcp_metadata_ticket {int unused;};
 '''
-for decl in ['struct dcp_parse_ctx','enum dcp_color_eotf','enum dcp_color_format','enum dcp_colorimetry','enum dcp_color_range','struct dcp_color_mode','struct dcp_display_mode','struct dimension']:
- headers+=unit(h,decl+' {')+';\n'
+platform_headers=headers
 
 def encode(value):
  b=bytearray()
@@ -122,10 +125,13 @@ cases[-1]['error']=True
 add('bad_header',valid,0);cases[-1]['blob']=b'\x00'+cases[-1]['blob'][1:];cases[-1]['error']=True
 add('truncated_record',valid,0);cases[-1]['blob']=cases[-1]['blob'][:-3];cases[-1]['error']=True
 results=[]
-for name,s in [('reference',ref),('upstream',up),('fixed',fixed)]:
+for name,s,source_header in [('reference',ref,h),('upstream',up,h),('fixed',fixed,h)]+extra:
+ variant_headers=platform_headers
+ for decl in ['struct dcp_parse_ctx','enum dcp_color_eotf','enum dcp_color_format','enum dcp_colorimetry','enum dcp_color_range','struct dcp_color_mode','struct dcp_display_mode','struct dimension']:
+  variant_headers+=unit(source_header,decl+' {')+';\n'
  start=s.index('#define DCP_PARSE_HEADER');end=s.index('static int parse_mode');end=s.index(unit(s,'static int parse_mode'),end)+len(unit(s,'static int parse_mode'))
  prefix=s[start:end]
- text=headers+prefix+'\nint main(void){int total=0,failed=0;\n'
+ text=variant_headers+prefix+'\nint main(void){int total=0,failed=0;\n'
  for i,c in enumerate(cases):
   data=','.join(str(x) for x in c['blob']);want=c['baseline'] if name=='reference' else c['want']
   text+='{ _Alignas(8) static const unsigned char data[]={'+data+'}; struct dcp_parse_ctx ctx;struct dcp_display_mode out={0};s64 score=-1;\n'
@@ -142,6 +148,7 @@ for name,s in [('reference',ref),('upstream',up),('fixed',fixed)]:
 print(json.dumps(results,indent=2));(r/'serialized-results.json').write_text(json.dumps(results,indent=2)+'\n')
 
 expected = [(0, 'TOTAL=15 FAILED=0'), (1, 'TOTAL=15 FAILED=1'), (0, 'TOTAL=15 FAILED=0')]
+if extra: expected.append((0, 'TOTAL=15 FAILED=0'))
 passed = all(result['exit_code'] == code
              and result['stdout'].splitlines()[-1:] == [last_line]
              and not result['stderr'] and not result['compiler_stderr']
