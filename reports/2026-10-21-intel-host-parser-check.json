@@ -1,0 +1,76 @@
+{
+  "host_arch": "x86_64",
+  "scope": "Host synthetic parser only; no M3 hardware changes",
+  "results": [
+    {
+      "compiler": "gcc (GCC) 16.2.1 20260810",
+      "runner_exit": 0,
+      "runner_stderr": "",
+      "cases": [
+        {
+          "variant": "reference",
+          "exit_code": 0,
+          "final_total": "TOTAL=15 FAILED=0",
+          "diagnostics_empty": true
+        },
+        {
+          "variant": "upstream",
+          "exit_code": 1,
+          "final_total": "TOTAL=15 FAILED=1",
+          "diagnostics_empty": true
+        },
+        {
+          "variant": "fixed",
+          "exit_code": 0,
+          "final_total": "TOTAL=15 FAILED=0",
+          "diagnostics_empty": true
+        },
+        {
+          "variant": "aurora20",
+          "exit_code": 0,
+          "final_total": "TOTAL=15 FAILED=0",
+          "diagnostics_empty": true
+        }
+      ]
+    },
+    {
+      "compiler": "clang version 23.1.3",
+      "runner_exit": 0,
+      "runner_stderr": "",
+      "cases": [
+        {
+          "variant": "reference",
+          "exit_code": 0,
+          "final_total": "TOTAL=15 FAILED=0",
+          "diagnostics_empty": true
+        },
+        {
+          "variant": "upstream",
+          "exit_code": 1,
+          "final_total": "TOTAL=15 FAILED=1",
+          "diagnostics_empty": true
+        },
+        {
+          "variant": "fixed",
+          "exit_code": 0,
+          "final_total": "TOTAL=15 FAILED=0",
+          "diagnostics_empty": true
+        },
+        {
+          "variant": "aurora20",
+          "exit_code": 0,
+          "final_total": "TOTAL=15 FAILED=0",
+          "diagnostics_empty": true
+        }
+      ]
+    }
+  ],
+  "date": "2026-10-21",
+  "tested_repo_commit": "8743d07471305fbba0da90146f77027155a9b29d",
+  "source_scope": "Pinned parser blobs checked by tools/test-colorimetry-parser.py; exact .20 matching header used",
+  "raw_summary_sha256": "a82c0a3c2b595c4c4494a0e2602e5e961d54bb8bc19a9f39de21eeabf3bd1eba",
+  "limitations": [
+    "Host parser tests only; not a driver load, colour measurement or native scanout test",
+    "This chat still executes on M3; SSH offload does not itself transfer the agent session"
+  ]
+}
