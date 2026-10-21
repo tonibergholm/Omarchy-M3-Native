@@ -24,10 +24,10 @@
   "installed": false,
   "limitations": [
     "Host platform stubs and synthetic records only",
-    "No claim of an observed native kernel alignment crash",
-    "Full ARM64 module build of this added prerequisite still pending"
+    "No claim of an observed native kernel alignment crash"
   ],
   "patch_applies_without_fuzz": true,
   "fixed_parser_sha256": "91775654d398284ba5f7d970de462711317243a7aa1fe29bb20937d1b92fdbe6",
-  "attribution": "Source and pointer type follow Asahi Linux contributors in omacom/linux-aurora; isolated backport only"
+  "attribution": "Source and pointer type follow Asahi Linux contributors in omacom/linux-aurora; isolated backport only",
+  "full_arm64_build": "https://github.com/tonibergholm/Omarchy-M3-Native/actions/runs/39540584055"
 }

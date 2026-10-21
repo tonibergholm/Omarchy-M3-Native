@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-21",
+  "board_relevance": "J613 / T8122 is non-H17; .20 carries the non-H17 EBUSY branch",
+  "upstream": "https://github.com/omacom/linux-aurora/pull/163",
+  "upstream_head": "b8930ad8c5d319d74f9c284c764b7df29d879881",
+  "scope": "Exact production helper extracted and compiled on host; errno classification only",
+  "results": [
+    {
+      "variant": "release20",
+      "source_commit": "c46d7dcdb8712ea9aeb0ce47b439ffae76371e55",
+      "source_blob": "e499e694a7d4a8131c322e0d6ef1261a597ba5d8",
+      "helper": "static inline bool cd321x_display_taken(int ret, bool enospc)\n{\n\treturn ret == (enospc ? -ENOSPC : -EBUSY);\n}",
+      "matrix": [
+        "-ENOSPC h17=0 taken=0",
+        "-ENOSPC h17=1 taken=1",
+        "-EBUSY h17=0 taken=1",
+        "-EBUSY h17=1 taken=0",
+        "-EAGAIN h17=0 taken=0",
+        "-EAGAIN h17=1 taken=0",
+        "-ETIMEDOUT h17=0 taken=0",
+        "-ETIMEDOUT h17=1 taken=0",
+        "0 h17=0 taken=0",
+        "0 h17=1 taken=0"
+      ],
+      "compiler_stderr": "",
+      "exit_code": 0
+    },
+    {
+      "variant": "pr163",
+      "source_commit": "b8930ad8c5d319d74f9c284c764b7df29d879881",
+      "source_blob": "b4de7d6147fe413ff7ccd37a01551db00b658ff5",
+      "helper": "static inline bool cd321x_display_taken(int ret)\n{\n\treturn ret == -ENOSPC;\n}",
+      "matrix": [
+        "-ENOSPC h17=0 taken=1",
+        "-ENOSPC h17=1 taken=1",
+        "-EBUSY h17=0 taken=0",
+        "-EBUSY h17=1 taken=0",
+        "-EAGAIN h17=0 taken=0",
+        "-EAGAIN h17=1 taken=0",
+        "-ETIMEDOUT h17=0 taken=0",
+        "-ETIMEDOUT h17=1 taken=0",
+        "0 h17=0 taken=0",
+        "0 h17=1 taken=0"
+      ],
+      "compiler_stderr": "",
+      "exit_code": 0
+    }
+  ],
+  "conclusion": "Release .20 does not classify non-H17 ENOSPC as display taken. PR163 does, and leaves EBUSY available for retry. This is a source-level candidate for display-plus-dock testing, not an observed dock failure on this laptop.",
+  "installed": false,
+  "limitations": [
+    "USB-C dock availability and physical qualification not established",
+    "No full tipd state-machine or KUnit execution in this check",
+    "Does not establish relevance to the earlier ARZOPA 144 Hz disconnect"
+  ],
+  "attribution": "Production helper from omacom/linux-aurora; source commits and blobs retained above"
+}
