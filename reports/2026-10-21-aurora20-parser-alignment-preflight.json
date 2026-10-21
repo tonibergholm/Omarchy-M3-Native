@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-21",
+  "scope": "Host synthetic serialized parser test; no module installation or native scanout trial",
+  "candidate_parser_sha256": "2edaccdb280081f38dfb3a2b7eb5cf9612ceb5cccfdf4fce0cfe6a1cc267ab1b",
+  "compilers": [
+    "GCC",
+    "Clang 23.1.3"
+  ],
+  "original_candidate": {
+    "functional_cases_passed": 15,
+    "gcc_sanitizer_stderr_empty": true,
+    "clang_sanitizer_stderr_empty": false,
+    "diagnostic": "misaligned source pointer at memcpy in parse_int_bound"
+  },
+  "isolation": "A small typed-pointer memcpy reproducer also triggers Clang; newer pinned upstream parser uses const void * and passes the same harness",
+  "proposed_change": "Match upstream const void * source buffer type; no copied-byte, validation or sanitizer-policy change",
+  "upstream_parser_blob": "8791e63a140fe0db0e7cc700d36321e7aaf3702e",
+  "changed_candidate_clang": {
+    "functional_cases_passed": 15,
+    "compiler_stderr_empty": true,
+    "sanitizer_stderr_empty": true
+  },
+  "patch": "../patches/aurora20-parser-unaligned-source-type.patch",
+  "installed": false,
+  "limitations": [
+    "Host platform stubs and synthetic records only",
+    "No claim of an observed native kernel alignment crash",
+    "Full ARM64 module build of this added prerequisite still pending"
+  ],
+  "patch_applies_without_fuzz": true,
+  "fixed_parser_sha256": "91775654d398284ba5f7d970de462711317243a7aa1fe29bb20937d1b92fdbe6",
+  "attribution": "Source and pointer type follow Asahi Linux contributors in omacom/linux-aurora; isolated backport only"
+}
