@@ -1,0 +1,120 @@
+{
+  "date": "2026-10-21",
+  "board": "J613 / T8122",
+  "kernel": "7.1.12-2-20261017.20-sep-ARCH",
+  "scope": "60-second passive reads; no deliberate workload, sensor writes or tuning",
+  "sample_count": 61,
+  "elapsed_s": 60.0082,
+  "summary": {
+    "SoC die Tg0O": {
+      "minimum_mC": 0,
+      "maximum_mC": 41756
+    },
+    "SoC die Tg0a": {
+      "minimum_mC": 0,
+      "maximum_mC": 40369
+    },
+    "SoC die TCMz": {
+      "minimum_mC": 53140,
+      "maximum_mC": 79625
+    },
+    "SoC die Tg0j": {
+      "minimum_mC": -2849,
+      "maximum_mC": 47245
+    },
+    "SoC die Tg0P": {
+      "minimum_mC": -2849,
+      "maximum_mC": 46156
+    },
+    "SoC die Tg0b": {
+      "minimum_mC": -2849,
+      "maximum_mC": 44769
+    },
+    "SoC die Tg0C": {
+      "minimum_mC": 0,
+      "maximum_mC": 40378
+    },
+    "SoC die Tg0u": {
+      "minimum_mC": 0,
+      "maximum_mC": 41978
+    },
+    "SoC die Tg0W": {
+      "minimum_mC": 0,
+      "maximum_mC": 39439
+    },
+    "SoC die Tg0D": {
+      "minimum_mC": -2849,
+      "maximum_mC": 44778
+    },
+    "SoC die Tg0v": {
+      "minimum_mC": -2849,
+      "maximum_mC": 46378
+    },
+    "SoC die Tg0X": {
+      "minimum_mC": -2849,
+      "maximum_mC": 43839
+    },
+    "SoC die Tg0i": {
+      "minimum_mC": 0,
+      "maximum_mC": 42845
+    },
+    "cpu-e1-thermal": {
+      "minimum_mC": 47682,
+      "maximum_mC": 60885
+    },
+    "macsmc_soc_die": {
+      "minimum_mC": 53140,
+      "maximum_mC": 79625
+    },
+    "cpu-p2-thermal": {
+      "minimum_mC": 44160,
+      "maximum_mC": 65349
+    },
+    "cpu-p0-thermal": {
+      "minimum_mC": 44107,
+      "maximum_mC": 61973
+    },
+    "cpu-e0-thermal": {
+      "minimum_mC": 43206,
+      "maximum_mC": 51891
+    },
+    "cpu-p3-thermal": {
+      "minimum_mC": 44182,
+      "maximum_mC": 65697
+    },
+    "cpu-p1-thermal": {
+      "minimum_mC": 44422,
+      "maximum_mC": 65651
+    }
+  },
+  "nonpositive_sample_counts": {
+    "SoC die Tg0O": 33,
+    "SoC die Tg0a": 33,
+    "SoC die TCMz": 0,
+    "SoC die Tg0j": 33,
+    "SoC die Tg0P": 33,
+    "SoC die Tg0b": 33,
+    "SoC die Tg0C": 33,
+    "SoC die Tg0u": 33,
+    "SoC die Tg0W": 33,
+    "SoC die Tg0D": 33,
+    "SoC die Tg0v": 33,
+    "SoC die Tg0X": 33,
+    "SoC die Tg0i": 33,
+    "cpu-e1-thermal": 0,
+    "macsmc_soc_die": 0,
+    "cpu-p2-thermal": 0,
+    "cpu-p0-thermal": 0,
+    "cpu-e0-thermal": 0,
+    "cpu-p3-thermal": 0,
+    "cpu-p1-thermal": 0
+  },
+  "system_configuration_changed": false,
+  "limitations": [
+    "No deliberate workload does not establish whole-system idle; background workload not isolated",
+    "Readings are sequential, not an atomic snapshot of every channel",
+    "Zero/negative GPU-labelled readings may relate to power state or validity; cause not established",
+    "TCMz physical meaning and calibration remain unqualified; no sensor excluded from guards",
+    "No higher GPU state, safety threshold or sensor override changed"
+  ]
+}
